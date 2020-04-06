@@ -6,4 +6,7 @@
     <string name="login_password">Password</string>
     <string name="login_go">LET\'S GO!</string>
     <string name="login_noAccount">I don\'t have an account</string>
+    <string name="quest_icon_description">Icono de una quest</string>
+    <string name="snowy_mountains_description">Imagen background del login</string>
+    <string name="shiny_star_description">Background imagen del login</string>
 </resources>
