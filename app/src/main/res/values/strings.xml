@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">LearnQuest</string>
+
+    <string name="Quest_Screen_Title">Quests</string>
+    <string name="Math_Button">Maths</string>
+    <string name="English_Button">English</string>
+    <string name="Geography_Button">Geography</string>
+
+    <string name="Math_Button_Level">Level 4 (94%)</string>
 </resources>
