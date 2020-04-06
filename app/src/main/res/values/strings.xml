@@ -1,9 +1,24 @@
 <resources>
 
-    <string name="Quest_Screen_Title">Quests</string>
+    <string name="Quiz_Unit">Quiz units</string>
     <string name="Math_Button">Maths</string>
     <string name="English_Button">English</string>
     <string name="Geography_Button">Geography</string>
 
     <string name="Math_Button_Level">Level 4 (94%)</string>
+
+    <string name="T1_Triangles">T1. Triangles</string>
+    <string name="T1_Triangles_title_1">Cosen Theorem</string>
+    <string name="T1_Triangles_text">In this quiz, you will have to solve some exercises about triangles</string>
+    <string name="T1_Triangles_solve_button">Solve!</string>
+    <string name="T1_Triangles_practise_button">Practice!</string>
+
+
+    <string name="T2_Equations">T2. Equations</string>
+    <string name="T2_Equations_title_1">First and second grade</string>
+    <string name="T2_Equations_text">In this quiz, you will have to solve some equations to improve your math skills</string>
+    <string name="T2_Equations_solve_button">Solve!</string>
+    <string name="T2_Equations_practise_button">Practice!</string>
+
+
 </resources>
