@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LearnQuest</string>
+    <string name="login_title">LearnQuest</string>
+    <string name="login_title2">Have fun learning!</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_go">LET\'S GO!</string>
+    <string name="login_noAccount">I don\'t have an account</string>
 </resources>
