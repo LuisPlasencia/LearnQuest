@@ -92,7 +92,7 @@
                     android:id="@+id/level_display"
                     android:layout_width="204dp"
                     android:layout_height="21dp"
-                    android:text="Level 14"
+                    android:text="@string/level_display_final_quiz"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
