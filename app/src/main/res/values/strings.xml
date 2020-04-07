@@ -48,4 +48,19 @@
     <string name="confirmation_info_cheat">If you cheat, you won\'t get any xp out of this question</string>
     <string name="return_to_question_button_text">Return to question!</string>
     <string name="empty_string">"????"</string>
+    <string name="gold_medal_description">Medalla de final de quiz (posibilidad de que sea sliver o bronce)</string>
+    <string name="earned_display">You earned 400 xp!</string>
+    <string name="xp_left_to_next_level">You need 1300xp to reach level 3!</string>
+    <string name="return_home_button">Return to home</string>
+    <string name="level_display_final_quiz">Level 14</string>
+
+    <string name="question_number_text">Question 1</string>
+    <string name="question_text">Question text</string>
+    <string name="option1_text">Option 1</string>
+    <string name="option2_text">Option 2</string>
+    <string name="option3_text">Option 3</string>
+    <string name="correct_text">Correct</string>
+    <string name="incorrect_text">Incorrect</string>
+    <string name="cheat_button_text">Cheat</string>
+    <string name="next_button_text">Next</string>
 </resources>
