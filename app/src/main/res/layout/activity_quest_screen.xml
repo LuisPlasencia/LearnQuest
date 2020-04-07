@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestScreen">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="43dp" />
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp">
+
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="210dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="17dp"
+                android:elevation="3dp"
+                android:outlineProvider="none"
+                android:text="@string/Math_Button_Level"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/child"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="226dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="43dp"
+                android:elevation="3dp"
+                android:outlineProvider="none"
+                android:src="@drawable/child_icon" />
+
+            <Button
+                android:id="@+id/Math_Button"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_background_math"
+
+                android:gravity="left|center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/Math_Button"
+                android:textColor="@android:color/white"
+                android:textSize="25dp" />
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp">
+
+        <Button
+            android:id="@+id/English_Button"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button_background_english"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/English_Button"
+            android:textColor="@android:color/white"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="210dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="17dp"
+            android:elevation="3dp"
+            android:outlineProvider="none"
+            android:text="@string/Math_Button_Level"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="226dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="43dp"
+            android:elevation="3dp"
+            android:outlineProvider="none"
+            android:src="@drawable/child_icon" />
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp">
+
+        <Button
+            android:id="@+id/Geography_Button"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button_background_geography"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/Geography_Button"
+            android:textColor="@android:color/white"
+            android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="210dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="17dp"
+                android:elevation="3dp"
+                android:outlineProvider="none"
+                android:text="@string/Math_Button_Level"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="226dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="43dp"
+                android:elevation="3dp"
+                android:outlineProvider="none"
+                android:src="@drawable/child_icon" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
