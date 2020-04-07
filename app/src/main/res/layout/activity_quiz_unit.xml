@@ -61,6 +61,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="277dp"
                     android:layout_height="53dp"
                     android:layout_marginTop="52dp"
@@ -98,6 +99,17 @@
                     app:layout_constraintHorizontal_bias="0.449"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/grade"
+                    android:layout_width="85dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="112dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.942"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/grade" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
