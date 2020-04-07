@@ -41,7 +41,7 @@
             android:gravity="center"
             android:text="TextView"
             android:textSize="16sp"
-            tools:text="Are you sure?" />
+            tools:text="@string/confirmation_cheat" />
 
         <TextView
             android:id="@+id/confirmation_info_text"
@@ -49,7 +49,7 @@
             android:layout_height="32dp"
             android:gravity="center"
             android:text="TextView"
-            tools:text="If you cheat, you won't gain the xp of this question" />
+            tools:text="@string/confirmation_info_cheat" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                     android:textColor="#FFFF"
                     android:text="Button"
                     android:background="@drawable/rounded_button"
-                    tools:text="Yes" />
+                    tools:text="@string/yes_cheat_button_text" />
 
                 <Space
                     android:layout_width="30dp"
@@ -78,7 +78,7 @@
                     android:textColor="#FFFF"
                     android:background="@drawable/rounded_button"
                     android:text="Button"
-                    tools:text="No" />
+                    tools:text="@string/no_cheat_button_text"  />
 
 
             </LinearLayout>
@@ -93,7 +93,7 @@
             android:layout_height="32dp"
             android:gravity="center"
             android:text="TextView"
-            tools:text="respuesta" />
+            tools:text="@string/empty_string" />
 
         <Space
             android:layout_width="30dp"
@@ -108,7 +108,7 @@
             android:text="Button"
             android:textColor="#FFFF"
             android:background="@drawable/rounded_button"
-            tools:text="Return to question!" />
+            tools:text="@string/return_to_question_button_text" />
 
 
 
