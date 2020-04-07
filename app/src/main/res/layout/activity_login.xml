@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.167" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/login_title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title2"
@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/background_mountains"
         android:layout_width="406dp"
         android:layout_height="223dp"
         android:contentDescription="@string/snowy_mountains_description"
@@ -48,7 +48,7 @@
         app:srcCompat="@drawable/snowy_mountains" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/quest_icon"
         android:layout_width="44dp"
         android:layout_height="33dp"
         android:contentDescription="@string/quest_icon_description"
@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/quest" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/background_shiny"
         android:layout_width="124dp"
         android:layout_height="160dp"
         android:contentDescription="@string/shiny_star_description"
@@ -82,11 +82,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/login_title2"
         app:layout_constraintVertical_bias="0.335">
 
         <EditText
-            android:id="@+id/UsernameInput"
+            android:id="@+id/username_input"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:layout_gravity="center_horizontal"
@@ -102,7 +102,7 @@
             android:layout_height="11dp" />
 
         <EditText
-            android:id="@+id/PasswordInput"
+            android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:layout_gravity="start|center_horizontal"
@@ -118,6 +118,7 @@
             android:layout_height="24dp" />
 
         <Button
+            android:id="@+id/lets_go_button"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -131,7 +132,7 @@
             android:layout_height="16dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/no_account_button"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:layout_gravity="center_horizontal"
