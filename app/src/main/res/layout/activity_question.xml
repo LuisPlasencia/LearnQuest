@@ -42,7 +42,8 @@
             android:gravity="center"
             android:textSize="24sp"
             android:textColor="@color/colorGray"
-            android:text="Question X"/>
+            android:text="@string/question_number_text"
+            tools:text="Question X"/>
 
         <TextView
             android:id="@+id/question_text"
@@ -51,7 +52,8 @@
             android:gravity="center"
             android:textSize="16sp"
             android:layout_marginBottom="20dp"
-            android:text="What's the capital of Myanmar?"/>
+            android:text="@string/question_text"
+            tools:text="Question text"/>
 
         <Button
             android:id="@+id/option1_button"
@@ -60,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@string/option1_text"
             android:textColor="#FFFF"
             android:background="@drawable/rounded_button"
             tools:text="first option" />
@@ -72,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@string/option2_text"
             android:textColor="#FFFF"
             android:background="@drawable/rounded_button"
             tools:text="second option" />
@@ -84,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@string/option3_text"
             android:textColor="#FFFF"
             android:background="@drawable/rounded_button"
             tools:text="third option" />
@@ -97,7 +99,7 @@
             android:gravity="center"
             android:textSize="16sp"
             android:layout_marginBottom="20dp"
-            android:text="Correct"/>
+            android:text="@string/empty_string"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -114,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Cheat"
+                android:text="@string/cheat_button_text"
                 android:textColor="#FFFF"
                 android:background="@drawable/rounded_button"
                 tools:text="Cheat" />
@@ -129,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Cheat"
+                android:text="@string/next_button_text"
                 android:textColor="#FFFF"
                 android:background="@drawable/rounded_button"
                 tools:text="Next" />
