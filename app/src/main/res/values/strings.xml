@@ -9,4 +9,14 @@
     <string name="quest_icon_description">Icono de una quest</string>
     <string name="snowy_mountains_description">Imagen background del login</string>
     <string name="shiny_star_description">Background imagen del login</string>
+    <string name="photo_description">profile photo</string>
+    <string name="go_quest_button">Go quest!</string>
+    <string name="go_quest_image_description">go quest image</string>
+    <string name="achievements_button">Achievements</string>
+    <string name="level_display">Level 0</string>
+    <string name="exp_to_display">250xp to Level 2</string>
+    <string name="new_quest_button">Create a new quest</string>
+    <string name="new_quest_icon_description">create a new quest icon</string>
+    <string name="log_out_button">Log out</string>
+    <string name="log_out_icon_description">log out icon</string>
 </resources>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126">
+
+        <ImageView
+            android:id="@+id/profile_photo"
+            android:layout_width="54dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/photo_description"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="74dp"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:text="@string/login_username" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/achievements_button"
+        android:layout_width="143dp"
+        android:layout_height="66dp"
+        android:includeFontPadding="false"
+        android:paddingTop="30dp"
+        android:text="@string/achievements_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="308dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/achievements_button"
+        app:layout_constraintVertical_bias="0.063">
+
+        <TextView
+            android:id="@+id/level_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/level_display" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="312dp"
+            android:layout_height="63dp" />
+
+        <TextView
+            android:id="@+id/exp_to_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/exp_to_display" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.24">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/go_button"
+                android:layout_width="250dp"
+                android:layout_height="61dp"
+                android:text="@string/go_quest_button" />
+
+            <Space
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/go_quest_image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/go_quest_image_description"
+                app:srcCompat="@drawable/flame_goquest" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/create_quest_button"
+                android:layout_width="250dp"
+                android:layout_height="61dp"
+                android:text="@string/new_quest_button"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="36dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/new_quest_image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/new_quest_icon_description"
+                app:srcCompat="@drawable/plus_createquest" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/log_out_button"
+                android:layout_width="250dp"
+                android:layout_height="61dp"
+                android:text="@string/log_out_button" />
+
+            <Space
+                android:layout_width="36dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/log_out_image"
+                android:layout_width="54dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/log_out_icon_description"
+                app:srcCompat="@drawable/logout" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
