@@ -41,4 +41,11 @@
     <string name="new_quest_icon_description">create a new quest icon</string>
     <string name="log_out_button">Log out</string>
     <string name="log_out_icon_description">log out icon</string>
+
+    <string name="yes_cheat_button_text">Yes</string>
+    <string name="no_cheat_button_text">No</string>
+    <string name="confirmation_cheat">Are your sure?</string>ç
+    <string name="confirmation_info_cheat">If you cheat, you won\'t get any xp out of this question</string>
+    <string name="return_to_question_button_text">Return to question!</string>
+    <string name="empty_string">"????"</string>
 </resources>
