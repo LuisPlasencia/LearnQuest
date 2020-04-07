@@ -16,11 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".QuestScreen">
-        </activity>
-
+        <activity android:name=".QuestScreen"></activity>
     </application>
 
 </manifest>
