@@ -104,7 +104,6 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:tag="0"
             android:text="Button"
             android:textColor="#FFFF"
             android:background="@drawable/rounded_button"
