@@ -25,6 +25,7 @@
             android:layout_height="100dp">
 
             <TextView
+                android:id="@+id/math_level_id"
                 android:layout_width="84dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -39,7 +40,7 @@
                 android:textColor="@android:color/white" />
 
             <ImageView
-                android:id="@+id/child"
+                android:id="@+id/math_level_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -50,10 +51,11 @@
                 android:layout_marginBottom="43dp"
                 android:elevation="100dp"
                 android:outlineProvider="none"
-                android:src="@drawable/child_icon" />
+                android:src="@drawable/child_icon"
+                android:contentDescription="TODO" />
 
             <Button
-                android:id="@+id/Math_Button"
+                android:id="@+id/math_Button"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:background="@drawable/button_background_math"
@@ -75,7 +77,7 @@
             android:layout_height="100dp">
 
         <Button
-            android:id="@+id/English_Button"
+            android:id="@+id/english_Button"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:background="@drawable/button_background_english"
@@ -86,32 +88,34 @@
             android:textColor="@android:color/white"
             android:textSize="25dp" />
 
-        <TextView
-            android:layout_width="84dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="210dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="17dp"
-            android:elevation="100dp"
-            android:outlineProvider="none"
-            android:text="@string/english_level"
-            android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/english_level_id"
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="210dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="17dp"
+                android:elevation="100dp"
+                android:outlineProvider="none"
+                android:text="@string/english_level"
+                android:textColor="@android:color/white" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="226dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="43dp"
-            android:elevation="100dp"
-            android:outlineProvider="none"
-            android:src="@drawable/child_icon" />
+            <ImageView
+                android:id="@+id/english_level_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="226dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="43dp"
+                android:elevation="100dp"
+                android:outlineProvider="none"
+                android:src="@drawable/child_icon" />
 
         </RelativeLayout>
 
@@ -124,7 +128,7 @@
             android:layout_height="100dp">
 
         <Button
-            android:id="@+id/Geography_Button"
+            android:id="@+id/geography_Button"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:background="@drawable/button_background_geography"
@@ -136,6 +140,7 @@
             android:textSize="25dp" />
 
             <TextView
+                android:id="@+id/geography_level_id"
                 android:layout_width="84dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -150,6 +155,7 @@
                 android:textColor="@android:color/white" />
 
             <ImageView
+                android:id="@+id/geography_level_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
