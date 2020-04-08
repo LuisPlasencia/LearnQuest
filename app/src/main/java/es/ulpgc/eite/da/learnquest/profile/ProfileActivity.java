@@ -17,7 +17,7 @@ public class ProfileActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        getSupportActionBar().setTitle(R.string.app_name);
+//        getSupportActionBar().setTitle(R.string.app_name);
 
         // do the setup
         ProfileScreen.configure(this);

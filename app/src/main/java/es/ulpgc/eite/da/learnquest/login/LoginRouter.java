@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.profile.ProfileActivity;
 
 public class LoginRouter implements LoginContract.Router {
 
@@ -17,30 +18,18 @@ public class LoginRouter implements LoginContract.Router {
     }
 
     @Override
-    public void navigateToNextScreen() {
+    public void navigateToProfileScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, LoginActivity.class);
+        Intent intent = new Intent(context, ProfileActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     @Override
-    public void passStateToNextScreen(LoginState state) {
+    public void passStateToProfileScreen(LoginState state) {
         mediator.setLoginState(state);
     }
 
-//    @Override
-//    public void passStateToPreviousScreen(LoginState state) {
-//        mediator.setPreviousLoginScreenState(state);
-//    }
-//
-    @Override
-    public LoginState getStateFromPreviousScreen() {
-        return mediator.getLoginState();
-    }
-//
-//    @Override
-//    public LoginState getStateFromNextScreen() {
-//        return mediator.getNextLoginScreenState();
-//    }
+
+
 }

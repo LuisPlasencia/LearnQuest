@@ -25,57 +25,27 @@ public class LoginPresenter implements LoginContract.Presenter {
         if (state == null) {
             state = new LoginState();
         }
-
-        // use passed state if is necessary
-        LoginState savedState = router.getStateFromPreviousScreen();
-        if (savedState != null) {
-
-            // update the model if is necessary
-            model.onDataFromPreviousScreen(savedState.data);
-        }
     }
 
     @Override
     public void onRestart() {
         // Log.e(TAG, "onRestart()");
-
-        // update the model if is necessary
-        model.onRestartScreen(state.data);
     }
 
     @Override
     public void onResume() {
         // Log.e(TAG, "onResume()");
 
-        // use passed state if is necessary
-   //     LoginState savedState = router.getStateFromNextScreen();
-  //      if (savedState != null) {
-
-            // update the model if is necessary
-   //         model.onDataFromNextScreen(savedState.data);
-  //      }
-
-        // call the model and update the state
-//        state.data = model.getStoredData();
-
         // update the view
-//        view.get().onDataUpdated(state);
-
+        view.get().onDataUpdated(state);
     }
 
-    @Override
-    public void onBackPressed() {
-        // Log.e(TAG, "onBackPressed()");
-    }
 
     @Override
-    public void onPause() {
-        // Log.e(TAG, "onPause()");
-    }
-
-    @Override
-    public void onDestroy() {
-        // Log.e(TAG, "onDestroy()");
+    public void onLetsGoClicked() {
+        //TODO pasarle el estado de la informacion de perfil y contraseña a Profile y lo que conlleva
+        router.passStateToProfileScreen(state);
+        router.navigateToProfileScreen();
     }
 
     @Override

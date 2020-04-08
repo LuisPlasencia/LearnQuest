@@ -122,6 +122,7 @@
 
         <Button
             android:id="@+id/lets_go_button"
+            android:onClick="onLetsGoClicked"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

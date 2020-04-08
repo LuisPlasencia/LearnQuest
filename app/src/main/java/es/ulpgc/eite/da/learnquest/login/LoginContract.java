@@ -23,32 +23,16 @@ public interface LoginContract {
 
         void onRestart();
 
-        void onBackPressed();
-
-        void onPause();
-
-        void onDestroy();
+        void onLetsGoClicked();
     }
 
     interface Model {
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
     interface Router {
-        void navigateToNextScreen();
+        void navigateToProfileScreen();
 
-        void passStateToNextScreen(LoginState state);
+        void passStateToProfileScreen(LoginState state);
 
-        LoginState getStateFromPreviousScreen();
-//
-//        LoginState getStateFromNextScreen();
-//
-//        void passStateToPreviousScreen(LoginState state);
     }
 }

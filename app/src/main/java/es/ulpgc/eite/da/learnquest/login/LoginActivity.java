@@ -3,8 +3,8 @@ package es.ulpgc.eite.da.learnquest.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.EditText;
 
 import es.ulpgc.eite.da.learnquest.R;
 
@@ -40,36 +40,23 @@ public class LoginActivity
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        presenter.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        presenter.onDestroy();
-    }
-
-    @Override
     public void onDataUpdated(LoginViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
-     //   ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+        EditText username = (EditText)findViewById(R.id.username_input);
+        username.setText(viewModel.username);
+        EditText password = (EditText)findViewById(R.id.password_input);
+        password.setText(viewModel.password);
+
     }
 
     @Override
     public void injectPresenter(LoginContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void onLetsGoClicked(View view) {
+        presenter.onLetsGoClicked();
     }
 }
