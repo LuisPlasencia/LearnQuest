@@ -1,14 +1,12 @@
-package es.ulpgc.eite.da.learnquest.perfil;
+package es.ulpgc.eite.da.learnquest.profile;
 
-import android.util.Log;
+public class ProfileModel implements ProfileContract.Model {
 
-public class PerfilModel implements PerfilContract.Model {
-
-    public static String TAG = PerfilModel.class.getSimpleName();
+    public static String TAG = ProfileModel.class.getSimpleName();
 
     private String data;
 
-    public PerfilModel(String data) {
+    public ProfileModel(String data) {
         this.data = data;
     }
 

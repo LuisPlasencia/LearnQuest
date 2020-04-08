@@ -33,7 +33,7 @@
         </activity>
 
         <activity
-            android:name=".perfil.PerfilActivity"
+            android:name=".profile.ProfileActivity"
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 

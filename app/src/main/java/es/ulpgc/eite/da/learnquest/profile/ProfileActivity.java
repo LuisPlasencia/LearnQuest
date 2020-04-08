@@ -1,19 +1,17 @@
-package es.ulpgc.eite.da.learnquest.perfil;
+package es.ulpgc.eite.da.learnquest.profile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
 
-public class PerfilActivity
-        extends AppCompatActivity implements PerfilContract.View {
+public class ProfileActivity
+        extends AppCompatActivity implements ProfileContract.View {
 
-    public static String TAG = PerfilActivity.class.getSimpleName();
+    public static String TAG = ProfileActivity.class.getSimpleName();
 
-    private PerfilContract.Presenter presenter;
+    private ProfileContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +20,7 @@ public class PerfilActivity
         getSupportActionBar().setTitle(R.string.app_name);
 
         // do the setup
-        PerfilScreen.configure(this);
+        ProfileScreen.configure(this);
 
         if (savedInstanceState == null) {
             presenter.onStart();
@@ -62,7 +60,7 @@ public class PerfilActivity
     }
 
     @Override
-    public void onDataUpdated(PerfilViewModel viewModel) {
+    public void onDataUpdated(ProfileViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
@@ -70,7 +68,7 @@ public class PerfilActivity
     }
 
     @Override
-    public void injectPresenter(PerfilContract.Presenter presenter) {
+    public void injectPresenter(ProfileContract.Presenter presenter) {
         this.presenter = presenter;
     }
 }

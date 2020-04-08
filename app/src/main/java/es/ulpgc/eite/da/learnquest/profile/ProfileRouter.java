@@ -1,32 +1,31 @@
-package es.ulpgc.eite.da.learnquest.perfil;
+package es.ulpgc.eite.da.learnquest.profile;
 
-import android.util.Log;
 import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 
-public class PerfilRouter implements PerfilContract.Router {
+public class ProfileRouter implements ProfileContract.Router {
 
-    public static String TAG = PerfilRouter.class.getSimpleName();
+    public static String TAG = ProfileRouter.class.getSimpleName();
 
     private AppMediator mediator;
 
-    public PerfilRouter(AppMediator mediator) {
+    public ProfileRouter(AppMediator mediator) {
         this.mediator = mediator;
     }
 
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, PerfilActivity.class);
+        Intent intent = new Intent(context, ProfileActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     @Override
-    public void passStateToNextScreen(PerfilState state) {
-        mediator.setPerfilState(state);
+    public void passStateToNextScreen(ProfileState state) {
+        mediator.setProfileState(state);
     }
 
 //    @Override
@@ -35,8 +34,8 @@ public class PerfilRouter implements PerfilContract.Router {
 //    }
 
     @Override
-    public PerfilState getStateFromPreviousScreen() {
-        return mediator.getPerfilState();
+    public ProfileState getStateFromPreviousScreen() {
+        return mediator.getProfileState();
     }
 
 //    @Override

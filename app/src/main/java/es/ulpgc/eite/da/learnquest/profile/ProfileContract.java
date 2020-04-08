@@ -1,13 +1,13 @@
-package es.ulpgc.eite.da.learnquest.perfil;
+package es.ulpgc.eite.da.learnquest.profile;
 
 import java.lang.ref.WeakReference;
 
-public interface PerfilContract {
+public interface ProfileContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(PerfilViewModel viewModel);
+        void onDataUpdated(ProfileViewModel viewModel);
     }
 
     interface Presenter {
@@ -43,9 +43,9 @@ public interface PerfilContract {
     interface Router {
         void navigateToNextScreen();
 
-        void passStateToNextScreen(PerfilState state);
+        void passStateToNextScreen(ProfileState state);
 
-        PerfilState getStateFromPreviousScreen();
+        ProfileState getStateFromPreviousScreen();
 
  //       PerfilState getStateFromNextScreen();
 

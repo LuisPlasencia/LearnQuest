@@ -1,19 +1,17 @@
-package es.ulpgc.eite.da.learnquest.perfil;
-
-import android.util.Log;
+package es.ulpgc.eite.da.learnquest.profile;
 
 import java.lang.ref.WeakReference;
 
-public class PerfilPresenter implements PerfilContract.Presenter {
+public class ProfilePresenter implements ProfileContract.Presenter {
 
-    public static String TAG = PerfilPresenter.class.getSimpleName();
+    public static String TAG = ProfilePresenter.class.getSimpleName();
 
-    private WeakReference<PerfilContract.View> view;
-    private PerfilState state;
-    private PerfilContract.Model model;
-    private PerfilContract.Router router;
+    private WeakReference<ProfileContract.View> view;
+    private ProfileState state;
+    private ProfileContract.Model model;
+    private ProfileContract.Router router;
 
-    public PerfilPresenter(PerfilState state) {
+    public ProfilePresenter(ProfileState state) {
         this.state = state;
     }
 
@@ -23,11 +21,11 @@ public class PerfilPresenter implements PerfilContract.Presenter {
 
         // initialize the state if is necessary
         if (state == null) {
-            state = new PerfilState();
+            state = new ProfileState();
         }
 
         // use passed state if is necessary
-        PerfilState savedState = router.getStateFromPreviousScreen();
+        ProfileState savedState = router.getStateFromPreviousScreen();
         if (savedState != null) {
 
             // update the model if is necessary
@@ -79,17 +77,17 @@ public class PerfilPresenter implements PerfilContract.Presenter {
     }
 
     @Override
-    public void injectView(WeakReference<PerfilContract.View> view) {
+    public void injectView(WeakReference<ProfileContract.View> view) {
         this.view = view;
     }
 
     @Override
-    public void injectModel(PerfilContract.Model model) {
+    public void injectModel(ProfileContract.Model model) {
         this.model = model;
     }
 
     @Override
-    public void injectRouter(PerfilContract.Router router) {
+    public void injectRouter(ProfileContract.Router router) {
         this.router = router;
     }
 }
