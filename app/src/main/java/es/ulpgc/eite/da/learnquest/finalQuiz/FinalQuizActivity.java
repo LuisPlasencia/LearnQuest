@@ -1,4 +1,4 @@
-package es.ulpgc.eite.da.learnquest.login;
+package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,21 +8,21 @@ import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
 
-public class LoginActivity
-        extends AppCompatActivity implements LoginContract.View {
+public class FinalQuizActivity
+        extends AppCompatActivity implements FinalQuizContract.View {
 
-    public static String TAG = LoginActivity.class.getSimpleName();
+    public static String TAG = FinalQuizActivity.class.getSimpleName();
 
-    private LoginContract.Presenter presenter;
+    private FinalQuizContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_final_quiz);
         getSupportActionBar().setTitle(R.string.app_name);
 
         // do the setup
-        LoginScreen.configure(this);
+        FinalQuizScreen.configure(this);
 
         if (savedInstanceState == null) {
             presenter.onStart();
@@ -62,15 +62,15 @@ public class LoginActivity
     }
 
     @Override
-    public void onDataUpdated(LoginViewModel viewModel) {
+    public void onDataUpdated(FinalQuizViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
-    //    ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+  //      ((TextView) findViewById(R.id.data)).setText(viewModel.data);
     }
 
     @Override
-    public void injectPresenter(LoginContract.Presenter presenter) {
+    public void injectPresenter(FinalQuizContract.Presenter presenter) {
         this.presenter = presenter;
     }
 }

@@ -37,6 +37,11 @@
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".finalQuiz.FinalQuizActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>
