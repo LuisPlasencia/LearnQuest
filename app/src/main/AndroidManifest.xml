@@ -32,6 +32,11 @@
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".perfil.PerfilActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package es.ulpgc.eite.da.learnquest.login;
+package es.ulpgc.eite.da.learnquest.perfil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,21 +8,21 @@ import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
 
-public class LoginActivity
-        extends AppCompatActivity implements LoginContract.View {
+public class PerfilActivity
+        extends AppCompatActivity implements PerfilContract.View {
 
-    public static String TAG = LoginActivity.class.getSimpleName();
+    public static String TAG = PerfilActivity.class.getSimpleName();
 
-    private LoginContract.Presenter presenter;
+    private PerfilContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_perfil);
         getSupportActionBar().setTitle(R.string.app_name);
 
         // do the setup
-        LoginScreen.configure(this);
+        PerfilScreen.configure(this);
 
         if (savedInstanceState == null) {
             presenter.onStart();
@@ -62,15 +62,15 @@ public class LoginActivity
     }
 
     @Override
-    public void onDataUpdated(LoginViewModel viewModel) {
+    public void onDataUpdated(PerfilViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
-    //    ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+   //     ((TextView) findViewById(R.id.data)).setText(viewModel.data);
     }
 
     @Override
-    public void injectPresenter(LoginContract.Presenter presenter) {
+    public void injectPresenter(PerfilContract.Presenter presenter) {
         this.presenter = presenter;
     }
 }
