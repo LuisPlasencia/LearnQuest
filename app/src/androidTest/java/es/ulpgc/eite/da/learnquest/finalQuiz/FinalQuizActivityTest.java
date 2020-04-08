@@ -1,12 +1,14 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.filters.LargeTest;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -39,6 +41,15 @@ public class FinalQuizActivityTest {
     @Rule
     public ActivityTestRule<FinalQuizActivity> mActivityTestRule = new ActivityTestRule<>(FinalQuizActivity.class);
 
+    Context context =
+            InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+    String amount_earned = context.getResources().getString(R.string.earned_display);
+    String exp_needed = context.getResources().getString(R.string.exp_to_display);
+    String t1_topic = context.getResources().getString(R.string.T1_Topic);
+    String t2_topic = context.getResources().getString(R.string.T2_Topic);
+
+
     @Test
     public void returnToHomeButtonPressed() {
         //GIVEN
@@ -46,10 +57,10 @@ public class FinalQuizActivityTest {
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
-        textView.check(matches(withText("You earned 400 xp!")));
+        textView.check(matches(withText(amount_earned)));
 
         ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
-        textView2.check(matches(withText("You need 1300xp to reach level 3!")));
+        textView2.check(matches(withText(exp_needed)));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar2));
         progressBar.check(matches(isDisplayed()));
@@ -83,10 +94,10 @@ public class FinalQuizActivityTest {
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
-        textView.check(matches(withText("You earned 400 xp!")));
+        textView.check(matches(withText(amount_earned)));
 
         ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
-        textView2.check(matches(withText("You need 1300xp to reach level 3!")));
+        textView2.check(matches(withText(exp_needed)));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar2));
         progressBar.check(matches(isDisplayed()));
@@ -102,10 +113,10 @@ public class FinalQuizActivityTest {
         viewGroup2.check(matches(isDisplayed()));
 
         ViewInteraction textView3 = onView(withId(R.id.linearLayout));
-        textView3.check(matches(withText("T1. Topic")));
+        textView3.check(matches(withText(t1_topic)));
 
         ViewInteraction textView4 = onView(withId(R.id.t2_topic));
-        textView4.check(matches(withText("T2. Topic")));
+        textView4.check(matches(withText(t2_topic)));
 
         ViewInteraction textView5 = onView(withId(R.id.t1_topic));
         textView3.check(matches(isDisplayed()));
@@ -131,10 +142,10 @@ public class FinalQuizActivityTest {
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
-        textView.check(matches(withText("You earned 400 xp!")));
+        textView.check(matches(withText(amount_earned)));
 
         ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
-        textView2.check(matches(withText("You need 1300xp to reach level 3!")));
+        textView2.check(matches(withText(exp_needed)));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar2));
         progressBar.check(matches(isDisplayed()));
@@ -151,10 +162,10 @@ public class FinalQuizActivityTest {
         viewGroup2.check(matches(isDisplayed()));
 
         ViewInteraction textView3 = onView(withId(R.id.linearLayout));
-        textView3.check(matches(withText("T1. Topic")));
+        textView3.check(matches(withText(t1_topic)));
 
         ViewInteraction textView4 = onView(withId(R.id.t2_topic));
-        textView4.check(matches(withText("T2. Topic")));
+        textView4.check(matches(withText(t2_topic)));
 
         ViewInteraction textView5 = onView(withId(R.id.t1_topic));
         textView3.check(matches(isDisplayed()));

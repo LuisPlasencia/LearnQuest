@@ -1,12 +1,14 @@
 package es.ulpgc.eite.da.learnquest.login;
 
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.filters.LargeTest;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -37,15 +39,21 @@ public class LoginActivityTest {
     @Rule
     public ActivityTestRule<LoginActivity> mActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
 
+    Context context =
+            InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+    String title = context.getResources().getString(R.string.login_title);
+    String title2 = context.getResources().getString(R.string.login_title2);
+
     @Test
     public void letsGoButtonPressed() {
 
         //GIVEN
         ViewInteraction textView = onView(withId(R.id.login_title));
-        textView.check(matches(withText("LearnQuest")));
+        textView.check(matches(withText(title)));
 
         ViewInteraction textView2 = onView(withId(R.id.login_title2));
-        textView2.check(matches(withText("Have fun learning!")));
+        textView2.check(matches(withText(title2)));
 
         ViewInteraction button = onView(withId(R.id.no_account_button));
         button.check(matches(isDisplayed()));
