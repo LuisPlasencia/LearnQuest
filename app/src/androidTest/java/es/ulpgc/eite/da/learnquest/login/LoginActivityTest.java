@@ -44,36 +44,83 @@ public class LoginActivityTest {
 
     String title = context.getResources().getString(R.string.login_title);
     String title2 = context.getResources().getString(R.string.login_title2);
+    String username = context.getResources().getString(R.string.login_username);
+    String password = context.getResources().getString(R.string.login_password);
+
+    String level = context.getResources().getString(R.string.level_display);
+    String exp_to = context.getResources().getString(R.string.exp_to_display);
 
     @Test
     public void letsGoButtonPressed() {
 
         //GIVEN
-        ViewInteraction textView = onView(withId(R.id.login_title));
-        textView.check(matches(withText(title)));
+        ViewInteraction textView4 = onView(withId(R.id.login_title));
+        textView4.check(matches(withText(title)));
 
-        ViewInteraction textView2 = onView(withId(R.id.login_title2));
-        textView2.check(matches(withText(title2)));
+        ViewInteraction textView5 = onView(withId(R.id.login_title2));
+        textView5.check(matches(withText(title2)));
 
-        ViewInteraction button = onView(withId(R.id.no_account_button));
-        button.check(matches(isDisplayed()));
+        ViewInteraction button4 = onView(withId(R.id.no_account_button));
+        button4.check(matches(isDisplayed()));
+
+        ViewInteraction button5 = onView(withId(R.id.lets_go_button));
+        button5.check(matches(isDisplayed()));
+
+        ViewInteraction editText = onView((withId(R.id.username_input)));
+        editText.check(matches(withText(username)));
+
+        ViewInteraction editText2 = onView(withId(R.id.password_input));
+        editText2.check(matches(withText(password)));
+
+        ViewInteraction imageView6 = onView(withId(R.id.background_shiny));
+        imageView6.check(matches(isDisplayed()));
+
+        ViewInteraction imageView7 = onView(withId(R.id.quest_icon));
+        imageView7.check(matches(isDisplayed()));
+
+        ViewInteraction imageView8 = onView(withId(R.id.background_mountains));
+        imageView8.check(matches(isDisplayed()));
 
         //WHEN
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
 
         //THEN
-        ViewInteraction button2 = onView(withId(R.id.go_button));
+        ViewInteraction button = onView((withId(R.id.go_button)));
+        button.check(matches(isDisplayed()));
+
+        ViewInteraction button2 = onView(withId(R.id.create_quest_button));
         button2.check(matches(isDisplayed()));
 
-        ViewInteraction button3 = onView(withId(R.id.create_quest_button));
+        ViewInteraction button3 = onView(withId(R.id.log_out_button));
         button3.check(matches(isDisplayed()));
 
-        ViewInteraction button4 = onView(withId(R.id.log_out_button));
-        button4.check(matches(isDisplayed()));
+        ViewInteraction imageView = onView(withId(R.id.go_quest_image));
+        imageView.check(matches(isDisplayed()));
 
-        ViewInteraction button5 = onView(withId(R.id.achievements_button));
-        button5.check(matches(isDisplayed()));
+        ViewInteraction imageView2 = onView(withId(R.id.new_quest_image));
+        imageView2.check(matches(isDisplayed()));
+
+        ViewInteraction imageView3 = onView(withId(R.id.log_out_image));
+        imageView3.check(matches(isDisplayed()));
+
+        ViewInteraction imageView4 = onView(withId(R.id.profile_photo));
+        imageView4.check(matches(isDisplayed()));
+
+        ViewInteraction imageView5 = onView(withId(R.id.achivement_icon));
+        imageView5.check(matches(isDisplayed()));
+
+        ViewInteraction textView = onView(withId(R.id.profile_name));
+        textView.check(matches(withText(username)));
+
+        ViewInteraction textView2 = onView(withId(R.id.level_display));
+        textView2.check(matches(withText(level)));
+
+        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
+        textView3.check(matches(withText(exp_to)));
+
+        ViewInteraction progressBar = onView(withId(R.id.progressBar));
+        progressBar.check(matches(isDisplayed()));
     }
 
 
