@@ -4,6 +4,8 @@ import android.util.Log;
 import android.content.Intent;
 import android.content.Context;
 
+import es.ulpgc.eite.da.learnquest.app.AppMediator;
+
 public class QuizUnitRouter implements QuizUnitContract.Router {
 
     public static String TAG = QuizUnitRouter.class.getSimpleName();

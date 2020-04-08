@@ -10,9 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QuizUnit">
-        </activity>
-        <activity android:name=".QuestScreen"></activity>
         <activity android:name=".question.QuestionActivity"
             android:theme="@style/Theme.Design.NoActionBar">
 
