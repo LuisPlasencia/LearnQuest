@@ -48,18 +48,18 @@ public class LoginPresenter implements LoginContract.Presenter {
         // Log.e(TAG, "onResume()");
 
         // use passed state if is necessary
-        LoginState savedState = router.getStateFromNextScreen();
-        if (savedState != null) {
+   //     LoginState savedState = router.getStateFromNextScreen();
+  //      if (savedState != null) {
 
             // update the model if is necessary
-            model.onDataFromNextScreen(savedState.data);
-        }
+   //         model.onDataFromNextScreen(savedState.data);
+  //      }
 
         // call the model and update the state
-        state.data = model.getStoredData();
+//        state.data = model.getStoredData();
 
         // update the view
-        view.get().onDataUpdated(state);
+//        view.get().onDataUpdated(state);
 
     }
 

@@ -34,10 +34,10 @@ public class LoginRouter implements LoginContract.Router {
 //        mediator.setPreviousLoginScreenState(state);
 //    }
 //
-//    @Override
-//    public LoginState getStateFromPreviousScreen() {
-//        return mediator.getPreviousLoginScreenState();
-//    }
+    @Override
+    public LoginState getStateFromPreviousScreen() {
+        return mediator.getLoginState();
+    }
 //
 //    @Override
 //    public LoginState getStateFromNextScreen() {

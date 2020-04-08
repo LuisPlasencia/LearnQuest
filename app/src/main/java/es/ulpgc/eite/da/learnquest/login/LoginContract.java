@@ -45,7 +45,7 @@ public interface LoginContract {
 
         void passStateToNextScreen(LoginState state);
 
-//        LoginState getStateFromPreviousScreen();
+        LoginState getStateFromPreviousScreen();
 //
 //        LoginState getStateFromNextScreen();
 //
