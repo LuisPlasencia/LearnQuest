@@ -55,7 +55,7 @@
                 android:contentDescription="TODO" />
 
             <Button
-                android:id="@+id/math_Button"
+                android:id="@+id/math_button"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:background="@drawable/button_background_math"
@@ -77,7 +77,7 @@
             android:layout_height="100dp">
 
         <Button
-            android:id="@+id/english_Button"
+            android:id="@+id/english_button"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:background="@drawable/button_background_english"
@@ -128,7 +128,7 @@
             android:layout_height="100dp">
 
         <Button
-            android:id="@+id/geography_Button"
+            android:id="@+id/geography_button"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:background="@drawable/button_background_geography"

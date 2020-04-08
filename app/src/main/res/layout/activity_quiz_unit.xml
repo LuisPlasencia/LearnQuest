@@ -20,7 +20,7 @@
             android:layout_height="26dp" />
 
         <TextView
-            android:id="@+id/T1_triangles"
+            android:id="@+id/t1_topic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -46,7 +46,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/T1_triangles_title"
+                    android:id="@+id/T1_topic_title"
                     android:layout_width="279dp"
                     android:layout_height="32dp"
                     android:layout_marginTop="16dp"
@@ -61,7 +61,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/t1_description"
                     android:layout_width="277dp"
                     android:layout_height="53dp"
                     android:layout_marginTop="52dp"
@@ -75,7 +75,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/T1_triangles_solve"
+                    android:id="@+id/t1_topic_solve"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="116dp"
@@ -88,7 +88,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/T1_triangles_practise"
+                    android:id="@+id/t1_topic_practise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="116dp"
@@ -122,7 +122,7 @@
             android:layout_height="13dp" />
 
         <TextView
-            android:id="@+id/T2_equations"
+            android:id="@+id/t2_topic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -148,7 +148,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/T2_equations_title"
+                    android:id="@+id/t2_topic_title"
                     android:layout_width="279dp"
                     android:layout_height="32dp"
                     android:layout_marginTop="16dp"
@@ -163,6 +163,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/t2_description"
                     android:layout_width="277dp"
                     android:layout_height="53dp"
                     android:layout_marginTop="52dp"
@@ -176,7 +177,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/T2_equations_solve"
+                    android:id="@+id/t2_topic_solve"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="116dp"
@@ -189,7 +190,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/T2_equations_practise"
+                    android:id="@+id/t2_topic_practise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="116dp"
