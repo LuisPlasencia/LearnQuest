@@ -16,7 +16,7 @@ public class ProfileActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil);
+        setContentView(R.layout.activity_profile);
         getSupportActionBar().setTitle(R.string.app_name);
 
         // do the setup
