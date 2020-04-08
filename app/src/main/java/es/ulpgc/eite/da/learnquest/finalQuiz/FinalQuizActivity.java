@@ -1,6 +1,8 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,12 +16,20 @@ public class FinalQuizActivity
     public static String TAG = FinalQuizActivity.class.getSimpleName();
 
     private FinalQuizContract.Presenter presenter;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
    //     getSupportActionBar().setTitle(R.string.app_name);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         // do the setup
         FinalQuizScreen.configure(this);
