@@ -1,13 +1,13 @@
-package es.ulpgc.eite.da.learnquest.questScreen;
+package es.ulpgc.eite.da.learnquest.quests;
 
 import java.lang.ref.WeakReference;
 
-public interface QuestScreenContract {
+public interface QuestsContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void displayData(QuestScreenViewModel viewModel);
+        void displayData(QuestsViewModel viewModel);
     }
 
     interface Presenter {
@@ -27,8 +27,8 @@ public interface QuestScreenContract {
     interface Router {
         void navigateToNextScreen();
 
-        void passDataToNextScreen(QuestScreenState state);
+        void passDataToNextScreen(QuestsState state);
 
-        QuestScreenState getDataFromPreviousScreen();
+        QuestsState getDataFromPreviousScreen();
     }
 }

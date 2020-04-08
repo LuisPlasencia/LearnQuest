@@ -6,15 +6,15 @@ import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizState;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
 import es.ulpgc.eite.da.learnquest.logros.LogrosState;
 import es.ulpgc.eite.da.learnquest.profile.ProfileState;
-import es.ulpgc.eite.da.learnquest.questScreen.QuestScreenState;
 import es.ulpgc.eite.da.learnquest.question.QuestionState;
+import es.ulpgc.eite.da.learnquest.quests.QuestsState;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitState;
 
 public class AppMediator extends Application {
 
     private QuestionState questionState;
     private LoginState loginState;
-    private QuestScreenState questScreenState;
+    private QuestsState questsState;
     private QuizUnitState quizUnitState;
     private ProfileState profileState;
     private FinalQuizState finalQuizState;
@@ -33,12 +33,12 @@ public class AppMediator extends Application {
         this.profileState = profileState;
     }
 
-    public QuestScreenState getQuestScreenState() {
-        return questScreenState;
+    public QuestsState getQuestsState() {
+        return questsState;
     }
 
-    public void setQuestScreenState(QuestScreenState questScreenState) {
-        this.questScreenState = questScreenState;
+    public void setQuestsState(QuestsState questScreenState) {
+        this.questsState = questScreenState;
     }
 
     public QuizUnitState getQuizUnitState() {

@@ -19,10 +19,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".questScreen.QuestScreenActivity"
-            android:theme="@style/Theme.Design.NoActionBar">
-        </activity>
-
         <activity android:name=".quizUnit.QuizUnitActivity"
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>

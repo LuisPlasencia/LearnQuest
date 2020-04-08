@@ -1,4 +1,4 @@
-package es.ulpgc.eite.da.learnquest.questScreen;
+package es.ulpgc.eite.da.learnquest.quests;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,20 +8,20 @@ import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
 
-public class QuestScreenActivity
-        extends AppCompatActivity implements QuestScreenContract.View {
+public class QuestsActivity
+        extends AppCompatActivity implements QuestsContract.View {
 
-    public static String TAG = QuestScreenActivity.class.getSimpleName();
+    public static String TAG = QuestsActivity.class.getSimpleName();
 
-    private QuestScreenContract.Presenter presenter;
+    private QuestsContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quest_screen);
+        setContentView(R.layout.activity_quests);
 
         // do the setup
-        QuestScreenScreen.configure(this);
+        QuestsScreen.configure(this);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class QuestScreenActivity
     }
 
     @Override
-    public void displayData(QuestScreenViewModel viewModel) {
+    public void displayData(QuestsViewModel viewModel) {
         //Log.e(TAG, "displayData()");
 
         // deal with the data
@@ -41,7 +41,7 @@ public class QuestScreenActivity
     }
 
     @Override
-    public void injectPresenter(QuestScreenContract.Presenter presenter) {
+    public void injectPresenter(QuestsContract.Presenter presenter) {
         this.presenter = presenter;
     }
 }

@@ -1,19 +1,19 @@
-package es.ulpgc.eite.da.learnquest.questScreen;
+package es.ulpgc.eite.da.learnquest.quests;
 
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
-public class QuestScreenPresenter implements QuestScreenContract.Presenter {
+public class QuestsPresenter implements QuestsContract.Presenter {
 
-    public static String TAG = QuestScreenPresenter.class.getSimpleName();
+    public static String TAG = QuestsPresenter.class.getSimpleName();
 
-    private WeakReference<QuestScreenContract.View> view;
-    private QuestScreenState state;
-    private QuestScreenContract.Model model;
-    private QuestScreenContract.Router router;
+    private WeakReference<QuestsContract.View> view;
+    private QuestsState state;
+    private QuestsContract.Model model;
+    private QuestsContract.Router router;
 
-    public QuestScreenPresenter(QuestScreenState state) {
+    public QuestsPresenter(QuestsState state) {
         this.state = state;
     }
 
@@ -23,11 +23,11 @@ public class QuestScreenPresenter implements QuestScreenContract.Presenter {
 
         // initialize the state if is necessary
         if (state == null) {
-            state = new QuestScreenState();
+            state = new QuestsState();
         }
 
         // use passed state if is necessary
-        QuestScreenState savedState = router.getDataFromPreviousScreen();
+        QuestsState savedState = router.getDataFromPreviousScreen();
         if (savedState != null) {
 
             // update view and model state
@@ -51,17 +51,17 @@ public class QuestScreenPresenter implements QuestScreenContract.Presenter {
     }
 
     @Override
-    public void injectView(WeakReference<QuestScreenContract.View> view) {
+    public void injectView(WeakReference<QuestsContract.View> view) {
         this.view = view;
     }
 
     @Override
-    public void injectModel(QuestScreenContract.Model model) {
+    public void injectModel(QuestsContract.Model model) {
         this.model = model;
     }
 
     @Override
-    public void injectRouter(QuestScreenContract.Router router) {
+    public void injectRouter(QuestsContract.Router router) {
         this.router = router;
     }
 }
