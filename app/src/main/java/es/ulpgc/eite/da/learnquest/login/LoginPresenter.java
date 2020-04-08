@@ -36,6 +36,8 @@ public class LoginPresenter implements LoginContract.Presenter {
         state.username = username;
         state.password = password;
         router.passStateToProfileScreen(state);
+        state.username = "";
+        state.password = "";
         router.navigateToProfileScreen();
     }
 
