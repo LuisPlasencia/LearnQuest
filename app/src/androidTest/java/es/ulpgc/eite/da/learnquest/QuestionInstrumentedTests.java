@@ -2,7 +2,6 @@ package es.ulpgc.eite.da.learnquest;
 
 
 import android.content.Context;
-import android.widget.ImageView;
 
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -15,11 +14,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
-import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -51,10 +51,19 @@ public class QuestionInstrumentedTests {
     String english_level = context.getResources().getString(R.string.english_level);
     String geography_level = context.getResources().getString(R.string.geography_level);
 
-    //Quiz units
+    //Quiz units (falta la nota +A)
 
     String t1_topic = context.getResources().getString(R.string.T1_Topic);
-    String
+    String t1_topic_title = context.getResources().getString(R.string.T1_Topic_title_1);
+    String t1_description = context.getResources().getString(R.string.T1_Topic_description);
+    String t1_topic_solve = context.getResources().getString(R.string.T1_Topic_solve_button);
+    String t1_topic_practise = context.getResources().getString(R.string.T1_Topic_practise_button);
+
+    String t2_topic = context.getResources().getString(R.string.T2_Topic);
+    String t2_topic_title = context.getResources().getString(R.string.T2_Topic_title_1);
+    String t2_description = context.getResources().getString(R.string.T2_Topic_description);
+    String t2_topic_solve = context.getResources().getString(R.string.T2_Topic_solve_button);
+    String t2_topic_practise = context.getResources().getString(R.string.T2_Topic_practise_button);
 
 
 
@@ -62,16 +71,113 @@ public class QuestionInstrumentedTests {
     public void whenMathButtonIsClicked(){
         //Given
         onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
-        onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
-        onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
+        onView(withId(R.id.english_button)).check(matches(withText(english_button)));
+        onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
         onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
-
+        math_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
+        english_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
+        geography_level_icon.check(matches(isDisplayed()));
 
         //When
         onView(withId(R.id.math_button)).perform(click());
 
         //Then
-        onView(
+        onView(withId(R.id.t1_topic)).check(matches(withText(t1_topic)));
+        onView(withId(R.id.t1_topic_title)).check(matches(withText(t1_topic_title)));
+        onView(withId(R.id.t1_description)).check(matches(withText(t1_description)));
+        onView(withId(R.id.t1_topic_solve)).check(matches(withText(t1_topic_solve)));
+        onView(withId(R.id.t1_topic_practise)).check(matches(withText(t1_topic_practise)));
+
+        onView(withId(R.id.t2_topic)).check(matches(withText(t2_topic)));
+        onView(withId(R.id.t2_topic_title)).check(matches(withText(t2_topic_title)));
+        onView(withId(R.id.t2_description)).check(matches(withText(t2_description)));
+        onView(withId(R.id.t2_topic_solve)).check(matches(withText(t2_topic_solve)));
+        onView(withId(R.id.t2_topic_practise)).check(matches(withText(t2_topic_practise)));
+
+    }
+
+    @Test
+    public void whenEnglishButtonIsClicked(){
+        //Given
+        onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
+        onView(withId(R.id.english_button)).check(matches(withText(english_button)));
+        onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
+        onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+        math_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
+        english_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
+        geography_level_icon.check(matches(isDisplayed()));
+
+        //When
+        onView(withId(R.id.english_button)).perform(click());
+
+        //Then
+        onView(withId(R.id.t1_topic)).check(matches(withText(t1_topic)));
+        onView(withId(R.id.t1_topic_title)).check(matches(withText(t1_topic_title)));
+        onView(withId(R.id.t1_description)).check(matches(withText(t1_description)));
+        onView(withId(R.id.t1_topic_solve)).check(matches(withText(t1_topic_solve)));
+        onView(withId(R.id.t1_topic_practise)).check(matches(withText(t1_topic_practise)));
+
+        onView(withId(R.id.t2_topic)).check(matches(withText(t2_topic)));
+        onView(withId(R.id.t2_topic_title)).check(matches(withText(t2_topic_title)));
+        onView(withId(R.id.t2_description)).check(matches(withText(t2_description)));
+        onView(withId(R.id.t2_topic_solve)).check(matches(withText(t2_topic_solve)));
+        onView(withId(R.id.t2_topic_practise)).check(matches(withText(t2_topic_practise)));
+
+    }
+
+    @Test
+    public void whenGeographyButtonIsClicked(){
+        //Given
+        onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
+        onView(withId(R.id.english_button)).check(matches(withText(english_button)));
+        onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
+        onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+        math_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
+        english_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
+        geography_level_icon.check(matches(isDisplayed()));
+
+        //When
+        onView(withId(R.id.english_button)).perform(click());
+
+        //Then
+        onView(withId(R.id.t1_topic)).check(matches(withText(t1_topic)));
+        onView(withId(R.id.t1_topic_title)).check(matches(withText(t1_topic_title)));
+        onView(withId(R.id.t1_description)).check(matches(withText(t1_description)));
+        onView(withId(R.id.t1_topic_solve)).check(matches(withText(t1_topic_solve)));
+        onView(withId(R.id.t1_topic_practise)).check(matches(withText(t1_topic_practise)));
+
+        onView(withId(R.id.t2_topic)).check(matches(withText(t2_topic)));
+        onView(withId(R.id.t2_topic_title)).check(matches(withText(t2_topic_title)));
+        onView(withId(R.id.t2_description)).check(matches(withText(t2_description)));
+        onView(withId(R.id.t2_topic_solve)).check(matches(withText(t2_topic_solve)));
+        onView(withId(R.id.t2_topic_practise)).check(matches(withText(t2_topic_practise)));
+
+    }
+
+    @Test
+    public void whenBackButtonIsClicked(){
+        //Given
+        onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
+        onView(withId(R.id.english_button)).check(matches(withText(english_button)));
+        onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
+        onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+        math_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
+        english_level_icon.check(matches(isDisplayed()));
+        onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
+        geography_level_icon.check(matches(isDisplayed()));
+
+        //When
+        pressBack();
+
+        //Then (falta profile)
+
 
     }
 }

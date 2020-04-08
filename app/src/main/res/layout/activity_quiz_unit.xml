@@ -46,7 +46,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/T1_topic_title"
+                    android:id="@+id/t1_topic_title"
                     android:layout_width="279dp"
                     android:layout_height="32dp"
                     android:layout_marginTop="16dp"
@@ -94,7 +94,7 @@
                     android:layout_marginTop="116dp"
                     android:textColor="@android:color/white"
                     android:background="@android:color/holo_green_dark"
-                    android:text="@string/T1_Triangles_practise_button"
+                    android:text="@string/T1_Topic_practise_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.449"
                     app:layout_constraintStart_toStartOf="parent"
