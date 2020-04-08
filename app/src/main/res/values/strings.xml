@@ -5,20 +5,23 @@
     <string name="English_Button">English</string>
     <string name="Geography_Button">Geography</string>
 
-    <string name="Math_Button_Level">Level 4 (94%)</string>
+    <string name="math_level">Level ? (??%)</string>
+    <string name="english_level">Level ? (??%)</string>
+    <string name="geography_level">Level ? (??%)</string>
 
-    <string name="T1_Triangles">T1. Triangles</string>
-    <string name="T1_Triangles_title_1">Cosen Theorem</string>
-    <string name="T1_Triangles_text">In this quiz, you will have to solve some exercises about triangles</string>
-    <string name="T1_Triangles_solve_button">Solve!</string>
+
+    <string name="T1_Topic">T1. Topic</string>
+    <string name="T1_Topic_title_1">Subtopic</string>
+    <string name="T1_Topic_description">Description of the subtopic</string>
+    <string name="T1_Topic_solve_button">Solve!</string>
     <string name="T1_Triangles_practise_button">Practice!</string>
 
 
-    <string name="T2_Equations">T2. Equations</string>
-    <string name="T2_Equations_title_1">First and second grade</string>
-    <string name="T2_Equations_text">In this quiz, you will have to solve some equations to improve your math skills</string>
-    <string name="T2_Equations_solve_button">Solve!</string>
-    <string name="T2_Equations_practise_button">Practice!</string>
+    <string name="T2_Topic">T2. Topic</string>
+    <string name="T2_Topic_title_1">Subtopic</string>
+    <string name="T2_Topic_text">Description of the subtopic</string>
+    <string name="T2_Topic_solve_button">Solve!</string>
+    <string name="T2_Topic_practise_button">Practice!</string>
 
 
     <string name="app_name">LearnQuest</string>

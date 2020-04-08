@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestScreen">
+    tools:context=".quests.QuestsActivity">
 
 
     <LinearLayout
@@ -33,9 +33,9 @@
                 android:layout_marginStart="210dp"
                 android:layout_marginEnd="6dp"
                 android:layout_marginBottom="17dp"
-                android:elevation="3dp"
+                android:elevation="100dp"
                 android:outlineProvider="none"
-                android:text="@string/Math_Button_Level"
+                android:text="@string/math_level"
                 android:textColor="@android:color/white" />
 
             <ImageView
@@ -48,7 +48,7 @@
                 android:layout_marginStart="226dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="43dp"
-                android:elevation="3dp"
+                android:elevation="100dp"
                 android:outlineProvider="none"
                 android:src="@drawable/child_icon" />
 
@@ -95,9 +95,9 @@
             android:layout_marginStart="210dp"
             android:layout_marginEnd="6dp"
             android:layout_marginBottom="17dp"
-            android:elevation="3dp"
+            android:elevation="100dp"
             android:outlineProvider="none"
-            android:text="@string/Math_Button_Level"
+            android:text="@string/english_level"
             android:textColor="@android:color/white" />
 
         <ImageView
@@ -109,7 +109,7 @@
             android:layout_marginStart="226dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="43dp"
-            android:elevation="3dp"
+            android:elevation="100dp"
             android:outlineProvider="none"
             android:src="@drawable/child_icon" />
 
@@ -144,9 +144,9 @@
                 android:layout_marginStart="210dp"
                 android:layout_marginEnd="6dp"
                 android:layout_marginBottom="17dp"
-                android:elevation="3dp"
+                android:elevation="100dp"
                 android:outlineProvider="none"
-                android:text="@string/Math_Button_Level"
+                android:text="@string/geography_level"
                 android:textColor="@android:color/white" />
 
             <ImageView
@@ -158,7 +158,7 @@
                 android:layout_marginStart="226dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="43dp"
-                android:elevation="3dp"
+                android:elevation="100dp"
                 android:outlineProvider="none"
                 android:src="@drawable/child_icon" />
 

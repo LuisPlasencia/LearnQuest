@@ -13,14 +13,17 @@
         <activity
             android:name=".login.LoginActivity"
             android:theme="@style/Theme.Design.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
-        <activity android:name=".quizUnit.QuizUnitActivity"
-            android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".quizUnit.QuizUnitActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity android:name=".quests.QuestsActivity">
+
         </activity>
 
         <activity

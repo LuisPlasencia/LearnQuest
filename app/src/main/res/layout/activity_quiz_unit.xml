@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizUnit">
+    tools:context=".quizUnit.QuizUnitActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
-            android:text="@string/T1_Triangles"
+            android:text="@string/T1_Topic"
             android:textColor="@android:color/black"
             android:textSize="20dp" />
 
@@ -52,7 +52,7 @@
                     android:layout_marginTop="16dp"
                     android:elevation="3dp"
                     android:outlineProvider="none"
-                    android:text="@string/T1_Triangles_title_1"
+                    android:text="@string/T1_Topic_title_1"
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,7 @@
                     android:layout_marginTop="52dp"
                     android:elevation="3dp"
                     android:outlineProvider="none"
-                    android:text="@string/T1_Triangles_text"
+                    android:text="@string/T1_Topic_description"
                     android:textColor="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.183"
@@ -81,7 +81,7 @@
                     android:layout_marginTop="116dp"
                     android:textColor="@android:color/white"
                     android:background="@android:color/holo_blue_dark"
-                    android:text="@string/T1_Triangles_solve_button"
+                    android:text="@string/T1_Topic_solve_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.057"
                     app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
-            android:text="@string/T2_Equations"
+            android:text="@string/T2_Topic"
             android:textColor="@android:color/black"
             android:textSize="20dp" />
 
@@ -154,7 +154,7 @@
                     android:layout_marginTop="16dp"
                     android:elevation="3dp"
                     android:outlineProvider="none"
-                    android:text="@string/T2_Equations_title_1"
+                    android:text="@string/T2_Topic_title_1"
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -168,7 +168,7 @@
                     android:layout_marginTop="52dp"
                     android:elevation="3dp"
                     android:outlineProvider="none"
-                    android:text="@string/T2_Equations_text"
+                    android:text="@string/T2_Topic_text"
                     android:textColor="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.183"
@@ -182,7 +182,7 @@
                     android:layout_marginTop="116dp"
                     android:textColor="@android:color/white"
                     android:background="@android:color/holo_blue_dark"
-                    android:text="@string/T2_Equations_solve_button"
+                    android:text="@string/T2_Topic_solve_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.057"
                     app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +195,7 @@
                     android:layout_marginTop="116dp"
                     android:textColor="@android:color/white"
                     android:background="@android:color/darker_gray"
-                    android:text="@string/T2_Equations_practise_button"
+                    android:text="@string/T2_Topic_practise_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.449"
                     app:layout_constraintStart_toStartOf="parent"
