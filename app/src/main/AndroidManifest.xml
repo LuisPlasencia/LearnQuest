@@ -42,6 +42,11 @@
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".logros.LogrosActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

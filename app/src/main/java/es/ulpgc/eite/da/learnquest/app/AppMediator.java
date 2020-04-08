@@ -4,6 +4,7 @@ import android.app.Application;
 
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizState;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
+import es.ulpgc.eite.da.learnquest.logros.LogrosState;
 import es.ulpgc.eite.da.learnquest.profile.ProfileState;
 import es.ulpgc.eite.da.learnquest.questScreen.QuestScreenState;
 import es.ulpgc.eite.da.learnquest.question.QuestionState;
@@ -17,6 +18,7 @@ public class AppMediator extends Application {
     private QuizUnitState quizUnitState;
     private ProfileState profileState;
     private FinalQuizState finalQuizState;
+    private LogrosState logrosState;
 
     @Override
     public void onCreate() {
@@ -59,6 +61,10 @@ public class AppMediator extends Application {
         return finalQuizState;
     }
 
+    public LogrosState getLogrosState(){
+        return logrosState;
+    }
+
     public void setQuestionState(QuestionState state) {
         questionState = state;
     }
@@ -69,6 +75,10 @@ public class AppMediator extends Application {
 
     public void setFinalQuizState(FinalQuizState state){
        finalQuizState = state;
+    }
+
+    public void setLogrosState(LogrosState state){
+        logrosState = state;
     }
 
 }
