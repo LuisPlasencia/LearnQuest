@@ -169,7 +169,7 @@
                     android:layout_marginTop="52dp"
                     android:elevation="3dp"
                     android:outlineProvider="none"
-                    android:text="@string/T2_Topic"
+                    android:text="@string/T2_Topic_description"
                     android:textColor="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.183"
