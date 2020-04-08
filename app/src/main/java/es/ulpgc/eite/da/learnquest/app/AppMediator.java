@@ -11,7 +11,6 @@ public class AppMediator extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         questionState = new QuestionState();
     }
 
