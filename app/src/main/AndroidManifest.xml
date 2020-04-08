@@ -16,14 +16,13 @@
             android:theme="@style/Theme.Design.NoActionBar"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
-
-
-        </activity>
-        <activity android:name=".quests.QuestsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".quests.QuestsActivity">
         </activity>
 
         <activity android:name=".quizUnit.QuizUnitActivity"
@@ -37,6 +36,10 @@
 
         <activity
             android:name=".profile.ProfileActivity">
+        </activity>
+
+        <activity
+            android:name=".hint.HintActivity">
         </activity>
 
         <activity

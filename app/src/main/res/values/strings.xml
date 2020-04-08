@@ -48,9 +48,10 @@
     <string name="yes_cheat_button_text">Yes</string>
     <string name="no_cheat_button_text">No</string>
     <string name="confirmation_cheat">Are your sure?</string>ç
-    <string name="confirmation_info_cheat">If you cheat, you won\'t get any xp out of this question</string>
+    <string name="confirmation_info_cheat">If you see the hint, you will get half of the xp</string>
     <string name="return_to_question_button_text">Return to question!</string>
     <string name="empty_string">"????"</string>
+
     <string name="gold_medal_description">Medalla de final de quiz (posibilidad de que sea sliver o bronce)</string>
     <string name="earned_display">You earned 400 xp!</string>
     <string name="xp_left_to_next_level">You need 1300xp to reach level 3!</string>
