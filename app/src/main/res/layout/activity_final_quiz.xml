@@ -19,7 +19,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:elevation="@dimen/material_emphasis_medium"
             android:theme="@style/AppTheme"
             app:navigationIcon="@drawable/abc_vector_test" />
 

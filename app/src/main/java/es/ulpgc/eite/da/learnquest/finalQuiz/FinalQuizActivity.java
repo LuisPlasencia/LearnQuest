@@ -19,7 +19,7 @@ public class FinalQuizActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
-        getSupportActionBar().setTitle(R.string.app_name);
+   //     getSupportActionBar().setTitle(R.string.app_name);
 
         // do the setup
         FinalQuizScreen.configure(this);
