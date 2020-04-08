@@ -94,7 +94,9 @@
             android:hint="@string/login_username"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#353333"
+            android:textColorHint="#88454242" />
 
         <Space
             android:layout_width="match_parent"
@@ -110,7 +112,9 @@
             android:hint="@string/login_password"
             android:importantForAutofill="no"
             android:inputType="textWebPassword"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#353333"
+            android:textColorHint="#87454242" />
 
         <Space
             android:layout_width="match_parent"
