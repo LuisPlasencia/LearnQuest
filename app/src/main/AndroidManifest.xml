@@ -11,9 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".question.QuestionActivity"
+            android:name=".login.LoginActivity"
             android:theme="@style/Theme.Design.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,6 +24,11 @@
         </activity>
 
         <activity android:name=".quizUnit.QuizUnitActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".question.QuestionActivity"
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 
