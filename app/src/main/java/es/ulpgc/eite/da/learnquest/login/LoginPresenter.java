@@ -1,8 +1,11 @@
 package es.ulpgc.eite.da.learnquest.login;
 
 import android.util.Log;
+import android.widget.EditText;
 
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.eite.da.learnquest.R;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
@@ -28,22 +31,10 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void onRestart() {
-        // Log.e(TAG, "onRestart()");
-    }
-
-    @Override
-    public void onResume() {
-        // Log.e(TAG, "onResume()");
-
-        // update the view
-        view.get().onDataUpdated(state);
-    }
-
-
-    @Override
-    public void onLetsGoClicked() {
-        //TODO pasarle el estado de la informacion de perfil y contraseña a Profile y lo que conlleva
+    public void onLetsGoClicked(String username, String password) {
+        //TODO implementar sistema con distintos usuarios en función de estos parámetros
+        state.username = username;
+        state.password = password;
         router.passStateToProfileScreen(state);
         router.navigateToProfileScreen();
     }

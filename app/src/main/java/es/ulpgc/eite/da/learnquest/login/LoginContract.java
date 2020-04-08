@@ -6,8 +6,6 @@ public interface LoginContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
-
-        void onDataUpdated(LoginViewModel viewModel);
     }
 
     interface Presenter {
@@ -17,13 +15,9 @@ public interface LoginContract {
 
         void injectRouter(Router router);
 
-        void onResume();
-
         void onStart();
 
-        void onRestart();
-
-        void onLetsGoClicked();
+        void onLetsGoClicked(String username, String password);
     }
 
     interface Model {

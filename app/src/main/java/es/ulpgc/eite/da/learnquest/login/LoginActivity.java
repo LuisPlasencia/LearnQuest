@@ -26,30 +26,9 @@ public class LoginActivity
         if (savedInstanceState == null) {
             presenter.onStart();
 
-        } else {
-            presenter.onRestart();
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // load the data
-        presenter.onResume();
-    }
-
-    @Override
-    public void onDataUpdated(LoginViewModel viewModel) {
-        //Log.e(TAG, "onDataUpdated()");
-
-        // deal with the data
-        EditText username = (EditText)findViewById(R.id.username_input);
-        username.setText(viewModel.username);
-        EditText password = (EditText)findViewById(R.id.password_input);
-        password.setText(viewModel.password);
-
-    }
 
     @Override
     public void injectPresenter(LoginContract.Presenter presenter) {
@@ -57,6 +36,8 @@ public class LoginActivity
     }
 
     public void onLetsGoClicked(View view) {
-        presenter.onLetsGoClicked();
+        EditText username = (EditText)findViewById(R.id.username_input);
+        EditText password = (EditText)findViewById(R.id.password_input);
+        presenter.onLetsGoClicked(String.valueOf(username), String.valueOf(password));
     }
 }
