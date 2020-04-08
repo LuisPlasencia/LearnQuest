@@ -1,4 +1,4 @@
-package es.ulpgc.eite.da.learnquest.perfil;
+package es.ulpgc.eite.da.learnquest.profile;
 
 import java.lang.ref.WeakReference;
 
@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentActivity;
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 
-public class PerfilScreen {
+public class ProfileScreen {
 
-    public static void configure(PerfilContract.View view) {
+    public static void configure(ProfileContract.View view) {
 
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
@@ -17,11 +17,11 @@ public class PerfilScreen {
         String data = context.get().getString(R.string.app_name);
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
-        PerfilState state = mediator.getPerfilState();
+        ProfileState state = mediator.getProfileState();
 
-        PerfilContract.Router router = new PerfilRouter(mediator);
-        PerfilContract.Presenter presenter = new PerfilPresenter(state);
-        PerfilContract.Model model = new PerfilModel(data);
+        ProfileContract.Router router = new ProfileRouter(mediator);
+        ProfileContract.Presenter presenter = new ProfilePresenter(state);
+        ProfileContract.Model model = new ProfileModel(data);
         presenter.injectModel(model);
         presenter.injectRouter(router);
         presenter.injectView(new WeakReference<>(view));

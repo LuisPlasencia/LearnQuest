@@ -3,7 +3,7 @@ package es.ulpgc.eite.da.learnquest.app;
 import android.app.Application;
 
 import es.ulpgc.eite.da.learnquest.login.LoginState;
-import es.ulpgc.eite.da.learnquest.perfil.PerfilState;
+import es.ulpgc.eite.da.learnquest.profile.ProfileState;
 import es.ulpgc.eite.da.learnquest.questScreen.QuestScreenState;
 import es.ulpgc.eite.da.learnquest.question.QuestionState;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitState;
@@ -14,19 +14,19 @@ public class AppMediator extends Application {
     private LoginState loginState;
     private QuestScreenState questScreenState;
     private QuizUnitState quizUnitState;
-    private PerfilState perfilState;
-    
+    private ProfileState profileState;
+
     @Override
     public void onCreate() {
         super.onCreate();
         questionState = new QuestionState();
     }
-    public PerfilState getPerfilState() {
-        return perfilState;
+    public ProfileState getProfileState() {
+        return profileState;
     }
 
-    public void setPerfilState(PerfilState perfilState) {
-        this.perfilState = perfilState;
+    public void setProfileState(ProfileState profileState) {
+        this.profileState = profileState;
     }
 
     public QuestScreenState getQuestScreenState() {
