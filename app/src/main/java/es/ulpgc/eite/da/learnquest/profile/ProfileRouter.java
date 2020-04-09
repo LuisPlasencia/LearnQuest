@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.quests.QuestsActivity;
 
 public class ProfileRouter implements ProfileContract.Router {
 
@@ -18,7 +19,7 @@ public class ProfileRouter implements ProfileContract.Router {
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, ProfileActivity.class);
+        Intent intent = new Intent(context, QuestsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

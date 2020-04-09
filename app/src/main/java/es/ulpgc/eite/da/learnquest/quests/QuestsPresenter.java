@@ -1,6 +1,7 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
 import android.util.Log;
+import android.view.View;
 
 import java.lang.ref.WeakReference;
 
@@ -47,6 +48,13 @@ public class QuestsPresenter implements QuestsContract.Presenter {
 
         // update the view
         view.get().displayData(state);
+
+    }
+
+    @Override
+    public void onMathButtonClicked() {
+        router.passDataToNextScreen(state);
+        router.navigateToNextScreen();
 
     }
 

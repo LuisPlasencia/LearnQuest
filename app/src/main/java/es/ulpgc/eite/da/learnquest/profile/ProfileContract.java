@@ -28,6 +28,8 @@ public interface ProfileContract {
         void onPause();
 
         void onDestroy();
+
+        void onGoQuestButtonClicked();
     }
 
     interface Model {

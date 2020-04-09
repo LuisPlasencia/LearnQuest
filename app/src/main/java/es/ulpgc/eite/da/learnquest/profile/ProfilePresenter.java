@@ -77,6 +77,13 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
+    public void onGoQuestButtonClicked(){
+        router.passStateToNextScreen(state);
+        router.navigateToNextScreen();
+
+    }
+
+    @Override
     public void injectView(WeakReference<ProfileContract.View> view) {
         this.view = view;
     }

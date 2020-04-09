@@ -22,6 +22,14 @@ public interface QuizUnitContract {
 
     interface Model {
         String fetchData();
+
+        String setT1Topic();
+        String setT1Subtopic();
+        String setT1Description();
+
+        String setT2Topic();
+        String setT2Subtopic();
+        String setT2Description();
     }
 
     interface Router {

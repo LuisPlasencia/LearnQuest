@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestsRouter implements QuestsContract.Router {
 
@@ -19,7 +20,7 @@ public class QuestsRouter implements QuestsContract.Router {
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, QuestsActivity.class);
+        Intent intent = new Intent(context, QuizUnitActivity.class);
         context.startActivity(intent);
     }
 

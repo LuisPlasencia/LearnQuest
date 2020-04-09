@@ -26,11 +26,8 @@
 
         </activity>
 
-        <activity android:name=".quests.QuestsActivity">
-        </activity>
+        <activity android:name=".quizUnit.QuizUnitActivity">
 
-        <activity android:name=".quizUnit.QuizUnitActivity"
-            android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 
         <activity

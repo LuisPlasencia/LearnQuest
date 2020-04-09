@@ -18,6 +18,8 @@ public interface QuestsContract {
         void injectRouter(Router router);
 
         void fetchData();
+
+        void onMathButtonClicked();
     }
 
     interface Model {

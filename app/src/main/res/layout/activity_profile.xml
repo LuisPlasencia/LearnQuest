@@ -145,9 +145,10 @@
                 android:id="@+id/go_button"
                 android:layout_width="250dp"
                 android:layout_height="61dp"
-                android:textColor="@android:color/white"
                 android:background="@drawable/button_background_profile_blue"
-                android:text="@string/go_quest_button" />
+                android:onClick="onGoQuestButtonClicked"
+                android:text="@string/go_quest_button"
+                android:textColor="@android:color/white" />
 
             <Space
                 android:layout_width="36dp"

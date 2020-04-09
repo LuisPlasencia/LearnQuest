@@ -15,4 +15,34 @@ public class QuizUnitModel implements QuizUnitContract.Model {
         // Log.e(TAG, "fetchData()");
         return "Hello";
     }
+
+    @Override
+    public String setT1Topic() {
+        return null;
+    }
+
+    @Override
+    public String setT1Subtopic() {
+        return null;
+    }
+
+    @Override
+    public String setT1Description() {
+        return null;
+    }
+
+    @Override
+    public String setT2Topic() {
+        return null;
+    }
+
+    @Override
+    public String setT2Subtopic() {
+        return null;
+    }
+
+    @Override
+    public String setT2Description() {
+        return null;
+    }
 }

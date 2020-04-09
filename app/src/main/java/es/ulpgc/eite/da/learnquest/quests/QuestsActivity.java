@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -38,6 +39,10 @@ public class QuestsActivity
 
         // deal with the data
         //((TextView) findViewById(R.id.data)).setText(viewModel.data);
+    }
+
+    public void onMathButtonClicked(View view){
+        presenter.onMathButtonClicked();
     }
 
     @Override

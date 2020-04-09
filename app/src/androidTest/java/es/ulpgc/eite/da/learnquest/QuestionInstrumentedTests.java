@@ -65,6 +65,14 @@ public class QuestionInstrumentedTests {
     String t2_topic_solve = context.getResources().getString(R.string.T2_Topic_solve_button);
     String t2_topic_practise = context.getResources().getString(R.string.T2_Topic_practise_button);
 
+    //Profile
+    String username = context.getResources().getString(R.string.login_username);
+    String level = context.getResources().getString(R.string.level_display);
+    String exp_to = context.getResources().getString(R.string.exp_to_display);
+
+    String title = context.getResources().getString(R.string.login_title);
+    String title2 = context.getResources().getString(R.string.login_title2);
+    String password = context.getResources().getString(R.string.login_password);
 
 
     @Test
@@ -176,7 +184,13 @@ public class QuestionInstrumentedTests {
         //When
         pressBack();
 
-        //Then (falta profile)
+        //Then
+        onView(withId(R.id.username_input)).check(matches(withText(username)));
+        onView(withId(R.id.level_display)).check(matches(withText(level)));
+        onView(withId(R.id.exp_to_display)).check(matches(withText(exp_to)));
+        onView(withId(R.id.login_title)).check(matches(withText(title)));
+        onView(withId(R.id.login_title2)).check(matches(withText(title2)));
+
 
 
     }
