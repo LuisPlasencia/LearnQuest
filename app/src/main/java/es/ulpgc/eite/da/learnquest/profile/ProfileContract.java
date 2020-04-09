@@ -2,12 +2,17 @@ package es.ulpgc.eite.da.learnquest.profile;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.User;
+import es.ulpgc.eite.da.learnquest.login.LoginState;
+
 public interface ProfileContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(ProfileViewModel viewModel);
+        void finishView();
+
+        void displayProfileData(ProfileViewModel viewModel);
     }
 
     interface Presenter {
@@ -21,25 +26,28 @@ public interface ProfileContract {
 
         void onStart();
 
-        void onRestart();
-
         void onBackPressed();
 
-        void onPause();
-
-        void onDestroy();
-
         void onGoQuestButtonClicked();
+
+        void onLogOutButtonClicked();
+
+        void onAchievementsButtonClicked();
+
+        Integer getPhoto();
     }
 
     interface Model {
-        String getStoredData();
 
-        void onDataFromNextScreen(String data);
+        User getUser(String username, String password);
 
-        void onRestartScreen(String data);
+        Integer getLevel(User user);
 
-        void onDataFromPreviousScreen(String data);
+        Integer getSublevel(User user);
+
+        Integer getPhoto(User user);
+
+
     }
 
     interface Router {
@@ -47,10 +55,12 @@ public interface ProfileContract {
 
         void passStateToNextScreen(ProfileState state);
 
-        ProfileState getStateFromPreviousScreen();
+        LoginState getLoginState();
 
- //       PerfilState getStateFromNextScreen();
+        void navigateToQuestsScreen();
 
-   //     void passStateToPreviousScreen(PerfilState state);
+        void navigateAchievementsScreen();
+
+
     }
 }

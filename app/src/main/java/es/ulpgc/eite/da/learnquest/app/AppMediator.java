@@ -32,6 +32,9 @@ public class AppMediator extends Application {
         hintState = new HintState();
     }
     public ProfileState getProfileState() {
+        if(profileState == null){
+            profileState = new ProfileState();
+        }
         return profileState;
     }
 

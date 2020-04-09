@@ -1,33 +1,48 @@
 package es.ulpgc.eite.da.learnquest.profile;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
+
 public class ProfileModel implements ProfileContract.Model {
 
     public static String TAG = ProfileModel.class.getSimpleName();
 
-    private String data;
+    private RepositoryContract repository;
 
-    public ProfileModel(String data) {
-        this.data = data;
+    public ProfileModel(RepositoryContract repository) {
+        this.repository = repository;
     }
 
     @Override
-    public String getStoredData() {
-        // Log.e(TAG, "getStoredData()");
-        return data;
+    public User getUser(String username, String password){
+        return repository.getUser(username, password);
     }
 
     @Override
-    public void onRestartScreen(String data) {
-        // Log.e(TAG, "onRestartScreen()");
+    public Integer getLevel(User user) {
+        if(user!= null){
+            return user.getLevel();
+        }
+        return 0;
+
     }
 
     @Override
-    public void onDataFromNextScreen(String data) {
-        // Log.e(TAG, "onDataFromNextScreen()");
+    public Integer getSublevel(User user){
+        if(user!= null){
+            return user.getSublevel();
+        }
+        return 0;
+
     }
 
     @Override
-    public void onDataFromPreviousScreen(String data) {
-        // Log.e(TAG, "onDataFromPreviousScreen()");
+    public Integer getPhoto(User user){
+        if(user!=null){
+            return user.getPhoto();
+        }
+        return 0;
     }
+
+
 }

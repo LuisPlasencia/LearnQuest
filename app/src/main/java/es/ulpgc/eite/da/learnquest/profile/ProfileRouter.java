@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.login.LoginActivity;
+import es.ulpgc.eite.da.learnquest.login.LoginState;
+import es.ulpgc.eite.da.learnquest.logros.LogrosActivity;
 import es.ulpgc.eite.da.learnquest.quests.QuestsActivity;
 
 public class ProfileRouter implements ProfileContract.Router {
@@ -29,18 +32,25 @@ public class ProfileRouter implements ProfileContract.Router {
         mediator.setProfileState(state);
     }
 
-//    @Override
-//    public void passStateToPreviousScreen(PerfilState state) {
-//        mediator.setPreviousPerfilScreenState(state);
-//    }
-
     @Override
-    public ProfileState getStateFromPreviousScreen() {
-        return mediator.getProfileState();
+    public LoginState getLoginState() {
+        return mediator.getLoginState();
     }
 
-//    @Override
-//    public PerfilState getStateFromNextScreen() {
-//        return mediator.getNextPerfilScreenState();
-//    }
+    @Override
+    public void navigateToQuestsScreen() {
+        Context context = mediator.getApplicationContext();
+        Intent intent = new Intent(context, QuestsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+    @Override
+    public void navigateAchievementsScreen() {
+        Context context = mediator.getApplicationContext();
+        Intent intent = new Intent(context, LogrosActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
 }

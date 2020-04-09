@@ -4,4 +4,6 @@ import java.util.ArrayList;
 
 public interface RepositoryContract {
     Question getQuestion(int index);
+
+    User getUser(String username, String password);
 }
