@@ -29,15 +29,31 @@ public class LoginActivity
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // load the data
+        presenter.onResume();
+    }
+
 
     @Override
     public void injectPresenter(LoginContract.Presenter presenter) {
         this.presenter = presenter;
     }
 
+    @Override
+    public void displayCurrentData(LoginState state) {
+        EditText username = (EditText)findViewById(R.id.username_input);
+        EditText password = (EditText)findViewById(R.id.password_input);
+        username.setText(state.username);
+        password.setText(state.password);
+    }
+
     public void onLetsGoClicked(View view) {
         EditText username = (EditText)findViewById(R.id.username_input);
         EditText password = (EditText)findViewById(R.id.password_input);
-        presenter.onLetsGoClicked(String.valueOf(username), String.valueOf(password));
+        presenter.onLetsGoClicked(String.valueOf(username.getText()), String.valueOf(password.getText()));
     }
 }

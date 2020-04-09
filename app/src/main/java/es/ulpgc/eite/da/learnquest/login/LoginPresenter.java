@@ -32,14 +32,20 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onLetsGoClicked(String username, String password) {
-        //TODO implementar sistema con distintos usuarios en función de estos parámetros
         state.username = username;
         state.password = password;
+        Log.d("LoginPresenter", state.password);
         router.passStateToProfileScreen(state);
-        state.username = "";
-        state.password = "";
         router.navigateToProfileScreen();
     }
+
+    @Override
+    public void onResume() {
+        state.username = "";
+        state.password = "";
+        view.get().displayCurrentData(state);
+    }
+
 
     @Override
     public void injectView(WeakReference<LoginContract.View> view) {

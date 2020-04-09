@@ -6,6 +6,8 @@ public interface LoginContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
+
+        void displayCurrentData(LoginState state);
     }
 
     interface Presenter {
@@ -18,6 +20,8 @@ public interface LoginContract {
         void onStart();
 
         void onLetsGoClicked(String username, String password);
+
+        void onResume();
     }
 
     interface Model {
