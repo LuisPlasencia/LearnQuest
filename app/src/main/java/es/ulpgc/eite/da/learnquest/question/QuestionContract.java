@@ -8,6 +8,10 @@ public interface QuestionContract {
         void injectPresenter(Presenter presenter);
 
         void displayData(QuestionViewModel viewModel);
+
+        void resetReply();
+
+        void updateReply(boolean isCorrect);
     }
 
     interface Presenter {
@@ -18,10 +22,38 @@ public interface QuestionContract {
         void injectRouter(Router router);
 
         void fetchData();
+
+        void onStart();
+
+        void onRestart();
+
+        void onResume();
+
+        void onOptionButtonClicked(int option);
+
+        void onHintButtonClicked();
+
+        void onNextButtonClicked();
     }
 
     interface Model {
-        String fetchData();
+        String getCurrentQuestionNumber();
+
+        String getCurrentQuestion();
+
+        String getOption1();
+
+        String getOption2();
+
+        String getOption3();
+
+        void updateNextQuestion();
+
+        int getQuizIndex();
+
+        void setQuizIndex(int index);
+
+        boolean isCorrectOption(int option);
     }
 
     interface Router {

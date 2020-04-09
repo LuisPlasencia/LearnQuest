@@ -65,6 +65,8 @@
             android:layout_height="wrap_content"
             android:textColor="#FFFF"
             android:text="@string/option1_text"
+            android:tag="1"
+            android:onClick="onOptionButtonClicked"
             android:background="@drawable/rounded_button"
             tools:text="first option" />
 
@@ -77,6 +79,8 @@
             android:layout_height="wrap_content"
             android:textColor="#FFFF"
             android:text="@string/option2_text"
+            android:tag="2"
+            android:onClick="onOptionButtonClicked"
             android:background="@drawable/rounded_button"
             tools:text="second option" />
 
@@ -87,7 +91,9 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
+            android:onClick="onOptionButtonClicked"
             android:text="@string/option3_text"
+            android:tag="3"
             android:textColor="#FFFF"
             android:background="@drawable/rounded_button"
             tools:text="third option" />
@@ -118,8 +124,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="@string/cheat_button_text"
+                android:text="@string/hint_button_text"
                 android:textColor="#FFFF"
+                android:onClick="onHintButtonClicked"
                 android:background="@drawable/rounded_button"
                 tools:text="Cheat" />
 
@@ -134,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="@string/next_button_text"
+                android:onClick="onNextButtonClicked"
                 android:textColor="#FFFF"
                 android:background="@drawable/rounded_button"
                 tools:text="Next" />

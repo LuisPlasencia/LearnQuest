@@ -17,6 +17,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         this.state = state;
     }
 
+
     @Override
     public void fetchData() {
         // Log.e(TAG, "fetchData()");
@@ -26,28 +27,80 @@ public class QuestionPresenter implements QuestionContract.Presenter {
             state = new QuestionState();
         }
 
-        // use passed state if is necessary
-        QuestionState savedState = router.getDataFromPreviousScreen();
-        if (savedState != null) {
-
-            // update view and model state
-            state.data = savedState.data;
-
-            // update the view
-            view.get().displayData(state);
-
-            return;
-        }
-
         // call the model
-        String data = model.fetchData();
+        //String data = model.fetchData();
 
         // set view state
-        state.data = data;
+        //state.data = data;
 
         // update the view
         view.get().displayData(state);
+    }
 
+    @Override
+    public void onStart() {
+        state.questionNumber = model.getCurrentQuestionNumber();
+        state.questionText = model.getCurrentQuestion();
+        state.option1 = model.getOption1();
+        state.option2 = model.getOption2();
+        state.option3 = model.getOption3();
+
+        view.get().resetReply();
+
+        state.optionClicked = false;
+        state.optionEnabled = true;
+        state.nextEnabled = false;
+
+        view.get().displayData(state);
+    }
+
+    @Override
+    public void onRestart() {
+        model.setQuizIndex(state.quizIndex);
+        Log.e(TAG, "index: "+ state.quizIndex);
+
+        // update the view
+        if(state.optionClicked){
+            view.get().updateReply(model.isCorrectOption(state.option));
+            //onOptionButtonClicked(state.option);
+        } else {
+            view.get().resetReply();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        view.get().displayData(state);
+    }
+
+    @Override
+    public void onOptionButtonClicked(int option) {
+        Log.e(TAG, "onOptionButtonClicked()");
+
+        state.optionClicked=true;
+        state.option=option;
+
+        enableNextButton();
+
+        boolean isCorrect = model.isCorrectOption(option);
+
+        view.get().updateReply(isCorrect);
+    }
+
+    @Override
+    public void onHintButtonClicked() {
+
+    }
+
+    @Override
+    public void onNextButtonClicked() {
+        model.updateNextQuestion();
+        state.quizIndex = model.getQuizIndex();
+        onStart();
+    }
+
+    private void enableNextButton() {
+        state.nextEnabled = true;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package es.ulpgc.eite.da.learnquest;
+package es.ulpgc.eite.da.learnquest.question;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -52,7 +53,7 @@ public class QuizInstrumentedTests {
     String empty_answer = context.getString(R.string.empty_string);
     String warningInfo = context.getString(R.string.confirmation_info_cheat);
     String next_button_text = context.getString(R.string.next_button_text);
-    String cheat_button_text = context.getString(R.string.cheat_button_text);
+    String cheat_button_text = context.getString(R.string.hint_button_text);
 
     String confirmation_text = context.getString(R.string.confirmation_cheat);
     String confirmation_info_text = context.getString(R.string.confirmation_info_cheat);

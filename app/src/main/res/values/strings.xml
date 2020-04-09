@@ -66,7 +66,7 @@
     <string name="option3_text">Option 3</string>
     <string name="correct_text">Correct</string>
     <string name="incorrect_text">Incorrect</string>
-    <string name="cheat_button_text">Cheat</string>
+    <string name="hint_button_text">Hint</string>
     <string name="next_button_text">Next</string>
 
 </resources>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -22,6 +24,13 @@ public class QuestionActivity
 
         // do the setup
         QuestionScreen.configure(this);
+
+        if(savedInstanceState == null) {
+            presenter.onStart();
+
+        } else {
+            presenter.onRestart();
+        }
     }
 
     @Override
@@ -29,15 +38,47 @@ public class QuestionActivity
         super.onResume();
 
         // load the data
-        presenter.fetchData();
+        presenter.onResume();
+    }
+
+    @Override
+    public void resetReply() {
+        ((TextView) findViewById(R.id.answer_text)).setText(R.string.empty_string);
     }
 
     @Override
     public void displayData(QuestionViewModel viewModel) {
-        //Log.e(TAG, "displayData()");
+        Log.e(TAG, "displayData()");
 
         // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
+        ((TextView) findViewById(R.id.question_number)).setText(viewModel.questionNumber);
+        ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
+        ((Button) findViewById(R.id.option1_button)).setText(viewModel.option1);
+        ((Button) findViewById(R.id.option2_button)).setText(viewModel.option2);
+        ((Button) findViewById(R.id.option3_button)).setText(viewModel.option3);
+        ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
+    }
+
+    public void onNextButtonClicked(View view) {
+        presenter.onNextButtonClicked();
+    }
+
+    public void onHintButtonClicked(View view) { presenter.onHintButtonClicked(); }
+
+    public void onOptionButtonClicked(View view) {
+        int option = Integer.valueOf((String) view.getTag());
+        presenter.onOptionButtonClicked(option);
+    }
+
+    @Override
+    public void updateReply(boolean isCorrect) {
+        if(isCorrect){
+            ((TextView) findViewById(R.id.answer_text))
+                    .setText(R.string.correct_text);
+        } else {
+            ((TextView) findViewById(R.id.answer_text))
+                    .setText(R.string.incorrect_text);
+        }
     }
 
     @Override
