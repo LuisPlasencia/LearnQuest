@@ -7,19 +7,21 @@
         <item>Option 1</item>
         <item>Option 2</item>
         <item>Option 3</item>
-
+        <item>Hint: It might be option 2</item>
 
         <item>Question 2</item>
         <item>What\'s the correct answer? = Option 2</item>
         <item>Option 1</item>
         <item>Option 2</item>
         <item>Option 3</item>
+        <item>Hint: It might be option 2</item>
 
         <item>Question 3</item>
         <item>What\'s the correct answer? = Option 2</item>
         <item>Option 1</item>
         <item>Option 2</item>
         <item>Option 3</item>
+        <item>Hint: It might be option 2</item>
 
     </string-array>
 </resources>

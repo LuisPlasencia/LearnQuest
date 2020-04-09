@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/categories_toolbar"
+            android:id="@+id/question_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/Theme.AppCompat.Light" />
@@ -40,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:gravity="center"
-            android:textSize="24sp"
             android:textColor="@color/colorGray"
+            android:textSize="24sp"
             android:text="@string/question_number_text"
             tools:text="Question X"/>
 
@@ -49,11 +49,12 @@
             android:id="@+id/question_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:gravity="center"
-            android:textSize="16sp"
-            android:layout_marginBottom="20dp"
+            android:textSize="24sp"
             android:text="@string/question_text"
-            tools:text="Question text"/>
+            android:textColor="@color/colorBlack"
+            tools:text="Question X"/>
 
         <Button
             android:id="@+id/option1_button"
@@ -62,8 +63,8 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:text="@string/option1_text"
             android:textColor="#FFFF"
+            android:text="@string/option1_text"
             android:background="@drawable/rounded_button"
             tools:text="first option" />
 
@@ -74,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:text="@string/option2_text"
             android:textColor="#FFFF"
+            android:text="@string/option2_text"
             android:background="@drawable/rounded_button"
             tools:text="second option" />
 
@@ -98,6 +99,7 @@
             android:layout_margin="16dp"
             android:gravity="center"
             android:textSize="16sp"
+            android:textColor="@color/colorBlack"
             android:layout_marginBottom="20dp"
             android:text="@string/empty_string"/>
 

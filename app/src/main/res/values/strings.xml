@@ -58,6 +58,7 @@
     <string name="return_home_button">Return to home</string>
     <string name="level_display_final_quiz">Level 14</string>
 
+    <string name="quiz_screen_title">Quiz</string>
     <string name="question_number_text">Question 1</string>
     <string name="question_text">Question text</string>
     <string name="option1_text">Option 1</string>
