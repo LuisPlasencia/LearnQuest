@@ -126,7 +126,6 @@
                 android:layout_weight="0"
                 android:text="@string/hint_button_text"
                 android:textColor="#FFFF"
-                android:onClick="onHintButtonClicked"
                 android:background="@drawable/rounded_button"
                 tools:text="Cheat" />
 

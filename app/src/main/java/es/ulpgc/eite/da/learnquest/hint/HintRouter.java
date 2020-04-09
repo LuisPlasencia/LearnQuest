@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
+import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
 
 public class HintRouter implements HintContract.Router {
 
@@ -17,20 +19,13 @@ public class HintRouter implements HintContract.Router {
     }
 
     @Override
-    public void navigateToNextScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, HintActivity.class);
-        context.startActivity(intent);
+    public void passDataToQuestiontScreen(HintToQuestionState state) {
+        mediator.setHintToQuestionState(state);
     }
 
     @Override
-    public void passDataToNextScreen(HintState state) {
-        mediator.setHintState(state);
-    }
-
-    @Override
-    public HintState getDataFromPreviousScreen() {
-        HintState state = mediator.getHintState();
+    public QuestionToHintState getDataFromQuestionScreen() {
+        QuestionToHintState state = mediator.getQuestionToHintState();
         return state;
     }
 }

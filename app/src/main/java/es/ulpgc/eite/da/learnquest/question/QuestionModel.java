@@ -20,6 +20,11 @@ public class QuestionModel implements QuestionContract.Model {
     }
 
     @Override
+    public boolean isQuizFinished() {
+        return (quizIndex == 3);
+    }
+
+    @Override
     public int getQuizIndex() {
         return quizIndex;
     }

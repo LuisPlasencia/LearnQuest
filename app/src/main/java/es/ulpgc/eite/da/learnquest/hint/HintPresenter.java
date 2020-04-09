@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
+import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+
 public class HintPresenter implements HintContract.Presenter {
 
     public static String TAG = HintPresenter.class.getSimpleName();
@@ -18,8 +21,8 @@ public class HintPresenter implements HintContract.Presenter {
     }
 
     @Override
-    public void fetchData() {
-        // Log.e(TAG, "fetchData()");
+    public void onResume() {
+        Log.e(TAG, "fetchData()");
 
         // initialize the state if is necessary
         if (state == null) {
@@ -27,27 +30,54 @@ public class HintPresenter implements HintContract.Presenter {
         }
 
         // use passed state if is necessary
-        HintState savedState = router.getDataFromPreviousScreen();
+        QuestionToHintState savedState = router.getDataFromQuestionScreen();
         if (savedState != null) {
+            model.setQuizIndex(savedState.quizIndex);
 
-            // update view and model state
-            state.data = savedState.data;
-
-            // update the view
-            view.get().displayData(state);
-
-            return;
+            if(state.hintDisplayed) {
+                state.answer = model.fetchQuestionHint();
+            }
         }
 
-        // call the model
-        String data = model.fetchData();
-
-        // set view state
-        state.data = data;
-
-        // update the view
         view.get().displayData(state);
+        if(state.answer == null) {
+            view.get().resetAnswer();
+        }
+    }
 
+
+    @Override
+    public void onStart() {
+        state.yesNoButtonEnabled = true;
+        state.hintDisplayed = false;
+        state.answer = null;
+
+        view.get().resetAnswer();
+    }
+
+    @Override
+    public void onYesButtonClicked() {
+        state.answer = model.fetchQuestionHint();
+        state.yesNoButtonEnabled = false;
+        view.get().displayData(state);
+    }
+
+    @Override
+    public void onNoButtonClicked() {
+        onBackPressed();
+    }
+
+    @Override
+    public void onReturnToQuestionButton() {
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        HintToQuestionState stateToQuestion = new HintToQuestionState();
+        stateToQuestion.hintDisplayed = state.hintDisplayed;
+        router.passDataToQuestiontScreen(stateToQuestion);
+        view.get().onFinish();
     }
 
     @Override

@@ -2,6 +2,9 @@ package es.ulpgc.eite.da.learnquest.question;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
+import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+
 public interface QuestionContract {
 
     interface View {
@@ -54,13 +57,17 @@ public interface QuestionContract {
         void setQuizIndex(int index);
 
         boolean isCorrectOption(int option);
+
+        boolean isQuizFinished();
     }
 
     interface Router {
-        void navigateToNextScreen();
+        void navigateToHintScreen();
 
-        void passDataToNextScreen(QuestionState state);
+        void navigateToFinalQuizScreen();
 
-        QuestionState getDataFromPreviousScreen();
+        void passDataToHintScreen(QuestionToHintState state);
+
+        HintToQuestionState getDataFromHintScreen();
     }
 }

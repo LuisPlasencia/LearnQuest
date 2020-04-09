@@ -22,8 +22,7 @@
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="@string/confirmation_cheat"
-            android:textSize="16sp"
-            tools:text="@string/confirmation_cheat" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/confirmation_info_text"
@@ -42,6 +41,7 @@
             <Button
                 android:id="@+id/yesButton"
                 android:layout_width="match_parent"
+                android:onClick="onYesButtonClicked"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
                 android:text="@string/yes_cheat_button_text"
@@ -54,6 +54,7 @@
             <Button
                 android:id="@+id/noButton"
                 android:layout_width="match_parent"
+                android:onClick="onNoButtonClicked"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
                 android:text="@string/no_cheat_button_text"
@@ -80,6 +81,7 @@
 
         <Button
             android:id="@+id/returnButton"
+            android:onClick="onReturnToQuestionButtonClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"

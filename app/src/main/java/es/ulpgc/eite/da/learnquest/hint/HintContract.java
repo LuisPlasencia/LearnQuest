@@ -2,12 +2,19 @@ package es.ulpgc.eite.da.learnquest.hint;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
+import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+
 public interface HintContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
         void displayData(HintViewModel viewModel);
+
+        void resetAnswer();
+
+        void onFinish();
     }
 
     interface Presenter {
@@ -17,18 +24,28 @@ public interface HintContract {
 
         void injectRouter(Router router);
 
-        void fetchData();
+        void onYesButtonClicked();
+
+        void onNoButtonClicked();
+
+        void onReturnToQuestionButton();
+
+        void onBackPressed();
+
+        void onStart();
+
+        void onResume();
     }
 
     interface Model {
-        String fetchData();
+        String fetchQuestionHint();
+
+        void setQuizIndex(int quizIndex);
     }
 
     interface Router {
-        void navigateToNextScreen();
+        void passDataToQuestiontScreen(HintToQuestionState state);
 
-        void passDataToNextScreen(HintState state);
-
-        HintState getDataFromPreviousScreen();
+        QuestionToHintState getDataFromQuestionScreen();
     }
 }

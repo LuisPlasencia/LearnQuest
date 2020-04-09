@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+
 public class QuestionPresenter implements QuestionContract.Presenter {
 
     public static String TAG = QuestionPresenter.class.getSimpleName();
@@ -51,6 +53,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         state.optionEnabled = true;
         state.nextEnabled = false;
 
+        disableNextButton();
         view.get().displayData(state);
     }
 
@@ -85,22 +88,37 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         boolean isCorrect = model.isCorrectOption(option);
 
         view.get().updateReply(isCorrect);
+        view.get().displayData(state);
     }
 
     @Override
     public void onHintButtonClicked() {
-
+        QuestionToHintState state = new QuestionToHintState();
+        state.quizIndex = model.getQuizIndex();
+        router.passDataToHintScreen(state);
+        router.navigateToHintScreen();
     }
 
     @Override
     public void onNextButtonClicked() {
         model.updateNextQuestion();
+        if(model.isQuizFinished()) {
+            router.navigateToFinalQuizScreen();
+        }
         state.quizIndex = model.getQuizIndex();
         onStart();
     }
 
+    private void disableNextButton() {
+        state.optionEnabled=true;
+        state.hintEnabled=true;
+        state.nextEnabled=false;
+
+    }
+
     private void enableNextButton() {
         state.nextEnabled = true;
+        state.hintEnabled = false;
     }
 
     @Override

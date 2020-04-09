@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
+import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
+import es.ulpgc.eite.da.learnquest.hint.HintActivity;
 
 public class QuestionRouter implements QuestionContract.Router {
 
@@ -17,20 +21,28 @@ public class QuestionRouter implements QuestionContract.Router {
     }
 
     @Override
-    public void navigateToNextScreen() {
+    public void navigateToHintScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, QuestionActivity.class);
+        Intent intent = new Intent(context, HintActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     @Override
-    public void passDataToNextScreen(QuestionState state) {
-        mediator.setQuestionState(state);
+    public void passDataToHintScreen(QuestionToHintState state) {
+        mediator.setQuestionToHintState(state);
     }
 
     @Override
-    public QuestionState getDataFromPreviousScreen() {
-        QuestionState state = mediator.getQuestionState();
-        return state;
+    public HintToQuestionState getDataFromHintScreen() {
+        return mediator.getHintToQuestionState();
+    }
+
+    @Override
+    public void navigateToFinalQuizScreen() {
+        Context context = mediator.getApplicationContext();
+        Intent intent = new Intent(context, FinalQuizActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 }

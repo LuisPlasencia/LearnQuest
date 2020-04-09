@@ -22,10 +22,14 @@ public class AppMediator extends Application {
     private LogrosState logrosState;
     private HintState hintState;
 
+    private HintToQuestionState hintToQuestionState;
+    private QuestionToHintState questionToHintState;
+
     @Override
     public void onCreate() {
         super.onCreate();
         questionState = new QuestionState();
+        hintState = new HintState();
     }
     public ProfileState getProfileState() {
         return profileState;
@@ -89,5 +93,23 @@ public class AppMediator extends Application {
 
     public void setHintState(HintState hintState) {
         this.hintState = hintState;
+    }
+
+    public HintToQuestionState getHintToQuestionState() {
+        HintToQuestionState state = hintToQuestionState;
+        hintToQuestionState = null;
+        return state;
+    }
+
+    public void setHintToQuestionState(HintToQuestionState hintToQuestionState) {
+        this.hintToQuestionState = hintToQuestionState;
+    }
+
+    public QuestionToHintState getQuestionToHintState() {
+        return questionToHintState;
+    }
+
+    public void setQuestionToHintState(QuestionToHintState questionToHintState) {
+        this.questionToHintState = questionToHintState;
     }
 }

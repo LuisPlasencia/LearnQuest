@@ -14,4 +14,5 @@ public class QuestionViewModel {
 
     public boolean optionEnabled;
     public boolean nextEnabled;
+    public boolean hintEnabled;
 }

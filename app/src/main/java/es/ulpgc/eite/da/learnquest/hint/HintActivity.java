@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -24,6 +26,22 @@ public class HintActivity
 
         // do the setup
         HintScreen.configure(this);
+
+        if(savedInstanceState == null) {
+            presenter.onStart();
+        }
+    }
+
+    public void onReturnToQuestionButtonClicked(View view) {
+        presenter.onReturnToQuestionButton();
+    }
+
+    public void onYesButtonClicked(View view) {
+        presenter.onYesButtonClicked();
+    }
+
+    public void onNoButtonClicked(View view) {
+        presenter.onNoButtonClicked();
     }
 
     @Override
@@ -31,15 +49,31 @@ public class HintActivity
         super.onResume();
 
         // load the data
-        presenter.fetchData();
+        presenter.onResume();
     }
 
     @Override
     public void displayData(HintViewModel viewModel) {
-        //Log.e(TAG, "displayData()");
+        Log.e(TAG, "displayData()");
 
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
+        ((TextView) findViewById(R.id.answer_text)).setText(viewModel.answer);
+        ((Button) findViewById(R.id.yesButton)).setEnabled(viewModel.yesNoButtonEnabled);
+        ((Button) findViewById(R.id.noButton)).setEnabled(viewModel.yesNoButtonEnabled);
+    }
+
+    @Override
+    public void resetAnswer() {
+        ((TextView) findViewById(R.id.answer_text)).setText(R.string.empty_string);
+    }
+
+    @Override
+    public void onFinish() {
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        presenter.onBackPressed();
     }
 
     @Override

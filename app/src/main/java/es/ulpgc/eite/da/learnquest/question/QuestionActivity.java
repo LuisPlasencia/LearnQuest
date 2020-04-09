@@ -25,6 +25,14 @@ public class QuestionActivity
         // do the setup
         QuestionScreen.configure(this);
 
+        Button hintButton = findViewById(R.id.cheatButton);
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onHintButtonClicked();
+            }
+        });
+
         if(savedInstanceState == null) {
             presenter.onStart();
 
@@ -57,13 +65,18 @@ public class QuestionActivity
         ((Button) findViewById(R.id.option2_button)).setText(viewModel.option2);
         ((Button) findViewById(R.id.option3_button)).setText(viewModel.option3);
         ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
+
+        findViewById(R.id.option1_button).setEnabled(viewModel.optionEnabled);
+        findViewById(R.id.option2_button).setEnabled(viewModel.optionEnabled);
+        findViewById(R.id.option3_button).setEnabled(viewModel.optionEnabled);
+        findViewById(R.id.nextButton).setEnabled(viewModel.nextEnabled);
+        findViewById(R.id.cheatButton).setEnabled(viewModel.hintEnabled);
     }
 
     public void onNextButtonClicked(View view) {
         presenter.onNextButtonClicked();
     }
 
-    public void onHintButtonClicked(View view) { presenter.onHintButtonClicked(); }
 
     public void onOptionButtonClicked(View view) {
         int option = Integer.valueOf((String) view.getTag());
