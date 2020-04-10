@@ -30,6 +30,7 @@ public class QuestsActivity
         super.onResume();
 
         // load the data
+
         presenter.fetchData();
     }
 
@@ -41,8 +42,21 @@ public class QuestsActivity
         //((TextView) findViewById(R.id.data)).setText(viewModel.data);
     }
 
-    public void onMathButtonClicked(View view){
-        presenter.onMathButtonClicked();
+    public void onButtonClicked(View view){
+
+        switch(view.getId()){
+            case R.id.math_button:
+                presenter.onSubjectButtonClicked(getResources().getString(R.string.maths_text));
+            break;
+            case R.id.english_button:
+                presenter.onSubjectButtonClicked(getResources().getString(R.string.english_text));
+            break;
+            case R.id.geography_button:
+                presenter.onSubjectButtonClicked(getResources().getString(R.string.geography_text));
+            break;
+
+        }
+
     }
 
     @Override

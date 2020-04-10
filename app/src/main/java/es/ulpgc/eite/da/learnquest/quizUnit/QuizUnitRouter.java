@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 
 public class QuizUnitRouter implements QuizUnitContract.Router {
 
@@ -28,9 +29,16 @@ public class QuizUnitRouter implements QuizUnitContract.Router {
         mediator.setQuizUnitState(state);
     }
 
-    @Override
+    /*@Override
     public QuizUnitState getDataFromPreviousScreen() {
+
         QuizUnitState state = mediator.getQuizUnitState();
+        return state;
+    }*/
+
+    @Override
+    public QuestToQuizUnitState getStateFromQuestScreen(){
+        QuestToQuizUnitState state = mediator.getQuestionToQuizUnitState();
         return state;
     }
 }

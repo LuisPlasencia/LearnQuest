@@ -2,12 +2,15 @@ package es.ulpgc.eite.da.learnquest.quizUnit;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+
 public interface QuizUnitContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
         void displayData(QuizUnitViewModel viewModel);
+
     }
 
     interface Presenter {
@@ -17,19 +20,43 @@ public interface QuizUnitContract {
 
         void injectRouter(Router router);
 
-        void fetchData();
+       // void fetchData();
+
+       // String getSubject();
+
+        void setT1Items();
+
+        //String getT1Items();
+
+        void onStart();
+
+        void onRestart();
+
+        void onResume();
+
+        void onPause();
+
+
     }
 
     interface Model {
         String fetchData();
 
-        String setT1Topic();
-        String setT1Subtopic();
-        String setT1Description();
+        void onRestartScreen(QuizUnitState data);
 
-        String setT2Topic();
-        String setT2Subtopic();
-        String setT2Description();
+       // void setT1Fields();
+
+        void setT1Topic(String T1Topic);
+        void setT1SubTopic(String T1SubTopic);
+        void setT1Description(String T1Description);
+
+        String getT1Topic();
+        String getT1SubTopic();
+        String getT1Description();
+
+        void setT2Topic(String T1Topic);
+        void setT2Subtopic(String T2SubTopic);
+        void setT2Description(String T2Description);
     }
 
     interface Router {
@@ -37,6 +64,8 @@ public interface QuizUnitContract {
 
         void passDataToNextScreen(QuizUnitState state);
 
-        QuizUnitState getDataFromPreviousScreen();
+        //QuizUnitState getDataFromPreviousScreen();
+
+        QuestToQuizUnitState getStateFromQuestScreen();
     }
 }

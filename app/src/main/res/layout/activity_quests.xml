@@ -13,8 +13,8 @@
         android:layout_height="match_parent"
         android:gravity="center|top"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="-26dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <Space
             android:layout_width="match_parent"
@@ -49,10 +49,10 @@
                 android:layout_marginStart="226dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="43dp"
+                android:contentDescription="TODO"
                 android:elevation="100dp"
                 android:outlineProvider="none"
-                android:src="@drawable/child_icon"
-                android:contentDescription="TODO" />
+                android:src="@drawable/child_icon" />
 
             <Button
                 android:id="@+id/math_button"
@@ -60,7 +60,7 @@
                 android:layout_height="100dp"
                 android:background="@drawable/button_background_math"
                 android:gravity="left|center_vertical"
-                android:onClick="onMathButtonClicked"
+                android:onClick="onButtonClicked"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/Math_Button"
@@ -77,17 +77,18 @@
             android:layout_width="300dp"
             android:layout_height="100dp">
 
-        <Button
-            android:id="@+id/english_button"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:background="@drawable/button_background_english"
-            android:gravity="left|center_vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/English_Button"
-            android:textColor="@android:color/white"
-            android:textSize="25dp" />
+            <Button
+                android:id="@+id/english_button"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_background_english"
+                android:gravity="left|center_vertical"
+                android:onClick="onButtonClicked"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/English_Button"
+                android:textColor="@android:color/white"
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/english_level_id"
@@ -128,17 +129,18 @@
             android:layout_width="300dp"
             android:layout_height="100dp">
 
-        <Button
-            android:id="@+id/geography_button"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:background="@drawable/button_background_geography"
-            android:gravity="left|center_vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/Geography_Button"
-            android:textColor="@android:color/white"
-            android:textSize="25dp" />
+            <Button
+                android:id="@+id/geography_button"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_background_geography"
+                android:gravity="left|center_vertical"
+                android:onClick="onButtonClicked"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/Geography_Button"
+                android:textColor="@android:color/white"
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/geography_level_id"

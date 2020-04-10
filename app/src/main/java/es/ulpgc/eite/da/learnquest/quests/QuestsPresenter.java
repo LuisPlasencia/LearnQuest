@@ -5,6 +5,8 @@ import android.view.View;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+
 public class QuestsPresenter implements QuestsContract.Presenter {
 
     public static String TAG = QuestsPresenter.class.getSimpleName();
@@ -32,7 +34,7 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         if (savedState != null) {
 
             // update view and model state
-            state.data = savedState.data;
+            state.subject = savedState.subject;
 
             // update the view
             view.get().displayData(state);
@@ -44,7 +46,7 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         String data = model.fetchData();
 
         // set view state
-        state.data = data;
+        state.subject = data;
 
         // update the view
         view.get().displayData(state);
@@ -52,10 +54,12 @@ public class QuestsPresenter implements QuestsContract.Presenter {
     }
 
     @Override
-    public void onMathButtonClicked() {
-        router.passDataToNextScreen(state);
+    public void onSubjectButtonClicked(String subject) {
+        state.subject=subject;
+        QuestToQuizUnitState newState = new QuestToQuizUnitState(subject);
+        router.passDataToQuizUnitScreen(newState);
+        //Log.d("basura", String.valueOf(newState));
         router.navigateToNextScreen();
-
     }
 
     @Override

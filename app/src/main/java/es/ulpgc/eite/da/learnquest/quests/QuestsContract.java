@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.learnquest.quests;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+
 public interface QuestsContract {
 
     interface View {
@@ -19,17 +21,23 @@ public interface QuestsContract {
 
         void fetchData();
 
-        void onMathButtonClicked();
+        void onSubjectButtonClicked(String subject);
+
     }
 
     interface Model {
         String fetchData();
+
+        String setMathLevel();
+        String setEnglishLevel();
+        String setGeographyLevel();
     }
 
     interface Router {
         void navigateToNextScreen();
 
-        void passDataToNextScreen(QuestsState state);
+        //void passDataToNextScreen(QuestsState state);
+        void passDataToQuizUnitScreen(QuestToQuizUnitState state);
 
         QuestsState getDataFromPreviousScreen();
     }

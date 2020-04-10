@@ -21,7 +21,7 @@ public class AppMediator extends Application {
     private FinalQuizState finalQuizState;
     private LogrosState logrosState;
     private HintState hintState;
-
+    private QuestToQuizUnitState questToQuizUnitState;
     private HintToQuestionState hintToQuestionState;
     private QuestionToHintState questionToHintState;
 
@@ -29,7 +29,6 @@ public class AppMediator extends Application {
     public void onCreate() {
         super.onCreate();
         questionState = new QuestionState();
-        hintState = new HintState();
     }
     public ProfileState getProfileState() {
         if(profileState == null){
@@ -51,7 +50,11 @@ public class AppMediator extends Application {
     }
 
     public QuizUnitState getQuizUnitState() {
+        if(quizUnitState == null){
+            quizUnitState = new QuizUnitState();
+        }
         return quizUnitState;
+
     }
 
     public void setQuizUnitState(QuizUnitState quizUnitState) {
@@ -98,21 +101,27 @@ public class AppMediator extends Application {
         this.hintState = hintState;
     }
 
-    public HintToQuestionState getHintToQuestionState() {
-        HintToQuestionState state = hintToQuestionState;
-        hintToQuestionState = null;
-        return state;
+    public QuestToQuizUnitState getQuestionToQuizUnitState() {
+        return questToQuizUnitState;
     }
 
-    public void setHintToQuestionState(HintToQuestionState hintToQuestionState) {
-        this.hintToQuestionState = hintToQuestionState;
+    public void setHintToQuestionState(HintToQuestionState state) {
+        hintToQuestionState = state;
     }
 
     public QuestionToHintState getQuestionToHintState() {
         return questionToHintState;
     }
 
-    public void setQuestionToHintState(QuestionToHintState questionToHintState) {
-        this.questionToHintState = questionToHintState;
+    public void setQuestionToHintState(QuestionToHintState state) {
+        questionToHintState = state;
+    }
+
+    public HintToQuestionState getHintToQuestionState() {
+        return hintToQuestionState;
+    }
+
+    public void setQuestToQuizUnitState(QuestToQuizUnitState state) {
+        questToQuizUnitState = state;
     }
 }
