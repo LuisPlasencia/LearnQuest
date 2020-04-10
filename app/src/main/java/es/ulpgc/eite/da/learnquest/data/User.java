@@ -10,6 +10,9 @@ public class User {
     private int level;
     private int sublevel;
     private int id;
+    private int mathPercentage;
+    private int englishPercentage;
+    private int geographyPercentage;
 
     public User(String username, String password, Integer id){
         this.username = username;
@@ -17,6 +20,9 @@ public class User {
         this.id = id;
         this.level = 0;
         this.sublevel = 0;
+        this.mathPercentage = 0;
+        this.englishPercentage = 0;
+        this.geographyPercentage = 0;
         this.setPhoto(android.R.drawable.ic_menu_camera);
     }
 
@@ -74,5 +80,17 @@ public class User {
 
     public Integer experienceToNextLevel(){
         return (100 - sublevel);
+    }
+
+    public Integer getMathPercentage(){
+        return mathPercentage;
+    }
+
+    public Integer getEnglishPercentage(){
+        return englishPercentage;
+    }
+
+    public Integer getGeographyPercentage(){
+        return geographyPercentage;
     }
 }

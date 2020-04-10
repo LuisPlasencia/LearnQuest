@@ -217,4 +217,18 @@ public class QuizRepository implements RepositoryContract {
         experienceCollected = 0;
     }
 
+    @Override
+    public Integer getSubjectPercentage(Integer id){
+        if(id == 1 ){
+            return usuarioActual.getMathPercentage();
+        } else if (id == 2){
+            return usuarioActual.getEnglishPercentage();
+        } else if(id == 3){
+            return usuarioActual.getGeographyPercentage();
+        } else{
+            return 0;
+        }
+
+    }
+
 }

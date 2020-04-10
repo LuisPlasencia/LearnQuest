@@ -40,4 +40,6 @@ public interface RepositoryContract {
     void addExperience();
 
     QuizUnit getQuizUnit(String subject);
+
+    Integer getSubjectPercentage(Integer id);
 }
