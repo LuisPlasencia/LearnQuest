@@ -68,4 +68,15 @@ public class QuestionModel implements QuestionContract.Model {
     public String getOption3() {
         return quizRepository.getQuestion(quizIndex).getOption3();
     }
+
+    @Override
+    public void updateExperienceCollected() {
+        quizRepository.addExperience();
+    }
+
+    @Override
+    public void setQuizID() {
+        //Esto dependería del quiz seleccionado
+        quizRepository.setQuizId(0);
+    }
 }

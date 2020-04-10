@@ -18,7 +18,7 @@ public class QuizRepository implements RepositoryContract {
     private Integer quizId;
     private ArrayList<QuizUnit> quizUnits;
 
-    public static RepositoryContract getInstance() {
+    public static RepositoryContract getInstance(){
         if (INSTANCE == null) {
             INSTANCE = new QuizRepository();
         }
@@ -47,7 +47,7 @@ public class QuizRepository implements RepositoryContract {
 
         Question question3 = new Question("Third Question: Option 2",
                                             "Option 1", "Option 2","Option 3",
-                                                "Hint: It might be option 2", 1, 3);
+                                                "Hint: It might be option 2", 2, 3);
 
         questions = new ArrayList<Question>();
         questions.add(question1);

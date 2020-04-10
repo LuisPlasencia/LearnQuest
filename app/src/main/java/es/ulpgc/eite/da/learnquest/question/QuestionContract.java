@@ -65,6 +65,10 @@ public interface QuestionContract {
         boolean isCorrectOption(int option);
 
         boolean isQuizFinished();
+
+        void updateExperienceCollected();
+
+        void setQuizID();
     }
 
     interface Router {

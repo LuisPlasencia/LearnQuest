@@ -47,6 +47,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         state.option2 = model.getOption2();
         state.option3 = model.getOption3();
 
+        model.setQuizID();
         view.get().resetReply();
 
         state.optionClicked = false;
@@ -90,6 +91,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         boolean isCorrect = model.isCorrectOption(option);
 
         if(isCorrect) {
+            model.updateExperienceCollected();
             view.get().setOptionColorCorrect(option);
         } else {
             view.get().setOptionColorIncorrect(option);

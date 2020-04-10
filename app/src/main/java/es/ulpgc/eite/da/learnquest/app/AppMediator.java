@@ -30,6 +30,7 @@ public class AppMediator extends Application {
     public void onCreate() {
         super.onCreate();
         questionState = new QuestionState();
+        finalQuizState = new FinalQuizState();
     }
     public ProfileState getProfileState() {
         if(profileState == null){
