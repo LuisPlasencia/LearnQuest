@@ -47,7 +47,9 @@ public interface ProfileContract {
 
         Integer getPhoto(User user);
 
+        String getUsername(User user);
 
+        void setUsername(User user, String username);
     }
 
     interface Router {

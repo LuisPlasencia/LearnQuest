@@ -11,6 +11,7 @@ public class QuizRepository implements RepositoryContract {
 
     private ArrayList<Question> questions;
     private ArrayList<User> usuarios;
+    private User usuariodefault;
 
     public static RepositoryContract getInstance() {
         if (INSTANCE == null) {
@@ -37,6 +38,7 @@ public class QuizRepository implements RepositoryContract {
         questions.add(question2);
         questions.add(question3);
 
+        usuariodefault = new User("Username", "", 0);
         User usuario1 = new User("Luis", "patata", 1);
         User usuario2 = new User("Ruben", "rabano", 2);
         User usuario3 = new User("Cunwang", "lechuga", 3);
@@ -72,7 +74,7 @@ public class QuizRepository implements RepositoryContract {
                 return usuarios.get(i);
             }
         }
-        return null;
+        return usuariodefault;
     }
 
 }

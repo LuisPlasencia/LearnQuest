@@ -24,8 +24,12 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void onStart() {
         LoginState loginState = router.getLoginState();
         state.user = model.getUser(loginState.username, loginState.password);
-        Log.e(TAG, loginState.username);
-        state.username = loginState.username;
+        if(model.getUsername(state.user).equals("Username") && !loginState.username.equals("")){
+            state.username = loginState.username;
+            model.setUsername(state.user, state.username);
+        } else{
+            state.username = model.getUsername(state.user);
+        }
         state.level = model.getLevel(state.user);
         state.sublevel = model.getSublevel(state.user);
         view.get().displayProfileData(state);
@@ -74,7 +78,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public Integer getPhoto() {
         if(state.user != null){
-            return state.user.getPhoto();
+            return model.getPhoto(state.user);
         }
         return 0;
 

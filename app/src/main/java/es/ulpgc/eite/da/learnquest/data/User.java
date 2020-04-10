@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.data;
 
+import es.ulpgc.eite.da.learnquest.R;
+
 public class User {
 
     private String username;
@@ -15,6 +17,7 @@ public class User {
         this.id = id;
         this.level = 0;
         this.sublevel = 0;
+        this.setPhoto(android.R.drawable.ic_menu_camera);
     }
 
     public String getUsername(){
@@ -51,6 +54,10 @@ public class User {
 
     public void setPhoto(Integer photo){
         this.photo = photo;
+    }
+
+    public void setUsername(String username){
+        this.username = username;
     }
 
 }

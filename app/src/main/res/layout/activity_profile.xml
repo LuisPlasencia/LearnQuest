@@ -119,7 +119,7 @@
                         android:layout_height="57dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/photo_description"
-                        app:srcCompat="@android:drawable/ic_menu_camera" />
+                        tools:srcCompat="@android:drawable/ic_menu_camera" />
 
                     <TextView
                         android:id="@+id/profile_name"
@@ -127,8 +127,8 @@
                         android:layout_height="22dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/login_username"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        tools:text="@string/login_username" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -183,9 +183,9 @@
                 android:layout_width="250dp"
                 android:layout_height="61dp"
                 android:background="@drawable/button_background_profile_blue"
-                android:enabled="false"
                 android:text="@string/new_quest_button"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:enabled="false"/>
 
 
             <Space
