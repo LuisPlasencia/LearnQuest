@@ -9,8 +9,7 @@ public class QuizUnit {
     private String T2Topic, T2Subtopic, T2Description;
     private String subject;
 
-    public QuizUnit(String t1Topic, String t1Subtopic, String t1Description,String t2Topic, String t2Subtopic, String t2Description,
-                    String subject) {
+    public QuizUnit(String t1Topic, String t1Subtopic, String t1Description,String t2Topic, String t2Subtopic, String t2Description, String subject) {
         T1Topic = t1Topic;
         T1Subtopic = t1Subtopic;
         T1Description = t1Description;

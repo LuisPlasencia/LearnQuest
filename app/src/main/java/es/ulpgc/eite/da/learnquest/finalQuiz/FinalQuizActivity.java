@@ -61,7 +61,7 @@ public class FinalQuizActivity
 
     @Override
     public void displayFinalQuizData(FinalQuizViewModel viewModel) {
-        ((TextView) findViewById(R.id.earned)).setText(viewModel.experience_earned);
+        ((TextView) findViewById(R.id.earned)).setText(String.valueOf("You earned " + viewModel.experience_earned + "xp!"));
         ((TextView) findViewById(R.id.exp_to_nextlevel)).setText(String.valueOf("You need " + viewModel.experience_needed + "exp to reach level " + viewModel.level+1));
         ((TextView) findViewById(R.id.level_display)).setText(String.valueOf(viewModel.level));
         int photo = presenter.getMedalPhoto();
