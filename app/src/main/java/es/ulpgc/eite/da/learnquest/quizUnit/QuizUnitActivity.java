@@ -3,6 +3,7 @@ package es.ulpgc.eite.da.learnquest.quizUnit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -56,6 +57,18 @@ public class QuizUnitActivity
 
     }
 
+    public void onButtonOptionClicked(View view){
+
+        switch(view.getId()){
+            case R.id.t1_topic_solve:
+                presenter.onOptionClicked(getResources().getString(R.string.t1_solve_option));
+                break;
+            case R.id.t2_topic_solve:
+                presenter.onOptionClicked(getResources().getString(R.string.t2_solve_option));
+                break;
+        }
+
+    }
     @Override
     public void injectPresenter(QuizUnitContract.Presenter presenter) {
         this.presenter = presenter;

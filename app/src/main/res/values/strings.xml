@@ -5,6 +5,8 @@
     <string name="English_Button">English</string>
     <string name="Geography_Button">Geography</string>
 
+    <string name="choose_your_quest">Choose your Quest!</string>
+
     <string name="maths_text">Maths</string>
     <string name="english_text">English</string>
     <string name="geography_text">Geography</string>
@@ -29,6 +31,8 @@
     <string name="T2_Topic_solve_button">Solve!</string>
     <string name="T2_Topic_practise_button">Practice!</string>
 
+    <string name="t1_solve_option">1</string>
+    <string name="t2_solve_option">2</string>
 
 
     <string name="app_name">LearnQuest</string>

@@ -18,7 +18,21 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="43dp" />
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/choose_quest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:fontFamily="casual"
+            android:textColor="@android:color/holo_blue_dark"
+            android:text="@string/choose_your_quest" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="34dp" />
 
         <RelativeLayout
             android:layout_width="300dp"
@@ -61,6 +75,7 @@
                 android:background="@drawable/button_background_math"
                 android:gravity="left|center_vertical"
                 android:onClick="onButtonClicked"
+                android:fontFamily="casual"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/Math_Button"
@@ -86,6 +101,7 @@
                 android:onClick="onButtonClicked"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
+                android:fontFamily="casual"
                 android:text="@string/English_Button"
                 android:textColor="@android:color/white"
                 android:textSize="25dp" />
@@ -138,6 +154,7 @@
                 android:onClick="onButtonClicked"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
+                android:fontFamily="casual"
                 android:text="@string/Geography_Button"
                 android:textColor="@android:color/white"
                 android:textSize="25dp" />

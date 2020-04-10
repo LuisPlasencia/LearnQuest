@@ -47,13 +47,13 @@ public class QuestsActivity
         switch(view.getId()){
             case R.id.math_button:
                 presenter.onSubjectButtonClicked(getResources().getString(R.string.maths_text));
-            break;
+                break;
             case R.id.english_button:
                 presenter.onSubjectButtonClicked(getResources().getString(R.string.english_text));
-            break;
+                break;
             case R.id.geography_button:
                 presenter.onSubjectButtonClicked(getResources().getString(R.string.geography_text));
-            break;
+                break;
 
         }
 

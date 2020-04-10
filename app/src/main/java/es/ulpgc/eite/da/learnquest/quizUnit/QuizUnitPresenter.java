@@ -6,6 +6,7 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 
 public class QuizUnitPresenter implements QuizUnitContract.Presenter {
 
@@ -73,6 +74,14 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
         setSubject();
         model.setT1Fields();
 
+    }
+
+    @Override
+    public void onOptionClicked(String option){
+        state.option = option;
+        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(option);
+        router.passDataToQuestionScreen(newState);
+        router.navigateToNextScreen();
     }
 
     @Override

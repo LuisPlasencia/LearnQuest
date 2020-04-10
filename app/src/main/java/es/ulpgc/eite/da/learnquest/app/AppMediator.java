@@ -24,6 +24,7 @@ public class AppMediator extends Application {
     private QuestToQuizUnitState questToQuizUnitState;
     private HintToQuestionState hintToQuestionState;
     private QuestionToHintState questionToHintState;
+    private QuizUnitToQuestionState quizUnitToQuestionState;
 
     @Override
     public void onCreate() {
@@ -35,6 +36,14 @@ public class AppMediator extends Application {
             profileState = new ProfileState();
         }
         return profileState;
+    }
+
+    public void setQuizUnitToQuestionState(QuizUnitToQuestionState state){
+        quizUnitToQuestionState = state;
+    }
+
+    public QuizUnitToQuestionState getQuizUnitToQuestionState(){
+        return quizUnitToQuestionState;
     }
 
     public void setProfileState(ProfileState profileState) {

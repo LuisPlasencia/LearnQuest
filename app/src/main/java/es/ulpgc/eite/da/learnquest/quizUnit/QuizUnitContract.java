@@ -3,6 +3,7 @@ package es.ulpgc.eite.da.learnquest.quizUnit;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 
 public interface QuizUnitContract {
 
@@ -36,6 +37,8 @@ public interface QuizUnitContract {
 
         void onPause();
 
+        void onOptionClicked(String option);
+
     }
 
     interface Model {
@@ -60,6 +63,9 @@ public interface QuizUnitContract {
         String getT2SubTopic();
         String getT2Description();
 
+
+
+
     }
     interface Router {
         void navigateToNextScreen();
@@ -69,5 +75,7 @@ public interface QuizUnitContract {
         //QuizUnitState getDataFromPreviousScreen();
 
         QuestToQuizUnitState getStateFromQuestScreen();
+
+        void passDataToQuestionScreen(QuizUnitToQuestionState state);
     }
 }
