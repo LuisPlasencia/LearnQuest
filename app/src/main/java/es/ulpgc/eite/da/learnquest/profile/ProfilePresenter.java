@@ -61,6 +61,9 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void onLogOutButtonClicked() {
+        LoginState loginState = router.getLoginState();
+        loginState.username = "";
+        loginState.password = "";
         state.user = null;
         state.username = "";
         state.sublevel = 0;
