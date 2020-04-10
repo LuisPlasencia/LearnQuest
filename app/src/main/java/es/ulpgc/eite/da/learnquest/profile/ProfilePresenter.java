@@ -24,7 +24,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void onStart() {
         LoginState loginState = router.getLoginState();
         state.user = model.getUser(loginState.username, loginState.password);
-        if(model.getUsername(state.user).equals("Username") && !loginState.username.equals("")){
+        if(state.user.getId() == 0 && !loginState.username.equals("")){
             state.username = loginState.username;
             model.setUsername(state.user, state.username);
         } else{
@@ -64,7 +64,9 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         LoginState loginState = router.getLoginState();
         loginState.username = "";
         loginState.password = "";
-        model.resetDefaultUser();
+        if(state.user.getId()==0){
+            model.resetDefaultUser();
+        }
         state.user = null;
         state.username = "";
         state.sublevel = 0;
