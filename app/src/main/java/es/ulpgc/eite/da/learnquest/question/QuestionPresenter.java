@@ -1,6 +1,5 @@
 package es.ulpgc.eite.da.learnquest.question;
 
-import android.icu.util.LocaleData;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -19,8 +18,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     public QuestionPresenter(QuestionState state) {
         this.state = state;
     }
-
-
+    
     @Override
     public void fetchData() {
         // Log.e(TAG, "fetchData()");
@@ -92,9 +90,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         boolean isCorrect = model.isCorrectOption(option);
 
         if(isCorrect) {
-            Log.d(TAG, "Hola buenas");
             model.updateExperienceCollected();
-            Log.d(TAG, "esto falla si no se imprime");
             view.get().setOptionColorCorrect(option);
         } else {
             view.get().setOptionColorIncorrect(option);
@@ -115,8 +111,11 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     @Override
     public void onNextButtonClicked() {
         model.updateNextQuestion();
+        Log.d(TAG, "Quiz index: " + model.getQuizIndex());
+        Log.d(TAG, "Quiz index: " + model.isQuizFinished());
         if(model.isQuizFinished()) {
             router.navigateToFinalQuizScreen();
+            return;
         }
         state.quizIndex = model.getQuizIndex();
         onStart();
