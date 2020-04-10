@@ -58,7 +58,6 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         state.subject=subject;
         QuestToQuizUnitState newState = new QuestToQuizUnitState(subject);
         router.passDataToQuizUnitScreen(newState);
-        //Log.d("basura", String.valueOf(newState));
         router.navigateToNextScreen();
     }
 

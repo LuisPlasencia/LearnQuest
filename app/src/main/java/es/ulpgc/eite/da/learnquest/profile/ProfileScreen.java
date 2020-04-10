@@ -4,7 +4,6 @@ import java.lang.ref.WeakReference;
 
 import androidx.fragment.app.FragmentActivity;
 
-import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.data.QuizRepository;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;

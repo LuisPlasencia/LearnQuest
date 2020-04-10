@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import es.ulpgc.eite.da.learnquest.R;
 
-
 public class QuizRepository implements RepositoryContract {
 
     private static QuizRepository INSTANCE;
