@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -22,7 +26,6 @@ public class FinalQuizActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
-   //     getSupportActionBar().setTitle(R.string.app_name);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -37,8 +40,6 @@ public class FinalQuizActivity
         if (savedInstanceState == null) {
             presenter.onStart();
 
-        } else {
-            presenter.onRestart();
         }
     }
 
@@ -57,30 +58,46 @@ public class FinalQuizActivity
         presenter.onBackPressed();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
 
-        presenter.onPause();
+    @Override
+    public void displayFinalQuizData(FinalQuizViewModel viewModel) {
+        ((TextView) findViewById(R.id.earned)).setText(viewModel.experience_earned);
+        ((TextView) findViewById(R.id.exp_to_nextlevel)).setText(String.valueOf("You need " + viewModel.experience_needed + "exp to reach level " + viewModel.level+1));
+        ((TextView) findViewById(R.id.level_display)).setText(String.valueOf(viewModel.level));
+        int photo = presenter.getMedalPhoto();
+        ((ImageView) findViewById(R.id.medal)).setImageResource(photo);
+        displayprogressBar(viewModel.sublevel);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        presenter.onDestroy();
-    }
-
-    @Override
-    public void onDataUpdated(FinalQuizViewModel viewModel) {
-        //Log.e(TAG, "onDataUpdated()");
-
-        // deal with the data
-  //      ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+    private void displayprogressBar(int sublevel) {
+        final ProgressBar mProgressBar;
+        mProgressBar = (ProgressBar)findViewById(R.id.progressBar2);
+        final int actualExperience = sublevel;
+        final int[] mProgressStatus = {0};
+        final Handler mHandler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(mProgressStatus[0] < actualExperience){
+                    mProgressStatus[0]++;
+                    android.os.SystemClock.sleep(25);
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mProgressBar.setProgress(mProgressStatus[0]);
+                        }
+                    });
+                }
+            }
+        }) .start();
     }
 
     @Override
     public void injectPresenter(FinalQuizContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void onReturnClicked(View view) {
+        presenter.onReturnClicked();
     }
 }

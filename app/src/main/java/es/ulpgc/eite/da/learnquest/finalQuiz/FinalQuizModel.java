@@ -2,34 +2,61 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import android.util.Log;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
+
 public class FinalQuizModel implements FinalQuizContract.Model {
 
     public static String TAG = FinalQuizModel.class.getSimpleName();
+    private RepositoryContract repository;
 
-    private String data;
-
-    public FinalQuizModel(String data) {
-        this.data = data;
+    public FinalQuizModel(RepositoryContract repository) {
+        this.repository = repository;
     }
 
     @Override
-    public String getStoredData() {
-        // Log.e(TAG, "getStoredData()");
-        return data;
+    public User getUserActual(){
+        return repository.getUserActual();
     }
 
     @Override
-    public void onRestartScreen(String data) {
-        // Log.e(TAG, "onRestartScreen()");
+    public Integer getStoredExperience() {
+        return repository.getExperienceCollected();
+    }
+
+
+    @Override
+    public void addExperience(){
+        repository.addExperience();
     }
 
     @Override
-    public void onDataFromNextScreen(String data) {
-        // Log.e(TAG, "onDataFromNextScreen()");
+    public Integer getLevel() {
+        return repository.getLevel();
     }
 
     @Override
-    public void onDataFromPreviousScreen(String data) {
-        // Log.e(TAG, "onDataFromPreviousScreen()");
+    public Integer getSubLevel(){
+        return repository.getSublevel();
+    }
+
+    @Override
+    public int getMedalImage() {
+        return repository.getMedalImage();
+    }
+
+    @Override
+    public int getExperienceNeeded() {
+        return repository.experienceToNextLevel();
+    }
+
+    @Override
+    public int getQuizId() {
+        return repository.getQuizId();
+    }
+
+    @Override
+    public void resetQuizId() {
+        repository.resetQuizId();
     }
 }

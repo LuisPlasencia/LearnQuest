@@ -2,12 +2,14 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.User;
+
 public interface FinalQuizContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(FinalQuizViewModel viewModel);
+        void displayFinalQuizData(FinalQuizViewModel viewModel);
     }
 
     interface Presenter {
@@ -21,34 +23,41 @@ public interface FinalQuizContract {
 
         void onStart();
 
-        void onRestart();
-
         void onBackPressed();
 
-        void onPause();
+        void onReturnClicked();
 
-        void onDestroy();
+        int getMedalPhoto();
     }
 
     interface Model {
-        String getStoredData();
+        User getUserActual();
 
-        void onDataFromNextScreen(String data);
+        Integer getStoredExperience();
 
-        void onRestartScreen(String data);
+        void addExperience();
 
-        void onDataFromPreviousScreen(String data);
+        Integer getLevel();
+
+        Integer getSubLevel();
+
+        int getMedalImage();
+
+        int getExperienceNeeded();
+
+        int getQuizId();
+
+        void resetQuizId();
     }
 
     interface Router {
-        void navigateToNextScreen();
 
         void passStateToNextScreen(FinalQuizState state);
 
-        FinalQuizState getStateFromPreviousScreen();
+        void navigateToQuizUnitsScreen();
 
-//        FinalQuizState getStateFromNextScreen();
-//
-//        void passStateToPreviousScreen(FinalQuizState state);
+        void navigateToProfileScreen();
+
+
     }
 }

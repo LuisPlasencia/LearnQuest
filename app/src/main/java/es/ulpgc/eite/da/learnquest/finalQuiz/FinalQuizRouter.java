@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.profile.ProfileActivity;
+import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class FinalQuizRouter implements FinalQuizContract.Router {
 
@@ -17,30 +19,23 @@ public class FinalQuizRouter implements FinalQuizContract.Router {
     }
 
     @Override
-    public void navigateToNextScreen() {
+    public void passStateToNextScreen(FinalQuizState state) {
+        mediator.setFinalQuizState(state);
+    }
+
+    @Override
+    public void navigateToQuizUnitsScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, FinalQuizActivity.class);
+        Intent intent = new Intent(context, QuizUnitActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     @Override
-    public void passStateToNextScreen(FinalQuizState state) {
-        mediator.setFinalQuizState(state);
+    public void navigateToProfileScreen() {
+        Context context = mediator.getApplicationContext();
+        Intent intent = new Intent(context, ProfileActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
-
-//    @Override
-//    public void passStateToPreviousScreen(FinalQuizState state) {
-//        mediator.setPreviousFinalQuizScreenState(state);
-//    }
-
-    @Override
-    public FinalQuizState getStateFromPreviousScreen() {
-        return mediator.getFinalQuizState();
-    }
-
-//    @Override
-//    public FinalQuizState getStateFromNextScreen() {
-//        return mediator.getNextFinalQuizScreenState();
-//    }
 }
