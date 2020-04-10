@@ -67,7 +67,7 @@
             android:text="@string/option1_text"
             android:tag="1"
             android:onClick="onOptionButtonClicked"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/button_selector"
             tools:text="first option" />
 
         <Button
@@ -81,7 +81,7 @@
             android:text="@string/option2_text"
             android:tag="2"
             android:onClick="onOptionButtonClicked"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/button_selector"
             tools:text="second option" />
 
         <Button
@@ -95,7 +95,7 @@
             android:text="@string/option3_text"
             android:tag="3"
             android:textColor="#FFFF"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/button_selector"
             tools:text="third option" />
 
         <TextView
@@ -126,7 +126,7 @@
                 android:layout_weight="0"
                 android:text="@string/hint_button_text"
                 android:textColor="#FFFF"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/button_selector"
                 tools:text="Cheat" />
 
             <Space
@@ -142,7 +142,7 @@
                 android:text="@string/next_button_text"
                 android:onClick="onNextButtonClicked"
                 android:textColor="#FFFF"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/button_selector"
                 tools:text="Next" />
         </LinearLayout>
 

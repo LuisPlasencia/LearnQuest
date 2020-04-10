@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:onClick="onYesButtonClicked"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/button_selector"
                 android:text="@string/yes_cheat_button_text"
                 android:textColor="#FFFF" />
 
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:onClick="onNoButtonClicked"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/button_selector"
                 android:text="@string/no_cheat_button_text"
                 android:textColor="#FFFF"/>
 
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/button_selector"
             android:text="@string/return_to_question_button_text"
             android:textColor="#FFFF"/>
 

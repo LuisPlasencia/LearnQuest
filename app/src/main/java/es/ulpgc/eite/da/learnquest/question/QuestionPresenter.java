@@ -81,6 +81,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         Log.e(TAG, "onOptionButtonClicked()");
 
         state.optionClicked=true;
+        state.optionEnabled=false;
         state.option=option;
 
         enableNextButton();
