@@ -70,6 +70,9 @@ public class QuizRepository implements RepositoryContract {
         usuario1.setLevel(8);
         usuario1.setSublevel(60);
         usuario1.setPhoto(R.drawable.patata);
+        usuario1.setMathPercentage(80);
+        usuario1.setEnglishPercentage(95);
+        usuario1.setGeographyPercentage(66);
 
         usuario2.setLevel(11);
         usuario2.setSublevel(40);
@@ -236,5 +239,29 @@ public class QuizRepository implements RepositoryContract {
         } else{
             return 0;
         }
+    }
+
+    @Override
+    public int getSubjectPhoto(int id) {
+        if(id == 1) {
+            if (usuarioActual.getMathPercentage() > 50) {
+                return R.drawable.dragon;
+            } else if (usuarioActual.getMathPercentage() > 10) {
+                return R.drawable.pig;
+            }
+        } else if(id == 2){
+            if (usuarioActual.getEnglishPercentage() > 50) {
+                return R.drawable.dragon;
+            } else if (usuarioActual.getEnglishPercentage() > 10) {
+                return R.drawable.pig;
+            }
+        } else if(id == 3){
+            if (usuarioActual.getGeographyPercentage() > 50) {
+                return R.drawable.dragon;
+            } else if (usuarioActual.getGeographyPercentage() > 10) {
+                return R.drawable.pig;
+            }
+        }
+        return R.drawable.child;
     }
 }

@@ -20,9 +20,9 @@ public class User {
         this.id = id;
         this.level = 0;
         this.sublevel = 0;
-        this.mathPercentage = 5;
-        this.englishPercentage = 6;
-        this.geographyPercentage = 7;
+        this.mathPercentage = 27;
+        this.englishPercentage = 66;
+        this.geographyPercentage = 5;
         this.setPhoto(android.R.drawable.ic_menu_camera);
     }
 
@@ -93,4 +93,16 @@ public class User {
     public Integer getGeographyPercentage(){
         return geographyPercentage;
     }
+
+    public void setMathPercentage(int mathPercentage){
+        this.mathPercentage=mathPercentage;
+    }
+    public void setEnglishPercentage(int englishPercentage){
+        this.englishPercentage=englishPercentage;
+    }
+    public void setGeographyPercentage(int geographyPercentage){
+        this.geographyPercentage=geographyPercentage;
+    }
+
 }
+

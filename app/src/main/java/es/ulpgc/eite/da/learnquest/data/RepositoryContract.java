@@ -43,5 +43,7 @@ public interface RepositoryContract {
 
     Integer getSubjectPercentage(Integer id);
 
+    int getSubjectPhoto(int id);
+
     void updateExperienceCollected();
 }
