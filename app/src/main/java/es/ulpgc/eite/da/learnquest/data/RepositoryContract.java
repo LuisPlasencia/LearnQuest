@@ -6,4 +6,6 @@ public interface RepositoryContract {
     Question getQuestion(int index);
 
     User getUser(String username, String password);
+
+    void resetDefaultUser();
 }

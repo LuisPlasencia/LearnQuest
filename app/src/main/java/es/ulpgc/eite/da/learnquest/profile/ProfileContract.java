@@ -50,6 +50,8 @@ public interface ProfileContract {
         String getUsername(User user);
 
         void setUsername(User user, String username);
+
+        void resetDefaultUser();
     }
 
     interface Router {

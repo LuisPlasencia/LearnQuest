@@ -64,6 +64,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         LoginState loginState = router.getLoginState();
         loginState.username = "";
         loginState.password = "";
+        model.resetDefaultUser();
         state.user = null;
         state.username = "";
         state.sublevel = 0;

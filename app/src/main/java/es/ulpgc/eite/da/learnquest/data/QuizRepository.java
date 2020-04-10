@@ -77,4 +77,11 @@ public class QuizRepository implements RepositoryContract {
         return usuariodefault;
     }
 
+    @Override
+    public void resetDefaultUser(){
+        usuariodefault.setUsername("Username");
+        usuariodefault.setLevel(0);
+        usuariodefault.setSublevel(0);
+    }
+
 }

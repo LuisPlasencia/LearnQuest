@@ -59,5 +59,9 @@ public class ProfileModel implements ProfileContract.Model {
         }
     }
 
+    @Override
+    public void resetDefaultUser(){
+        repository.resetDefaultUser();
+    }
 
 }
