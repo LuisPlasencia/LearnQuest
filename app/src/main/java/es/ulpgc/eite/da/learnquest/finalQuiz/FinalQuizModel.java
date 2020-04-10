@@ -25,7 +25,7 @@ public class FinalQuizModel implements FinalQuizContract.Model {
 
     @Override
     public void addExperience(){
-        repository.addExperience();
+        repository.addExperienceToUser();
     }
 
     @Override

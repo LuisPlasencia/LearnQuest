@@ -214,7 +214,7 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void addExperience() {
+    public void addExperienceToUser() {
         usuarioActual.addExperience(experienceCollected);
         experienceCollected = 0;
     }

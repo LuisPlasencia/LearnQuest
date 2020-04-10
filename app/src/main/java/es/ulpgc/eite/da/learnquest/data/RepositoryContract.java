@@ -37,7 +37,7 @@ public interface RepositoryContract {
 
     int experienceToNextLevel();
 
-    void addExperience();
+    void addExperienceToUser();
 
     QuizUnit getQuizUnit(String subject);
 
