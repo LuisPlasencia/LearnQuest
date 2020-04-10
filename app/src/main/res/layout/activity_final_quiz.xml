@@ -114,6 +114,7 @@
             android:layout_gravity="center"
             android:background="@drawable/rounded_button"
             android:text="@string/return_home_button"
+            android:onClick="onReturnClicked"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
