@@ -24,14 +24,15 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void onStart() {
         LoginState loginState = router.getLoginState();
         state.user = model.getUser(loginState.username, loginState.password);
+        model.setUserActual(state.user);
         if(state.user.getId() == 0 && !loginState.username.equals("")){
             state.username = loginState.username;
-            model.setUsername(state.user, state.username);
+            model.setUsername(state.username);
         } else{
-            state.username = model.getUsername(state.user);
+            state.username = model.getUsername();
         }
-        state.level = model.getLevel(state.user);
-        state.sublevel = model.getSublevel(state.user);
+        state.level = model.getLevel();
+        state.sublevel = model.getSublevel();
         view.get().displayProfileData(state);
 
     }
@@ -39,8 +40,8 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public void onResume() {
         // Log.e(TAG, "onResume()");
-        state.level = model.getLevel(state.user);
-        state.sublevel = model.getSublevel(state.user);
+        state.level = model.getLevel();
+        state.sublevel = model.getSublevel();
         view.get().displayProfileData(state);
 
     }
@@ -67,6 +68,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         if(state.user.getId()==0){
             model.resetDefaultUser();
         }
+        model.logout();
         state.user = null;
         state.username = "";
         state.sublevel = 0;
@@ -84,7 +86,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public Integer getPhoto() {
         if(state.user != null){
-            return model.getPhoto(state.user);
+            return model.getPhoto();
         }
         return 0;
 

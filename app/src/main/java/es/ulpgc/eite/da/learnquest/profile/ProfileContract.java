@@ -41,21 +41,25 @@ public interface ProfileContract {
 
         User getUser(String username, String password);
 
-        Integer getLevel(User user);
+        Integer getLevel();
 
-        Integer getSublevel(User user);
+        Integer getSublevel();
 
-        Integer getPhoto(User user);
+        Integer getPhoto();
 
-        String getUsername(User user);
+        String getUsername();
 
-        void setUsername(User user, String username);
+        void setUsername(String username);
 
         void resetDefaultUser();
+
+        void setUserActual(User user);
+
+        void logout();
+
     }
 
     interface Router {
-        void navigateToNextScreen();
 
         void passStateToNextScreen(ProfileState state);
 

@@ -20,14 +20,6 @@ public class ProfileRouter implements ProfileContract.Router {
     }
 
     @Override
-    public void navigateToNextScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, QuestsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
-
-    @Override
     public void passStateToNextScreen(ProfileState state) {
         mediator.setProfileState(state);
     }

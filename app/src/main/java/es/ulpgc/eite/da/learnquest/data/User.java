@@ -60,4 +60,19 @@ public class User {
         this.username = username;
     }
 
+    public void addExperience(Integer experience) {
+        sublevel = sublevel + experience;
+        roundUpExperience();
+    }
+
+    public void roundUpExperience(){
+         while(sublevel >= 100){
+            sublevel = sublevel - 100;
+            level ++ ;
+        }
+    }
+
+    public Integer experienceToNextLevel(){
+        return (100 - sublevel);
+    }
 }

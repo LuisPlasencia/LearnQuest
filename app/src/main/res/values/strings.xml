@@ -50,7 +50,7 @@
     <string name="go_quest_image_description">go quest image</string>
     <string name="achievements_button">Achievements</string>
     <string name="level_display">Level 0</string>
-    <string name="exp_to_display">250xp to Level 2</string>
+    <string name="exp_to_display">25 / 100</string>
     <string name="new_quest_button">Create a new quest</string>
     <string name="new_quest_icon_description">create a new quest icon</string>
     <string name="log_out_button">Log out</string>
@@ -64,10 +64,10 @@
     <string name="empty_string">"????"</string>
 
     <string name="gold_medal_description">Medalla de final de quiz (posibilidad de que sea sliver o bronce)</string>
-    <string name="earned_display">You earned 400 xp!</string>
+    <string name="earned_display">You earned 40 xp!</string>
     <string name="xp_left_to_next_level">You need 1300xp to reach level 3!</string>
     <string name="return_home_button">Return to home</string>
-    <string name="level_display_final_quiz">Level 14</string>
+    <string name="level_display_final_quiz">Level 0</string>
 
     <string name="quiz_screen_title">Quiz</string>
     <string name="question_number_text">Question 1</string>

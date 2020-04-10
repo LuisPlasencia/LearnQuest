@@ -12,6 +12,10 @@ public class QuizRepository implements RepositoryContract {
 
     private ArrayList<Question> questions;
     private ArrayList<User> usuarios;
+    private User usuariodefault;
+    private User usuarioActual;
+    private Integer experienceCollected;
+    private Integer quizId;
     private ArrayList<QuizUnit> quizUnits;
 
     public static RepositoryContract getInstance() {
@@ -22,7 +26,6 @@ public class QuizRepository implements RepositoryContract {
     }
 
     private QuizRepository() {
-
         QuizUnit quizUnit1 = new QuizUnit("T1. Triangles", "Cosen theorem",
                 "In this quiz you will learn about cosines and sines","T2. Equations","First and second",
                 "In this quiz you will learn about equations in deep","Maths");
@@ -51,6 +54,14 @@ public class QuizRepository implements RepositoryContract {
         questions.add(question2);
         questions.add(question3);
 
+       inicializarUsuarios();
+
+        quizId = 0;
+
+    }
+
+    private void inicializarUsuarios() {
+        usuariodefault = new User("Username", "", 0);
         User usuario1 = new User("Luis", "patata", 1);
         User usuario2 = new User("Ruben", "rabano", 2);
         User usuario3 = new User("Cunwang", "lechuga", 3);
@@ -86,17 +97,124 @@ public class QuizRepository implements RepositoryContract {
                 return usuarios.get(i);
             }
         }
-        return null;
+        return usuariodefault;
     }
 
     @Override
     public QuizUnit getQuizUnit(String subject) {
-            for (int i = 0; i<quizUnits.size(); i++){
-                if(quizUnits.get(i).getSubject().equals(subject)){
-                    return quizUnits.get(i);
-                }
+        for (int i = 0; i<quizUnits.size(); i++){
+            if(quizUnits.get(i).getSubject().equals(subject)){
+                return quizUnits.get(i);
+            }
         }
         return null;
+    }
+
+    @Override
+    public void resetDefaultUser(){
+        usuariodefault.setUsername("Username");
+        usuariodefault.setLevel(0);
+        usuariodefault.setSublevel(0);
+    }
+
+    @Override
+    public void setUserActual(User user){
+        usuarioActual = user;
+    }
+
+    @Override
+    public User getUserActual(){
+        return usuarioActual;
+    }
+
+    @Override
+    public Integer getExperienceCollected(){
+        return experienceCollected;
+    }
+
+    @Override
+    public void logout(){
+        usuarioActual = null;
+    }
+
+    @Override
+    public int getMedalImage() {
+        if (quizId == 0){
+            if(experienceCollected > 75){
+                return R.drawable.gold_medal;
+            } else if(experienceCollected > 50){
+                return R.drawable.silver_medal;
+            } else{
+                return R.drawable.bronze_medal;
+            }
+        } return R.drawable.gold_medal;
+
+    }
+
+    @Override
+    public int getQuizId() {
+        return quizId;
+    }
+
+    @Override
+    public void setQuizId(Integer quizId){
+        this.quizId = quizId;
+    }
+
+    @Override
+    public void resetQuizId(){
+        this.quizId = 0;
+    }
+
+
+    @Override
+    public Integer getLevel() {
+        if(usuarioActual!= null){
+            return usuarioActual.getLevel();
+        }
+        return 0;
+    }
+
+    @Override
+    public Integer getSublevel(){
+        if(usuarioActual!= null){
+            return usuarioActual.getSublevel();
+        }
+        return 0;
+    }
+
+    @Override
+    public Integer getPhoto(){
+        if(usuarioActual!=null){
+            return usuarioActual.getPhoto();
+        }
+        return 0;
+    }
+
+    @Override
+    public String getUsername() {
+        if(usuarioActual!=null){
+            return usuarioActual.getUsername();
+        }
+        return "";
+    }
+
+    @Override
+    public void setUsername(String username) {
+        if(usuarioActual!=null){
+            usuarioActual.setUsername(username);
+        }
+    }
+
+    @Override
+    public int experienceToNextLevel() {
+        return usuarioActual.experienceToNextLevel();
+    }
+
+    @Override
+    public void addExperience() {
+        usuarioActual.addExperience(experienceCollected);
+        experienceCollected = 0;
     }
 
 }

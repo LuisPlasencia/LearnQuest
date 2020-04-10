@@ -19,49 +19,44 @@ public class ProfileModel implements ProfileContract.Model {
     }
 
     @Override
-    public Integer getLevel(User user) {
-        if(user!= null){
-            return user.getLevel();
-        }
-        return 0;
-
+    public void setUserActual(User user){
+        repository.setUserActual(user);
     }
 
     @Override
-    public Integer getSublevel(User user){
-        if(user!= null){
-            return user.getSublevel();
-        }
-        return 0;
-
+    public Integer getLevel() {
+        return repository.getLevel();
     }
 
     @Override
-    public Integer getPhoto(User user){
-        if(user!=null){
-            return user.getPhoto();
-        }
-        return 0;
+    public Integer getSublevel(){
+        return repository.getSublevel();
     }
 
     @Override
-    public String getUsername(User user) {
-        if(user!=null){
-            return user.getUsername();
-        }
-        return "";
+    public Integer getPhoto(){
+        return repository.getPhoto();
     }
 
     @Override
-    public void setUsername(User user, String username) {
-        if(user!=null){
-            user.setUsername(username);
-        }
+    public String getUsername() {
+        return repository.getUsername();
+    }
+
+    @Override
+    public void setUsername(String username) {
+        repository.setUsername(username);
     }
 
     @Override
     public void resetDefaultUser(){
         //repository.resetDefaultUser();
+    }
+
+
+    @Override
+    public void logout(){
+        repository.logout();
     }
 
 }
