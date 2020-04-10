@@ -1,7 +1,5 @@
 package es.ulpgc.eite.da.learnquest.data;
 
-import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitState;
-
 public class QuizUnit {
 
 

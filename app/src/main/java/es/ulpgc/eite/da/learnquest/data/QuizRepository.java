@@ -1,7 +1,6 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import es.ulpgc.eite.da.learnquest.R;

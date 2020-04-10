@@ -1,7 +1,5 @@
 package es.ulpgc.eite.da.learnquest.data;
 
-import es.ulpgc.eite.da.learnquest.R;
-
 public class User {
 
     private String username;
