@@ -15,6 +15,12 @@ public interface QuestionContract {
         void resetReply();
 
         void updateReply(boolean isCorrect);
+
+        void setOptionColorCorrect(int option);
+
+        void setOptionColorIncorrect(int option);
+
+        void resetOptionColor();
     }
 
     interface Presenter {

@@ -55,6 +55,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
         disableNextButton();
         view.get().displayData(state);
+        view.get().resetOptionColor();
     }
 
     @Override
@@ -87,6 +88,12 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         enableNextButton();
 
         boolean isCorrect = model.isCorrectOption(option);
+
+        if(isCorrect) {
+            view.get().setOptionColorCorrect(option);
+        } else {
+            view.get().setOptionColorIncorrect(option);
+        }
 
         view.get().updateReply(isCorrect);
         view.get().displayData(state);
