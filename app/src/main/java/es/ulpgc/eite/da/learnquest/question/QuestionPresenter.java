@@ -1,5 +1,6 @@
 package es.ulpgc.eite.da.learnquest.question;
 
+import android.icu.util.LocaleData;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -91,7 +92,9 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         boolean isCorrect = model.isCorrectOption(option);
 
         if(isCorrect) {
+            Log.d(TAG, "Hola buenas");
             model.updateExperienceCollected();
+            Log.d(TAG, "esto falla si no se imprime");
             view.get().setOptionColorCorrect(option);
         } else {
             view.get().setOptionColorIncorrect(option);

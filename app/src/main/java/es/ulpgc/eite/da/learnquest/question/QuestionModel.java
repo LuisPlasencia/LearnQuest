@@ -71,7 +71,7 @@ public class QuestionModel implements QuestionContract.Model {
 
     @Override
     public void updateExperienceCollected() {
-        quizRepository.addExperience();
+        quizRepository.updateExperienceCollected();
     }
 
     @Override

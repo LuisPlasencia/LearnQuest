@@ -42,4 +42,6 @@ public interface RepositoryContract {
     QuizUnit getQuizUnit(String subject);
 
     Integer getSubjectPercentage(Integer id);
+
+    void updateExperienceCollected();
 }

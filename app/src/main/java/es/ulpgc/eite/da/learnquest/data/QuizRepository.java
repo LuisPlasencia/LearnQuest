@@ -9,6 +9,7 @@ import es.ulpgc.eite.da.learnquest.R;
 public class QuizRepository implements RepositoryContract {
 
     private static QuizRepository INSTANCE;
+    private final int XP_PER_QUESTION = 10;
 
     private ArrayList<Question> questions;
     private ArrayList<User> usuarios;
@@ -55,9 +56,9 @@ public class QuizRepository implements RepositoryContract {
         questions.add(question3);
 
        inicializarUsuarios();
+       experienceCollected = 0;
 
         quizId = 0;
-
     }
 
     private void inicializarUsuarios() {
@@ -220,6 +221,11 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
+    public void updateExperienceCollected() {
+        experienceCollected += XP_PER_QUESTION;
+    }
+
+    @Override
     public Integer getSubjectPercentage(Integer id){
         if(id == 1 ){
             return usuarioActual.getMathPercentage();
@@ -230,7 +236,5 @@ public class QuizRepository implements RepositoryContract {
         } else{
             return 0;
         }
-
     }
-
 }
