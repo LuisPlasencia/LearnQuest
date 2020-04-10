@@ -69,6 +69,11 @@ public class FinalQuizActivity
         displayprogressBar(viewModel.sublevel);
     }
 
+    @Override
+    public void finishView() {
+        finish();
+    }
+
     private void displayprogressBar(int sublevel) {
         final ProgressBar mProgressBar;
         mProgressBar = (ProgressBar)findViewById(R.id.progressBar2);

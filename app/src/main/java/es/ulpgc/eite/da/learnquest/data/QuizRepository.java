@@ -8,7 +8,7 @@ import es.ulpgc.eite.da.learnquest.R;
 public class QuizRepository implements RepositoryContract {
 
     private static QuizRepository INSTANCE;
-    private final int XP_PER_QUESTION = 10;
+    private final int XP_PER_QUESTION = 30;
 
     private ArrayList<Question> questions;
     private ArrayList<User> usuarios;

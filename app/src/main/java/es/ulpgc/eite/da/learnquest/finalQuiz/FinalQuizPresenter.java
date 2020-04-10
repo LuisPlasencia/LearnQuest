@@ -1,11 +1,7 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
-import android.util.Log;
-
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.da.learnquest.data.User;
-import es.ulpgc.eite.da.learnquest.login.LoginState;
 
 public class FinalQuizPresenter implements FinalQuizContract.Presenter {
 
@@ -43,16 +39,15 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
 
     @Override
     public void onBackPressed() {
-        router.passStateToNextScreen(state);
-        model.resetQuizId();
-        router.navigateToQuizUnitsScreen();
+        onReturnClicked();
     }
 
     @Override
     public void onReturnClicked() {
         router.passStateToNextScreen(state);
         model.resetQuizId();
-        router.navigateToProfileScreen();
+      //  router.navigateToProfileScreen()
+        view.get().finishView();
     }
 
     @Override

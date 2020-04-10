@@ -10,6 +10,8 @@ public interface FinalQuizContract {
         void injectPresenter(Presenter presenter);
 
         void displayFinalQuizData(FinalQuizViewModel viewModel);
+
+        void finishView();
     }
 
     interface Presenter {
