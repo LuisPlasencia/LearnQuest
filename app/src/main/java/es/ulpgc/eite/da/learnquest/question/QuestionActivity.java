@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.question;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -86,13 +87,12 @@ public class QuestionActivity
     @Override
     public void updateReply(boolean isCorrect) {
         if(isCorrect){
-            ((TextView) findViewById(R.id.answer_text))
-                    .setText(R.string.correct_text);
+            ((TextView) findViewById(R.id.answer_text)).setText(R.string.correct_text);
         } else {
-            ((TextView) findViewById(R.id.answer_text))
-                    .setText(R.string.incorrect_text);
+            ((TextView) findViewById(R.id.answer_text)).setText(R.string.incorrect_text);
         }
     }
+
 
     @Override
     public void injectPresenter(QuestionContract.Presenter presenter) {
