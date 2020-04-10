@@ -1,6 +1,7 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -11,6 +12,7 @@ public class QuizRepository implements RepositoryContract {
 
     private ArrayList<Question> questions;
     private ArrayList<User> usuarios;
+    private ArrayList<QuizUnit> quizUnits;
 
     public static RepositoryContract getInstance() {
         if (INSTANCE == null) {
@@ -20,6 +22,18 @@ public class QuizRepository implements RepositoryContract {
     }
 
     private QuizRepository() {
+
+        QuizUnit quizUnit1 = new QuizUnit("T1. Triangles", "Cosen theorem",
+                "In this quiz you will learn about cosines and sines","T2. Equations","First and second",
+                "In this quiz you will learn about equations in deep","Maths");
+        //QuizUnit quizUnit2 = new QuizUnit("T2. Equations", "First and second equations ",
+          //      "In this quiz you will learn about equations in deep", "Maths");
+
+        quizUnits = new ArrayList<>();
+        quizUnits.add(quizUnit1);
+        //quizUnits.add(quizUnit2);
+
+
         Question question1 = new Question("First question: Option 1",
                                             "Option 1", "Option 2","Option 3",
                                                 "Hint: It might be option 1", 1, 1);
@@ -71,6 +85,16 @@ public class QuizRepository implements RepositoryContract {
             if(username.equals(usuarios.get(i).getUsername()) && password.equals(usuarios.get(i).getPassword())){
                 return usuarios.get(i);
             }
+        }
+        return null;
+    }
+
+    @Override
+    public QuizUnit getQuizUnit(String subject) {
+            for (int i = 0; i<quizUnits.size(); i++){
+                if(quizUnits.get(i).getSubject().equals(subject)){
+                    return quizUnits.get(i);
+                }
         }
         return null;
     }

@@ -50,6 +50,10 @@ public class QuizUnitActivity
         ((TextView) findViewById(R.id.t1_topic_title)).setText(viewModel.t1SubTopic);
         ((TextView) findViewById(R.id.t1_description)).setText(viewModel.t1Description);
 
+        ((TextView) findViewById(R.id.t2_topic)).setText(viewModel.t2Topic);
+        ((TextView) findViewById(R.id.t2_topic_title)).setText(viewModel.t2SubTopic);
+        ((TextView) findViewById(R.id.t2_description)).setText(viewModel.t2Description);
+
     }
 
     @Override

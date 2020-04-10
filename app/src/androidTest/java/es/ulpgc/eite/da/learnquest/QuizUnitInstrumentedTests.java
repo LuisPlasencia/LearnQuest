@@ -67,7 +67,7 @@ public class QuizUnitInstrumentedTests {
     String empty_answer = context.getString(R.string.empty_string);
     String warningInfo = context.getString(R.string.confirmation_info_cheat);
     String next_button_text = context.getString(R.string.next_button_text);
-    String cheat_button_text = context.getString(R.string.cheat_button_text);
+    String cheat_button_text = context.getString(R.string.hint_button_text);
 
     //Quest
 

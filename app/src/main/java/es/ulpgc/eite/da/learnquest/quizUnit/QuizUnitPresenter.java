@@ -43,8 +43,9 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
         state.t1Topic = model.getT1Topic();
         state.t1SubTopic = model.getT1SubTopic();
         state.t1Description = model.getT1Description();
-
-
+        state.t2Topic = model.getT2Topic();
+        state.t2SubTopic = model.getT2SubTopic();
+        state.t2Description = model.getT2Description();
         // update the view
         view.get().displayData(state);
     }
@@ -54,44 +55,25 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
         state.t1Topic = model.getT1Topic();
         state.t1SubTopic = model.getT1SubTopic();
         state.t1Description = model.getT1Description();
+        state.t2Topic = model.getT2Topic();
+        state.t2SubTopic = model.getT2SubTopic();
+        state.t2Description = model.getT2Description();
+
     }
 
-   /* @Override
-    public String getSubject() {
+    @Override
+    public void setSubject() {
         QuestToQuizUnitState savedState = router.getStateFromQuestScreen();
-        if(savedState.subject.equals("Maths")){
-            return "Maths";
-        } else if(savedState.subject.equals("English")){
-            return "English";
-        }
-        return "Geography";
-    }*/
+        String subject = savedState.subject;
+        model.setSubject(subject);
+    }
 
     @Override
     public void setT1Items() {
+        setSubject();
+        model.setT1Fields();
 
-        QuestToQuizUnitState savedState = router.getStateFromQuestScreen();
-
-       if (savedState.subject.equals("Maths")) {
-            model.setT1Topic("AAAAAAAAAAAAA");
-            model.setT1SubTopic("BBBBBBB");
-            model.setT1Description("CCCCCCCCCC");
-            view.get().displayData(state);
-        } else if (savedState.subject.equals("English")) {
-            model.setT1Topic("222222222222222");
-            model.setT1SubTopic("333333333333333");
-            model.setT1Description("11111111111111");
-        }else{
-            model.setT1Topic("$$$$$$$$$$$$$$$");
-            model.setT1SubTopic("%%%%%%%%%%%%%");
-            model.setT1Description("············");
-        }
     }
-
-    /*@Override
-    public String getT1Items() {
-        return model.getT1Topic();
-    }*/
 
     @Override
     public void injectView(WeakReference<QuizUnitContract.View> view) {

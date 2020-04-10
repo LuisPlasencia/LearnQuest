@@ -22,7 +22,7 @@ public interface QuizUnitContract {
 
        // void fetchData();
 
-       // String getSubject();
+        void setSubject();
 
         void setT1Items();
 
@@ -36,29 +36,31 @@ public interface QuizUnitContract {
 
         void onPause();
 
-
     }
 
     interface Model {
-        String fetchData();
-
+        //String fetchData();
         void onRestartScreen(QuizUnitState data);
-
-       // void setT1Fields();
-
+        void setT1Fields();
         void setT1Topic(String T1Topic);
         void setT1SubTopic(String T1SubTopic);
         void setT1Description(String T1Description);
+
+        void setSubject(String subject);
 
         String getT1Topic();
         String getT1SubTopic();
         String getT1Description();
 
-        void setT2Topic(String T1Topic);
-        void setT2Subtopic(String T2SubTopic);
+        void setT2Topic(String T2Topic);
+        void setT2SubTopic(String T2SubTopic);
         void setT2Description(String T2Description);
-    }
 
+        String getT2Topic();
+        String getT2SubTopic();
+        String getT2Description();
+
+    }
     interface Router {
         void navigateToNextScreen();
 
