@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
-
+//hola
 public class QuestionActivity
         extends AppCompatActivity implements QuestionContract.View {
 
