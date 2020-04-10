@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -53,15 +54,12 @@ public class ProfileActivity
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
-        if(!viewModel.username.equals("")){
-            ((TextView) findViewById(R.id.profile_name)).setText(viewModel.username);
-        }
+
+        ((TextView) findViewById(R.id.profile_name)).setText(viewModel.username);
         ((TextView) findViewById(R.id.level_display)).setText(String.valueOf("Level: " + viewModel.level));
         ((TextView) findViewById(R.id.exp_to_display)).setText(String.valueOf(viewModel.sublevel + " / 100"));
         int photo = presenter.getPhoto();
-        if(photo != 0){
-            ((ImageView) findViewById(R.id.profile_photo)).setImageResource(photo);
-        }
+        ((ImageView) findViewById(R.id.profile_photo)).setImageResource(photo);
         displayprogressBar(viewModel.sublevel);
     }
 

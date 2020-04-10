@@ -44,5 +44,24 @@ public class ProfileModel implements ProfileContract.Model {
         return 0;
     }
 
+    @Override
+    public String getUsername(User user) {
+        if(user!=null){
+            return user.getUsername();
+        }
+        return "";
+    }
+
+    @Override
+    public void setUsername(User user, String username) {
+        if(user!=null){
+            user.setUsername(username);
+        }
+    }
+
+    @Override
+    public void resetDefaultUser(){
+        repository.resetDefaultUser();
+    }
 
 }

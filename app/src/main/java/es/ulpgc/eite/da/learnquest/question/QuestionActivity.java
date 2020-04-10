@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.question;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
@@ -93,6 +94,50 @@ public class QuestionActivity
         }
     }
 
+    @Override
+    public void resetOptionColor() {
+        findViewById(R.id.option1_button).getBackground().clearColorFilter();
+        findViewById(R.id.option2_button).getBackground().clearColorFilter();
+        findViewById(R.id.option3_button).getBackground().clearColorFilter();
+    }
+
+    @Override
+    public void setOptionColorCorrect(int option) {
+        Button optionSelected = null;
+        switch (option) {
+            case 1:
+                optionSelected = findViewById(R.id.option1_button);
+                break;
+            case 2:
+                optionSelected = findViewById(R.id.option2_button);
+                break;
+            case 3:
+                optionSelected = findViewById(R.id.option3_button);
+                break;
+        }
+        if(optionSelected != null) {
+            optionSelected.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+        }
+    }
+
+    @Override
+    public void setOptionColorIncorrect(int option) {
+        Button optionSelected = null;
+        switch (option) {
+            case 1:
+                optionSelected = findViewById(R.id.option1_button);
+                break;
+            case 2:
+                optionSelected = findViewById(R.id.option2_button);
+                break;
+            case 3:
+                optionSelected = findViewById(R.id.option3_button);
+                break;
+        }
+        if(optionSelected != null) {
+            optionSelected.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+        }
+    }
 
     @Override
     public void injectPresenter(QuestionContract.Presenter presenter) {
