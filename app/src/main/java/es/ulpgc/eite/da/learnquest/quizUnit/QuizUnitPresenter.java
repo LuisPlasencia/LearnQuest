@@ -35,11 +35,6 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
 
     @Override
     public void onResume() {
-        QuestToQuizUnitState savedState = router.getStateFromQuestScreen();
-
-        /*if (savedState != null) {
-            model.setSubject(savedState.subject);
-        }*/
 
         state.t1Topic = model.getT1Topic();
         state.t1SubTopic = model.getT1SubTopic();

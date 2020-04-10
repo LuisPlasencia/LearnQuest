@@ -12,9 +12,9 @@
     <string name="geography_text">Geography</string>
 
 
-    <string name="math_level">Level ? (??%)</string>
-    <string name="english_level">Level ? (??%)</string>
-    <string name="geography_level">Level ? (??%)</string>
+    <string name="math_level">0%</string>
+    <string name="english_level">0%</string>
+    <string name="geography_level">0%</string>
 
 
     <string name="quiz_unit_title">Quiz units</string>

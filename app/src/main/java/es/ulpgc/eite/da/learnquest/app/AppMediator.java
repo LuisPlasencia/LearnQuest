@@ -52,6 +52,9 @@ public class AppMediator extends Application {
     }
 
     public QuestsState getQuestsState() {
+        if(questsState == null){
+            questsState = new QuestsState();
+        }
         return questsState;
     }
 

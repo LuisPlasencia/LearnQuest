@@ -20,9 +20,9 @@ public class User {
         this.id = id;
         this.level = 0;
         this.sublevel = 0;
-        this.mathPercentage = 0;
-        this.englishPercentage = 0;
-        this.geographyPercentage = 0;
+        this.mathPercentage = 5;
+        this.englishPercentage = 6;
+        this.geographyPercentage = 7;
         this.setPhoto(android.R.drawable.ic_menu_camera);
     }
 

@@ -19,18 +19,36 @@ public interface QuestsContract {
 
         void injectRouter(Router router);
 
-        void fetchData();
+       // void fetchData();
 
         void onSubjectButtonClicked(String subject);
+
+        void onResume();
+
+        void onPause();
+
+        void updateLevels();
+
+        void onRestart();
+
+
 
     }
 
     interface Model {
         String fetchData();
 
-        String setMathLevel();
-        String setEnglishLevel();
-        String setGeographyLevel();
+        String getMathLevel();
+        String getEnglishLevel();
+        String getGeographyLevel();
+
+        void setMathLevel(String mathLevel);
+        void setEnglishLevel(String englishLevel);
+        void setGeographyLevel(String geographyLevel);
+
+        void setSubjectLevels();
+
+        void onRestartScreen(QuestsState data);
     }
 
     interface Router {

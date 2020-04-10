@@ -1,7 +1,5 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
-import android.util.Log;
-
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 

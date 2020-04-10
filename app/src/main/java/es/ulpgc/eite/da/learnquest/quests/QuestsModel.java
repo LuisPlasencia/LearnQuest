@@ -1,13 +1,31 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
-import android.util.Log;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestsModel implements QuestsContract.Model {
 
     public static String TAG = QuestsModel.class.getSimpleName();
 
-    public QuestsModel() {
+    private String mathLevel,englishLevel,geographyLevel;
 
+    private RepositoryContract quizRepository;
+
+    public QuestsModel(RepositoryContract quizRepository) {
+        this.quizRepository=quizRepository;
+    }
+
+    @Override
+    public void setSubjectLevels(){
+        setMathLevel(quizRepository.getSubjectPercentage(1).toString()+"%");
+        setEnglishLevel(quizRepository.getSubjectPercentage(2).toString()+"%");
+        setGeographyLevel(quizRepository.getSubjectPercentage(3).toString()+"%");
+    }
+
+    @Override
+    public void onRestartScreen(QuestsState data){
+        mathLevel=data.mathLevel;
+        englishLevel=data.englishLevel;
+        geographyLevel=data.geographyLevel;
     }
 
     @Override
@@ -16,19 +34,29 @@ public class QuestsModel implements QuestsContract.Model {
         return "Hello";
     }
 
-
-    @Override
-    public String setMathLevel() {
-        return null;
+    public String getMathLevel() {
+        return mathLevel;
     }
 
-    @Override
-    public String setEnglishLevel() {
-        return null;
+    public void setMathLevel(String mathLevel) {
+        this.mathLevel = mathLevel;
     }
 
-    @Override
-    public String setGeographyLevel() {
-        return null;
+    public String getEnglishLevel() {
+        return englishLevel;
     }
+
+    public void setEnglishLevel(String englishLevel) {
+        this.englishLevel = englishLevel;
+    }
+
+    public String getGeographyLevel() {
+        return geographyLevel;
+    }
+
+    public void setGeographyLevel(String geographyLevel) {
+        this.geographyLevel = geographyLevel;
+    }
+
+
 }

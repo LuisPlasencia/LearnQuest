@@ -20,7 +20,7 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         this.state = state;
     }
 
-    @Override
+   /* @Override
     public void fetchData() {
         // Log.e(TAG, "fetchData()");
 
@@ -51,6 +51,31 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         // update the view
         view.get().displayData(state);
 
+    }*/
+
+   @Override
+   public void onRestart(){
+       model.onRestartScreen(state);
+   }
+
+    @Override
+    public void onResume() {
+
+        state.mathLevel = model.getMathLevel();
+        state.englishLevel = model.getEnglishLevel();
+        state.geographyLevel = model.getGeographyLevel();
+
+
+        // update the view
+        view.get().displayData(state);
+    }
+
+    @Override
+    public void onPause() {
+        state.mathLevel = model.getMathLevel();
+        state.englishLevel = model.getEnglishLevel();
+        state.geographyLevel = model.getGeographyLevel();
+
     }
 
     @Override
@@ -60,6 +85,12 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         router.passDataToQuizUnitScreen(newState);
         router.navigateToNextScreen();
     }
+    @Override
+    public void updateLevels(){
+        model.setSubjectLevels();
+    }
+
+
 
     @Override
     public void injectView(WeakReference<QuestsContract.View> view) {

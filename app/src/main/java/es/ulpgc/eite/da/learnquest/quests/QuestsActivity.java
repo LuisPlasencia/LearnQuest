@@ -20,18 +20,18 @@ public class QuestsActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quests);
+        getSupportActionBar().setTitle(R.string.quiz_unit_title);
 
         // do the setup
         QuestsScreen.configure(this);
+        presenter.updateLevels();
     }
-
     @Override
     protected void onResume() {
         super.onResume();
 
         // load the data
-
-        presenter.fetchData();
+        presenter.onResume();
     }
 
     @Override
@@ -39,7 +39,9 @@ public class QuestsActivity
         //Log.e(TAG, "displayData()");
 
         // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
+        ((TextView) findViewById(R.id.math_level_id)).setText(viewModel.mathLevel);
+        ((TextView) findViewById(R.id.english_level_id)).setText(viewModel.englishLevel);
+        ((TextView) findViewById(R.id.geography_level_id)).setText(viewModel.geographyLevel);
     }
 
     public void onButtonClicked(View view){

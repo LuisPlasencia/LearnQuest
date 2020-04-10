@@ -110,6 +110,7 @@ public class QuizRepository implements RepositoryContract {
         return null;
     }
 
+
     @Override
     public void resetDefaultUser(){
         usuariodefault.setUsername("Username");
@@ -176,12 +177,13 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public Integer getSublevel(){
+    public Integer getSublevel() {
         if(usuarioActual!= null){
             return usuarioActual.getSublevel();
         }
         return 0;
     }
+
 
     @Override
     public Integer getPhoto(){
