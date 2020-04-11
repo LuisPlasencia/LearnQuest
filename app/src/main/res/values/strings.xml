@@ -56,6 +56,7 @@
     <string name="log_out_button">Log out</string>
     <string name="log_out_icon_description">log out icon</string>
 
+    <string name="hint_activity_title">Hint</string>
     <string name="yes_cheat_button_text">Yes</string>
     <string name="no_cheat_button_text">No</string>
     <string name="confirmation_cheat">Are your sure?</string>ç
@@ -69,7 +70,7 @@
     <string name="return_home_button">Return to home</string>
     <string name="level_display_final_quiz">Level 0</string>
 
-    <string name="quiz_screen_title">Quiz</string>
+    <string name="quiz_screen_title">Example Quiz</string>
     <string name="question_number_text">Question 1</string>
     <string name="question_text">Question text</string>
     <string name="option1_text">Option 1</string>

@@ -32,8 +32,6 @@
         <activity
             android:name=".question.QuestionActivity"
             android:theme="@style/Theme.Design.NoActionBar">
-
-
         </activity>
 
         <activity

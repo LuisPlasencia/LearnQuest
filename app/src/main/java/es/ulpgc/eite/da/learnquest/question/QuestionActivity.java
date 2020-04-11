@@ -1,6 +1,8 @@
 package es.ulpgc.eite.da.learnquest.question;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -23,6 +25,7 @@ public class QuestionActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        setupToolbar();
 
         // do the setup
         QuestionScreen.configure(this);
@@ -40,6 +43,16 @@ public class QuestionActivity
 
         } else {
             presenter.onRestart();
+        }
+    }
+
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.question_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            String questionTitle = getResources().getString(R.string.quiz_screen_title);
+            actionBar.setTitle(questionTitle);
         }
     }
 

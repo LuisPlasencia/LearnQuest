@@ -9,11 +9,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
         android:orientation="vertical"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
         <TextView
             android:id="@+id/confirmation_text"
@@ -41,9 +42,9 @@
             <Button
                 android:id="@+id/yesButton"
                 android:layout_width="match_parent"
-                android:onClick="onYesButtonClicked"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_selector"
+                android:onClick="onYesButtonClicked"
                 android:text="@string/yes_cheat_button_text"
                 android:textColor="#FFFF" />
 
@@ -54,13 +55,11 @@
             <Button
                 android:id="@+id/noButton"
                 android:layout_width="match_parent"
-                android:onClick="onNoButtonClicked"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_selector"
+                android:onClick="onNoButtonClicked"
                 android:text="@string/no_cheat_button_text"
-                android:textColor="#FFFF"/>
-
-
+                android:textColor="#FFFF" />
         </LinearLayout>
 
         <Space
@@ -81,15 +80,13 @@
 
         <Button
             android:id="@+id/returnButton"
-            android:onClick="onReturnToQuestionButtonClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:background="@drawable/button_selector"
+            android:onClick="onReturnToQuestionButtonClicked"
             android:text="@string/return_to_question_button_text"
-            android:textColor="#FFFF"/>
-
-
+            android:textColor="#FFFF" />
     </LinearLayout>
 
 

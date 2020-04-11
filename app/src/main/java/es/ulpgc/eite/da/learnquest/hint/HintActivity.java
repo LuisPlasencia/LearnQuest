@@ -23,6 +23,7 @@ public class HintActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_hint);
+        getSupportActionBar().setTitle("Hint");
 
         // do the setup
         HintScreen.configure(this);
@@ -31,6 +32,7 @@ public class HintActivity
             presenter.onStart();
         }
     }
+
 
     public void onReturnToQuestionButtonClicked(View view) {
         presenter.onReturnToQuestionButton();
