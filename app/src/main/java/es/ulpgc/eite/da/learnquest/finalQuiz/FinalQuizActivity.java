@@ -27,12 +27,7 @@ public class FinalQuizActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        getSupportActionBar().setTitle(getResources().getString(R.string.final_quiz_activity_title));
 
         // do the setup
         FinalQuizScreen.configure(this);

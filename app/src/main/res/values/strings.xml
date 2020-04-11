@@ -64,6 +64,7 @@
     <string name="return_to_question_button_text">Return to question!</string>
     <string name="empty_string">"????"</string>
 
+    <string name="final_quiz_activity_title">Quiz End</string>
     <string name="gold_medal_description">Medalla de final de quiz (posibilidad de que sea sliver o bronce)</string>
     <string name="earned_display">You earned 40 xp!</string>
     <string name="xp_left_to_next_level">You need 1300xp to reach level 3!</string>
