@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
 import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
 
 public class QuestionPresenter implements QuestionContract.Presenter {
@@ -74,6 +75,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     @Override
     public void onResume() {
+        HintToQuestionState stateFromHint = router.getDataFromHintScreen();
+        if(stateFromHint != null) {
+            if(stateFromHint.hintDisplayed) {
+                state.hintEnabled = false;
+            } else {
+                state.hintEnabled = true;
+            }
+        }
         view.get().displayData(state);
     }
 

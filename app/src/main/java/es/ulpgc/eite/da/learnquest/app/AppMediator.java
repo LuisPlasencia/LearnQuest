@@ -133,7 +133,9 @@ public class AppMediator extends Application {
     }
 
     public HintToQuestionState getHintToQuestionState() {
-        return hintToQuestionState;
+        HintToQuestionState state = hintToQuestionState;
+        hintToQuestionState = null;
+        return state;
     }
 
     public void setQuestToQuizUnitState(QuestToQuizUnitState state) {

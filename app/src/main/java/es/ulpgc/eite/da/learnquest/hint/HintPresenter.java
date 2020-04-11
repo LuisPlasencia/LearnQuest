@@ -59,6 +59,7 @@ public class HintPresenter implements HintContract.Presenter {
     public void onYesButtonClicked() {
         state.answer = model.fetchQuestionHint();
         state.yesNoButtonEnabled = false;
+        state.hintDisplayed = true;
         view.get().displayData(state);
     }
 
