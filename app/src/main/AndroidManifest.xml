@@ -22,11 +22,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".quests.QuestsActivity">
+        <activity android:name=".quests.QuestsActivity"
+            android:parentActivityName=".profile.ProfileActivity">
         </activity>
 
-        <activity android:name=".quizUnit.QuizUnitActivity">
-
+        <activity android:name=".quizUnit.QuizUnitActivity"
+            android:parentActivityName=".quests.QuestsActivity">
         </activity>
 
         <activity

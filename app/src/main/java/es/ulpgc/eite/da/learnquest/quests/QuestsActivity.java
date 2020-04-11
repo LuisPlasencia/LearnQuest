@@ -21,12 +21,15 @@ public class QuestsActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quests);
         getSupportActionBar().setTitle(R.string.quiz_unit_title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
 
         // do the setup
         QuestsScreen.configure(this);
         presenter.updateLevels();
 
         presenter.setSubjectImage();
+
+
 
     }
     @Override
@@ -67,6 +70,8 @@ public class QuestsActivity
         }
 
     }
+
+
 
     @Override
     public void injectPresenter(QuestsContract.Presenter presenter) {
