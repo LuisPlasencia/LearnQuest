@@ -54,7 +54,7 @@ public class FinalQuizActivityTest {
     @Test
     public void returnToHomeButtonPressed() {
         //GIVEN
-        ViewInteraction imageView = onView(withId(R.id.gold_medal));
+        ViewInteraction imageView = onView(withId(R.id.medal));
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
@@ -94,7 +94,7 @@ public class FinalQuizActivityTest {
     @Test
     public void BackPressed() {
         //GIVEN
-        ViewInteraction imageView = onView(withId(R.id.gold_medal));
+        ViewInteraction imageView = onView(withId(R.id.medal));
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
@@ -145,7 +145,7 @@ public class FinalQuizActivityTest {
     @Test
     public void returnIconPressed() {
         //GIVEN
-        ViewInteraction imageView = onView(withId(R.id.gold_medal));
+        ViewInteraction imageView = onView(withId(R.id.medal));
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
