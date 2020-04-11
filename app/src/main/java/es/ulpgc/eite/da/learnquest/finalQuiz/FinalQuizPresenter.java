@@ -46,8 +46,8 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
     public void onReturnClicked() {
         router.passStateToNextScreen(state);
         model.resetQuizId();
-      //  router.navigateToProfileScreen()
-        view.get().finishView();
+        router.navigateToProfileScreen();
+        //view.get().finishView();
     }
 
     @Override

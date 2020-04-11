@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -15,7 +16,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.lang.annotation.RetentionPolicy;
+import java.util.ArrayList;
+
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.Question;
+import es.ulpgc.eite.da.learnquest.data.QuizRepository;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -38,25 +45,23 @@ public class QuizInstrumentedTests {
 
     Context context =
             InstrumentationRegistry.getInstrumentation().getTargetContext();
+    RepositoryContract repository = QuizRepository.getInstance();
 
     //Esto se puede ir modificando
-    String[] question_array = context.getResources().getStringArray(R.array.question_array);
-    String question_number = question_array[0];
-    String question_text = question_array[1];
-    String option1_text = question_array[2];
-    String option2_text = question_array[3];
-    String option3_text = question_array[4];
+    ArrayList<Question> question_array = repository.getQuestions();
+    Question question1 = question_array.get(0);
+    Question question2 = question_array.get(1);
+    Question question3 = question_array.get(2);
     String correct = context.getString(R.string.correct_text);
     String incorrect = context.getString(R.string.incorrect_text);
-    String empty_reply = context.getString(R.string.empty_string);
-    String warning = context.getString(R.string.confirmation_cheat);
     String empty_answer = context.getString(R.string.empty_string);
-    String warningInfo = context.getString(R.string.confirmation_info_cheat);
     String next_button_text = context.getString(R.string.next_button_text);
     String cheat_button_text = context.getString(R.string.hint_button_text);
 
     String confirmation_text = context.getString(R.string.confirmation_cheat);
     String confirmation_info_text = context.getString(R.string.confirmation_info_cheat);
+
+    String returnToProfileTextFinalQuiz = context.getString(R.string.return_home_button);
 
 
     private void rotate() {
@@ -76,17 +81,17 @@ public class QuizInstrumentedTests {
     @Test
     public void incorrectAnswerChosenTest() {
         //GIVEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
         onView(withId(R.id.option1_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[2])));
+                .check(matches(withText(question1.getOption1())));
         onView(withId(R.id.option2_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[3])));
+                .check(matches(withText(question1.getOption2())));
         onView(withId(R.id.option3_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[4])));
+                .check(matches(withText(question1.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -96,43 +101,43 @@ public class QuizInstrumentedTests {
                 .check(matches(withText(cheat_button_text)));
 
         //WHEN
-        onView(withId(R.id.option1_button)).perform(click());
+        onView(withId(R.id.option3_button)).perform(click());
 
         //THEN
         onView(withId(R.id.option1_button))
                 .check(matches(not(isEnabled())))
-                .check(matches(withText(question_array[2])));
+                .check(matches(withText(question1.getOption1())));
         onView(withId(R.id.option2_button))
                 .check(matches(not(isEnabled())))
-                .check(matches(withText(question_array[3])));
+                .check(matches(withText(question1.getOption2())));
         onView(withId(R.id.option3_button))
                 .check(matches(not(isEnabled())))
-                .check(matches(withText(question_array[4])));
+                .check(matches(withText(question1.getOption3())));
         onView(withId(R.id.cheatButton))
                 .check(matches(not(isEnabled())))
                 .check(matches(withText(cheat_button_text)));
         onView(withId(R.id.nextButton))
-                .check(matches(not(isEnabled())))
+                .check(matches((isEnabled())))
                 .check(matches(withText(next_button_text)));
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
         onView(withId(R.id.answer_text)).check(matches(withText(incorrect)));
     }
 
     @Test
     public void correctAnswerChosenTest() {
         //GIVEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
         onView(withId(R.id.option1_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[2])));
+                .check(matches(withText(question1.getOption1())));
         onView(withId(R.id.option2_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[3])));
+                .check(matches(withText(question1.getOption2())));
         onView(withId(R.id.option3_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[4])));
+                .check(matches(withText(question1.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -142,37 +147,37 @@ public class QuizInstrumentedTests {
                 .check(matches(withText(cheat_button_text)));
 
         //WHEN
-        onView(withId(R.id.option2_button)).perform(click());
+        onView(withId(R.id.option1_button)).perform(click());
 
         //THEN
         onView(withId(R.id.option1_button))
                 .check(matches(not(isEnabled())))
-                .check(matches(withText(question_array[2])));
+                .check(matches(withText(question1.getOption1())));
         onView(withId(R.id.option2_button))
                 .check(matches(not(isEnabled())))
-                .check(matches(withText(question_array[3])));
+                .check(matches(withText(question1.getOption2())));
         onView(withId(R.id.option3_button))
                 .check(matches(not(isEnabled())))
-                .check(matches(withText(question_array[4])));
+                .check(matches(withText(question1.getOption3())));
         onView(withId(R.id.cheatButton))
                 .check(matches(not(isEnabled())))
                 .check(matches(withText(cheat_button_text)));
         onView(withId(R.id.nextButton))
-                .check(matches(not(isEnabled())))
+                .check(matches((isEnabled())))
                 .check(matches(withText(next_button_text)));
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
-        onView(withId(R.id.answer_text)).check(matches(withText(incorrect)));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
+        onView(withId(R.id.answer_text)).check(matches(withText(correct)));
     }
 
     @Test
     public void nextButtonClickedAfterWrongAnswerTest() {
         //GIVEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
-        onView(withId(R.id.option1_button)).check(matches(withText(question_array[2])));
-        onView(withId(R.id.option2_button)).check(matches(withText(question_array[3])));
-        onView(withId(R.id.option3_button)).check(matches(withText(question_array[4])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
+        onView(withId(R.id.option1_button)).check(matches(withText(question1.getOption1())));
+        onView(withId(R.id.option2_button)).check(matches(withText(question1.getOption2())));
+        onView(withId(R.id.option3_button)).check(matches(withText(question1.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -181,7 +186,8 @@ public class QuizInstrumentedTests {
                 .check(matches(isEnabled()))
                 .check(matches(withText(cheat_button_text)));
 
-        onView(withId(R.id.option1_button)).perform(click());
+        onView(withId(R.id.option3_button)).perform(click());
+
         onView(withId(R.id.option1_button)).check(matches(not(isEnabled())));
         onView(withId(R.id.option2_button)).check(matches(not(isEnabled())));
         onView(withId(R.id.option3_button)).check(matches(not(isEnabled())));
@@ -191,25 +197,23 @@ public class QuizInstrumentedTests {
         onView(withId(R.id.nextButton))
                 .check(matches(isEnabled()))
                 .check(matches(withText(next_button_text)));
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
         onView(withId(R.id.answer_text)).check(matches(withText(incorrect)));
 
         //WHEN
         onView(withId(R.id.nextButton)).perform(click());
 
         //THEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[5])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[6])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question2.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question2.getQuestion())));
         onView(withId(R.id.option1_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[7])));
+                .check(matches(withText(question2.getOption1())));
         onView(withId(R.id.option2_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[8])));
+                .check(matches(withText(question2.getOption2())));
         onView(withId(R.id.option3_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[9])));
+                .check(matches(withText(question2.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -222,11 +226,11 @@ public class QuizInstrumentedTests {
     @Test
     public void nextButtonClickedAfterRightAnswerChosen() {
         //GIVEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
-        onView(withId(R.id.option1_button)).check(matches(withText(question_array[2])));
-        onView(withId(R.id.option2_button)).check(matches(withText(question_array[3])));
-        onView(withId(R.id.option3_button)).check(matches(withText(question_array[4])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
+        onView(withId(R.id.option1_button)).check(matches(withText(question1.getOption1())));
+        onView(withId(R.id.option2_button)).check(matches(withText(question1.getOption2())));
+        onView(withId(R.id.option3_button)).check(matches(withText(question1.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -235,7 +239,7 @@ public class QuizInstrumentedTests {
                 .check(matches(isEnabled()))
                 .check(matches(withText(cheat_button_text)));
 
-        onView(withId(R.id.option2_button)).perform(click());
+        onView(withId(R.id.option1_button)).perform(click());
 
         onView(withId(R.id.option1_button)).check(matches(not(isEnabled())));
         onView(withId(R.id.option2_button)).check(matches(not(isEnabled())));
@@ -246,25 +250,23 @@ public class QuizInstrumentedTests {
         onView(withId(R.id.nextButton))
                 .check(matches(isEnabled()))
                 .check(matches(withText(next_button_text)));
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
-        onView(withId(R.id.answer_text)).check(matches(withText(incorrect)));
+        onView(withId(R.id.answer_text)).check(matches(withText(correct)));
 
         //WHEN
         onView(withId(R.id.nextButton)).perform(click());
 
         //THEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[5])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[6])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question2.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question2.getQuestion())));
         onView(withId(R.id.option1_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[7])));
+                .check(matches(withText(question2.getOption1())));
         onView(withId(R.id.option2_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[8])));
+                .check(matches(withText(question2.getOption2())));
         onView(withId(R.id.option3_button))
                 .check(matches(isEnabled()))
-                .check(matches(withText(question_array[9])));
+                .check(matches(withText(question2.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -277,11 +279,11 @@ public class QuizInstrumentedTests {
     @Test
     public void startHintActivityAfterHintButtonPressed() {
         //GIVEN
-        onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-        onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
-        onView(withId(R.id.option1_button)).check(matches(withText(question_array[2])));
-        onView(withId(R.id.option2_button)).check(matches(withText(question_array[3])));
-        onView(withId(R.id.option3_button)).check(matches(withText(question_array[4])));
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
+        onView(withId(R.id.option1_button)).check(matches(withText(question1.getOption1())));
+        onView(withId(R.id.option2_button)).check(matches(withText(question1.getOption2())));
+        onView(withId(R.id.option3_button)).check(matches(withText(question1.getOption3())));
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
         onView(withId(R.id.nextButton))
                 .check(matches(not(isEnabled())))
@@ -311,17 +313,17 @@ public class QuizInstrumentedTests {
        onView(withId(R.id.noButton)).perform(click());
 
        //THEN
-       onView(withId(R.id.question_number)).check(matches(withText(question_array[0])));
-       onView(withId(R.id.question_text)).check(matches(withText(question_array[1])));
+       onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+       onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
        onView(withId(R.id.option1_button))
                .check(matches(isEnabled()))
-               .check(matches(withText(question_array[2])));
+               .check(matches(withText(question1.getOption1())));
        onView(withId(R.id.option2_button))
                .check(matches(isEnabled()))
-               .check(matches(withText(question_array[3])));
+               .check(matches(withText(question1.getOption2())));
        onView(withId(R.id.option3_button))
                .check(matches(isEnabled()))
-               .check(matches(withText(question_array[4])));
+               .check(matches(withText(question1.getOption3())));
        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
        onView(withId(R.id.nextButton))
                .check(matches(not(isEnabled())))
@@ -345,8 +347,9 @@ public class QuizInstrumentedTests {
        //THEN
        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
-       onView(withId(R.id.answer_text)).check(matches(withText(question_array[3])));
+       onView(withId(R.id.answer_text)).check(matches(withText(question1.getHint())));
    }
+
 
    @Test
     public void pressYesInHintActivityAndReturnToQuestion() {
@@ -355,29 +358,33 @@ public class QuizInstrumentedTests {
        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+
        onView(withId(R.id.yesButton)).perform(click());
+       onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+       onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+       onView(withId(R.id.answer_text)).check(matches(withText(question1.getHint())));
 
        //WHEN
-       onView(withId(R.id.yesButton)).perform(click());
+       onView(withId(R.id.returnButton)).perform(click());
 
        //THEN
-       onView(withId(R.id.question_number)).check(matches(withText(question_array[5])));
-       onView(withId(R.id.question_text)).check(matches(withText(question_array[6])));
+       onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+       onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
        onView(withId(R.id.option1_button))
                .check(matches(isEnabled()))
-               .check(matches(withText(question_array[7])));
+               .check(matches(withText(question1.getOption1())));
        onView(withId(R.id.option2_button))
                .check(matches(isEnabled()))
-               .check(matches(withText(question_array[8])));
+               .check(matches(withText(question1.getOption2())));
        onView(withId(R.id.option3_button))
                .check(matches(isEnabled()))
-               .check(matches(withText(question_array[9])));
+               .check(matches(withText(question1.getOption3())));
        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
        onView(withId(R.id.nextButton))
                .check(matches(not(isEnabled())))
                .check(matches(withText(next_button_text)));
        onView(withId(R.id.cheatButton))
-               .check(matches(isEnabled()))
+               .check(matches(not(isEnabled())))
                .check(matches(withText(cheat_button_text)));
 
    }
@@ -385,6 +392,7 @@ public class QuizInstrumentedTests {
    @Test
    public void pressNextButtonAtLastQuestion() {
         //GIVEN
+       repository.setUserActual(repository.getUser("Ruben", "rabano"));
        onView(withId(R.id.option2_button)).perform(click());
        onView(withId(R.id.nextButton)).perform(click());
        onView(withId(R.id.option2_button)).perform(click());
@@ -395,6 +403,7 @@ public class QuizInstrumentedTests {
        onView(withId(R.id.nextButton)).perform(click());
 
        //THEN
-       onView(withId(R.id.earned)).check(matches(withText(context.getString(R.string.earned_display))));
+       ViewInteraction appCompatButton = onView(withId(R.id.return_button));
+       appCompatButton.check(matches(withText(returnToProfileTextFinalQuiz)));
    }
 }

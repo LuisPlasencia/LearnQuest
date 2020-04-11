@@ -18,7 +18,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     public QuestionPresenter(QuestionState state) {
         this.state = state;
     }
-    
+
     @Override
     public void fetchData() {
         // Log.e(TAG, "fetchData()");

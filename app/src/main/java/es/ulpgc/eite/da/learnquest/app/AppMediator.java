@@ -67,7 +67,13 @@ public class AppMediator extends Application {
             quizUnitState = new QuizUnitState();
         }
         return quizUnitState;
+    }
 
+    public HintState getHintState() {
+        if(hintState == null) {
+            hintState = new HintState();
+        }
+        return hintState;
     }
 
     public void setQuizUnitState(QuizUnitState quizUnitState) {
@@ -104,10 +110,6 @@ public class AppMediator extends Application {
 
     public void setLogrosState(LogrosState state){
         logrosState = state;
-    }
-
-    public HintState getHintState() {
-        return hintState;
     }
 
     public void setHintState(HintState hintState) {
