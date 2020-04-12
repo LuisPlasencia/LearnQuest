@@ -23,11 +23,13 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public void onStart() {
         LoginState loginState = router.getLoginState();
-        state.user = model.getUser(loginState.username, loginState.password);
-        model.setUserActual(state.user);
-        if(state.user.getId() == 0 && !loginState.username.equals("")){
-            state.username = loginState.username;
-            model.setUsername(state.username);
+        if (loginState != null){
+            state.user = model.getUser(loginState.username, loginState.password);
+            model.setUserActual(state.user);
+            if(state.user.getId() == 0 && !loginState.username.equals("")){
+                state.username = loginState.username;
+                model.setUsername(state.username);
+            }
         } else{
             state.username = model.getUsername();
         }

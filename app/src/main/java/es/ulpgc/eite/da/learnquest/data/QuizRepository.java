@@ -64,10 +64,12 @@ public class QuizRepository implements RepositoryContract {
 
     private void inicializarUsuarios() {
         usuariodefault = new User("Username", "", 0);
+
         User usuario1 = new User("Luis", "patata", 1);
         User usuario2 = new User("Ruben", "rabano", 2);
         User usuario3 = new User("Cunwang", "lechuga", 3);
 
+        usuarioActual = usuariodefault;
         usuariodefault.setMathPercentage(27);
         usuariodefault.setEnglishPercentage(66);
         usuariodefault.setGeographyPercentage(5);
