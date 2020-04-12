@@ -18,14 +18,14 @@
 
 
     <string name="quiz_unit_title">Quiz units</string>
-    <string name="T1_Topic">T1. Topic</string>
+    <string name="T1_Topic">T1.Topic</string>
     <string name="T1_Topic_title_1">Subtopic</string>
     <string name="T1_Topic_description">Description of the subtopic</string>
     <string name="T1_Topic_solve_button">Solve!</string>
     <string name="T1_Topic_practise_button">Practice!</string>
 
 
-    <string name="T2_Topic">T2. Topic</string>
+    <string name="T2_Topic">T2.Topic</string>
     <string name="T2_Topic_title_1">Subtopic</string>
     <string name="T2_Topic_description">Description of the subtopic</string>
     <string name="T2_Topic_solve_button">Solve!</string>

@@ -47,13 +47,21 @@ public class QuizUnitModel implements QuizUnitContract.Model {
             setT2Description(quizRepository.getQuizUnit("Maths").getT2Description());
 
         } else if (subject.equals("English")) {
-            setT1Topic("ENGLISH");
-            setT1SubTopic("ENGLISH");
-            setT1Description("ENGLISH");
+            setT1Topic(quizRepository.getQuizUnit("English").getT1Topic());
+            setT1SubTopic(quizRepository.getQuizUnit("English").getT1SubTopic());
+            setT1Description(quizRepository.getQuizUnit("English").getT1Description());
+
+            setT2Topic(quizRepository.getQuizUnit("English").getT2Topic());
+            setT2SubTopic(quizRepository.getQuizUnit("English").getT2SubTopic());
+            setT2Description(quizRepository.getQuizUnit("English").getT2Description());
         } else {
-            setT1Topic("GEOGRAPHY");
-            setT1SubTopic("GEOGRAPHY");
-            setT1Description("GEOGRAPHY");
+            setT1Topic(quizRepository.getQuizUnit("Maths").getT1Topic());
+            setT1SubTopic(quizRepository.getQuizUnit("Maths").getT1SubTopic());
+            setT1Description(quizRepository.getQuizUnit("Maths").getT1Description());
+
+            setT2Topic(quizRepository.getQuizUnit("Maths").getT2Topic());
+            setT2SubTopic(quizRepository.getQuizUnit("Maths").getT2SubTopic());
+            setT2Description(quizRepository.getQuizUnit("Maths").getT2Description());
         }
     }
 

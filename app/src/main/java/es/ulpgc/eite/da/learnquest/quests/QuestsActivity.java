@@ -26,7 +26,6 @@ public class QuestsActivity
         // do the setup
         QuestsScreen.configure(this);
         presenter.updateLevels();
-
         presenter.setSubjectImage();
 
 

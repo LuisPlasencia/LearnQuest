@@ -27,15 +27,21 @@ public class QuizRepository implements RepositoryContract {
     }
 
     private QuizRepository() {
-        QuizUnit quizUnit1 = new QuizUnit("T1. Triangles", "Cosen theorem",
-                "In this quiz you will learn about cosines and sines","T2. Equations","First and second",
-                "In this quiz you will learn about equations in deep","Maths");
-        //QuizUnit quizUnit2 = new QuizUnit("T2. Equations", "First and second equations ",
-          //      "In this quiz you will learn about equations in deep", "Maths");
+        QuizUnit quizUnit1 = new QuizUnit("T1.Topic", "Subtopic",
+                "Description of the subtopic","T2.Topic","Subtopic",
+                "Description of the subtopic","Maths");
+        QuizUnit quizUnit2 = new QuizUnit("T1.Topic", "Subtopic",
+                "Description of the subtopic","T2.Topic","Subtopic",
+                "Description of the subtopic","English");
+
+        QuizUnit quizUnit3 = new QuizUnit("T1.Topic", "Subtopic",
+                "Description of the subtopic","T2.Topic","Subtopic",
+                "Description of the subtopic","Geography");
 
         quizUnits = new ArrayList<>();
         quizUnits.add(quizUnit1);
-        //quizUnits.add(quizUnit2);
+        quizUnits.add(quizUnit2);
+        quizUnits.add(quizUnit3);
 
 
         Question question1 = new Question("First question: Option 1",
@@ -64,7 +70,6 @@ public class QuizRepository implements RepositoryContract {
 
     private void inicializarUsuarios() {
         usuariodefault = new User("Username", "", 0);
-
         User usuario1 = new User("Luis", "patata", 1);
         User usuario2 = new User("Ruben", "rabano", 2);
         User usuario3 = new User("Cunwang", "lechuga", 3);
