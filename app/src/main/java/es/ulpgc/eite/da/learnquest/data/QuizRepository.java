@@ -175,15 +175,13 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getMedalImage() {
-        if (quizId == 0){
-            if(experienceCollected > 75){
-                return R.drawable.gold_medal;
-            } else if(experienceCollected > 50){
-                return R.drawable.silver_medal;
-            } else{
-                return R.drawable.bronze_medal;
-            }
-        } return R.drawable.gold_medal;
+        if(experienceCollected > 75){
+            return R.drawable.gold_medal;
+        } else if(experienceCollected > 50){
+            return R.drawable.silver_medal;
+        } else{
+            return R.drawable.bronze_medal;
+        }
 
     }
 
