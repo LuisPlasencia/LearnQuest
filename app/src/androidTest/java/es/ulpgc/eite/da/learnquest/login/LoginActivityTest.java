@@ -132,6 +132,12 @@ public class LoginActivityTest {
         ViewInteraction textView5 = onView(withId(R.id.login_title2));
         textView5.check(matches(withText(title2)));
 
+        ViewInteraction editText = onView(withId(R.id.username_input));
+        editText.check(matches(withText("")));
+
+        ViewInteraction editText2 = onView(withId(R.id.password_input));
+        editText2.check(matches(withText("")));
+
         ViewInteraction button4 = onView(withId(R.id.no_account_button));
         button4.check(matches(isDisplayed()));
 
@@ -202,6 +208,12 @@ public class LoginActivityTest {
         ViewInteraction textView7 = onView(withId(R.id.login_title2));
         textView7.check(matches(withText(title2)));
 
+        ViewInteraction editText3 = onView(withId(R.id.username_input));
+        editText3.check(matches(withText("")));
+
+        ViewInteraction editText4 = onView(withId(R.id.password_input));
+        editText4.check(matches(withText("")));
+
         ViewInteraction button6 = onView(withId(R.id.no_account_button));
         button6.check(matches(isDisplayed()));
 
@@ -262,8 +274,6 @@ public class LoginActivityTest {
         ViewInteraction button1 = onView(withId(R.id.lets_go_button));
         button1.check(matches(isDisplayed()));
 
-        ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
-
         ViewInteraction appCompatEditText = onView(withId(R.id.username_input));
         appCompatEditText.perform(replaceText("Luis"), closeSoftKeyboard());
 
@@ -271,6 +281,7 @@ public class LoginActivityTest {
         appCompatEditText2.perform(replaceText("patata"), closeSoftKeyboard());
 
         //WHEN
+        ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
 
         //THEN & GIVEN
@@ -314,6 +325,12 @@ public class LoginActivityTest {
 
         ViewInteraction textView7 = onView(withId(R.id.login_title2));
         textView7.check(matches(withText(title2)));
+
+        ViewInteraction editText3 = onView(withId(R.id.username_input));
+        editText3.check(matches(withText("")));
+
+        ViewInteraction editText4 = onView(withId(R.id.password_input));
+        editText4.check(matches(withText("")));
 
         ViewInteraction button6 = onView(withId(R.id.no_account_button));
         button6.check(matches(isDisplayed()));
