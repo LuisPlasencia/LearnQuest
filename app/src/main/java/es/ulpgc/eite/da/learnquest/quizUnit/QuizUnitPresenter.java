@@ -60,8 +60,13 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
     @Override
     public void setSubject() {
         QuestToQuizUnitState savedState = router.getStateFromQuestScreen();
-        String subject = savedState.subject;
-        model.setSubject(subject);
+        if(savedState != null){
+            String subject = savedState.subject;
+            model.setSubject(subject);
+        }else{
+            String subject = "Maths";
+            model.setSubject(subject);
+        }
     }
 
     @Override

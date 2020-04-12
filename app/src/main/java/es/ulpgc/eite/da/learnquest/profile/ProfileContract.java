@@ -57,6 +57,7 @@ public interface ProfileContract {
 
         void logout();
 
+        User getUserActual();
     }
 
     interface Router {

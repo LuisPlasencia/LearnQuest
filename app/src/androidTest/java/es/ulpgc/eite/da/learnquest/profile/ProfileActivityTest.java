@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.profile;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -57,63 +58,11 @@ public class ProfileActivityTest {
     String password = context.getResources().getString(R.string.login_password);
 
 
-    @Test
-    public void achievementsClicked() {
-        //GIVEN
 
-        ViewInteraction button = onView((withId(R.id.go_button)));
-        button.check(matches(isDisplayed()));
-
-        ViewInteraction button2 = onView(withId(R.id.create_quest_button));
-        button2.check(matches(isDisplayed()));
-
-        ViewInteraction button3 = onView(withId(R.id.log_out_button));
-        button3.check(matches(isDisplayed()));
-
-        ViewInteraction imageView = onView(withId(R.id.go_quest_image));
-        imageView.check(matches(isDisplayed()));
-
-        ViewInteraction imageView2 = onView(withId(R.id.new_quest_image));
-        imageView2.check(matches(isDisplayed()));
-
-        ViewInteraction imageView3 = onView(withId(R.id.log_out_image));
-        imageView3.check(matches(isDisplayed()));
-
-        ViewInteraction imageView4 = onView(withId(R.id.profile_photo));
-        imageView4.check(matches(isDisplayed()));
-
-        ViewInteraction imageView5 = onView(withId(R.id.achivement_icon));
-        imageView5.check(matches(isDisplayed()));
-
-        ViewInteraction textView = onView(withId(R.id.profile_name));
-        textView.check(matches(withText(username)));
-
-        ViewInteraction textView2 = onView(withId(R.id.level_display));
-        textView2.check(matches(withText(level)));
-
-        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
-        textView3.check(matches(withText(exp_to)));
-
-        ViewInteraction progressBar = onView(withId(R.id.progressBar));
-        progressBar.check(matches(isDisplayed()));
-
-        //WHEN
-
-        ViewInteraction appCompatButton = onView(withId(R.id.achievements_button));
-        appCompatButton.perform(click());
-
-
-        //THEN
-
-        ViewInteraction textView4 = onView(withId(R.id.logros_list));
-        textView4.check(matches(isDisplayed()));
-
-    }
 
     @Test
     public void goQuestClicked() {
         //GIVEN
-
         ViewInteraction button = onView((withId(R.id.go_button)));
         button.check(matches(isDisplayed()));
 
@@ -139,32 +88,33 @@ public class ProfileActivityTest {
         imageView5.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.profile_name));
-        textView.check(matches(withText(username)));
-
-        ViewInteraction textView2 = onView(withId(R.id.level_display));
-        textView2.check(matches(withText(level)));
-
-        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
-        textView3.check(matches(withText(exp_to)));
+        textView.check(matches(withText("")));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar));
         progressBar.check(matches(isDisplayed()));
 
+        ViewInteraction textView2 = onView(withId(R.id.level_display));
+        textView2.check(matches(withText("Level: 0")));
+
+        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
+        textView3.check(matches(withText("0 / 100")));
+
+
         //WHEN
 
-        ViewInteraction appCompatButton = onView(withId(R.id.log_out_button));
+        ViewInteraction appCompatButton = onView(withId(R.id.go_button));
         appCompatButton.perform(click());
 
+
         //THEN
-
-        ViewInteraction textView4 = onView(withId(R.id.math_level_id));
-        textView4.check(matches(withText(math_level)));
-
-        ViewInteraction textView5 = onView(withId(R.id.english_level_id));
-        textView5.check(matches(withText(english_level)));
-
-        ViewInteraction button6 = onView(withId(R.id.english_button));
+        ViewInteraction button6 = onView(withId(R.id.math_button));
         button6.check(matches(isDisplayed()));
+
+        ViewInteraction button7 = onView(withId(R.id.english_button));
+        button7.check(matches(isDisplayed()));
+
+        ViewInteraction button8 = onView(withId(R.id.geography_button));
+        button8.check(matches(isDisplayed()));
 
         ViewInteraction textView7 = onView(withId(R.id.geography_level_id));
         textView7.check(matches(withText(geography_level)));
@@ -212,16 +162,16 @@ public class ProfileActivityTest {
         imageView5.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.profile_name));
-        textView.check(matches(withText(username)));
-
-        ViewInteraction textView2 = onView(withId(R.id.level_display));
-        textView2.check(matches(withText(level)));
-
-        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
-        textView3.check(matches(withText(exp_to)));
+        textView.check(matches(withText("")));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar));
         progressBar.check(matches(isDisplayed()));
+
+        ViewInteraction textView2 = onView(withId(R.id.level_display));
+        textView2.check(matches(withText("Level: 0")));
+
+        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
+        textView3.check(matches(withText("0 / 100")));
 
         //WHEN
 
@@ -241,12 +191,6 @@ public class ProfileActivityTest {
 
         ViewInteraction button5 = onView(withId(R.id.lets_go_button));
         button5.check(matches(isDisplayed()));
-
-        ViewInteraction editText = onView((withId(R.id.username_input)));
-        editText.check(matches(withText(username)));
-
-        ViewInteraction editText2 = onView(withId(R.id.password_input));
-        editText2.check(matches(withText(password)));
 
         ViewInteraction imageView6 = onView(withId(R.id.background_shiny));
         imageView6.check(matches(isDisplayed()));
@@ -290,14 +234,14 @@ public class ProfileActivityTest {
         ViewInteraction textView = onView(withId(R.id.profile_name));
         textView.check(matches(withText(username)));
 
-        ViewInteraction textView2 = onView(withId(R.id.level_display));
-        textView2.check(matches(withText(level)));
-
-        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
-        textView3.check(matches(withText(exp_to)));
-
         ViewInteraction progressBar = onView(withId(R.id.progressBar));
         progressBar.check(matches(isDisplayed()));
+
+        ViewInteraction textView2 = onView(withId(R.id.level_display));
+        textView2.check(matches(withText("Level: 0")));
+
+        ViewInteraction textView3 = onView(withId(R.id.exp_to_display));
+        textView3.check(matches(withText("0 / 100")));
 
         //WHEN
 
@@ -319,12 +263,6 @@ public class ProfileActivityTest {
         ViewInteraction button5 = onView(withId(R.id.lets_go_button));
         button5.check(matches(isDisplayed()));
 
-        ViewInteraction editText = onView((withId(R.id.username_input)));
-        editText.check(matches(withText(username)));
-
-        ViewInteraction editText2 = onView(withId(R.id.password_input));
-        editText2.check(matches(withText(password)));
-
         ViewInteraction imageView6 = onView(withId(R.id.background_shiny));
         imageView6.check(matches(isDisplayed()));
 
@@ -335,8 +273,4 @@ public class ProfileActivityTest {
         imageView8.check(matches(isDisplayed()));
 
     }
-
-
-
-
 }

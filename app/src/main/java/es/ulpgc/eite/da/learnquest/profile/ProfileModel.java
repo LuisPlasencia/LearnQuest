@@ -59,4 +59,9 @@ public class ProfileModel implements ProfileContract.Model {
         repository.logout();
     }
 
+    @Override
+    public User getUserActual() {
+        return repository.getUserActual();
+    }
+
 }

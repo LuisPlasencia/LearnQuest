@@ -4,7 +4,6 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.da.learnquest.data.User;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
 
 public class ProfilePresenter implements ProfileContract.Presenter {
@@ -26,11 +25,13 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         if (loginState != null){
             state.user = model.getUser(loginState.username, loginState.password);
             model.setUserActual(state.user);
+            state.username = model.getUsername();
             if(state.user.getId() == 0 && !loginState.username.equals("")){
                 state.username = loginState.username;
                 model.setUsername(state.username);
             }
         } else{
+            state.user = model.getUserActual();
             state.username = model.getUsername();
         }
         state.level = model.getLevel();
@@ -65,11 +66,14 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public void onLogOutButtonClicked() {
         LoginState loginState = router.getLoginState();
-        loginState.username = "";
-        loginState.password = "";
-        if(state.user.getId()==0){
-            model.resetDefaultUser();
+        if(loginState!= null){
+            loginState.username = "";
+            loginState.password = "";
+            if(state.user.getId()==0){
+                model.resetDefaultUser();
+            }
         }
+
         model.logout();
         state.user = null;
         state.username = "";

@@ -1,6 +1,8 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -146,6 +148,9 @@ public class QuizRepository implements RepositoryContract {
         usuariodefault.setUsername("Username");
         usuariodefault.setLevel(0);
         usuariodefault.setSublevel(0);
+        usuariodefault.setMathPercentage(0);
+        usuariodefault.setEnglishPercentage(0);
+        usuariodefault.setGeographyPercentage(0);
     }
 
     @Override
@@ -272,6 +277,10 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public Integer getSubjectPercentage(int id){
+        if(usuarioActual == null){
+            return 0;
+        }
+
         if(id == 1 ){
             return usuarioActual.getMathPercentage();
         } else if (id == 2){
@@ -285,6 +294,10 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getSubjectPhoto(int id) {
+        if(usuarioActual == null){
+            return R.drawable.child;
+        }
+
         if(id == 1) {
             if (usuarioActual.getMathPercentage() > 50) {
                 return R.drawable.dragon;
