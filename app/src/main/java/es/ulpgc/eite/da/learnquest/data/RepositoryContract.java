@@ -9,6 +9,8 @@ public interface RepositoryContract {
 
     User getUser(String username, String password);
 
+    void addUser(User user);
+
     void resetDefaultUser();
 
     void setUserActual(User user);

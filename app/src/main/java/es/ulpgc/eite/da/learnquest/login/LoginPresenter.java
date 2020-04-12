@@ -46,6 +46,10 @@ public class LoginPresenter implements LoginContract.Presenter {
         view.get().displayCurrentData(state);
     }
 
+    @Override
+    public void onCreateAccountButton() {
+        router.navigateToRegistroScreen();
+    }
 
     @Override
     public void injectView(WeakReference<LoginContract.View> view) {

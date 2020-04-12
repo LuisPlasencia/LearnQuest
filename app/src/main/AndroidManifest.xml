@@ -52,6 +52,10 @@
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".registro.RegistroActivity">
+        </activity>
+
     </application>
 
 </manifest>

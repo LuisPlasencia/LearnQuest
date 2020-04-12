@@ -22,6 +22,8 @@ public interface LoginContract {
         void onLetsGoClicked(String username, String password);
 
         void onResume();
+
+        void onCreateAccountButton();
     }
 
     interface Model {
@@ -32,5 +34,6 @@ public interface LoginContract {
 
         void passStateToProfileScreen(LoginState state);
 
+        void navigateToRegistroScreen();
     }
 }

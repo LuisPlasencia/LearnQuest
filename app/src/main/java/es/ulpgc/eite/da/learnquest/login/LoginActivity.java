@@ -56,4 +56,8 @@ public class LoginActivity
         EditText password = (EditText)findViewById(R.id.password_input);
         presenter.onLetsGoClicked(String.valueOf(username.getText()), String.valueOf(password.getText()));
     }
+
+    public void onCreateAccountButton(View view) {
+        presenter.onCreateAccountButton();
+    }
 }

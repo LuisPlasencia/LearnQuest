@@ -89,6 +89,11 @@ public class QuizRepository implements RepositoryContract {
         usuarios.add(usuario3);
     }
 
+    @Override
+    public void addUser(User user) {
+        usuarios.add(user);
+    }
+
     public ArrayList<Question> getQuestions() {
         return questions;
     }
