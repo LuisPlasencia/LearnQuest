@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -121,6 +122,46 @@ public class FinalQuizActivityTest {
         ViewInteraction button5 = onView(withId(R.id.achievements_button));
         button5.check(matches(isDisplayed()));
 
+    }
+
+    @Test
+    public void landscapeFinalQuizTest(){
+        //GIVEN
+        ViewInteraction imageView = onView(withId(R.id.medal));
+        imageView.check(matches(isDisplayed()));
+
+        ViewInteraction textView = onView(withId(R.id.earned));
+        textView.check(matches(withText("You earned no xp")));
+
+        ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
+        textView2.check(matches(withText("You need 100xp to reach level 1")));
+
+        ViewInteraction textView3 = onView(withId(R.id.level_display));
+        textView3.check(matches(withText("Level: 0")));
+
+        ViewInteraction progressBar = onView(withId(R.id.progressBar2));
+        progressBar.check(matches(isDisplayed()));
+
+
+        //WHEN
+        mActivityTestRule.getActivity()
+                .setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        //THEN
+        ViewInteraction imageView4 = onView(withId(R.id.medal));
+        imageView4.check(matches(isDisplayed()));
+
+        ViewInteraction textView5 = onView(withId(R.id.earned));
+        textView5.check(matches(withText("You earned no xp")));
+
+        ViewInteraction textView6 = onView(withId(R.id.exp_to_nextlevel));
+        textView6.check(matches(withText("You need 100xp to reach level 1")));
+
+        ViewInteraction textView7 = onView(withId(R.id.level_display));
+        textView7.check(matches(withText("Level: 0")));
+
+        ViewInteraction progressBar2 = onView(withId(R.id.progressBar2));
+        progressBar2.check(matches(isDisplayed()));
     }
 
 
