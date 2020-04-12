@@ -20,6 +20,7 @@ import es.ulpgc.eite.da.learnquest.data.Question;
 import es.ulpgc.eite.da.learnquest.data.QuizRepository;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
+import es.ulpgc.eite.da.learnquest.quests.QuestsActivity;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
@@ -46,56 +47,13 @@ public class QuizUnitInstrumentedTests {
             InstrumentationRegistry.getInstrumentation().getTargetContext();
     RepositoryContract repository = QuizRepository.getInstance();
 
-    //Quiz units (falta la nota +A)
-    String t1_topic = repository.getQuizUnit("Maths").getT1Topic();
-    String t1_topic_title = repository.getQuizUnit("Maths").getT1SubTopic();
-    String t1_description = repository.getQuizUnit("Maths").getT1Description();
-    String t1_topic_solve = context.getResources().getString(R.string.T1_Topic_solve_button);
-    String t1_topic_practise = context.getResources().getString(R.string.T1_Topic_practise_button);
 
 
-    String t2_topic = repository.getQuizUnit("Maths").getT2Topic();
-    String t2_topic_title = repository.getQuizUnit("Maths").getT2SubTopic();
-    String t2_description = repository.getQuizUnit("Maths").getT2Description();
-    String t2_topic_solve = context.getResources().getString(R.string.T2_Topic_solve_button);
-    String t2_topic_practise = context.getResources().getString(R.string.T2_Topic_practise_button);
-
-    //Quiz
-    ArrayList<Question> question_array = repository.getQuestions();
-    Question question1 = question_array.get(0);
-    Question question2 = question_array.get(1);
-    Question question3 = question_array.get(2);
-    String correct = context.getString(R.string.correct_text);
-    String incorrect = context.getString(R.string.incorrect_text);
-    String empty_answer = context.getString(R.string.empty_string);
-    String next_button_text = context.getString(R.string.next_button_text);
-    String cheat_button_text = context.getString(R.string.hint_button_text);
-
-    String confirmation_text = context.getString(R.string.confirmation_cheat);
-    String confirmation_info_text = context.getString(R.string.confirmation_info_cheat);
-
-    String returnToProfileTextFinalQuiz = context.getString(R.string.return_home_button);
-
-    //Quest
-
-    String english_button = "English";
-    String maths_button = "Maths";
-    String geography_button = "Geography";
-
-    ViewInteraction math_level_icon = onView(withId(R.id.math_level_icon));
-    ViewInteraction english_level_icon = onView(withId(R.id.english_level_icon));
-    ViewInteraction geography_level_icon = onView(withId(R.id.geography_level_icon));
-
-    //String math_level = repository.getSubjectPercentage(1).toString();
-    //String english_level = repository.getSubjectPercentage(2).toString();
-    ///String geography_level = repository.getSubjectPercentage(3).toString();
-
-    @Test
-    public void whenT1SolveButtonIsClickedAndNotSolved() {
+  //  @Test
+    //public void whenT1SolveButtonIsClickedAndNotSolved() {
         //Given
-
-        onView(withId(R.id.t1_topic)).check(matches(withText(t1_topic)));
-
+        //onView(withId(R.id.math_button)).perform(click());
+       // onView(withId(R.id.t1_topic)).check(matches(withText(t1_topic))); }
        // onView(withText(t1_topic)).check(matches((R.id.t1_topic)));
         //onView(withText(endsWith("photo de profil"))).check(matches(isDisplayed()));
 
@@ -133,7 +91,7 @@ public class QuizUnitInstrumentedTests {
         onView(withId(R.id.cheatButton))
                 .check(matches(isEnabled()))
                 .check(matches(withText(cheat_button_text)));
-*/
+
     }
 
     @Test
@@ -280,12 +238,12 @@ public class QuizUnitInstrumentedTests {
         onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
         onView(withId(R.id.english_button)).check(matches(withText(english_button)));
         onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
-        /*onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+        onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
         math_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
         english_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
-        geography_level_icon.check(matches(isDisplayed()));*/
+        geography_level_icon.check(matches(isDisplayed()));
     }
 
     @Test
@@ -312,12 +270,12 @@ public class QuizUnitInstrumentedTests {
         onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
         onView(withId(R.id.english_button)).check(matches(withText(english_button)));
         onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
-       /* onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+       onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
         math_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
         english_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
-        geography_level_icon.check(matches(isDisplayed()));*/
+        geography_level_icon.check(matches(isDisplayed()));
 
     }
 
@@ -343,12 +301,12 @@ public class QuizUnitInstrumentedTests {
         onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
         onView(withId(R.id.english_button)).check(matches(withText(english_button)));
         onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
-       /* onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+       onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
         math_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
         english_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
-        geography_level_icon.check(matches(isDisplayed()));*/
+        geography_level_icon.check(matches(isDisplayed()));
     }
 
     @Test
@@ -374,13 +332,13 @@ public class QuizUnitInstrumentedTests {
         onView(withId(R.id.math_button)).check(matches(withText(maths_button)));
         onView(withId(R.id.english_button)).check(matches(withText(english_button)));
         onView(withId(R.id.geography_button)).check(matches(withText(geography_button)));
-       /* onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
+        onView(withId(R.id.math_level_id)).check(matches(withText(math_level)));
         math_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.english_level_id)).check(matches(withText(english_level)));
         english_level_icon.check(matches(isDisplayed()));
         onView(withId(R.id.geography_level_id)).check(matches(withText(geography_level)));
-        geography_level_icon.check(matches(isDisplayed()));*/
+        geography_level_icon.check(matches(isDisplayed()));
 
     }
-
+*/
 }
