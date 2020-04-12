@@ -50,7 +50,6 @@ public class FinalQuizActivityTest {
     String t2_topic = context.getResources().getString(R.string.T2_Topic);
     String level = context.getResources().getString(R.string.level_display_final_quiz);
 
-
     @Test
     public void returnToHomeButtonPressed() {
         //GIVEN
@@ -58,19 +57,16 @@ public class FinalQuizActivityTest {
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
-        textView.check(matches(withText(amount_earned)));
+        textView.check(matches(withText("You earned no xp")));
 
         ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
-        textView2.check(matches(withText(exp_needed)));
+        textView2.check(matches(withText("You need 100xp to reach level 1")));
 
         ViewInteraction textView3 = onView(withId(R.id.level_display));
-        textView3.check(matches(withText(level)));
+        textView3.check(matches(withText("Level: 0")));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar2));
         progressBar.check(matches(isDisplayed()));
-
-        ViewInteraction imageButton = onView(withContentDescription("Navigate up"));
-        imageButton.check(matches(isDisplayed()));
 
         //WHEN
         ViewInteraction appCompatButton = onView(withId(R.id.return_button));
@@ -88,7 +84,6 @@ public class FinalQuizActivityTest {
 
         ViewInteraction button5 = onView(withId(R.id.achievements_button));
         button5.check(matches(isDisplayed()));
-
     }
 
     @Test
@@ -98,106 +93,37 @@ public class FinalQuizActivityTest {
         imageView.check(matches(isDisplayed()));
 
         ViewInteraction textView = onView(withId(R.id.earned));
-        textView.check(matches(withText(amount_earned)));
+        textView.check(matches(withText("You earned no xp")));
 
         ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
-        textView2.check(matches(withText(exp_needed)));
+        textView2.check(matches(withText("You need 100xp to reach level 1")));
 
         ViewInteraction textView3 = onView(withId(R.id.level_display));
-        textView3.check(matches(withText(level)));
+        textView3.check(matches(withText("Level: 0")));
 
         ViewInteraction progressBar = onView(withId(R.id.progressBar2));
         progressBar.check(matches(isDisplayed()));
 
-        ViewInteraction imageButton = onView(withContentDescription("Navigate up"));
-        imageButton.check(matches(isDisplayed()));
 
         //WHEN
         pressBack();
 
         //THEN
-        ViewInteraction viewGroup = onView(withId(R.id.linearLayout));
-        viewGroup.check(matches(isDisplayed()));
-
-        ViewInteraction viewGroup2 = onView(withId(R.id.linearLayout));
-        viewGroup2.check(matches(isDisplayed()));
-
-        ViewInteraction textView5 = onView(withId(R.id.t2_topic));
-        textView5.check(matches(withText(t2_topic)));
-
-        ViewInteraction textView6 = onView(withId(R.id.t1_topic));
-        textView6.check(matches(isDisplayed()));
-
-        ViewInteraction textView7 = onView(withId(R.id.t2_topic));
-        textView7.check(matches(isDisplayed()));
-
-        ViewInteraction button = onView(withId(R.id.t1_topic_solve));
-        button.check(matches(isDisplayed()));
-
-        ViewInteraction button2 = onView(withId(R.id.t1_topic_practise));
+        ViewInteraction button2 = onView(withId(R.id.go_button));
         button2.check(matches(isDisplayed()));
 
-        ViewInteraction imageView2 = onView(withId(R.id.grade));
-        imageView2.check(matches(isDisplayed()));
+        ViewInteraction button3 = onView(withId(R.id.create_quest_button));
+        button3.check(matches(isDisplayed()));
+
+        ViewInteraction button4 = onView(withId(R.id.log_out_button));
+        button4.check(matches(isDisplayed()));
+
+        ViewInteraction button5 = onView(withId(R.id.achievements_button));
+        button5.check(matches(isDisplayed()));
 
     }
 
-    @Test
-    public void returnIconPressed() {
-        //GIVEN
-        ViewInteraction imageView = onView(withId(R.id.medal));
-        imageView.check(matches(isDisplayed()));
 
-        ViewInteraction textView = onView(withId(R.id.earned));
-        textView.check(matches(withText(amount_earned)));
-
-        ViewInteraction textView2 = onView(withId(R.id.exp_to_nextlevel));
-        textView2.check(matches(withText(exp_needed)));
-
-        ViewInteraction textView3 = onView(withId(R.id.level_display));
-        textView3.check(matches(withText(level)));
-
-        ViewInteraction progressBar = onView(withId(R.id.progressBar2));
-        progressBar.check(matches(isDisplayed()));
-
-        ViewInteraction imageButton = onView(withContentDescription("Navigate up"));
-        imageButton.check(matches(isDisplayed()));
-
-
-        //WHEN
-        ViewInteraction appCompatImageButton = onView(withContentDescription("Navigate up"));
-        appCompatImageButton.perform(click());
-
-        //THEN
-        ViewInteraction viewGroup = onView(withId(R.id.linearLayout));
-        viewGroup.check(matches(isDisplayed()));
-
-        ViewInteraction viewGroup2 = onView(withId(R.id.linearLayout));
-        viewGroup2.check(matches(isDisplayed()));
-
-        ViewInteraction textView5 = onView(withId(R.id.linearLayout));
-        textView5.check(matches(withText(t1_topic)));
-
-        ViewInteraction textView6 = onView(withId(R.id.t2_topic));
-        textView6.check(matches(withText(t2_topic)));
-
-        ViewInteraction textView7 = onView(withId(R.id.t1_topic));
-        textView7.check(matches(isDisplayed()));
-
-        ViewInteraction textView8 = onView(withId(R.id.t2_topic));
-        textView8.check(matches(isDisplayed()));
-
-        ViewInteraction button = onView(withId(R.id.t1_topic_solve));
-        button.check(matches(isDisplayed()));
-
-        ViewInteraction button2 = onView(withId(R.id.t1_topic_practise));
-        button2.check(matches(isDisplayed()));
-
-        ViewInteraction imageView2 = onView(withId(R.id.grade));
-        imageView2.check(matches(isDisplayed()));
-
-
-    }
 
 
 }
