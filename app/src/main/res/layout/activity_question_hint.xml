@@ -63,8 +63,8 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="30dp"
-            android:layout_height="30dp" />
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <TextView
             android:id="@+id/answer_text"
@@ -76,7 +76,7 @@
 
         <Space
             android:layout_width="30dp"
-            android:layout_height="30dp" />
+            android:layout_height="10dp" />
 
         <Button
             android:id="@+id/returnButton"

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/question_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.AppCompat.Light" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
+
+        <TextView
+            android:id="@+id/question_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorGray"
+            android:textSize="24sp"
+            android:text="@string/question_number_text"
+            tools:text="Question X"/>
+
+        <TextView
+            android:id="@+id/question_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="@string/question_text"
+            android:textColor="@color/colorBlack"
+            tools:text="Question X"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/option1_button"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF"
+                android:text="@string/option1_text"
+                android:tag="1"
+                android:onClick="onOptionButtonClicked"
+                android:background="@drawable/button_selector"
+                tools:text="first option" />
+
+            <Button
+                android:id="@+id/option2_button"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF"
+                android:text="@string/option2_text"
+                android:tag="2"
+                android:onClick="onOptionButtonClicked"
+                android:background="@drawable/button_selector"
+                tools:text="second option" />
+
+            <Button
+                android:id="@+id/option3_button"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="wrap_content"
+                android:onClick="onOptionButtonClicked"
+                android:text="@string/option3_text"
+                android:tag="3"
+                android:textColor="#FFFF"
+                android:background="@drawable/button_selector"
+                tools:text="third option" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/answer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginBottom="20dp"
+            android:text="@string/empty_string"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/replyTextView">
+
+            <Button
+                android:id="@+id/cheatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/hint_button_text"
+                android:textColor="#FFFF"
+                android:background="@drawable/button_selector"
+                tools:text="Cheat" />
+
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0" />
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/next_button_text"
+                android:onClick="onNextButtonClicked"
+                android:textColor="#FFFF"
+                android:background="@drawable/button_selector"
+                tools:text="Next" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
