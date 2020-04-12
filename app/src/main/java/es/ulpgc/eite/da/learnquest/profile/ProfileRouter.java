@@ -45,4 +45,13 @@ public class ProfileRouter implements ProfileContract.Router {
         context.startActivity(intent);
     }
 
+    @Override
+    public void navigateLoginScreen() {
+        Context context = mediator.getApplicationContext();
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+
+    }
+
 }

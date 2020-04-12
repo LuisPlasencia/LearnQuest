@@ -69,6 +69,6 @@ public interface ProfileContract {
 
         void navigateAchievementsScreen();
 
-
+        void navigateLoginScreen();
     }
 }

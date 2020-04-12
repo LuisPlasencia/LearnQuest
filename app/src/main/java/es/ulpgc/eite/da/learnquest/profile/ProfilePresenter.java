@@ -73,7 +73,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         state.username = "";
         state.sublevel = 0;
         state.level = 0;
-        view.get().finishView();
+        router.navigateLoginScreen();
     }
 
     @Override
