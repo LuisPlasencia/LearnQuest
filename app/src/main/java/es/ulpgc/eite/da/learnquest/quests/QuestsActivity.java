@@ -20,7 +20,7 @@ public class QuestsActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quests);
-        getSupportActionBar().setTitle(R.string.quiz_unit_title);
+        getSupportActionBar().setTitle(R.string.quests_unit_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
 
         // do the setup

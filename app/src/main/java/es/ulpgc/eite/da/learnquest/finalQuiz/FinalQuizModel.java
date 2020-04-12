@@ -13,7 +13,7 @@ public class FinalQuizModel implements FinalQuizContract.Model {
     }
 
     @Override
-    public User getUserActual(){
+    public User getUserActual() {
         return repository.getUserActual();
     }
 
@@ -24,7 +24,7 @@ public class FinalQuizModel implements FinalQuizContract.Model {
 
 
     @Override
-    public void addExperience(){
+    public void addExperience() {
         repository.addExperienceToUser();
     }
 
@@ -34,7 +34,7 @@ public class FinalQuizModel implements FinalQuizContract.Model {
     }
 
     @Override
-    public Integer getSubLevel(){
+    public Integer getSubLevel() {
         return repository.getSublevel();
     }
 
@@ -57,4 +57,17 @@ public class FinalQuizModel implements FinalQuizContract.Model {
     public void resetQuizId() {
         repository.resetQuizId();
     }
+
+    @Override
+    public void resetSubjectId() {
+        repository.resetSubjectId();
+    }
+
+    @Override
+    public int getSubjectId() {
+        return repository.getSubjectId();
+    }
+
 }
+
+

@@ -16,6 +16,7 @@ public class QuizRepository implements RepositoryContract {
     private User usuarioActual;
     private Integer experienceCollected;
     private Integer quizId;
+    private Integer subjectId;
     private ArrayList<QuizUnit> quizUnits;
 
     public static RepositoryContract getInstance(){
@@ -58,6 +59,7 @@ public class QuizRepository implements RepositoryContract {
        experienceCollected = 0;
 
         quizId = 0;
+        subjectId = 0;
     }
 
     private void inicializarUsuarios() {
@@ -135,7 +137,7 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public Integer getExperienceCollected(){
+    public int getExperienceCollected(){
         return experienceCollected;
     }
 
@@ -164,8 +166,19 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void setQuizId(Integer quizId){
+    public void setQuizId(int quizId){
         this.quizId = quizId;
+    }
+
+
+    @Override
+    public int getSubjectId() {
+        return subjectId;
+    }
+
+    @Override
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
     }
 
     @Override
@@ -173,9 +186,14 @@ public class QuizRepository implements RepositoryContract {
         this.quizId = 0;
     }
 
+    @Override
+    public void resetSubjectId(){
+        this.subjectId = 0;
+    }
+
 
     @Override
-    public Integer getLevel() {
+    public int getLevel() {
         if(usuarioActual!= null){
             return usuarioActual.getLevel();
         }
@@ -183,7 +201,7 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public Integer getSublevel() {
+    public int getSublevel() {
         if(usuarioActual!= null){
             return usuarioActual.getSublevel();
         }
@@ -192,7 +210,7 @@ public class QuizRepository implements RepositoryContract {
 
 
     @Override
-    public Integer getPhoto(){
+    public int getPhoto(){
         if(usuarioActual!=null){
             return usuarioActual.getPhoto();
         }
@@ -231,7 +249,7 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public Integer getSubjectPercentage(Integer id){
+    public Integer getSubjectPercentage(int id){
         if(id == 1 ){
             return usuarioActual.getMathPercentage();
         } else if (id == 2){

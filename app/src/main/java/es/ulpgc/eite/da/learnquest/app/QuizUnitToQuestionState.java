@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class QuizUnitToQuestionState {
 
-    public String option;
+    public int option;
 
-    public QuizUnitToQuestionState(String option){
+    public QuizUnitToQuestionState(int option){
         this.option=option;
     }
 

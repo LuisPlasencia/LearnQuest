@@ -25,6 +25,7 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
         state.experience_needed = model.getExperienceNeeded();
         state.level = model.getLevel();
         state.sublevel = model.getSubLevel();
+        state.subjectId = model.getSubjectId();
         state.quizId = model.getQuizId();
         view.get().displayFinalQuizData(state);
     }
@@ -45,9 +46,11 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
     @Override
     public void onReturnClicked() {
         router.passStateToNextScreen(state);
+        state.subjectId = 0;
+        state.quizId = 0;
         model.resetQuizId();
+        model.resetSubjectId();
         router.navigateToProfileScreen();
-        //view.get().finishView();
     }
 
     @Override

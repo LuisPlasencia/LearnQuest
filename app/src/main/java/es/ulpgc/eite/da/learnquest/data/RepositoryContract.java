@@ -15,7 +15,7 @@ public interface RepositoryContract {
 
     User getUserActual();
 
-    Integer getExperienceCollected();
+    int getExperienceCollected();
 
     void logout();
 
@@ -23,15 +23,21 @@ public interface RepositoryContract {
 
     int getQuizId();
 
-    void setQuizId(Integer quizId);
+    void setQuizId(int quizId);
+
+    int getSubjectId();
+
+    void setSubjectId(int subjectId);
+
+    void resetSubjectId();
 
     void resetQuizId();
 
-    Integer getLevel();
+    int getLevel();
 
-    Integer getSublevel();
+    int getSublevel();
 
-    Integer getPhoto();
+    int getPhoto();
 
     String getUsername();
 
@@ -43,7 +49,7 @@ public interface RepositoryContract {
 
     QuizUnit getQuizUnit(String subject);
 
-    Integer getSubjectPercentage(Integer id);
+    Integer getSubjectPercentage(int id);
 
     int getSubjectPhoto(int id);
 

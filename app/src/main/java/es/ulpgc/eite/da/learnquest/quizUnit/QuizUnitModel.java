@@ -119,6 +119,11 @@ public class QuizUnitModel implements QuizUnitContract.Model {
     }
 
     @Override
+    public void setQuizId(int quizId) {
+        quizRepository.setQuizId(quizId);
+    }
+
+    @Override
     public void setT2Description(String t2Description) {
         T2Description = t2Description;
     }

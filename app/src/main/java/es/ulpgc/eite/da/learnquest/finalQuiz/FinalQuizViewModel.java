@@ -8,4 +8,6 @@ public class FinalQuizViewModel {
     public int level;
     public int sublevel;
     public int medal_image;
+    public int quizId;
+    public int subjectId;
 }

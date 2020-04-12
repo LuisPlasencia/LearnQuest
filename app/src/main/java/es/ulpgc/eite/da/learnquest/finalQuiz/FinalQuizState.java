@@ -5,6 +5,5 @@ import es.ulpgc.eite.da.learnquest.data.User;
 public class FinalQuizState extends FinalQuizViewModel {
 
     // put the model state here
-    public int quizId;
     public User user;
 }

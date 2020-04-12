@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -20,13 +19,11 @@ public class FinalQuizActivity
     public static String TAG = FinalQuizActivity.class.getSimpleName();
 
     private FinalQuizContract.Presenter presenter;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
-        Toolbar toolbar = findViewById(R.id.toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.final_quiz_activity_title));
 
         // do the setup
@@ -56,11 +53,27 @@ public class FinalQuizActivity
 
     @Override
     public void displayFinalQuizData(FinalQuizViewModel viewModel) {
-        ((TextView) findViewById(R.id.earned)).setText(String.valueOf("You earned " + viewModel.experience_earned + "xp!"));
-        ((TextView) findViewById(R.id.exp_to_nextlevel)).setText(String.valueOf("You need " + viewModel.experience_needed + "exp to reach level " + viewModel.level+1));
-        ((TextView) findViewById(R.id.level_display)).setText(String.valueOf(viewModel.level));
-        int photo = presenter.getMedalPhoto();
-        ((ImageView) findViewById(R.id.medal)).setImageResource(photo);
+        if(viewModel.experience_earned == 0){
+            ((TextView) findViewById(R.id.earned)).setText(String.valueOf("You earned no xp"));
+            ((ImageView) findViewById(R.id.medal)).setImageResource(R.drawable.no_exp_gained);
+        } else{
+            ((TextView) findViewById(R.id.earned)).setText(String.valueOf("You earned " + viewModel.experience_earned + "xp!"));
+             int photo = presenter.getMedalPhoto();
+            ((ImageView) findViewById(R.id.medal)).setImageResource(photo);
+        }
+        ((TextView) findViewById(R.id.exp_to_nextlevel)).setText(String.valueOf("You need " + viewModel.experience_needed + "xp to reach level " + (viewModel.level+1)));
+        ((TextView) findViewById(R.id.level_display)).setText(String.valueOf("Level: " + viewModel.level));
+        ((TextView) findViewById(R.id.sublevel_display)).setText(String.valueOf(viewModel.sublevel + "/100"));
+        if(viewModel.subjectId == 1){
+            ((TextView) findViewById(R.id.subject)).setText("Subject: Maths");
+        } else if(viewModel.subjectId == 2){
+            ((TextView) findViewById(R.id.subject)).setText("Subject: English");
+        } else if(viewModel.subjectId == 3){
+            ((TextView) findViewById(R.id.subject)).setText("Subject: Geography");
+        } else{
+            ((TextView) findViewById(R.id.subject)).setText("Unregistered subject");
+        }
+        ((TextView) findViewById(R.id.quiz_number)).setText(String.valueOf("Quiz number " + String.valueOf(viewModel.quizId)));
         displayprogressBar(viewModel.sublevel);
     }
 

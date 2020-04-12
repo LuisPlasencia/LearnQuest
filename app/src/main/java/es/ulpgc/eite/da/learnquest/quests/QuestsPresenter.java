@@ -66,7 +66,6 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         state.englishPhoto = model.getEnglishPhoto();
         state.geographyPhoto = model.getGeographyPhoto();
 
-
         // update the view
         view.get().displayData(state);
     }
@@ -86,6 +85,13 @@ public class QuestsPresenter implements QuestsContract.Presenter {
     @Override
     public void onSubjectButtonClicked(String subject) {
         state.subject=subject;
+        if (state.subject.equals("Maths")){      //cambiamos el id del repositorio para que finalQuiz reconozca la asignatura
+            model.setSubjectID(1);
+        } else if(state.subject.equals("English")){
+            model.setSubjectID(2);
+        } else if (state.subject.equals("Geography")) {
+            model.setSubjectID(3);
+        }
         QuestToQuizUnitState newState = new QuestToQuizUnitState(subject);
         router.passDataToQuizUnitScreen(newState);
         router.navigateToNextScreen();

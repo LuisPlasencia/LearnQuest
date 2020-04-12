@@ -38,6 +38,11 @@ public class QuestsModel implements QuestsContract.Model {
     }
 
     @Override
+    public void setSubjectID(int subjectId) {
+        quizRepository.setSubjectId(subjectId);
+    }
+
+    @Override
     public String fetchData() {
         // Log.e(TAG, "fetchData()");
         return "Hello";

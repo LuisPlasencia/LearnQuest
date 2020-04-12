@@ -37,7 +37,7 @@ public interface QuizUnitContract {
 
         void onPause();
 
-        void onOptionClicked(String option);
+        void onOptionClicked(int option);
 
     }
 
@@ -63,9 +63,7 @@ public interface QuizUnitContract {
         String getT2SubTopic();
         String getT2Description();
 
-
-
-
+        void setQuizId(int quizId);
     }
     interface Router {
         void navigateToNextScreen();

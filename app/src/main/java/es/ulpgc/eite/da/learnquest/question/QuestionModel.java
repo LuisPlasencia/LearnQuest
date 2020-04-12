@@ -74,9 +74,4 @@ public class QuestionModel implements QuestionContract.Model {
         quizRepository.updateExperienceCollected();
     }
 
-    @Override
-    public void setQuizID() {
-        //Esto dependería del quiz seleccionado
-        quizRepository.setQuizId(0);
-    }
 }

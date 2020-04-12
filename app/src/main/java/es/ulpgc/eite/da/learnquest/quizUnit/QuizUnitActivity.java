@@ -61,10 +61,10 @@ public class QuizUnitActivity
 
         switch(view.getId()){
             case R.id.t1_topic_solve:
-                presenter.onOptionClicked(getResources().getString(R.string.t1_solve_option));
+                presenter.onOptionClicked(Integer.parseInt(getResources().getString(R.string.t1_solve_option)));
                 break;
             case R.id.t2_topic_solve:
-                presenter.onOptionClicked(getResources().getString(R.string.t2_solve_option));
+                presenter.onOptionClicked(Integer.parseInt(getResources().getString(R.string.t2_solve_option)));
                 break;
         }
 

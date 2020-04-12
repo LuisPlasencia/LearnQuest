@@ -72,9 +72,10 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
     }
 
     @Override
-    public void onOptionClicked(String option){
-        state.option = option;
-        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(option);
+    public void onOptionClicked(int option){
+        state.quizId = option;
+        model.setQuizId(state.quizId);
+        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
         router.passDataToQuestionScreen(newState);
         router.navigateToNextScreen();
     }

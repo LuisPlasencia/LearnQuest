@@ -63,6 +63,8 @@ public interface QuestsContract {
         void setSubjectImage();
 
         void onRestartScreen(QuestsState data);
+
+        void setSubjectID(int subjectID);
     }
 
     interface Router {

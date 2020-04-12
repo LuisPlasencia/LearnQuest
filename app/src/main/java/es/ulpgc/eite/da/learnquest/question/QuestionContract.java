@@ -68,7 +68,6 @@ public interface QuestionContract {
 
         void updateExperienceCollected();
 
-        void setQuizID();
     }
 
     interface Router {

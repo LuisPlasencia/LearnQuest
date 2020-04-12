@@ -50,6 +50,10 @@ public interface FinalQuizContract {
         int getQuizId();
 
         void resetQuizId();
+
+        int getSubjectId();
+
+        void resetSubjectId();
     }
 
     interface Router {
