@@ -81,5 +81,6 @@
     <string name="incorrect_text">Incorrect</string>
     <string name="hint_button_text">Hint</string>
     <string name="next_button_text">Next</string>
+    <string name="quests_unit_title">Quests</string>
 
 </resources>
