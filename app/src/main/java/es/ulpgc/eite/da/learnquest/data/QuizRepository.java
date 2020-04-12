@@ -91,16 +91,16 @@ public class QuizRepository implements RepositoryContract {
         usuario2.setLevel(11);
         usuario2.setSublevel(40);
         usuario2.setPhoto(R.drawable.rabano);
-        usuario1.setMathPercentage(80);
-        usuario1.setEnglishPercentage(95);
-        usuario1.setGeographyPercentage(66);
+        usuario2.setMathPercentage(80);
+        usuario2.setEnglishPercentage(95);
+        usuario2.setGeographyPercentage(66);
 
         usuario3.setLevel(3);
         usuario3.setSublevel(90);
         usuario3.setPhoto(R.drawable.lechuga);
-        usuario1.setMathPercentage(80);
-        usuario1.setEnglishPercentage(95);
-        usuario1.setGeographyPercentage(66);
+        usuario3.setMathPercentage(80);
+        usuario3.setEnglishPercentage(95);
+        usuario3.setGeographyPercentage(66);
 
         usuarios = new ArrayList<User>();
         usuarios.add(usuario1);
