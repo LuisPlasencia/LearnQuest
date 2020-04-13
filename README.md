@@ -16,7 +16,7 @@ Los integrantes del grupo somos:
 
 * Cunwang Guo
 
-* Luis Placencia Pulido
+* Luis Plasencia Pulido
 
 * Rubén Delgado González
 
@@ -24,9 +24,7 @@ Los integrantes del grupo somos:
 
 ## Enlaces de interés
 
-Mockups  (Figma): https://www.figma.com/file/meSdiOBUeWtE6oc5g27Zup/Boceto-de-DdA?node-id=0%3A1
+Storyboard + Mockups (Figma): https://www.figma.com/file/meSdiOBUeWtE6oc5g27Zup/Boceto-de-DdA?node-id=0%3A1
 
-Documento de requisitos:
-
-Presentación de la aplicación (Slides):
+El resto de enlaces y recursos se encuentran en el archivo comprimido entregado
 
