@@ -55,6 +55,8 @@ public class QuestsInstrumentedTests {
     ViewInteraction english_level_icon = onView(withId(R.id.english_level_icon));
     ViewInteraction geography_level_icon = onView(withId(R.id.geography_level_icon));
 
+    int math_icon = repository.getSubjectPhoto(1);
+
     String math_level = repository.getSubjectPercentage(1).toString();
     String english_level = repository.getSubjectPercentage(2).toString();
     String geography_level = repository.getSubjectPercentage(3).toString();
@@ -389,4 +391,5 @@ public class QuestsInstrumentedTests {
         geography_level_icon.check(matches(isDisplayed()));
     }
 
+    //Faltan tests que se realiazaran para el siguiente Sprint
 }

@@ -279,14 +279,15 @@ public class QuizRepository implements RepositoryContract {
             return 0;
         }
 
-        if(id == 1 ){
-            return usuarioActual.getMathPercentage();
-        } else if (id == 2){
-            return usuarioActual.getEnglishPercentage();
-        } else if(id == 3){
-            return usuarioActual.getGeographyPercentage();
-        } else{
-            return 0;
+        switch (id) {
+            case 1:
+                return usuarioActual.getMathPercentage();
+            case 2:
+                return usuarioActual.getEnglishPercentage();
+            case 3:
+                return usuarioActual.getGeographyPercentage();
+            default:
+                return 0;
         }
     }
 
@@ -295,25 +296,28 @@ public class QuizRepository implements RepositoryContract {
         if(usuarioActual == null){
             return R.drawable.child;
         }
-
-        if(id == 1) {
-            if (usuarioActual.getMathPercentage() > 50) {
-                return R.drawable.dragon;
-            } else if (usuarioActual.getMathPercentage() > 10) {
-                return R.drawable.pig;
-            }
-        } else if(id == 2){
-            if (usuarioActual.getEnglishPercentage() > 50) {
-                return R.drawable.dragon;
-            } else if (usuarioActual.getEnglishPercentage() > 10) {
-                return R.drawable.pig;
-            }
-        } else if(id == 3){
-            if (usuarioActual.getGeographyPercentage() > 50) {
-                return R.drawable.dragon;
-            } else if (usuarioActual.getGeographyPercentage() > 10) {
-                return R.drawable.pig;
-            }
+        switch (id) {
+            case 1:
+              if (usuarioActual.getMathPercentage() > 50) {
+                    return R.drawable.dragon;
+                } else if (usuarioActual.getMathPercentage() > 10) {
+                    return R.drawable.pig;
+                }
+                break;
+            case 2:
+                if (usuarioActual.getEnglishPercentage() > 50) {
+                    return R.drawable.dragon;
+                } else if (usuarioActual.getEnglishPercentage() > 10) {
+                    return R.drawable.pig;
+                }
+                break;
+            case 3:
+                if (usuarioActual.getGeographyPercentage() > 50) {
+                    return R.drawable.dragon;
+                } else if (usuarioActual.getGeographyPercentage() > 10) {
+                    return R.drawable.pig;
+                }
+                break;
         }
         return R.drawable.child;
     }

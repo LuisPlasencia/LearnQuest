@@ -30,6 +30,7 @@
     <string name="T2_Topic_description">Description of the subtopic</string>
     <string name="T2_Topic_solve_button">Solve!</string>
     <string name="T2_Topic_practise_button">Practice!</string>
+    
 
     <string name="t1_solve_option">1</string>
     <string name="t2_solve_option">2</string>

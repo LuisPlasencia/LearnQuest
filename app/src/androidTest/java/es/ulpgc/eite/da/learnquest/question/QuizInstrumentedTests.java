@@ -40,7 +40,7 @@ public class QuizInstrumentedTests {
 
     @Rule
     public ActivityTestRule<QuestionActivity> activityTestRule =
-            new ActivityTestRule(QuestionActivity.class );
+            new ActivityTestRule(QuestionActivity.class);
 
 
     Context context =
@@ -70,7 +70,7 @@ public class QuizInstrumentedTests {
         int orientation = context.getResources().getConfiguration().orientation;
         Activity activity = activityTestRule.getActivity();
 
-        if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         } else {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -301,109 +301,108 @@ public class QuizInstrumentedTests {
         onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
     }
 
-   @Test
-   public void pressNoToReturnToQuestionInHintActiivty() {
+    @Test
+    public void pressNoToReturnToQuestionInHintActivity() {
         //GIVEN
-       onView(withId(R.id.cheatButton)).perform(click());
-       onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
-       onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
-       onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.cheatButton)).perform(click());
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
 
-       //WHEN
-       onView(withId(R.id.noButton)).perform(click());
+        //WHEN
+        onView(withId(R.id.noButton)).perform(click());
 
-       //THEN
-       onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
-       onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
-       onView(withId(R.id.option1_button))
-               .check(matches(isEnabled()))
-               .check(matches(withText(question1.getOption1())));
-       onView(withId(R.id.option2_button))
-               .check(matches(isEnabled()))
-               .check(matches(withText(question1.getOption2())));
-       onView(withId(R.id.option3_button))
-               .check(matches(isEnabled()))
-               .check(matches(withText(question1.getOption3())));
-       onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
-       onView(withId(R.id.nextButton))
-               .check(matches(not(isEnabled())))
-               .check(matches(withText(next_button_text)));
-       onView(withId(R.id.cheatButton))
-               .check(matches(isEnabled()))
-               .check(matches(withText(cheat_button_text)));
-   }
+        //THEN
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
+        onView(withId(R.id.option1_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText(question1.getOption1())));
+        onView(withId(R.id.option2_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText(question1.getOption2())));
+        onView(withId(R.id.option3_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText(question1.getOption3())));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())))
+                .check(matches(withText(next_button_text)));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()))
+                .check(matches(withText(cheat_button_text)));
+    }
 
-   @Test
-   public void pressYesInHintActivity() {
-       //GIVEN
-       onView(withId(R.id.cheatButton)).perform(click());
-       onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
-       onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
-       onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+    @Test
+    public void pressYesInHintActivity() {
+        //GIVEN
+        onView(withId(R.id.cheatButton)).perform(click());
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
 
-       //WHEN
-       onView(withId(R.id.yesButton)).perform(click());
+        //WHEN
+        onView(withId(R.id.yesButton)).perform(click());
 
-       //THEN
-       onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
-       onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
-       onView(withId(R.id.answer_text)).check(matches(withText(question1.getHint())));
-   }
+        //THEN
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(question1.getHint())));
+    }
 
-
-   @Test
+    @Test
     public void pressYesInHintActivityAndReturnToQuestion() {
-       //GIVEN
-       onView(withId(R.id.cheatButton)).perform(click());
-       onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
-       onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
-       onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
-
-       onView(withId(R.id.yesButton)).perform(click());
-       onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
-       onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
-       onView(withId(R.id.answer_text)).check(matches(withText(question1.getHint())));
-
-       //WHEN
-       onView(withId(R.id.returnButton)).perform(click());
-
-       //THEN
-       onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
-       onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
-       onView(withId(R.id.option1_button))
-               .check(matches(isEnabled()))
-               .check(matches(withText(question1.getOption1())));
-       onView(withId(R.id.option2_button))
-               .check(matches(isEnabled()))
-               .check(matches(withText(question1.getOption2())));
-       onView(withId(R.id.option3_button))
-               .check(matches(isEnabled()))
-               .check(matches(withText(question1.getOption3())));
-       onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
-       onView(withId(R.id.nextButton))
-               .check(matches(not(isEnabled())))
-               .check(matches(withText(next_button_text)));
-       onView(withId(R.id.cheatButton))
-               .check(matches(not(isEnabled())))
-               .check(matches(withText(cheat_button_text)));
-
-   }
-
-   @Test
-   public void pressNextButtonAtLastQuestion() {
         //GIVEN
-       repository.setUserActual(repository.getUser("Ruben", "rabano"));
-       onView(withId(R.id.option2_button)).perform(click());
-       onView(withId(R.id.nextButton)).perform(click());
-       onView(withId(R.id.option2_button)).perform(click());
-       onView(withId(R.id.nextButton)).perform(click());
-       onView(withId(R.id.option2_button)).perform(click());
+        onView(withId(R.id.cheatButton)).perform(click());
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
 
-       //WHEN
-       onView(withId(R.id.nextButton)).perform(click());
+        onView(withId(R.id.yesButton)).perform(click());
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(question1.getHint())));
 
-       //THEN
-       ViewInteraction appCompatButton = onView(withId(R.id.return_button));
-       appCompatButton.check(matches(withText(returnToProfileTextFinalQuiz)));
-   }
+        //WHEN
+        onView(withId(R.id.returnButton)).perform(click());
+
+        //THEN
+        onView(withId(R.id.question_number)).check(matches(withText("Question " + question1.getId())));
+        onView(withId(R.id.question_text)).check(matches(withText(question1.getQuestion())));
+        onView(withId(R.id.option1_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText(question1.getOption1())));
+        onView(withId(R.id.option2_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText(question1.getOption2())));
+        onView(withId(R.id.option3_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText(question1.getOption3())));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())))
+                .check(matches(withText(next_button_text)));
+        onView(withId(R.id.cheatButton))
+                .check(matches(not(isEnabled())))
+                .check(matches(withText(cheat_button_text)));
+
+    }
+
+    @Test
+    public void pressNextButtonAtLastQuestion() {
+        //GIVEN
+        repository.setUserActual(repository.getUser("Ruben", "rabano"));
+        onView(withId(R.id.option2_button)).perform(click());
+        onView(withId(R.id.nextButton)).perform(click());
+        onView(withId(R.id.option2_button)).perform(click());
+        onView(withId(R.id.nextButton)).perform(click());
+        onView(withId(R.id.option2_button)).perform(click());
+
+        //WHEN
+        onView(withId(R.id.nextButton)).perform(click());
+
+        //THEN
+        ViewInteraction appCompatButton = onView(withId(R.id.return_button));
+        appCompatButton.check(matches(withText(returnToProfileTextFinalQuiz)));
+    }
 }
