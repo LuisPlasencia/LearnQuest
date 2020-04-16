@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestsRouter implements QuestsContract.Router {
@@ -18,7 +19,7 @@ public class QuestsRouter implements QuestsContract.Router {
     }
 
     @Override
-    public void navigateToNextScreen() {
+    public void navigateToQuizUnitScreen() {
         Context context = mediator.getApplicationContext();
         Intent intent = new Intent(context, QuizUnitActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -30,8 +31,8 @@ public class QuestsRouter implements QuestsContract.Router {
         mediator.setQuestsState(state);
     }*/
     @Override
-    public void passDataToQuizUnitScreen(QuestToQuizUnitState state){
-        mediator.setQuestToQuizUnitState(state);
+    public void passDataToQuizUnitScreen(QuestItem item){
+        mediator.setQuestItem(item);
     }
 
     @Override

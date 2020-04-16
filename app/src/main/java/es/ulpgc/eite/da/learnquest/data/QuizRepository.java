@@ -1,8 +1,6 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +20,7 @@ public class QuizRepository implements RepositoryContract {
     private Integer subjectId;
     //private ArrayList<QuizUnit> quizUnits;
     private ArrayList<QuizUnitItem> quizUnits;
+    private ArrayList<QuestItem> questList;
 
     public static RepositoryContract getInstance(){
         if (INSTANCE == null) {
@@ -70,6 +69,8 @@ public class QuizRepository implements RepositoryContract {
         subjectId = 0;
     }
 
+
+
     private void inicializarUsuarios() {
         usuariodefault = new User("Username", "", 0);
         User usuario1 = new User("Luis", "patata", 1);
@@ -77,35 +78,47 @@ public class QuizRepository implements RepositoryContract {
         User usuario3 = new User("Cunwang", "lechuga", 3);
 
         usuarioActual = usuariodefault;
-        usuariodefault.setMathPercentage(27);
-        usuariodefault.setEnglishPercentage(66);
+        usuariodefault.setMathPercentage(35);
+        usuariodefault.setEnglishPercentage(79);
         usuariodefault.setGeographyPercentage(5);
 
         usuario1.setLevel(8);
         usuario1.setSublevel(60);
         usuario1.setPhoto(R.drawable.patata);
-        usuario1.setMathPercentage(27);
-        usuario1.setEnglishPercentage(66);
+        usuario1.setMathPercentage(91);
+        usuario1.setEnglishPercentage(27);
         usuario1.setGeographyPercentage(5);
 
         usuario2.setLevel(11);
         usuario2.setSublevel(40);
         usuario2.setPhoto(R.drawable.rabano);
-        usuario2.setMathPercentage(27);
-        usuario2.setEnglishPercentage(66);
-        usuario2.setGeographyPercentage(5);
+        usuario2.setMathPercentage(51);
+        usuario2.setEnglishPercentage(10);
+        usuario2.setGeographyPercentage(69);
 
         usuario3.setLevel(3);
         usuario3.setSublevel(90);
         usuario3.setPhoto(R.drawable.lechuga);
-        usuario3.setMathPercentage(27);
-        usuario3.setEnglishPercentage(66);
-        usuario3.setGeographyPercentage(5);
+        usuario3.setMathPercentage(15);
+        usuario3.setEnglishPercentage(56);
+        usuario3.setGeographyPercentage(90);
 
         usuarios = new ArrayList<User>();
         usuarios.add(usuario1);
         usuarios.add(usuario2);
         usuarios.add(usuario3);
+    }
+
+    @Override
+    public void initializeQuestList() {
+        questList = new ArrayList<>();
+        questList.add(new QuestItem("Maths", usuarioActual.getMathPercentage(), 1));
+        questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
+        questList.add(new QuestItem("English", usuarioActual.getEnglishPercentage(), 2));
+        questList.get(1).setPhoto(getSubjectPhoto(questList.get(1).getId()));
+        questList.add(new QuestItem("Geography", usuarioActual.getGeographyPercentage(), 3));
+        questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
+
     }
 
     @Override
@@ -135,6 +148,11 @@ public class QuizRepository implements RepositoryContract {
     @Override
     public List<QuizUnitItem> getQuizUnits(){
         return quizUnits;
+    }
+
+    @Override
+    public List<QuestItem> getQuestList(){
+        return questList;
     }
 
     @Override
@@ -305,23 +323,23 @@ public class QuizRepository implements RepositoryContract {
         }
         switch (id) {
             case 1:
-              if (usuarioActual.getMathPercentage() > 50) {
+              if (usuarioActual.getMathPercentage() > 70) {
                     return R.drawable.dragon;
-                } else if (usuarioActual.getMathPercentage() > 10) {
+                } else if (usuarioActual.getMathPercentage() > 25) {
                     return R.drawable.pig;
                 }
                 break;
             case 2:
-                if (usuarioActual.getEnglishPercentage() > 50) {
+                if (usuarioActual.getEnglishPercentage() > 70) {
                     return R.drawable.dragon;
-                } else if (usuarioActual.getEnglishPercentage() > 10) {
+                } else if (usuarioActual.getEnglishPercentage() > 25) {
                     return R.drawable.pig;
                 }
                 break;
             case 3:
-                if (usuarioActual.getGeographyPercentage() > 50) {
+                if (usuarioActual.getGeographyPercentage() > 70) {
                     return R.drawable.dragon;
-                } else if (usuarioActual.getGeographyPercentage() > 10) {
+                } else if (usuarioActual.getGeographyPercentage() > 25) {
                     return R.drawable.pig;
                 }
                 break;

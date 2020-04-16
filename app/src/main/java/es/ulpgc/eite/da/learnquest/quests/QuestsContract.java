@@ -1,8 +1,11 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public interface QuestsContract {
 
@@ -13,65 +16,32 @@ public interface QuestsContract {
     }
 
     interface Presenter {
+        void fetchQuestsData();
+
         void injectView(WeakReference<View> view);
 
         void injectModel(Model model);
 
         void injectRouter(Router router);
 
-        // void fetchData();
 
-        void onSubjectButtonClicked(String subject);
-
-        void onResume();
-
-        void onPause();
-
-        void updateLevels();
-
-        void onRestart();
-
-        void setSubjectImage();
-
-
+        void selectQuestData(QuestItem item);
     }
 
     interface Model {
-        String fetchData();
 
-        String getMathLevel();
-        String getEnglishLevel();
-        String getGeographyLevel();
-
-        void setMathLevel(String mathLevel);
-        void setEnglishLevel(String englishLevel);
-        void setGeographyLevel(String geographyLevel);
-
-        void setSubjectLevels();
-
-        //int getPhoto();
-        //void setPhoto(int photo);
-
-        int getMathPhoto();
-        int getEnglishPhoto();
-        int getGeographyPhoto();
-
-        void setMathPhoto(int mathPhoto);
-        void setEnglishPhoto(int englishPhoto);
-        void setGeographyPhoto(int geographyPhoto);
-
-        void setSubjectImage();
-
-        void onRestartScreen(QuestsState data);
 
         void setSubjectID(int subjectID);
+
+        List<QuestItem> fetchQuestsData();
+
     }
 
     interface Router {
-        void navigateToNextScreen();
+        void navigateToQuizUnitScreen();
 
         //void passDataToNextScreen(QuestsState state);
-        void passDataToQuizUnitScreen(QuestToQuizUnitState state);
+        void passDataToQuizUnitScreen(QuestItem item);
 
         QuestsState getDataFromPreviousScreen();
     }

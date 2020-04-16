@@ -1,13 +1,16 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 
 public class QuestsActivity
         extends AppCompatActivity implements QuestsContract.View {
@@ -15,6 +18,7 @@ public class QuestsActivity
     public static String TAG = QuestsActivity.class.getSimpleName();
 
     private QuestsContract.Presenter presenter;
+    private QuestsAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,53 +27,41 @@ public class QuestsActivity
         getSupportActionBar().setTitle(R.string.quests_unit_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
 
+        listAdapter = new QuestsAdapter(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                QuestItem item = (QuestItem) view.getTag();
+                presenter.selectQuestData(item);
+            }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.quests_list);
+        recyclerView.setAdapter(listAdapter);
+
         // do the setup
         QuestsScreen.configure(this);
-        presenter.updateLevels();
-        presenter.setSubjectImage();
-
-
-
+//        presenter.updateLevels();
+//        presenter.setSubjectImage();
+        presenter.fetchQuestsData();
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        // load the data
-        presenter.onResume();
-    }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//        // load the data
+//        presenter.onResume();
+//    }
 
     @Override
     public void displayData(QuestsViewModel viewModel) {
         //Log.e(TAG, "displayData()");
 
         // deal with the data
-        ((TextView) findViewById(R.id.math_level_id)).setText(viewModel.mathLevel);
-        ((TextView) findViewById(R.id.english_level_id)).setText(viewModel.englishLevel);
-        ((TextView) findViewById(R.id.geography_level_id)).setText(viewModel.geographyLevel);
-
-        ((ImageView) findViewById(R.id.math_level_icon)).setImageResource(viewModel.mathPhoto);
-        ((ImageView) findViewById(R.id.english_level_icon)).setImageResource(viewModel.englishPhoto);
-        ((ImageView) findViewById(R.id.geography_level_icon)).setImageResource(viewModel.geographyPhoto);
+        listAdapter.setItems(viewModel.questItems);
     }
-
-    public void onButtonClicked(View view){
-
-        switch(view.getId()){
-            case R.id.math_button:
-                presenter.onSubjectButtonClicked(getResources().getString(R.string.maths_text));
-                break;
-            case R.id.english_button:
-                presenter.onSubjectButtonClicked(getResources().getString(R.string.english_text));
-                break;
-            case R.id.geography_button:
-                presenter.onSubjectButtonClicked(getResources().getString(R.string.geography_text));
-                break;
-
-        }
-
-    }
-
 
 
     @Override

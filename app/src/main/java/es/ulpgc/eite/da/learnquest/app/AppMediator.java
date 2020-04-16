@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.app;
 
 import android.app.Application;
 
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizState;
 import es.ulpgc.eite.da.learnquest.hint.HintState;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
@@ -27,6 +28,8 @@ public class AppMediator extends Application {
     private HintToQuestionState hintToQuestionState;
     private QuestionToHintState questionToHintState;
     private QuizUnitToQuestionState quizUnitToQuestionState;
+
+    private QuestItem questItem;
 
     @Override
     public void onCreate() {
@@ -153,5 +156,9 @@ public class AppMediator extends Application {
 
     public void setQuestToQuizUnitState(QuestToQuizUnitState state) {
         questToQuizUnitState = state;
+    }
+
+    public void setQuestItem(QuestItem item) {
+        this.questItem = item;
     }
 }

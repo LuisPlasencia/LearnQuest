@@ -59,4 +59,8 @@ public interface RepositoryContract {
     void updateExperienceCollected();
 
     List<QuizUnitItem> getQuizUnits();
+
+    List<QuestItem> getQuestList();
+
+    void initializeQuestList();
 }

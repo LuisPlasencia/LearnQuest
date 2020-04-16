@@ -36,6 +36,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         }
         state.level = model.getLevel();
         state.sublevel = model.getSublevel();
+        model.initializeQuestList();
         view.get().displayProfileData(state);
 
     }

@@ -58,6 +58,8 @@ public interface ProfileContract {
         void logout();
 
         User getUserActual();
+
+        void initializeQuestList();
     }
 
     interface Router {
