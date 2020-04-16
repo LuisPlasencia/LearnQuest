@@ -1,195 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".quests.QuestsActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    tools:context=".quizUnit.QuizUnitActivity">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <TextView
+        android:id="@+id/choose_quest"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-26dp"
-        tools:layout_editor_absoluteY="16dp">
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/choose_your_quest"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="35dp" />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_quest">
 
-        <TextView
-            android:id="@+id/choose_quest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="30dp"
-            android:fontFamily="casual"
-            android:textColor="@android:color/holo_blue_dark"
-            android:text="@string/choose_your_quest" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="34dp" />
-
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="100dp">
-
-            <TextView
-                android:id="@+id/math_level_id"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="234dp"
-                android:layout_marginEnd="31dp"
-                android:layout_marginBottom="17dp"
-                android:elevation="100dp"
-                android:outlineProvider="none"
-                android:text="@string/math_level"
-                android:textColor="@android:color/white" />
-
-            <ImageView
-                android:id="@+id/math_level_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="226dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="43dp"
-                android:contentDescription="TODO"
-                android:elevation="100dp"
-                android:outlineProvider="none"
-                android:src="@drawable/child_icon" />
-
-            <Button
-                android:id="@+id/math_button"
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_background_math"
-                android:fontFamily="casual"
-                android:gravity="left|center_vertical"
-                android:onClick="onButtonClicked"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/Math_Button"
-                android:textColor="@android:color/white"
-                android:textSize="25dp" />
-
-        </RelativeLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="48dp" />
-
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="100dp">
-
-            <Button
-                android:id="@+id/english_button"
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_background_english"
-                android:gravity="left|center_vertical"
-                android:onClick="onButtonClicked"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:fontFamily="casual"
-                android:text="@string/English_Button"
-                android:textColor="@android:color/white"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/english_level_id"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="234dp"
-                android:layout_marginEnd="31dp"
-                android:layout_marginBottom="17dp"
-                android:elevation="100dp"
-                android:outlineProvider="none"
-                android:text="@string/english_level"
-                android:textColor="@android:color/white" />
-
-            <ImageView
-                android:id="@+id/english_level_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="226dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="43dp"
-                android:elevation="100dp"
-                android:outlineProvider="none"
-                android:src="@drawable/child_icon" />
-
-        </RelativeLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="48dp" />
-
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="100dp">
-
-            <Button
-                android:id="@+id/geography_button"
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_background_geography"
-                android:gravity="left|center_vertical"
-                android:onClick="onButtonClicked"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:fontFamily="casual"
-                android:text="@string/Geography_Button"
-                android:textColor="@android:color/white"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/geography_level_id"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="234dp"
-                android:layout_marginEnd="31dp"
-                android:layout_marginBottom="17dp"
-                android:elevation="100dp"
-                android:outlineProvider="none"
-                android:text="@string/geography_level"
-                android:textColor="@android:color/white" />
-
-            <ImageView
-                android:id="@+id/geography_level_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="226dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="43dp"
-                android:elevation="100dp"
-                android:outlineProvider="none"
-                android:src="@drawable/child_icon" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
+        <include layout="@layout/quests_unit_list" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

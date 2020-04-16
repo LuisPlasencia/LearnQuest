@@ -90,4 +90,5 @@
     <string name="registro_correo_text">Email</string>
     <string name="signup_button_text">Sign Up!</string>
     <string name="registro_warning_text">There is an empty field. Please check everything is filled correctly</string>
+    <string name="subject">Subject</string>
 </resources>
