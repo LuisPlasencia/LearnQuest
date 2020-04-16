@@ -1,12 +1,15 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public class QuizUnitActivity
         extends AppCompatActivity implements QuizUnitContract.View {
@@ -15,6 +18,8 @@ public class QuizUnitActivity
 
     private QuizUnitContract.Presenter presenter;
 
+    private QuizUnitAdapter listAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,51 +27,40 @@ public class QuizUnitActivity
         getSupportActionBar().setTitle(R.string.quiz_unit_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
 
+
+        listAdapter = new QuizUnitAdapter(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                QuizUnitItem item = (QuizUnitItem) view.getTag();
+                if(item == null){
+                    Log.d(TAG,"item es caca");
+                }
+                presenter.selectQuizUnitData(item.getId());
+            }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.quiz_unit_list);
+        recyclerView.setAdapter(listAdapter);
+
         // do the setup
         QuizUnitScreen.configure(this);
 
-        presenter.setT1Items();
+        presenter.fetchQuizUnitData();
 
         if(savedInstanceState == null){
             presenter.onStart();
-        } else {
-            presenter.onRestart();
         }
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // load the data
-        presenter.onResume();
-    }
 
     @Override
     public void displayData(QuizUnitViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
-        ((TextView) findViewById(R.id.t1_topic)).setText(viewModel.t1Topic);
-        ((TextView) findViewById(R.id.t1_topic_title)).setText(viewModel.t1SubTopic);
-        ((TextView) findViewById(R.id.t1_description)).setText(viewModel.t1Description);
-
-        ((TextView) findViewById(R.id.t2_topic)).setText(viewModel.t2Topic);
-        ((TextView) findViewById(R.id.t2_topic_title)).setText(viewModel.t2SubTopic);
-        ((TextView) findViewById(R.id.t2_description)).setText(viewModel.t2Description);
-
-    }
-
-    public void onButtonOptionClicked(View view){
-
-        switch(view.getId()){
-            case R.id.t1_topic_solve:
-                presenter.onOptionClicked(Integer.parseInt(getResources().getString(R.string.t1_solve_option)));
-                break;
-            case R.id.t2_topic_solve:
-                presenter.onOptionClicked(Integer.parseInt(getResources().getString(R.string.t2_solve_option)));
-                break;
-        }
+        listAdapter.setItems(viewModel.quizUnitItems);
 
     }
     @Override

@@ -4,6 +4,7 @@ package es.ulpgc.eite.da.learnquest.data;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.R;
 
@@ -19,7 +20,8 @@ public class QuizRepository implements RepositoryContract {
     private Integer experienceCollected;
     private Integer quizId;
     private Integer subjectId;
-    private ArrayList<QuizUnit> quizUnits;
+    //private ArrayList<QuizUnit> quizUnits;
+    private ArrayList<QuizUnitItem> quizUnits;
 
     public static RepositoryContract getInstance(){
         if (INSTANCE == null) {
@@ -28,22 +30,20 @@ public class QuizRepository implements RepositoryContract {
         return INSTANCE;
     }
 
+
+
     private QuizRepository() {
-        QuizUnit quizUnit1 = new QuizUnit("T1.Topic", "Subtopic",
-                "Description of the subtopic","T2.Topic","Subtopic",
-                "Description of the subtopic","Maths");
-        QuizUnit quizUnit2 = new QuizUnit("T1.Topic", "Subtopic",
-                "Description of the subtopic","T2.Topic","Subtopic",
-                "Description of the subtopic","English");
-
-        QuizUnit quizUnit3 = new QuizUnit("T1.Topic", "Subtopic",
-                "Description of the subtopic","T2.Topic","Subtopic",
-                "Description of the subtopic","Geography");
-
         quizUnits = new ArrayList<>();
-        quizUnits.add(quizUnit1);
-        quizUnits.add(quizUnit2);
-        quizUnits.add(quizUnit3);
+        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 1",
+                "Description of quiz", "Subject", 9,1, false));
+        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 2",
+                "Description of quiz", "Subject", 9, 2,false));
+        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 3",
+                "Description of quiz", "Subject", 9, 3,false));
+        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 4",
+                "Description of quiz", "Subject", 9,4, false));
+        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 5",
+                "Description of quiz", "Subject", 9, 5,false));
 
 
         Question question1 = new Question("First question: Option 1",
@@ -133,10 +133,15 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
+    public List<QuizUnitItem> getQuizUnits(){
+        return quizUnits;
+    }
+
+    @Override
     public QuizUnit getQuizUnit(String subject) {
         for (int i = 0; i<quizUnits.size(); i++){
             if(quizUnits.get(i).getSubject().equals(subject)){
-                return quizUnits.get(i);
+            //    return quizUnits.get(i);
             }
         }
         return null;
@@ -272,6 +277,8 @@ public class QuizRepository implements RepositoryContract {
     public void updateExperienceCollected() {
         experienceCollected += XP_PER_QUESTION;
     }
+
+
 
     @Override
     public Integer getSubjectPercentage(int id){

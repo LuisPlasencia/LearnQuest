@@ -1,6 +1,7 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface RepositoryContract {
     ArrayList<Question> getQuestions();
@@ -56,4 +57,6 @@ public interface RepositoryContract {
     int getSubjectPhoto(int id);
 
     void updateExperienceCollected();
+
+    List<QuizUnitItem> getQuizUnits();
 }

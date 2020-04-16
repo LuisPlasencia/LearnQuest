@@ -7,6 +7,8 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuizUnitPresenter implements QuizUnitContract.Presenter {
 
@@ -22,40 +24,28 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
     }
 
     @Override
+    public void fetchQuizUnitData() {
+        // Log.e(TAG, "fetchCategoryListData()");
+
+        // call the model
+       state.quizUnitItems = model.fetchQuizUnitData();
+        view.get().displayData(state);
+    }
+
+
+
+    @Override
+    public void selectQuizUnitData(int item) {
+        router.navigateToNextScreen();
+    }
+
+    @Override
     public void onStart() {
         if (state == null) {
             state = new QuizUnitState();
         }
     }
 
-    @Override
-    public void onRestart() {
-        model.onRestartScreen(state);
-    }
-
-    @Override
-    public void onResume() {
-
-        state.t1Topic = model.getT1Topic();
-        state.t1SubTopic = model.getT1SubTopic();
-        state.t1Description = model.getT1Description();
-        state.t2Topic = model.getT2Topic();
-        state.t2SubTopic = model.getT2SubTopic();
-        state.t2Description = model.getT2Description();
-        // update the view
-        view.get().displayData(state);
-    }
-
-    @Override
-    public void onPause() {
-        state.t1Topic = model.getT1Topic();
-        state.t1SubTopic = model.getT1SubTopic();
-        state.t1Description = model.getT1Description();
-        state.t2Topic = model.getT2Topic();
-        state.t2SubTopic = model.getT2SubTopic();
-        state.t2Description = model.getT2Description();
-
-    }
 
     @Override
     public void setSubject() {
@@ -69,15 +59,9 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
         }
     }
 
-    @Override
-    public void setT1Items() {
-        setSubject();
-        model.setT1Fields();
-
-    }
 
     @Override
-    public void onOptionClicked(int option){
+    public void onOptionClicked(int option) {
         state.quizId = option;
         model.setQuizId(state.quizId);
         QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);

@@ -1,9 +1,11 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public interface QuizUnitContract {
 
@@ -16,54 +18,29 @@ public interface QuizUnitContract {
 
     interface Presenter {
         void injectView(WeakReference<View> view);
-
         void injectModel(Model model);
-
         void injectRouter(Router router);
-
        // void fetchData();
-
         void setSubject();
-
-        void setT1Items();
-
         //String getT1Items();
-
         void onStart();
-
-        void onRestart();
-
-        void onResume();
-
-        void onPause();
-
         void onOptionClicked(int option);
 
+        void fetchQuizUnitData();
+
+        //void selectQuizUnitData(QuizUnitItem item);
+        void selectQuizUnitData(int item);
     }
 
     interface Model {
         //String fetchData();
-        void onRestartScreen(QuizUnitState data);
-        void setT1Fields();
-        void setT1Topic(String T1Topic);
-        void setT1SubTopic(String T1SubTopic);
-        void setT1Description(String T1Description);
 
         void setSubject(String subject);
-
-        String getT1Topic();
-        String getT1SubTopic();
-        String getT1Description();
-
-        void setT2Topic(String T2Topic);
-        void setT2SubTopic(String T2SubTopic);
-        void setT2Description(String T2Description);
-
-        String getT2Topic();
-        String getT2SubTopic();
-        String getT2Description();
-
         void setQuizId(int quizId);
+        List<QuizUnitItem> fetchQuizUnitData();
+
+
+
     }
     interface Router {
         void navigateToNextScreen();
