@@ -12,6 +12,7 @@
         android:layout_height="78dp"
         android:layout_margin="5dp"
         android:elevation="8dp"
+        app:cardCornerRadius="10dp"
         app:cardBackgroundColor="#D1B7AC"
         app:cardUseCompatPadding="true">
 
@@ -29,21 +30,30 @@
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                android:fontFamily="casual"
                 tools:text= "@string/subject" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:gravity="end"
                 android:orientation="vertical">
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+
                 <ImageView
                     android:id="@+id/quest_level_icon"
-                    android:layout_width="85dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:contentDescription="TODO"
                     android:src="@drawable/child_icon" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp" />
 
                 <TextView
                     android:id="@+id/quest_level_id"
@@ -52,7 +62,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/math_level"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/background_dark" />
             </LinearLayout>
 
         </LinearLayout>

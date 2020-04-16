@@ -29,10 +29,8 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
 
         // call the model
        state.quizUnitItems = model.fetchQuizUnitData();
-        view.get().displayData(state);
+       view.get().displayData(state);
     }
-
-
 
     @Override
     public void selectQuizUnitData(int item) {
@@ -45,8 +43,6 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
             state = new QuizUnitState();
         }
     }
-
-
     @Override
     public void setSubject() {
         QuestToQuizUnitState savedState = router.getStateFromQuestScreen();
