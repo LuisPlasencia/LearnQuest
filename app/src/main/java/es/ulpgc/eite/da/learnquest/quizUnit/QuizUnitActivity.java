@@ -57,9 +57,8 @@ public class QuizUnitActivity
 
     @Override
     public void displayData(QuizUnitViewModel viewModel) {
-        //Log.e(TAG, "onDataUpdated()");
-
         // deal with the data
+
         listAdapter.setItems(viewModel.quizUnitItems);
 
     }

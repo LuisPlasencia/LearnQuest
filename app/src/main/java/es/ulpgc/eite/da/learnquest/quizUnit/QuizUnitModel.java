@@ -44,8 +44,4 @@ public class QuizUnitModel implements QuizUnitContract.Model {
         return quizRepository.getQuizUnits();
     }
 
-
-
-
-
 }

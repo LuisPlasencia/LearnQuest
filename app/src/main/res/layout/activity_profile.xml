@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:elevation="3dp"
-            app:cardBackgroundColor="@android:color/holo_blue_dark"
+            app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="20dp"
             app:cardUseCompatPadding="true">
 
@@ -150,7 +150,7 @@
                 android:id="@+id/go_button"
                 android:layout_width="250dp"
                 android:layout_height="61dp"
-                android:background="@drawable/button_background_profile_blue"
+                android:background="@drawable/button_selector"
                 android:onClick="onButtonClicked"
                 android:text="@string/go_quest_button"
                 android:textColor="@android:color/white" />
@@ -162,8 +162,9 @@
 
             <ImageView
                 android:id="@+id/go_quest_image"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:contentDescription="@string/go_quest_image_description"
                 app:srcCompat="@drawable/flame_goquest" />
         </LinearLayout>
@@ -183,10 +184,10 @@
                 android:id="@+id/create_quest_button"
                 android:layout_width="250dp"
                 android:layout_height="61dp"
-                android:background="@drawable/button_background_profile_blue"
+                android:background="@drawable/button_selector"
+                android:enabled="true"
                 android:text="@string/new_quest_button"
-                android:textColor="@android:color/white"
-                android:enabled="false"/>
+                android:textColor="@android:color/white" />
 
 
             <Space
@@ -196,9 +197,10 @@
 
             <ImageView
                 android:id="@+id/new_quest_image"
-                android:layout_width="54dp"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:contentDescription="@string/new_quest_icon_description"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/plus_createquest" />
 
         </LinearLayout>
@@ -230,9 +232,10 @@
 
             <ImageView
                 android:id="@+id/log_out_image"
-                android:layout_width="54dp"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:contentDescription="@string/log_out_icon_description"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/logout" />
 
             <Space
