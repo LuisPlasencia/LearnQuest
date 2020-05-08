@@ -1,5 +1,6 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
@@ -20,11 +22,13 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
 
     private List<QuestItem> itemList;
     private final View.OnClickListener clickListener;
+    public int color;
 
     public QuestsAdapter(View.OnClickListener listener) {
 
         itemList = new ArrayList();
         clickListener = listener;
+        color = 0;
     }
 
     public void setItems(List<QuestItem> items){
@@ -45,13 +49,27 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
         holder.itemView.setOnClickListener(clickListener);
 
         holder.title.setText(itemList.get(position).subjectName);
-      //  holder.percentage.setText(String.valueOf(itemList.get(position).getPercentage()));
 
         //Log.d("QuestsAdapter", itemList.get(position).getSubject());
         holder.percentage.setText(String.valueOf(itemList.get(position).getPercentage()));
         holder.questImage.setImageResource(itemList.get(position).getPhoto());
 
 
+        final int baseColor = Color.WHITE;      //cambiando el color base podemos tener una paleta de colores distinta
+
+        Random mRandom = new Random(System.currentTimeMillis());
+
+        int baseRed = Color.red(baseColor);
+        int baseGreen = Color.green(baseColor);
+        int baseBlue = Color.blue(baseColor);
+
+        int red = (baseRed + mRandom.nextInt(256)) / 2;
+        int green = (baseGreen + mRandom.nextInt(256)) / 2;
+        int blue = (baseBlue + mRandom.nextInt(256)) / 2;
+
+        color = Color.rgb(red, green, blue);
+
+        holder.cardView.setCardBackgroundColor(color);
     }
 
     @Override

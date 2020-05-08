@@ -64,9 +64,10 @@ public class ProfileModel implements ProfileContract.Model {
         return repository.getUserActual();
     }
 
+
     @Override
-    public void initializeQuestList() {
-        repository.initializeQuestList();
+    public void updateQuestParameters() {
+        repository.updateQuestParameters();
     }
 
 }

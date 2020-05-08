@@ -27,11 +27,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:gravity="center"
+                android:textColor="@android:color/secondary_text_light"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:fontFamily="casual"
-                tools:text= "@string/subject" />
+                tools:text="@string/subject" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -62,7 +63,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/math_level"
-                    android:textColor="@android:color/background_dark" />
+                    android:textColor="@android:color/secondary_text_light" />
             </LinearLayout>
 
         </LinearLayout>

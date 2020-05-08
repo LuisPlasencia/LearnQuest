@@ -64,7 +64,7 @@ public interface RepositoryContract {
 
     List<QuestItem> getQuestList();
 
-    void initializeQuestList();
+    void updateQuestParameters();
 
     ///////////////////////////////////////// JSON //////////////////////////////////
 

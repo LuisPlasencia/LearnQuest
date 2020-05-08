@@ -132,20 +132,26 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void initializeQuestList() {
-     /*   questList = new ArrayList<>();
-        questList.add(new QuestItem("Maths", usuarioActual.getMathPercentage(), 1));
-        questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
-        questList.add(new QuestItem("English", usuarioActual.getEnglishPercentage(), 2));
-        questList.get(1).setPhoto(getSubjectPhoto(questList.get(1).getId()));
-        questList.add(new QuestItem("Geography", usuarioActual.getGeographyPercentage(), 3));
-        questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
-*/
-        questList = new ArrayList<>();
-        questList.add(new QuestItem(usuarioActual.getMathPercentage(), 1));
-        questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
-
-
+    public void updateQuestParameters() {
+        if(questList != null){
+            Log.d("updateQuestParameters" , questList.get(0).subjectName);
+            for(int i = 0; i<questList.size(); i++){
+                if(questList.get(i).getId() == 1){
+                    questList.get(i).setPercentage(usuarioActual.getMathPercentage());
+                } else if(questList.get(i).getId() == 2){
+                    questList.get(i).setPercentage(usuarioActual.getEnglishPercentage());
+                } else if(questList.get(i).getId() == 3){
+                    questList.get(i).setPercentage(usuarioActual.getGeographyPercentage());
+                }
+                questList.get(i).setPhoto(getSubjectPhoto(questList.get(i).getId()));
+            }
+        }
+//        questList.add(new QuestItem("Maths", usuarioActual.getMathPercentage(), 1));
+//        questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
+//        questList.add(new QuestItem("English", usuarioActual.getEnglishPercentage(), 2));
+//        questList.get(1).setPhoto(getSubjectPhoto(questList.get(1).getId()));
+//        questList.add(new QuestItem("Geography", usuarioActual.getGeographyPercentage(), 3));
+//        questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
     }
 
     @Override
@@ -488,12 +494,16 @@ public class QuizRepository implements RepositoryContract {
                         quizUnit.questId = quest.id;
                     }
                 }*/
+                updateQuestParameters();
 
                 return true;
             }
         } catch (JSONException e) {
             Log.e(TAG, "error: " + e);
         }
+
+
+
 
         return false;
     }

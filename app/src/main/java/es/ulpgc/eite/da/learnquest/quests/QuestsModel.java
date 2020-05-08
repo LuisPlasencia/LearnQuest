@@ -38,8 +38,6 @@ public class QuestsModel implements QuestsContract.Model {
 
     }
 
-
-
     @Override
     public void setSubjectID(int subjectId) {
         quizRepository.setSubjectId(subjectId);
@@ -48,6 +46,11 @@ public class QuestsModel implements QuestsContract.Model {
     @Override
     public List<QuestItem> fetchQuestsData() {
         return quizRepository.getQuestList();
+    }
+
+    @Override
+    public void updateQuestParameters() {
+        quizRepository.updateQuestParameters();
     }
 
 }

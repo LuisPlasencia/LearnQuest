@@ -26,20 +26,22 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         // call the model
 
 
+
       model.fetchQuestListData(new RepositoryContract.GetQuestListCallback() {
             @Override
             public void setQuestList(List<QuestItem> questList) {
                 state.questItems = questList;
                 view.get().displayData(state);
-
-
             }
         });
+
+
 
     }
 
     @Override
     public void fecthQuestsDataPercentageAndImage(){
+
         state.questItems = model.fetchQuestsData();
         view.get().displayDataPercentageAndImage(state);
     }

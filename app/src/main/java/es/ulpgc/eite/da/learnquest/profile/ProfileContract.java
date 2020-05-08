@@ -65,7 +65,7 @@ public interface ProfileContract {
 
         User getUserActual();
 
-        void initializeQuestList();
+        void updateQuestParameters();
     }
 
     interface Router {

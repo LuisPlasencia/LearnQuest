@@ -42,6 +42,8 @@ public interface QuestsContract {
 
         List<QuestItem> fetchQuestsData();
 
+        void updateQuestParameters();
+
         /////
         void fetchQuestListData(final RepositoryContract.GetQuestListCallback callback);
 
