@@ -16,6 +16,8 @@ public interface QuestsContract {
         void injectPresenter(Presenter presenter);
 
         void displayData(QuestsViewModel viewModel);
+
+        void navigateToQuizUnitScreen();
     }
 
     interface Presenter {
@@ -46,7 +48,7 @@ public interface QuestsContract {
     }
 
     interface Router {
-        void navigateToQuizUnitScreen();
+       // void navigateToQuizUnitScreen();
 
         //void passDataToNextScreen(QuestsState state);
         void passDataToQuizUnitScreen(QuestItem item);

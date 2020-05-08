@@ -20,13 +20,13 @@ public class QuestionRouter implements QuestionContract.Router {
         this.mediator = mediator;
     }
 
-    @Override
+    /*@Override
     public void navigateToHintScreen() {
         Context context = mediator.getApplicationContext();
         Intent intent = new Intent(context, HintActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-    }
+    }*/
 
     @Override
     public void passDataToHintScreen(QuestionToHintState state) {
@@ -38,11 +38,11 @@ public class QuestionRouter implements QuestionContract.Router {
         return mediator.getHintToQuestionState();
     }
 
-    @Override
+   /* @Override
     public void navigateToFinalQuizScreen() {
         Context context = mediator.getApplicationContext();
         Intent intent = new Intent(context, FinalQuizActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-    }
+    }*/
 }

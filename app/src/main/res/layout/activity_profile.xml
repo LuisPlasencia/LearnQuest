@@ -234,8 +234,8 @@
                 android:id="@+id/log_out_image"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:contentDescription="@string/log_out_icon_description"
                 android:layout_gravity="center"
+                android:contentDescription="@string/log_out_icon_description"
                 app:srcCompat="@drawable/logout" />
 
             <Space

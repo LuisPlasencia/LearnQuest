@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.learnquest.quests;
 
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,6 @@ public class QuestsModel implements QuestsContract.Model {
     public void fetchQuestListData(
             final RepositoryContract.GetQuestListCallback callback) {
         Log.e(TAG, "fetchCategoryListData()");
-
         quizRepository.loadSubject(new RepositoryContract.FetchSubjectDataCallback() {
 
             @Override

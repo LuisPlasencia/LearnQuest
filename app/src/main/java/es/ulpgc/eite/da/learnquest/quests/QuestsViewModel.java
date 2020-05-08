@@ -10,4 +10,5 @@ public class QuestsViewModel {
     //   public String data;
 
     public List<QuestItem> questItems;
+
 }

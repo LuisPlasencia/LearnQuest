@@ -113,7 +113,8 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         QuestionToHintState state = new QuestionToHintState();
         state.quizIndex = model.getQuizIndex();
         router.passDataToHintScreen(state);
-        router.navigateToHintScreen();
+        //router.navigateToHintScreen();
+        view.get().navigateToHintScreen();
     }
 
     @Override
@@ -122,7 +123,8 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         Log.d(TAG, "Quiz index: " + model.getQuizIndex());
         Log.d(TAG, "Quiz index: " + model.isQuizFinished());
         if(model.isQuizFinished()) {
-            router.navigateToFinalQuizScreen();
+           // router.navigateToFinalQuizScreen();
+            view.get().navigateToFinalQuizScreen();
             return;
         }
         state.quizIndex = model.getQuizIndex();

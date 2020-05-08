@@ -417,7 +417,7 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public void getQuizUnit(final int id, final GetQuizUnitCallback callback) {
-
+    /*
         AsyncTask.execute(new Runnable() {
 
             @Override
@@ -426,7 +426,7 @@ public class QuizRepository implements RepositoryContract {
                     callback.setQuizUnit(loadQuizUnit(id));
                 }
             }
-        });
+        });*/
     }
 
     @Override
@@ -492,7 +492,7 @@ public class QuizRepository implements RepositoryContract {
                 return true;
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG, "error: " + e);
         }
 
         return false;
@@ -530,7 +530,9 @@ public class QuizRepository implements RepositoryContract {
         return quizUnits;
     }
 
-    private QuizUnitItem loadQuizUnit(int id) {
+
+
+   /* private QuizUnitItem loadQuizUnit(int id) {
         for (QuestItem quest: questList) {
             for (QuizUnitItem quizUnit: quest.quizUnitItems) {
                 if(quizUnit.id == id) {
@@ -540,7 +542,7 @@ public class QuizRepository implements RepositoryContract {
         }
 
         return null;
-    }
+    }*/
 
 
     public QuestItem loadQuest(int id) {

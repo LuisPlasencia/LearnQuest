@@ -55,35 +55,7 @@
         }
       ]
 
-    },
-
-    {
-      "id": 4,
-      "subjectName": "Biology"
-
-
-    },
-
-    {
-      "id": 5,
-      "subjectName": "French"
-
-    },
-    {
-      "id": 6,
-      "subjectName": "Philosophy"
-
-    },
-
-    {
-      "id": 7,
-      "subjectName": "Chemistry"
-
-    },
-    {
-      "id": 8,
-      "subjectName": "Signals & Systems"
-
     }
+    
   ]
 }

@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.learnquest.registro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.login.LoginActivity;
 
 public class RegistroActivity
         extends AppCompatActivity implements RegistroContract.View {
@@ -24,6 +28,8 @@ public class RegistroActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
         getSupportActionBar().setTitle(getResources().getString(R.string.registro_screen_title));
+
+       //if(savedInstanceState == null ) AppMediator.resetInstance();
 
         // do the setup
         RegistroScreen.configure(this);
@@ -69,5 +75,11 @@ public class RegistroActivity
     @Override
     public void injectPresenter(RegistroContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void navigateToLogInScreen() {
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

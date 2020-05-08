@@ -16,6 +16,8 @@ public interface RegistroContract {
         void displayWarning();
 
         void onFinish();
+
+        void navigateToLogInScreen();
     }
 
     interface Presenter {
@@ -37,6 +39,6 @@ public interface RegistroContract {
     }
 
     interface Router {
-        void navigateToLogInScreen();
+        //void navigateToLogInScreen();
     }
 }

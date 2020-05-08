@@ -3,7 +3,7 @@ package es.ulpgc.eite.da.learnquest.data;
 public class Question {
     private String question, option1, option2, option3, hint;
     private int correctOption;
-    private long id;
+    public long id;
 
     public Question(String question, String option1, String option2, String option3, String hint, int correctOption, long id) {
         this.question = question;

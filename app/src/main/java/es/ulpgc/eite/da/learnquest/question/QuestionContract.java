@@ -21,6 +21,10 @@ public interface QuestionContract {
         void setOptionColorIncorrect(int option);
 
         void resetOptionColor();
+
+        void navigateToHintScreen();
+
+        void navigateToFinalQuizScreen();
     }
 
     interface Presenter {
@@ -71,9 +75,9 @@ public interface QuestionContract {
     }
 
     interface Router {
-        void navigateToHintScreen();
+        //void navigateToHintScreen();
 
-        void navigateToFinalQuizScreen();
+       // void navigateToFinalQuizScreen();
 
         void passDataToHintScreen(QuestionToHintState state);
 

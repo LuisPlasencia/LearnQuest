@@ -15,7 +15,8 @@ public class RegistroScreen {
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
 
-        AppMediator mediator = (AppMediator) context.get().getApplication();
+        //AppMediator mediator = (AppMediator) context.get().getApplication();
+        AppMediator mediator = AppMediator.getInstance();
         RegistroState state = mediator.getRegistroState();
         RepositoryContract quizRepository = QuizRepository.getInstance(context.get());
 

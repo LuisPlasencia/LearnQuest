@@ -18,13 +18,13 @@ public class QuestsRouter implements QuestsContract.Router {
         this.mediator = mediator;
     }
 
-    @Override
+   /* @Override
     public void navigateToQuizUnitScreen() {
         Context context = mediator.getApplicationContext();
         Intent intent = new Intent(context, QuizUnitActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-    }
+    }*/
 
     /*@Override
     public void passDataToNextScreen(QuestsState state) {

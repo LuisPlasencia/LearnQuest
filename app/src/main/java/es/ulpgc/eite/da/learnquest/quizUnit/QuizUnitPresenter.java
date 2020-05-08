@@ -55,7 +55,8 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
 
     @Override
     public void selectQuizUnitData(int item) {
-        router.navigateToNextScreen();
+        //router.navigateToNextScreen();
+        view.get().navigateToNextScreen();
     }
 
     @Override
@@ -83,7 +84,8 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
         model.setQuizId(state.quizId);
         QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
         router.passDataToQuestionScreen(newState);
-        router.navigateToNextScreen();
+        //router.navigateToNextScreen();
+        view.get().navigateToNextScreen();
     }
 
     @Override

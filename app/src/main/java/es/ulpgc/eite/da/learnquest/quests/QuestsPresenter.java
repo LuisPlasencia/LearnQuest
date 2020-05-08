@@ -29,9 +29,8 @@ public class QuestsPresenter implements QuestsContract.Presenter {
       model.fetchQuestListData(new RepositoryContract.GetQuestListCallback() {
             @Override
             public void setQuestList(List<QuestItem> questList) {
-                state.questItems = model.fetchQuestsData();
                 state.questItems = questList;
-               view.get().displayData(state);
+                view.get().displayData(state);
 
 
             }
@@ -41,8 +40,8 @@ public class QuestsPresenter implements QuestsContract.Presenter {
 
     @Override
     public void fecthQuestsDataPercentageAndImage(){
-
-       // view.get().displayDataPercentageAndImage(state);
+        state.questItems = model.fetchQuestsData();
+        view.get().displayDataPercentageAndImage(state);
     }
 
 //
@@ -100,7 +99,8 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         //state.subject = item.getSubject();
         //model.setSubjectID(state.subjectId);
         router.passDataToQuizUnitScreen(item);
-        router.navigateToQuizUnitScreen();
+       // router.navigateToQuizUnitScreen();
+        view.get().navigateToQuizUnitScreen();
     }
 
     @Override

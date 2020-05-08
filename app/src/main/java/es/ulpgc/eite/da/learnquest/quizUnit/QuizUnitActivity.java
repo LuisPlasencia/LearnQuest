@@ -4,14 +4,18 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
 
 public class QuizUnitActivity
         extends AppCompatActivity implements QuizUnitContract.View {
@@ -29,6 +33,8 @@ public class QuizUnitActivity
         setContentView(R.layout.activity_quiz_unit);
         getSupportActionBar().setTitle(R.string.quiz_unit_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
+
+       // if(savedInstanceState == null ) AppMediator.resetInstance();
 
         actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -86,5 +92,10 @@ public class QuizUnitActivity
     @Override
     public void injectPresenter(QuizUnitContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void navigateToNextScreen() {
+        Intent intent = new Intent(this, QuestionActivity.class);
+        startActivity(intent);
     }
 }

@@ -16,6 +16,8 @@ public interface QuizUnitContract {
 
         void displayData(QuizUnitViewModel viewModel);
 
+        void navigateToNextScreen();
+
     }
 
     interface Presenter {
@@ -48,7 +50,7 @@ public interface QuizUnitContract {
 
     }
     interface Router {
-        void navigateToNextScreen();
+      //  void navigateToNextScreen();
 
         void passDataToNextScreen(QuizUnitState state);
 

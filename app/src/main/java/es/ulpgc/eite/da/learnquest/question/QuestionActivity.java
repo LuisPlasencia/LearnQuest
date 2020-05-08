@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -13,6 +15,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
+import es.ulpgc.eite.da.learnquest.hint.HintActivity;
 
 public class QuestionActivity
         extends AppCompatActivity implements QuestionContract.View {
@@ -26,6 +31,8 @@ public class QuestionActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         setupToolbar();
+
+        //if(savedInstanceState == null ) AppMediator.resetInstance();
 
         // do the setup
         QuestionScreen.configure(this);
@@ -155,5 +162,15 @@ public class QuestionActivity
     @Override
     public void injectPresenter(QuestionContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void navigateToFinalQuizScreen() {
+        Intent intent = new Intent(this, FinalQuizActivity.class);
+        startActivity(intent);
+    }
+
+    public void navigateToHintScreen() {
+        Intent intent = new Intent(this, HintActivity.class);
+        startActivity(intent);
     }
 }
