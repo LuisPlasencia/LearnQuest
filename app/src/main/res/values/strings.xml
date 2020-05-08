@@ -91,4 +91,22 @@
     <string name="signup_button_text">Sign Up!</string>
     <string name="registro_warning_text">There is an empty field. Please check everything is filled correctly</string>
     <string name="subject">Subject</string>
+
+    ///////////////////////--MATH QUIZ--////////////////////////
+
+    <string name="button_one">1</string>
+    <string name="button_two">2</string>
+    <string name="button_three">3</string>
+    <string name="button_four">4</string>
+    <string name="button_five">5</string>
+    <string name="button_six">6</string>
+    <string name="button_seven">7</string>
+    <string name="button_eight">8</string>
+    <string name="button_nine">9</string>
+    <string name="button_zero">0</string>
+
+    <string name="button_enter_mathQuiz">Enter</string>
+    <string name="button_next_mathQuiz">Next</string>
+    <string name="button_hint_mathQuiz">Hint</string>
+
 </resources>
