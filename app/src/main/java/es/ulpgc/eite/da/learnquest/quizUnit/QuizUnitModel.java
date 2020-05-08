@@ -41,7 +41,7 @@ public class QuizUnitModel implements QuizUnitContract.Model {
 
     @Override
     public void setQuizId(int quizId) {
-        quizRepository.setQuizId(0);
+        quizRepository.setQuizId(quizId);
     }
 
     @Override

@@ -28,12 +28,11 @@ public interface QuizUnitContract {
         void setSubject();
         //String getT1Items();
         void onStart();
-        void onOptionClicked(int option);
+        void onOptionClicked(QuizUnitItem option);
 
         void fetchQuizUnitData();
 
         //void selectQuizUnitData(QuizUnitItem item);
-        void selectQuizUnitData(int item);
     }
 
     interface Model {

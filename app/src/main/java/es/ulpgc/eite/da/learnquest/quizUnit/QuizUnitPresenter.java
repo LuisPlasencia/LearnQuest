@@ -9,6 +9,7 @@ import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnit;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -54,8 +55,12 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
     }
 
     @Override
-    public void selectQuizUnitData(int item) {
+    public void onOptionClicked(QuizUnitItem option) {
         //router.navigateToNextScreen();
+        state.quizId = option.getId();
+        model.setQuizId(state.quizId);
+        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
+        router.passDataToQuestionScreen(newState);
         view.get().navigateToNextScreen();
     }
 
@@ -78,15 +83,15 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
     }
 
 
-    @Override
-    public void onOptionClicked(int option) {
-        state.quizId = option;
-        model.setQuizId(state.quizId);
-        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
-        router.passDataToQuestionScreen(newState);
-        //router.navigateToNextScreen();
-        view.get().navigateToNextScreen();
-    }
+//    @Override
+//    public void onOptionClicked(int option) {
+//        state.quizId = option;
+//        model.setQuizId(state.quizId);
+//        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
+//        router.passDataToQuestionScreen(newState);
+//        //router.navigateToNextScreen();
+//        view.get().navigateToNextScreen();
+//    }
 
     @Override
     public void injectView(WeakReference<QuizUnitContract.View> view) {

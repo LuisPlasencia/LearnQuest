@@ -97,9 +97,9 @@ public class QuestsPresenter implements QuestsContract.Presenter {
 
     @Override
     public void selectQuestData(QuestItem item) {
-        //state.subjectId = item.getId();
-        //state.subject = item.getSubject();
-        //model.setSubjectID(state.subjectId);
+        state.subject = item.getSubject();
+        state.subjectId = item.getId();
+        model.setSubjectID(state.subjectId);
         router.passDataToQuizUnitScreen(item);
        // router.navigateToQuizUnitScreen();
         view.get().navigateToQuizUnitScreen();

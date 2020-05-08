@@ -47,9 +47,9 @@ public class QuizUnitActivity
             public void onClick(View view) {
                 QuizUnitItem item = (QuizUnitItem) view.getTag();
                 if(item == null){
-                    Log.d(TAG,"item es caca");
+                    Log.d(TAG,"item es hola");
                 }
-                presenter.selectQuizUnitData(item.getId());
+                presenter.onOptionClicked(item);
             }
         });
 
