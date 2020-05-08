@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnit;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
@@ -25,8 +26,12 @@ public class QuizUnitModel implements QuizUnitContract.Model {
         this.quizUnitItems = new ArrayList<>();
     }
 
-    public QuizUnitModel() {
+    @Override
+    public void fetchQuizUnitListData(
+            QuestItem quest, RepositoryContract.GetQuizUnitListCallback callback) {
 
+        Log.e(TAG, "fetchProductListData()");
+        quizRepository.getQuizUnitList(quest, callback);
     }
 
     @Override

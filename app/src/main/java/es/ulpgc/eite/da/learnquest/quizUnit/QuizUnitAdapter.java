@@ -32,6 +32,7 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
 
     public void setItems(List<QuizUnitItem> items){
         itemList = items;
+        notifyDataSetChanged(); //
     }
 
     @Override
@@ -44,8 +45,8 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) { // rellena celdas
         holder.solveButton.setTag(itemList.get(position));
-        holder.title.setText(itemList.get(position).getTitle());
-        holder.description.setText(itemList.get(position).getDescription());
+        holder.title.setText(itemList.get(position).title);
+        holder.description.setText(itemList.get(position).description);
         holder.solveButton.setEnabled(!itemList.get(position).isSolved());
         holder.practiseButton.setEnabled(itemList.get(position).isSolved());
         holder.gradeImage.setImageResource(R.drawable.grade);

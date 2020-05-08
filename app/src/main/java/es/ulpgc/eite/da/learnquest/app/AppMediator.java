@@ -161,4 +161,11 @@ public class AppMediator extends Application {
     public void setQuestItem(QuestItem item) {
         this.questItem = item;
     }
+
+    ///////////JSON/////////////
+
+    public QuestItem getQuest(){
+        QuestItem item = questItem;
+        return item;
+    }
 }

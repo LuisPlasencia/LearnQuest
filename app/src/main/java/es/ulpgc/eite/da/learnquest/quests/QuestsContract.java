@@ -6,10 +6,13 @@ import java.util.List;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public interface QuestsContract {
 
     interface View {
+        void displayDataPercentageAndImage(QuestsViewModel viewModel);
+
         void injectPresenter(Presenter presenter);
 
         void displayData(QuestsViewModel viewModel);
@@ -25,6 +28,8 @@ public interface QuestsContract {
         void injectRouter(Router router);
 
 
+        void fecthQuestsDataPercentageAndImage();
+
         void selectQuestData(QuestItem item);
     }
 
@@ -34,6 +39,9 @@ public interface QuestsContract {
         void setSubjectID(int subjectID);
 
         List<QuestItem> fetchQuestsData();
+
+        /////
+        void fetchQuestListData(final RepositoryContract.GetQuestListCallback callback);
 
     }
 

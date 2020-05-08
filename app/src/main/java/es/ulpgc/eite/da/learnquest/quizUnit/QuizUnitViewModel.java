@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.quizUnit;
 
 import java.util.List;
 
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public class QuizUnitViewModel {
@@ -10,7 +11,7 @@ public class QuizUnitViewModel {
    // public String t1Topic,t1SubTopic,t1Description,t2Topic,t2SubTopic,t2Description = "";
     //public String subject = "";
     public List<QuizUnitItem> quizUnitItems;
-
+    public QuestItem quest;
 
 
 }

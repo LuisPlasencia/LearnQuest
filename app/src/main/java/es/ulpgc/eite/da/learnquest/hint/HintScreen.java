@@ -17,7 +17,7 @@ public class HintScreen {
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         HintState state = mediator.getHintState();
-        RepositoryContract quizRepository = QuizRepository.getInstance();
+        RepositoryContract quizRepository = QuizRepository.getInstance(context.get());
 
         HintContract.Router router = new HintRouter(mediator);
         HintContract.Presenter presenter = new HintPresenter(state);

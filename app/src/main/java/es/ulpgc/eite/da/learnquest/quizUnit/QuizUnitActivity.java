@@ -1,5 +1,6 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public class QuizUnitActivity
@@ -19,6 +21,7 @@ public class QuizUnitActivity
     private QuizUnitContract.Presenter presenter;
 
     private QuizUnitAdapter listAdapter;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,10 @@ public class QuizUnitActivity
         getSupportActionBar().setTitle(R.string.quiz_unit_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
 
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         listAdapter = new QuizUnitAdapter(new View.OnClickListener() {
 
@@ -56,12 +63,26 @@ public class QuizUnitActivity
 
 
     @Override
-    public void displayData(QuizUnitViewModel viewModel) {
+    public void displayData(final QuizUnitViewModel viewModel) {
         // deal with the data
 
-        listAdapter.setItems(viewModel.quizUnitItems);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // deal with the data
+                QuestItem quest = viewModel.quest;
+                if (actionBar != null) {
+                    actionBar.setTitle(quest.subjectName);
+                    // actionBar.setIcon(category.mImage); //////////////////////////////
+                }
 
+                listAdapter.setItems(viewModel.quizUnitItems);
+            }
+        });
     }
+
+       // listAdapter.setItems(viewModel.quizUnitItems);
+
     @Override
     public void injectPresenter(QuizUnitContract.Presenter presenter) {
         this.presenter = presenter;

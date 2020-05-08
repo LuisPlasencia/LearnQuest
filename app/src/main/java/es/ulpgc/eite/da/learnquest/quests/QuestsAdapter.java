@@ -29,6 +29,7 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
 
     public void setItems(List<QuestItem> items){
         itemList = items;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -40,12 +41,17 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(QuestsAdapter.ViewHolder holder, int position) {
-        holder.title.setText(itemList.get(position).getSubject());
-        Log.d("QuestsAdapter", itemList.get(position).getSubject());
-        holder.percentage.setText(String.valueOf(itemList.get(position).getPercentage()) + "%");
-        holder.questImage.setImageResource(itemList.get(position).getPhoto());
         holder.itemView.setTag(itemList.get(position));
         holder.itemView.setOnClickListener(clickListener);
+
+        holder.title.setText(itemList.get(position).subjectName);
+      //  holder.percentage.setText(String.valueOf(itemList.get(position).getPercentage()));
+
+        //Log.d("QuestsAdapter", itemList.get(position).getSubject());
+        holder.percentage.setText(String.valueOf(itemList.get(position).getPercentage()));
+        holder.questImage.setImageResource(itemList.get(position).getPhoto());
+
+
     }
 
     @Override
@@ -55,13 +61,14 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder {
         final CardView cardView;
-        final TextView title, percentage;
+        final TextView title;
+        final TextView percentage;
         final ImageView questImage;
 
         ViewHolder(View view) {
             super(view);
             cardView = view.findViewById(R.id.questsunit_cardview);
-            title = view.findViewById(R.id.quest_name);
+            title = view.findViewById(R.id.subjectName);
             percentage = view.findViewById(R.id.quest_level_id);
             questImage = view.findViewById(R.id.quest_level_icon);
         }

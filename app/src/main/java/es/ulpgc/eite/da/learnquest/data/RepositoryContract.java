@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.data;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,4 +65,43 @@ public interface RepositoryContract {
     List<QuestItem> getQuestList();
 
     void initializeQuestList();
+
+    ///////////////////////////////////////// JSON //////////////////////////////////
+
+    interface FetchSubjectDataCallback {
+        void onSubjectDataFetched(boolean error);
+    }
+
+    interface GetQuizUnitListCallback {
+        void setQuizUnitList(List<QuizUnitItem> quizUnits);
+    }
+
+    interface GetQuizUnitCallback {
+        void setQuizUnit(QuizUnitItem quizUnit);
+    }
+
+    interface GetQuestListCallback {
+        void setQuestList(List<QuestItem> quests);
+    }
+
+    interface GetQuestCallback {
+        void setQuest(QuestItem quest);
+    }
+
+    void loadSubject(QuizRepository.FetchSubjectDataCallback callback);
+
+   // void loadSubject(FetchSubjectDataCallback callback);
+
+    void getQuizUnitList(
+            QuestItem quest, GetQuizUnitListCallback callback);
+
+    void getQuizUnitList(
+            int categoryId, GetQuizUnitListCallback callback);
+
+    void getQuizUnit(int id, GetQuizUnitCallback callback);
+
+    void getQuest(int id, GetQuestCallback callback);
+
+
+    void getQuestList(GetQuestListCallback callback);
 }

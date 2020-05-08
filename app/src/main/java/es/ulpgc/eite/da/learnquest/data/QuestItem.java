@@ -1,23 +1,30 @@
 package es.ulpgc.eite.da.learnquest.data;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class QuestItem {
-    private String subject;
-    private int percentage, id;
+
+    public String subjectName; // cambiado de subject a subjectname
+    public int id;
     private int photo;
+    private int percentage;
 
 
-    public QuestItem(String subject,  int percentage, int id) {
-        this.subject = subject;
+
+    public QuestItem(int percentage, int id) {
+       // this.subjectName = subject;
         this.percentage = percentage;
         this.id = id;
     }
 
     public String getSubject() {
-        return subject;
+        return subjectName;
     }
 
     public void setSubject(String subject) {
-        this.subject = subject;
+        this.subjectName = subject;
     }
 
     public int getPercentage(){
@@ -43,4 +50,12 @@ public class QuestItem {
     public void setPhoto(int photo){
         this.photo = photo;
     }
+
+    @Override
+    public String toString(){
+        return subjectName;
+    }
+
+    @SerializedName("quizUnits")
+    public List<QuizUnitItem> quizUnitItems;
 }

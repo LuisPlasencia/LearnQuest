@@ -17,7 +17,7 @@ public class QuestionScreen {
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         QuestionState state = mediator.getQuestionState();
-        RepositoryContract quizRepository = QuizRepository.getInstance();
+        RepositoryContract quizRepository = QuizRepository.getInstance(context.get());
 
         QuestionContract.Router router = new QuestionRouter(mediator);
         QuestionContract.Presenter presenter = new QuestionPresenter(state);

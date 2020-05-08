@@ -17,7 +17,7 @@ public class RegistroScreen {
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         RegistroState state = mediator.getRegistroState();
-        RepositoryContract quizRepository = QuizRepository.getInstance();
+        RepositoryContract quizRepository = QuizRepository.getInstance(context.get());
 
 
         RegistroContract.Router router = new RegistroRouter(mediator);

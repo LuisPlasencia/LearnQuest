@@ -17,7 +17,7 @@ public class ProfileScreen {
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         ProfileState state = mediator.getProfileState();
-        RepositoryContract repository = QuizRepository.getInstance();
+        RepositoryContract repository = QuizRepository.getInstance(context.get());
 
         ProfileContract.Router router = new ProfileRouter(mediator);
         ProfileContract.Presenter presenter = new ProfilePresenter(state);

@@ -20,10 +20,12 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity android:name=".quests.QuestsActivity"
             android:parentActivityName=".profile.ProfileActivity">
+
         </activity>
 
         <activity android:name=".quizUnit.QuizUnitActivity"
@@ -37,6 +39,7 @@
 
         <activity
             android:name=".profile.ProfileActivity">
+
         </activity>
 
         <activity

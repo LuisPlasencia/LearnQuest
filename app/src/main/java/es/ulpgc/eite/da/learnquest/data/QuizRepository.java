@@ -1,14 +1,36 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import es.ulpgc.eite.da.learnquest.R;
 
 public class QuizRepository implements RepositoryContract {
 
+    public static String TAG = QuizRepository.class.getSimpleName();
+
+    public static final String JSON_SUBJECT_FILE = "subject.json";
+    public static final String JSON_SUBJECT_ROOT = "quests";
+
+    private Context context;
+
     private static QuizRepository INSTANCE;
+
     private final int XP_PER_QUESTION = 30;
 
     private ArrayList<Question> questions;
@@ -20,55 +42,55 @@ public class QuizRepository implements RepositoryContract {
     private Integer subjectId;
     //private ArrayList<QuizUnit> quizUnits;
     private ArrayList<QuizUnitItem> quizUnits;
-    private ArrayList<QuestItem> questList;
+    private List<QuestItem> questList;
 
-    public static RepositoryContract getInstance(){
+    public static RepositoryContract getInstance(Context context) {
         if (INSTANCE == null) {
-            INSTANCE = new QuizRepository();
+            INSTANCE = new QuizRepository(context);
         }
         return INSTANCE;
     }
 
 
+    private QuizRepository(Context context) {
+        this.context = context;
 
-    private QuizRepository() {
         quizUnits = new ArrayList<>();
         quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 1",
-                "Description of quiz", "Subject", 9,1, false));
+                "Description of quiz", "Subject", 9, 1, false));
         quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 2",
-                "Description of quiz", "Subject", 9, 2,false));
+                "Description of quiz", "Subject", 9, 2, false));
         quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 3",
-                "Description of quiz", "Subject", 9, 3,false));
+                "Description of quiz", "Subject", 9, 3, false));
         quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 4",
-                "Description of quiz", "Subject", 9,4, false));
+                "Description of quiz", "Subject", 9, 4, false));
         quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 5",
-                "Description of quiz", "Subject", 9, 5,false));
+                "Description of quiz", "Subject", 9, 5, false));
 
 
         Question question1 = new Question("First question: Option 1",
-                                            "Option 1", "Option 2","Option 3",
-                                                "Hint: It might be option 1", 1, 1);
+                "Option 1", "Option 2", "Option 3",
+                "Hint: It might be option 1", 1, 1);
 
         Question question2 = new Question("Second Question: Option 1",
-                                            "Option 1", "Option 2","Option 3",
-                                                "Hint: It might be option 1", 1, 2);
+                "Option 1", "Option 2", "Option 3",
+                "Hint: It might be option 1", 1, 2);
 
         Question question3 = new Question("Third Question: Option 2",
-                                            "Option 1", "Option 2","Option 3",
-                                                "Hint: It might be option 2", 2, 3);
+                "Option 1", "Option 2", "Option 3",
+                "Hint: It might be option 2", 2, 3);
 
         questions = new ArrayList<Question>();
         questions.add(question1);
         questions.add(question2);
         questions.add(question3);
 
-       inicializarUsuarios();
-       experienceCollected = 0;
+        inicializarUsuarios();
+        experienceCollected = 0;
 
         quizId = 0;
         subjectId = 0;
     }
-
 
 
     private void inicializarUsuarios() {
@@ -111,13 +133,18 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public void initializeQuestList() {
-        questList = new ArrayList<>();
+     /*   questList = new ArrayList<>();
         questList.add(new QuestItem("Maths", usuarioActual.getMathPercentage(), 1));
         questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
         questList.add(new QuestItem("English", usuarioActual.getEnglishPercentage(), 2));
         questList.get(1).setPhoto(getSubjectPhoto(questList.get(1).getId()));
         questList.add(new QuestItem("Geography", usuarioActual.getGeographyPercentage(), 3));
         questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
+*/
+        questList = new ArrayList<>();
+        questList.add(new QuestItem(usuarioActual.getMathPercentage(), 1));
+        questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
+
 
     }
 
@@ -137,8 +164,8 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public User getUser(String username, String password) {
-        for(int i= 0 ; i<usuarios.size(); i++){
-            if(username.equals(usuarios.get(i).getUsername()) && password.equals(usuarios.get(i).getPassword())){
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (username.equals(usuarios.get(i).getUsername()) && password.equals(usuarios.get(i).getPassword())) {
                 return usuarios.get(i);
             }
         }
@@ -146,20 +173,20 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public List<QuizUnitItem> getQuizUnits(){
+    public List<QuizUnitItem> getQuizUnits() {
         return quizUnits;
     }
 
     @Override
-    public List<QuestItem> getQuestList(){
+    public List<QuestItem> getQuestList() {
         return questList;
     }
 
     @Override
     public QuizUnit getQuizUnit(String subject) {
-        for (int i = 0; i<quizUnits.size(); i++){
-            if(quizUnits.get(i).getSubject().equals(subject)){
-            //    return quizUnits.get(i);
+        for (int i = 0; i < quizUnits.size(); i++) {
+            if (quizUnits.get(i).getSubject().equals(subject)) {
+                //    return quizUnits.get(i);
             }
         }
         return null;
@@ -167,7 +194,7 @@ public class QuizRepository implements RepositoryContract {
 
 
     @Override
-    public void resetDefaultUser(){
+    public void resetDefaultUser() {
         usuariodefault.setUsername("Username");
         usuariodefault.setLevel(0);
         usuariodefault.setSublevel(0);
@@ -177,32 +204,32 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void setUserActual(User user){
+    public void setUserActual(User user) {
         usuarioActual = user;
     }
 
     @Override
-    public User getUserActual(){
+    public User getUserActual() {
         return usuarioActual;
     }
 
     @Override
-    public int getExperienceCollected(){
+    public int getExperienceCollected() {
         return experienceCollected;
     }
 
     @Override
-    public void logout(){
+    public void logout() {
         usuarioActual = null;
     }
 
     @Override
     public int getMedalImage() {
-        if(experienceCollected > 75){
+        if (experienceCollected > 75) {
             return R.drawable.gold_medal;
-        } else if(experienceCollected > 50){
+        } else if (experienceCollected > 50) {
             return R.drawable.silver_medal;
-        } else{
+        } else {
             return R.drawable.bronze_medal;
         }
 
@@ -214,7 +241,7 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void setQuizId(int quizId){
+    public void setQuizId(int quizId) {
         this.quizId = quizId;
     }
 
@@ -230,19 +257,19 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void resetQuizId(){
+    public void resetQuizId() {
         this.quizId = 0;
     }
 
     @Override
-    public void resetSubjectId(){
+    public void resetSubjectId() {
         this.subjectId = 0;
     }
 
 
     @Override
     public int getLevel() {
-        if(usuarioActual!= null){
+        if (usuarioActual != null) {
             return usuarioActual.getLevel();
         }
         return 0;
@@ -250,7 +277,7 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getSublevel() {
-        if(usuarioActual!= null){
+        if (usuarioActual != null) {
             return usuarioActual.getSublevel();
         }
         return 0;
@@ -258,8 +285,8 @@ public class QuizRepository implements RepositoryContract {
 
 
     @Override
-    public int getPhoto(){
-        if(usuarioActual!=null){
+    public int getPhoto() {
+        if (usuarioActual != null) {
             return usuarioActual.getPhoto();
         }
         return 0;
@@ -267,7 +294,7 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public String getUsername() {
-        if(usuarioActual!=null){
+        if (usuarioActual != null) {
             return usuarioActual.getUsername();
         }
         return "";
@@ -275,7 +302,7 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public void setUsername(String username) {
-        if(usuarioActual!=null){
+        if (usuarioActual != null) {
             usuarioActual.setUsername(username);
         }
     }
@@ -297,10 +324,9 @@ public class QuizRepository implements RepositoryContract {
     }
 
 
-
     @Override
-    public Integer getSubjectPercentage(int id){
-        if(usuarioActual == null){
+    public Integer getSubjectPercentage(int id) {
+        if (usuarioActual == null) {
             return 0;
         }
 
@@ -318,12 +344,12 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getSubjectPhoto(int id) {
-        if(usuarioActual == null){
+        if (usuarioActual == null) {
             return R.drawable.child;
         }
         switch (id) {
             case 1:
-              if (usuarioActual.getMathPercentage() > 70) {
+                if (usuarioActual.getMathPercentage() > 70) {
                     return R.drawable.dragon;
                 } else if (usuarioActual.getMathPercentage() > 25) {
                     return R.drawable.pig;
@@ -346,4 +372,194 @@ public class QuizRepository implements RepositoryContract {
         }
         return R.drawable.child;
     }
+
+    ///////////////////////////////////////// JSON //////////////////////////////////
+
+    @Override
+    public void loadSubject(final FetchSubjectDataCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+
+                boolean error = !loadSubjectFromJSON(loadJSONFromAsset());
+
+                if(callback != null) {
+                    callback.onSubjectDataFetched(error);
+                }
+            }
+        });
+
+    }
+    @Override
+    public void getQuizUnitList(
+            final QuestItem quest, final GetQuizUnitListCallback callback) {
+
+        getQuizUnitList(quest.id, callback);
+    }
+
+    @Override
+    public void getQuizUnitList(
+            final int categoryId, final GetQuizUnitListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuizUnitList(loadQuizUnits(categoryId));
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getQuizUnit(final int id, final GetQuizUnitCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuizUnit(loadQuizUnit(id));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getQuest(final int id, final GetQuestCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setQuest(loadQuest(id));
+                }
+            }
+
+
+        });
+
+    }
+
+    @Override
+    public void getQuestList(final GetQuestListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setQuestList(loadQuests());
+                }
+            }
+        });
+
+    }
+
+
+    public boolean loadSubjectFromJSON(String json) {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(JSON_SUBJECT_ROOT);
+
+            questList = new ArrayList<>();
+
+            if (jsonArray.length() > 0) {
+
+                final List<QuestItem> questList = Arrays.asList(
+                        gson.fromJson(jsonArray.toString(), QuestItem[].class)
+                );
+
+                for (QuestItem quest : questList) {
+                    insertQuest(quest);
+                }
+
+             /*for(QuestItem quest: questList) {
+                   for(QuizUnitItem quizUnit: quest.quizUnitItems){
+                        quizUnit.questId = quest.id;
+                    }
+                }*/
+
+                return true;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public String loadJSONFromAsset() {
+
+        String json = null;
+
+        try {
+
+            InputStream is = context.getAssets().open(JSON_SUBJECT_FILE);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException error) {
+            Log.e(TAG, "error: " + error);
+        }
+
+        return json;
+    }
+
+    private List<QuizUnitItem> loadQuizUnits(int questId) {
+        List<QuizUnitItem> quizUnits = new ArrayList();
+
+        for (QuestItem quest: questList) {
+            if(quest.id == questId) {
+                quizUnits = quest.quizUnitItems;
+            }
+        }
+
+        return quizUnits;
+    }
+
+    private QuizUnitItem loadQuizUnit(int id) {
+        for (QuestItem quest: questList) {
+            for (QuizUnitItem quizUnit: quest.quizUnitItems) {
+                if(quizUnit.id == id) {
+                    return quizUnit;
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    public QuestItem loadQuest(int id) {
+        for (QuestItem quest : questList) {
+            if (quest.id == id) {
+                return quest;
+            }
+        }
+        return null;
+    }
+
+    private void insertQuest(QuestItem quest) {
+        questList.add(quest);
+    }
+
+    public List<QuestItem> loadQuests() {
+        return questList;
+    }
+
+
+
 }

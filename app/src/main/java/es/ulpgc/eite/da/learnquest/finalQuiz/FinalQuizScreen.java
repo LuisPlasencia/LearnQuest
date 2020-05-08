@@ -18,7 +18,7 @@ public class FinalQuizScreen {
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         FinalQuizState state = mediator.getFinalQuizState();
-        RepositoryContract repository = QuizRepository.getInstance();
+        RepositoryContract repository = QuizRepository.getInstance(context.get());
 
 
         FinalQuizContract.Router router = new FinalQuizRouter(mediator);

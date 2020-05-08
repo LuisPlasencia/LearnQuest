@@ -17,7 +17,8 @@ public class QuestsScreen {
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         QuestsState state = mediator.getQuestsState();
-        RepositoryContract quizRepository = QuizRepository.getInstance();
+        RepositoryContract quizRepository = QuizRepository.getInstance(context.get());
+
         QuestsContract.Router router = new QuestsRouter(mediator);
         QuestsContract.Presenter presenter = new QuestsPresenter(state);
         QuestsContract.Model model = new QuestsModel(quizRepository);

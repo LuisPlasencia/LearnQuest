@@ -44,6 +44,7 @@ public class QuestsActivity
 //        presenter.updateLevels();
 //        presenter.setSubjectImage();
         presenter.fetchQuestsData();
+        presenter.fecthQuestsDataPercentageAndImage();
     }
 
 
@@ -54,15 +55,26 @@ public class QuestsActivity
 //        // load the data
 //        presenter.onResume();
 //    }
-
     @Override
-    public void displayData(QuestsViewModel viewModel) {
+    public void displayData(final QuestsViewModel viewModel) {
         //Log.e(TAG, "displayData()");
-
         // deal with the data
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                // deal with the data
+                listAdapter.setItems(viewModel.questItems);
+            }
+
+        });
+
+    }
+    @Override
+    public void displayDataPercentageAndImage(QuestsViewModel viewModel){
         listAdapter.setItems(viewModel.questItems);
     }
-
 
     @Override
     public void injectPresenter(QuestsContract.Presenter presenter) {

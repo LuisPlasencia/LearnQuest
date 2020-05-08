@@ -1,10 +1,12 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestsPresenter implements QuestsContract.Presenter {
 
@@ -22,8 +24,25 @@ public class QuestsPresenter implements QuestsContract.Presenter {
     @Override
     public void fetchQuestsData() {
         // call the model
-        state.questItems = model.fetchQuestsData();
-        view.get().displayData(state);
+
+
+      model.fetchQuestListData(new RepositoryContract.GetQuestListCallback() {
+            @Override
+            public void setQuestList(List<QuestItem> questList) {
+                state.questItems = model.fetchQuestsData();
+                state.questItems = questList;
+               view.get().displayData(state);
+
+
+            }
+        });
+
+    }
+
+    @Override
+    public void fecthQuestsDataPercentageAndImage(){
+
+       // view.get().displayDataPercentageAndImage(state);
     }
 
 //
@@ -77,9 +96,9 @@ public class QuestsPresenter implements QuestsContract.Presenter {
 
     @Override
     public void selectQuestData(QuestItem item) {
-        state.subjectId = item.getId();
-        state.subject = item.getSubject();
-        model.setSubjectID(state.subjectId);
+        //state.subjectId = item.getId();
+        //state.subject = item.getSubject();
+        //model.setSubjectID(state.subjectId);
         router.passDataToQuizUnitScreen(item);
         router.navigateToQuizUnitScreen();
     }

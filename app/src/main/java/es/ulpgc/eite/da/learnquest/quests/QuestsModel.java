@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,24 @@ public class QuestsModel implements QuestsContract.Model {
         this.quizRepository=quizRepository;
         this.questList = new ArrayList<>();
     }
+
+    @Override
+    public void fetchQuestListData(
+            final RepositoryContract.GetQuestListCallback callback) {
+        Log.e(TAG, "fetchCategoryListData()");
+
+        quizRepository.loadSubject(new RepositoryContract.FetchSubjectDataCallback() {
+
+            @Override
+            public void onSubjectDataFetched(boolean error) {
+                if(!error) {
+                    quizRepository.getQuestList(callback);
+                }
+            }
+        });
+
+    }
+
 
 
     @Override

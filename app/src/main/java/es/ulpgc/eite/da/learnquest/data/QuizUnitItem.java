@@ -1,10 +1,10 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 public class QuizUnitItem {
-    private String unit, subject, title, description;
-    private int mark, id;
+    public String unit, subject, title, description;
+    public int mark, id;
     private boolean solved;
-
+    public int questId;
 
 
     public QuizUnitItem(String unit, String title, String description, String subject, int mark, int id, boolean solved) {
@@ -71,5 +71,10 @@ public class QuizUnitItem {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }

@@ -7,6 +7,7 @@ import android.content.Context;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.Question;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
 import es.ulpgc.eite.da.learnquest.quests.QuestsState;
@@ -50,6 +51,12 @@ public class QuizUnitRouter implements QuizUnitContract.Router {
     @Override
     public void passDataToQuestionScreen(QuizUnitToQuestionState state){
         mediator.setQuizUnitToQuestionState(state);
+    }
+    //// JSON //////
+    @Override
+    public QuestItem getDataFromQuestListScreen(){
+        QuestItem quest = mediator.getQuest();
+        return quest;
     }
 
 

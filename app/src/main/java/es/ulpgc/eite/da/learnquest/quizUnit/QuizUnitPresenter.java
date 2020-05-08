@@ -3,10 +3,12 @@ package es.ulpgc.eite.da.learnquest.quizUnit;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -28,8 +30,27 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
         // Log.e(TAG, "fetchCategoryListData()");
 
         // call the model
-       state.quizUnitItems = model.fetchQuizUnitData();
-       view.get().displayData(state);
+        QuestItem quest = router.getDataFromQuestListScreen();
+
+        if (quest != null) {
+            state.quest = quest;
+        }
+
+        // call the model
+        model.fetchQuizUnitListData(state.quest,
+                new RepositoryContract.GetQuizUnitListCallback() {
+
+                    @Override
+                    public void setQuizUnitList(List<QuizUnitItem> quizUnits) {
+                        state.quizUnitItems = quizUnits;
+
+                        view.get().displayData(state);
+                    }
+                });
+
+
+     //  state.quizUnitItems = model.fetchQuizUnitData();
+       //view.get().displayData(state);
     }
 
     @Override
