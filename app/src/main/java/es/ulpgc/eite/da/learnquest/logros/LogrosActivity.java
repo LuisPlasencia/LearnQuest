@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.logros;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ public class LogrosActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logros);
         getSupportActionBar().setTitle(R.string.app_name);
+
+        // if(savedInstanceState == null) AppMediator.resetInstance();
 
         // do the setup
         LogrosScreen.configure(this);
@@ -73,4 +76,14 @@ public class LogrosActivity
     public void injectPresenter(LogrosContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
+    @Override
+    public void navigateToNextScreen() {
+    Intent intent = new Intent(this, LogrosActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
+    }
+
 }
+
+

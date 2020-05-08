@@ -8,6 +8,10 @@ public interface LoginContract {
         void injectPresenter(Presenter presenter);
 
         void displayCurrentData(LoginState state);
+
+        void navigateToRegistroScreen();
+
+        void navigateToProfileScreen();
     }
 
     interface Presenter {
@@ -30,10 +34,10 @@ public interface LoginContract {
     }
 
     interface Router {
-        void navigateToProfileScreen();
+//        void navigateToProfileScreen();
 
         void passStateToProfileScreen(LoginState state);
 
-        void navigateToRegistroScreen();
+//        void navigateToRegistroScreen();
     }
 }

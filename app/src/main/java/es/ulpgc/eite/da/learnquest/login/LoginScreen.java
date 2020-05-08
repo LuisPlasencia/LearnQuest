@@ -14,7 +14,8 @@ public class LoginScreen {
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
 
-        AppMediator mediator = (AppMediator) context.get().getApplication();
+        //   AppMediator mediator = (AppMediator) context.get().getApplication();
+        AppMediator mediator = AppMediator.getInstance();
         LoginState state = mediator.getLoginState();
 
         LoginContract.Router router = new LoginRouter(mediator);

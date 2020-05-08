@@ -23,19 +23,19 @@ public class FinalQuizRouter implements FinalQuizContract.Router {
         mediator.setFinalQuizState(state);
     }
 
-    @Override
-    public void navigateToQuizUnitsScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, QuizUnitActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    @Override
+//    public void navigateToQuizUnitsScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, QuizUnitActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 
-    @Override
-    public void navigateToProfileScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, ProfileActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    @Override
+//    public void navigateToProfileScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, ProfileActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 }

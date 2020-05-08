@@ -60,7 +60,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public void onGoQuestButtonClicked(){
         router.passStateToNextScreen(state);
-        router.navigateToQuestsScreen();
+        view.get().navigateToQuestsScreen();
 
     }
 
@@ -80,13 +80,13 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         state.username = "";
         state.sublevel = 0;
         state.level = 0;
-        router.navigateLoginScreen();
+        view.get().navigateLoginScreen();
     }
 
     @Override
     public void onAchievementsButtonClicked() {
         router.passStateToNextScreen(state);
-        router.navigateAchievementsScreen();
+        view.get().navigateAchievementsScreen();
 
     }
 

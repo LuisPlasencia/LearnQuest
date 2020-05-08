@@ -29,29 +29,28 @@ public class ProfileRouter implements ProfileContract.Router {
         return mediator.getLoginState();
     }
 
-    @Override
-    public void navigateToQuestsScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, QuestsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    @Override
+//    public void navigateToQuestsScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, QuestsActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 
-    @Override
-    public void navigateAchievementsScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, LogrosActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    @Override
+//    public void navigateAchievementsScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, LogrosActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 
-    @Override
-    public void navigateLoginScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-
-    }
+//    @Override
+//    public void navigateLoginScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, LoginActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 
 }

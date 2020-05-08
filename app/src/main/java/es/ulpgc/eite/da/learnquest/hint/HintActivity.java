@@ -25,6 +25,8 @@ public class HintActivity
         setContentView(R.layout.activity_question_hint);
         getSupportActionBar().setTitle("Hint");
 
+        //   if(savedInstanceState == null) AppMediator.resetInstance();
+
         // do the setup
         HintScreen.configure(this);
 

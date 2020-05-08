@@ -11,6 +11,10 @@ public interface FinalQuizContract {
 
         void displayFinalQuizData(FinalQuizViewModel viewModel);
 
+        void navigateToQuizUnitsScreen();
+
+        void navigateToProfileScreen();
+
         void finishView();
     }
 
@@ -60,9 +64,9 @@ public interface FinalQuizContract {
 
         void passStateToNextScreen(FinalQuizState state);
 
-        void navigateToQuizUnitsScreen();
+     //   void navigateToQuizUnitsScreen();
 
-        void navigateToProfileScreen();
+     //   void navigateToProfileScreen();
 
 
     }

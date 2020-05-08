@@ -50,7 +50,7 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
         state.quizId = 0;
         model.resetQuizId();
         model.resetSubjectId();
-        router.navigateToProfileScreen();
+        view.get().navigateToProfileScreen();
     }
 
     @Override

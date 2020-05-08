@@ -36,7 +36,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         state.password = password;
         Log.d("LoginPresenter", state.password);
         router.passStateToProfileScreen(state);
-        router.navigateToProfileScreen();
+        view.get().navigateToProfileScreen();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onCreateAccountButton() {
-        router.navigateToRegistroScreen();
+        view.get().navigateToRegistroScreen();
     }
 
     @Override

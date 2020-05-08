@@ -13,7 +13,7 @@ import es.ulpgc.eite.da.learnquest.quests.QuestsState;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitState;
 import es.ulpgc.eite.da.learnquest.registro.RegistroState;
 
-public class AppMediator extends Application {
+public class AppMediator  {
 
     private QuestionState questionState;
     private LoginState loginState;
@@ -30,13 +30,24 @@ public class AppMediator extends Application {
     private QuizUnitToQuestionState quizUnitToQuestionState;
 
     private QuestItem questItem;
+    private static AppMediator instance;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    private AppMediator(){
         questionState = new QuestionState();
         finalQuizState = new FinalQuizState();
     }
+
+    public static AppMediator getInstance(){
+        if(instance ==null){
+            instance = new AppMediator();
+        }
+        return instance;
+    }
+
+    public static void resetInstance(){
+        instance = null;
+    }
+
     public ProfileState getProfileState() {
         if(profileState == null){
             profileState = new ProfileState();

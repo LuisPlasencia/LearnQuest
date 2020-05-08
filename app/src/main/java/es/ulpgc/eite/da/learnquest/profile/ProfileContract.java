@@ -13,6 +13,12 @@ public interface ProfileContract {
         void finishView();
 
         void displayProfileData(ProfileViewModel viewModel);
+
+        void navigateToQuestsScreen();
+
+        void navigateAchievementsScreen();
+
+        void navigateLoginScreen();
     }
 
     interface Presenter {
@@ -68,10 +74,10 @@ public interface ProfileContract {
 
         LoginState getLoginState();
 
-        void navigateToQuestsScreen();
+//        void navigateToQuestsScreen();
 
-        void navigateAchievementsScreen();
+//        void navigateAchievementsScreen();
 
-        void navigateLoginScreen();
+//        void navigateLoginScreen();
     }
 }

@@ -18,21 +18,21 @@ public class LoginRouter implements LoginContract.Router {
         this.mediator = mediator;
     }
 
-    @Override
-    public void navigateToProfileScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, ProfileActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    @Override
+//    public void navigateToProfileScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, ProfileActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 
-    @Override
-    public void navigateToRegistroScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, RegistroActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    @Override
+//    public void navigateToRegistroScreen() {
+//        Context context = mediator.getApplicationContext();
+//        Intent intent = new Intent(context, RegistroActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+//    }
 
     @Override
     public void passStateToProfileScreen(LoginState state) {

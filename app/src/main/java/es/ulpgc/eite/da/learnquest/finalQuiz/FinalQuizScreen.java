@@ -16,7 +16,8 @@ public class FinalQuizScreen {
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
 
-        AppMediator mediator = (AppMediator) context.get().getApplication();
+     //   AppMediator mediator = (AppMediator) context.get().getApplication();
+        AppMediator mediator = AppMediator.getInstance();
         FinalQuizState state = mediator.getFinalQuizState();
         RepositoryContract repository = QuizRepository.getInstance(context.get());
 

@@ -8,6 +8,8 @@ public interface LogrosContract {
         void injectPresenter(Presenter presenter);
 
         void onDataUpdated(LogrosViewModel viewModel);
+
+        void navigateToNextScreen();
     }
 
     interface Presenter {
@@ -41,7 +43,7 @@ public interface LogrosContract {
     }
 
     interface Router {
-        void navigateToNextScreen();
+//        void navigateToNextScreen();
 
         void passStateToNextScreen(LogrosState state);
 

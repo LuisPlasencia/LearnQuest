@@ -3,6 +3,7 @@ package es.ulpgc.eite.da.learnquest.profile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.login.LoginActivity;
+import es.ulpgc.eite.da.learnquest.logros.LogrosActivity;
+import es.ulpgc.eite.da.learnquest.quests.QuestsActivity;
 
 public class ProfileActivity
         extends AppCompatActivity implements ProfileContract.View {
@@ -24,6 +28,8 @@ public class ProfileActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        //  if(savedInstanceState == null) AppMediator.resetInstance();
 
         // do the setup
         ProfileScreen.configure(this);
@@ -110,4 +116,27 @@ public class ProfileActivity
     public void finishView(){
         finish();
     }
+
+
+    @Override
+    public void navigateToQuestsScreen() {
+        Intent intent = new Intent(this, QuestsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @Override
+    public void navigateAchievementsScreen() {
+        Intent intent = new Intent(this, LogrosActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @Override
+    public void navigateLoginScreen() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 }

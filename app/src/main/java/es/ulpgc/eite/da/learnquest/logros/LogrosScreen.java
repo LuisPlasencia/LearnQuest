@@ -16,7 +16,8 @@ public class LogrosScreen {
 
         String data = context.get().getString(R.string.app_name);
 
-        AppMediator mediator = (AppMediator) context.get().getApplication();
+        //   AppMediator mediator = (AppMediator) context.get().getApplication();
+        AppMediator mediator = AppMediator.getInstance();
         LogrosState state = mediator.getLogrosState();
 
         LogrosContract.Router router = new LogrosRouter(mediator);
