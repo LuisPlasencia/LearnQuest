@@ -107,6 +107,6 @@
 
     <string name="button_enter_mathQuiz">Enter</string>
     <string name="button_next_mathQuiz">Next</string>
-    <string name="button_hint_mathQuiz">Hint</string>
+    <string name="button_hint_mathQuiz">Clean</string>
 
 </resources>
