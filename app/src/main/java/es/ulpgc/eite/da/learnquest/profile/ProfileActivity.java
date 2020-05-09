@@ -60,12 +60,19 @@ public class ProfileActivity
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
-
         ((TextView) findViewById(R.id.profile_name)).setText(viewModel.username);
         ((TextView) findViewById(R.id.level_display)).setText(String.valueOf("Level: " + viewModel.level));
         ((TextView) findViewById(R.id.exp_to_display)).setText(String.valueOf(viewModel.sublevel + " / 100"));
-        int photo = presenter.getPhoto();
-        ((ImageView) findViewById(R.id.profile_photo)).setImageResource(photo);
+        String photo = presenter.getPhoto();
+        if(photo.equals("android.R.drawable.ic_menu_camera")){
+            ((ImageView) findViewById(R.id.profile_photo)).setImageResource(android.R.drawable.ic_menu_camera);
+        }else if(photo.equals("R.drawable.patata")){
+            ((ImageView) findViewById(R.id.profile_photo)).setImageResource(R.drawable.patata);
+        }else if(photo.equals("R.drawable.rabano")){
+            ((ImageView) findViewById(R.id.profile_photo)).setImageResource(R.drawable.rabano);
+        }else if(photo.equals("R.drawable.lechuga")){
+            ((ImageView) findViewById(R.id.profile_photo)).setImageResource(R.drawable.lechuga);
+        }
         displayprogressBar(viewModel.sublevel);
     }
 

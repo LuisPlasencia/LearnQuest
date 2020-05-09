@@ -10,8 +10,6 @@ public interface RepositoryContract {
 
     User getUser(String username, String password);
 
-    void addUser(User user);
-
     void resetDefaultUser();
 
     void setUserActual(User user);
@@ -40,7 +38,7 @@ public interface RepositoryContract {
 
     int getSublevel();
 
-    int getPhoto();
+    String getPhoto();
 
     String getUsername();
 
@@ -66,10 +64,16 @@ public interface RepositoryContract {
 
   //  void getQuizUnitList(GetQuizUnitListCallback callback);
 
+    int getNumberOfUsers();
+
     ///////////////////////////////////////// JSON //////////////////////////////////
 
     interface FetchSubjectDataCallback {
         void onSubjectDataFetched(boolean error);
+    }
+
+    interface FetchUserDataCallback {
+        void onUserDataFetched(boolean error);
     }
 
     interface GetQuizUnitListCallback {
@@ -96,9 +100,25 @@ public interface RepositoryContract {
         void setQuest(QuestItem quest);
     }
 
+    interface GetUserListCallback {
+        void setUserList(List<User> users);
+    }
+
+    interface AddUserCallback {
+        void onUserAdded();
+    }
+
+    interface UpdateUserCallback {
+        void onUserUpdated();
+    }
+
     void loadSubject(QuizRepository.FetchSubjectDataCallback callback);
 
     // void loadSubject(FetchSubjectDataCallback callback);
+    void loadUsers(
+            boolean clearFirst, QuizRepository.FetchUserDataCallback callback);
+
+   // void loadSubject(FetchSubjectDataCallback callback);
 
     void getQuizUnitList(
             QuestItem quest, GetQuizUnitListCallback callback);
@@ -123,5 +143,14 @@ public interface RepositoryContract {
     ////////////////////////////////////////////// JSON MATH /////////////
 
 
+
+
+    void getUserList(QuizRepository.GetUserListCallback callback);
+
+    void addUser(
+            User user, RepositoryContract.AddUserCallback callback);
+
+    void updateUser(
+            RepositoryContract.UpdateUserCallback callback);
 
 }

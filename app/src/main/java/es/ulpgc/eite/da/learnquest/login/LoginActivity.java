@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.profile.ProfileActivity;
@@ -22,11 +24,12 @@ public class LoginActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         //  if(savedInstanceState == null) AppMediator.resetInstance();
 
         // do the setup
         LoginScreen.configure(this);
+        presenter.fetchUserListData();
+
 
         if (savedInstanceState == null) {
             presenter.onStart();
@@ -78,6 +81,18 @@ public class LoginActivity
         Intent intent = new Intent(this, RegistroActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void displayWarning(int tipo) {
+        String warningText = "";
+        if (tipo == 1){
+            warningText = "Introduzca un usuario válido";
+        } else if(tipo == 2){
+            warningText = "Su contraseña es incorrecta";
+        }
+        Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
+        warning.show();
     }
 
 }

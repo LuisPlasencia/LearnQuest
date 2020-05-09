@@ -37,15 +37,7 @@ public class RegistroActivity
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                if (selectedItem.equals("Predeterminada")) {
-                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(android.R.drawable.ic_menu_camera);
-                } else if(selectedItem.equals("Patata")){
-                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.patata);
-                } else if(selectedItem.equals("Rabano")){
-                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.rabano);
-                }else if(selectedItem.equals("Lechuga")){
-                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.lechuga);
-                }
+                presenter.onSelectionClicked(selectedItem);
             }
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -57,6 +49,19 @@ public class RegistroActivity
 
         // do the setup
         RegistroScreen.configure(this);
+    }
+
+    @Override
+    public void displayPictureSelected(String selectedItem) {
+        if (selectedItem.equals("Predeterminada")) {
+            ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(android.R.drawable.ic_menu_camera);
+        } else if(selectedItem.equals("Patata")){
+            ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.patata);
+        } else if(selectedItem.equals("Rabano")){
+            ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.rabano);
+        }else if(selectedItem.equals("Lechuga")){
+            ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.lechuga);
+        }
     }
 
 
@@ -124,4 +129,6 @@ public class RegistroActivity
 //        );
         Log.d("perris", String.valueOf(spinner.getSelectedItem()));
     }
+
+
 }

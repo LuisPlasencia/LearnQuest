@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
 public interface FinalQuizContract {
@@ -58,6 +59,8 @@ public interface FinalQuizContract {
         int getSubjectId();
 
         void resetSubjectId();
+
+        void updateUser(RepositoryContract.UpdateUserCallback callback);
     }
 
     interface Router {

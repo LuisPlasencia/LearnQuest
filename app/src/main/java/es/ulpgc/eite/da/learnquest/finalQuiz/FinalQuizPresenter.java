@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+
 
 public class FinalQuizPresenter implements FinalQuizContract.Presenter {
 
@@ -27,6 +29,11 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
         state.sublevel = model.getSubLevel();
         state.subjectId = model.getSubjectId();
         state.quizId = model.getQuizId();
+        model.updateUser(new RepositoryContract.UpdateUserCallback(){
+            @Override
+            public void onUserUpdated(){
+            }
+        });
         view.get().displayFinalQuizData(state);
     }
 

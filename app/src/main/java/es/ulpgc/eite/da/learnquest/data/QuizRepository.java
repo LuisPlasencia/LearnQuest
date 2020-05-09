@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import androidx.room.Room;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,24 +21,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.database.UserDao;
+import es.ulpgc.eite.da.learnquest.database.UserDatabase;
 
 public class QuizRepository implements RepositoryContract {
 
     public static String TAG = QuizRepository.class.getSimpleName();
-
+    public static final String DB_FILE = "catalog.db";
     public static final String JSON_SUBJECT_FILE = "subject.json";
     public static final String JSON_SUBJECT_ROOT = "quests";
+    public static final String JSON_USER_ROOT = "users";
     public static final String JSON_MATH_FILE = "mathQuestion.json";
     public static final String JSON_MATH_ROOT = "mathQuestion";
 
     private Context context;
-
+    private UserDatabase database;
     private static QuizRepository INSTANCE;
 
     private final int XP_PER_QUESTION = 30;
 
     private ArrayList<Question> questions;
-    private ArrayList<User> usuarios;
+ //   private ArrayList<User> usuarios;
     private User usuariodefault;
     private User usuarioActual;
     private Integer experienceCollected;
@@ -45,6 +50,7 @@ public class QuizRepository implements RepositoryContract {
     //private ArrayList<QuizUnit> quizUnits;
     private List<QuizUnitItem> quizUnits;
     private List<QuestItem> questList;
+    private List<User> userList;
     private List<QuestionMathItem> mathList;
 
     public static RepositoryContract getInstance(Context context) {
@@ -57,6 +63,10 @@ public class QuizRepository implements RepositoryContract {
 
     private QuizRepository(Context context) {
         this.context = context;
+
+        database = Room.databaseBuilder(
+                context, UserDatabase.class, DB_FILE
+        ).build();
 
         quizUnits = new ArrayList<>();
         quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 1",
@@ -88,7 +98,7 @@ public class QuizRepository implements RepositoryContract {
         questions.add(question2);
         questions.add(question3);
 
-        inicializarUsuarios();
+//        inicializarUsuarios();
         experienceCollected = 0;
 
         quizId = 0;
@@ -96,43 +106,43 @@ public class QuizRepository implements RepositoryContract {
     }
 
 
-    private void inicializarUsuarios() {
-        usuariodefault = new User("Username", "", 0);
-        User usuario1 = new User("Luis", "patata", 1);
-        User usuario2 = new User("Ruben", "rabano", 2);
-        User usuario3 = new User("Cunwang", "lechuga", 3);
-
-        usuarioActual = usuariodefault;
-        usuariodefault.setMathPercentage(35);
-        usuariodefault.setEnglishPercentage(79);
-        usuariodefault.setGeographyPercentage(5);
-
-        usuario1.setLevel(8);
-        usuario1.setSublevel(60);
-        usuario1.setPhoto(R.drawable.patata);
-        usuario1.setMathPercentage(91);
-        usuario1.setEnglishPercentage(27);
-        usuario1.setGeographyPercentage(5);
-
-        usuario2.setLevel(11);
-        usuario2.setSublevel(40);
-        usuario2.setPhoto(R.drawable.rabano);
-        usuario2.setMathPercentage(51);
-        usuario2.setEnglishPercentage(10);
-        usuario2.setGeographyPercentage(69);
-
-        usuario3.setLevel(3);
-        usuario3.setSublevel(90);
-        usuario3.setPhoto(R.drawable.lechuga);
-        usuario3.setMathPercentage(15);
-        usuario3.setEnglishPercentage(56);
-        usuario3.setGeographyPercentage(90);
-
-        usuarios = new ArrayList<User>();
-        usuarios.add(usuario1);
-        usuarios.add(usuario2);
-        usuarios.add(usuario3);
-    }
+//    private void inicializarUsuarios() {
+//        usuariodefault = new User("Username", "", 0);
+//        User usuario1 = new User("Luis", "patata", 1);
+//        User usuario2 = new User("Ruben", "rabano", 2);
+//        User usuario3 = new User("Cunwang", "lechuga", 3);
+//
+//        usuarioActual = usuariodefault;
+//        usuariodefault.setMathPercentage(35);
+//        usuariodefault.setEnglishPercentage(79);
+//        usuariodefault.setGeographyPercentage(5);
+//
+//        usuario1.setLevel(8);
+//        usuario1.setSublevel(60);
+//        usuario1.setPhoto(R.drawable.patata);
+//        usuario1.setMathPercentage(91);
+//        usuario1.setEnglishPercentage(27);
+//        usuario1.setGeographyPercentage(5);
+//
+//        usuario2.setLevel(11);
+//        usuario2.setSublevel(40);
+//        usuario2.setPhoto(R.drawable.rabano);
+//        usuario2.setMathPercentage(51);
+//        usuario2.setEnglishPercentage(10);
+//        usuario2.setGeographyPercentage(69);
+//
+//        usuario3.setLevel(3);
+//        usuario3.setSublevel(90);
+//        usuario3.setPhoto(R.drawable.lechuga);
+//        usuario3.setMathPercentage(15);
+//        usuario3.setEnglishPercentage(56);
+//        usuario3.setGeographyPercentage(90);
+//
+//        usuarios = new ArrayList<User>();
+//        usuarios.add(usuario1);
+//        usuarios.add(usuario2);
+//        usuarios.add(usuario3);
+//    }
 
     @Override
     public void updateQuestParameters() {
@@ -157,11 +167,34 @@ public class QuizRepository implements RepositoryContract {
 //        questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
     }
 
+    @Override
+    public void addUser(
+            final User user, final AddUserCallback callback) {
+        AsyncTask.execute(new Runnable() {
 
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getUserDao().insertUser(user);
+                    callback.onUserAdded();
+                }
+            }
+        });
+    }
 
     @Override
-    public void addUser(User user) {
-        usuarios.add(user);
+    public void updateUser(
+            final UpdateUserCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getUserDao().updateUser(usuarioActual);
+                    callback.onUserUpdated();
+                }
+            }
+        });
     }
 
     public ArrayList<Question> getQuestions() {
@@ -175,12 +208,12 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public User getUser(String username, String password) {
-        for (int i = 0; i < usuarios.size(); i++) {
-            if (username.equals(usuarios.get(i).getUsername()) && password.equals(usuarios.get(i).getPassword())) {
-                return usuarios.get(i);
+        for (int i = 0; i < userList.size(); i++) {
+            if (username.equals(userList.get(i).getUsername()) && password.equals(userList.get(i).getPassword())) {
+                return userList.get(i);
             }
         }
-        return usuariodefault;
+        return userList.get(0);
     }
 
     @Override
@@ -280,42 +313,30 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getLevel() {
-        if (usuarioActual != null) {
-            return usuarioActual.getLevel();
-        }
-        return 0;
+        return usuarioActual.getLevel();
     }
 
     @Override
     public int getSublevel() {
-        if (usuarioActual != null) {
-            return usuarioActual.getSublevel();
-        }
-        return 0;
+        return usuarioActual.getSublevel();
     }
 
 
     @Override
-    public int getPhoto() {
-        if (usuarioActual != null) {
-            return usuarioActual.getPhoto();
-        }
-        return 0;
+    public String getPhoto() {
+        Log.d("hola",usuarioActual.getUsername());
+        return usuarioActual.getPhotoAdress();
     }
 
     @Override
     public String getUsername() {
-        if (usuarioActual != null) {
-            return usuarioActual.getUsername();
-        }
-        return "";
+        return usuarioActual.getUsername();
+
     }
 
     @Override
     public void setUsername(String username) {
-        if (usuarioActual != null) {
-            usuarioActual.setUsername(username);
-        }
+        usuarioActual.setUsername(username);
     }
 
     @Override
@@ -337,10 +358,6 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public Integer getSubjectPercentage(int id) {
-        if (usuarioActual == null) {
-            return 0;
-        }
-
         switch (id) {
             case 1:
                 return usuarioActual.getMathPercentage();
@@ -355,9 +372,6 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getSubjectPhoto(int id) {
-        if (usuarioActual == null) {
-            return R.drawable.child;
-        }
         switch (id) {
             case 1:
                 if (usuarioActual.getMathPercentage() > 70) {
@@ -382,6 +396,11 @@ public class QuizRepository implements RepositoryContract {
                 break;
         }
         return R.drawable.child;
+    }
+
+    @Override
+    public int getNumberOfUsers(){
+        return userList.size();
     }
 
     ///////////////////////////////////////// JSON //////////////////////////////////
@@ -558,6 +577,9 @@ public class QuizRepository implements RepositoryContract {
             Log.e(TAG, "error: " + e);
         }
 
+
+
+
         return false;
     }
 
@@ -580,8 +602,6 @@ public class QuizRepository implements RepositoryContract {
 
         return json;
     }
-
-
 
     private List<QuizUnitItem> loadQuizUnits(int questId) {
         List<QuizUnitItem> quizUnits = new ArrayList();
@@ -713,6 +733,86 @@ public class QuizRepository implements RepositoryContract {
     }*/
 
 
+
+
+
+
+
+
+    @Override
+    public void getUserList(final GetUserListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setUserList(getUserDao().loadUsers());
+                }
+            }
+        });
+
+    }
+
+    private UserDao getUserDao() {
+        return database.userDao();
+    }
+
+
+    @Override
+    public void loadUsers(
+            final boolean clearFirst, final FetchUserDataCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(clearFirst) {
+                    database.clearAllTables();
+                }
+
+                boolean error = false;
+                if(getUserDao().loadUsers().size() == 0 ) {
+                    error = !loadUsersFromJSON(loadJSONFromAsset());
+                }
+
+                if(callback != null) {
+                    callback.onUserDataFetched(error);
+                }
+            }
+        });
+
+    }
+
+    private boolean loadUsersFromJSON(String json) {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(JSON_USER_ROOT);
+
+            userList = new ArrayList<>();
+
+            if (jsonArray.length() > 0) {
+
+                final List<User> users = Arrays.asList(
+                        gson.fromJson(jsonArray.toString(), User[].class)
+                );
+
+                for (User user: users) {
+                    getUserDao().insertUser(user);
+                }
+                userList = getUserDao().loadUsers();
+
+                return true;
+            }
+        } catch (JSONException e) {
+            Log.e(TAG, "error: " + e);
+        }
+        return false;
+    }
 
 
 

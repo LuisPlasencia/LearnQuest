@@ -4,8 +4,11 @@ import android.util.Log;
 import android.widget.EditText;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
@@ -35,8 +38,19 @@ public class LoginPresenter implements LoginContract.Presenter {
         state.username = username;
         state.password = password;
         Log.d("LoginPresenter", state.password);
-        router.passStateToProfileScreen(state);
-        view.get().navigateToProfileScreen();
+        for(int i = 0; i<state.users.size();i++){
+            if(username.equals(state.users.get(i).getUsername())){
+                if(!password.equals(state.users.get(i).getPassword())){
+                    view.get().displayWarning(2);
+                    return;
+                }
+                router.passStateToProfileScreen(state);
+                model.setUsuarioActual(state.users.get(i));
+                view.get().navigateToProfileScreen();
+                return;
+            }
+        }
+        view.get().displayWarning(1);
     }
 
     @Override
@@ -49,6 +63,18 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void onCreateAccountButton() {
         view.get().navigateToRegistroScreen();
+    }
+
+    @Override
+    public void fetchUserListData() {
+        model.fetchUserListData(new RepositoryContract.GetUserListCallback(){
+        @Override
+        public void setUserList(List<User> users){
+            state.users = users;
+
+         //   view.get().displayUserData(state);
+        }
+        });
     }
 
     @Override

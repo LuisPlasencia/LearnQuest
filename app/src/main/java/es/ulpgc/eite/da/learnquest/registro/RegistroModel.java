@@ -15,10 +15,11 @@ public class RegistroModel implements RegistroContract.Model {
     }
 
     @Override
-    public void signUpUser(String username, String password, String email) {
-        User newUser = new User(username, password, 90);
-        repository.addUser(newUser);
+    public void addUser(String username, String password, String email, RepositoryContract.AddUserCallback callback) {
+        User newUser = new User(username, password, repository.getNumberOfUsers());
+        repository.addUser(newUser, callback);
     }
+
 
     @Override
     public boolean isFilledTextEmpty(String username, String password, String email) {

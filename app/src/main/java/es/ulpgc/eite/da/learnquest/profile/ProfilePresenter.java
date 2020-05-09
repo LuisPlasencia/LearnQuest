@@ -91,12 +91,8 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
-    public Integer getPhoto() {
-        if(state.user != null){
-            return model.getPhoto();
-        }
-        return 0;
-
+    public String getPhoto() {
+        return model.getPhoto();
     }
 
 

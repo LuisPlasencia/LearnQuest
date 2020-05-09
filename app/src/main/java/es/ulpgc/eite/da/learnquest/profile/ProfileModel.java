@@ -34,7 +34,7 @@ public class ProfileModel implements ProfileContract.Model {
     }
 
     @Override
-    public Integer getPhoto(){
+    public String getPhoto(){
         return repository.getPhoto();
     }
 

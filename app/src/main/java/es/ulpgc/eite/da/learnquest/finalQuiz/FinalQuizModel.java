@@ -64,6 +64,11 @@ public class FinalQuizModel implements FinalQuizContract.Model {
     }
 
     @Override
+    public void updateUser(RepositoryContract.UpdateUserCallback callback) {
+        repository.updateUser(callback);
+    }
+
+    @Override
     public int getSubjectId() {
         return repository.getSubjectId();
     }

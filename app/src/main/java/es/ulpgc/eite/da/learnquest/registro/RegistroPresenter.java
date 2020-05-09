@@ -7,6 +7,7 @@ import android.widget.Spinner;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class RegistroPresenter implements RegistroContract.Presenter {
 
@@ -27,8 +28,12 @@ public class RegistroPresenter implements RegistroContract.Presenter {
         String password = view.get().getEmailInput();
         String email = view.get().getPasswordInput(); //El email se usará más adelante (siguiente sprint)
         if(!model.isFilledTextEmpty(username, password, email)) {
-            model.signUpUser(username, password, email);
-            onBackPressed();
+            model.addUser(username, password, email, new RepositoryContract.AddUserCallback(){
+                @Override
+                public void onUserAdded(){
+                }
+        });
+        onBackPressed();
         } else {
             Log.d(TAG, username + password + email);
             view.get().displayWarning();
@@ -41,10 +46,8 @@ public class RegistroPresenter implements RegistroContract.Presenter {
     }
 
     @Override
-    public void onSelectionClicked(int id) {
-
-
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+    public void onSelectionClicked(String selectedItem) {
+        view.get().displayPictureSelected(selectedItem);
 
     }
 

@@ -2,6 +2,9 @@ package es.ulpgc.eite.da.learnquest.login;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
+
 public interface LoginContract {
 
     interface View {
@@ -12,6 +15,8 @@ public interface LoginContract {
         void navigateToRegistroScreen();
 
         void navigateToProfileScreen();
+
+        void displayWarning(int tipo);
     }
 
     interface Presenter {
@@ -28,9 +33,14 @@ public interface LoginContract {
         void onResume();
 
         void onCreateAccountButton();
+
+        void fetchUserListData();
     }
 
     interface Model {
+        void fetchUserListData(RepositoryContract.GetUserListCallback callback);
+
+        void setUsuarioActual(User user);
     }
 
     interface Router {

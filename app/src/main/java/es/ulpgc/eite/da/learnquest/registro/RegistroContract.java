@@ -4,6 +4,8 @@ import android.view.View;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+
 public interface RegistroContract {
 
     interface View {
@@ -20,6 +22,8 @@ public interface RegistroContract {
         void onFinish();
 
         void navigateToLogInScreen();
+
+        void displayPictureSelected(String selectedItem);
     }
 
     interface Presenter {
@@ -33,11 +37,11 @@ public interface RegistroContract {
 
         void onBackPressed();
 
-        void onSelectionClicked(int id);
+        void onSelectionClicked(String selectedItem);
     }
 
     interface Model {
-        void signUpUser(String username, String password, String email);
+        void addUser(String username, String password, String email, RepositoryContract.AddUserCallback callback);
 
         boolean isFilledTextEmpty(String username, String password, String email);
     }

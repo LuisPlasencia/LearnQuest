@@ -40,7 +40,7 @@ public interface ProfileContract {
 
         void onAchievementsButtonClicked();
 
-        Integer getPhoto();
+        String getPhoto();
     }
 
     interface Model {
@@ -51,7 +51,7 @@ public interface ProfileContract {
 
         Integer getSublevel();
 
-        Integer getPhoto();
+        String getPhoto();
 
         String getUsername();
 
