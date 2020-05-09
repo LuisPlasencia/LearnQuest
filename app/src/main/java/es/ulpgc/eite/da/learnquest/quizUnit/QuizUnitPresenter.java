@@ -1,15 +1,11 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
-import android.util.Log;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
-import es.ulpgc.eite.da.learnquest.data.QuizUnit;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -54,11 +50,13 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
        //view.get().displayData(state);
     }
 
+
     @Override
     public void onOptionClicked(QuizUnitItem option) {
         //router.navigateToNextScreen();
         state.quizId = option.getId();
         model.setQuizId(state.quizId);
+        router.passDataToQuestionMathScreen(option);
         QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
         router.passDataToQuestionScreen(newState);
         view.get().navigateToNextScreen();

@@ -1,5 +1,10 @@
 package es.ulpgc.eite.da.learnquest.questionMath;
 
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+
 public class QuestionMathViewModel {
 
     // put the view state here
@@ -24,4 +29,12 @@ public class QuestionMathViewModel {
     public boolean mathNextEnabled;
     public boolean mathHintEnabled;
     public boolean mathEnterEnabled;
+
+    //////////--------///////
+
+    public QuizUnitItem quizUnitItem;
+    //public QuestionMathItem questionMathItem;
+    //public List<QuestionMathItem> questionMathItems;
+
+
 }

@@ -7,18 +7,54 @@
         {
           "id": 1,
           "title": "Pythagoras Theorem",
-          "description": "In this quiz you will learn all about triangles"
+          "description": "In this quiz you will learn all about triangles",
+          "mathTitle": "If there one pig and we calculate the hypotenuse of it, how much is it? ",
+          "subSubjects": [
+            {
+              "id": "1",
+              "mathTitle": "If there one pig and we calculate the hypotenuse of it, how much is it? ",
+              "mathDescription": "How much is 90 degrees plus 90 degrees?"
+            },
+
+            {
+              "id": "2",
+              "mathTitle": "Pitagoras question 2 ",
+              "mathDescription": "How much is 90 degrees plus 90 degrees?"
+            },
+
+            {
+              "id": "3",
+              "mathTitle": "If there one pig and we calculate the hypotenuse of it, how much is it? ",
+              "mathDescription": "How much is 90 degrees plus 90 degrees?"
+            }
+          ]
 
         },
+
         {
           "id": 2,
           "title": "Equations",
-          "description": "In this quiz you will learn all about equations"
+          "description": "In this quiz you will learn all about equations",
+          "subSubjects": [
+            {
+              "id": 1,
+              "mathTitle": "Quedddddddddddddstion 1",
+              "mathDescription": "akakakakaa"
+            },
+            {
+              "id": 2,
+              "mathTitle": "Question 2",
+              "mathDescription": "How much is 920 degrees plus 90 degrees?"
+            },
+            {
+              "id": 3,
+              "mathTitle": "Question 3",
+              "mathDescription": "How much is 1000 degrees minus 230 degrees?"
+            }
+          ]
         }
       ]
-
     },
-
     {
       "id": 2,
       "subjectName": "English",
@@ -27,7 +63,6 @@
           "id": 1,
           "title": "Present Simple",
           "description": "Domingo is pro"
-
         },
         {
           "id": 2,
@@ -35,9 +70,7 @@
           "description": "This is going well :D"
         }
       ]
-
     },
-
     {
       "id": 3,
       "subjectName": "Geography",
@@ -46,7 +79,6 @@
           "id": 1,
           "title": "The map of Canary Islands",
           "description": "In this quiz you will learn all the places in Canary Islands"
-
         },
         {
           "id": 2,
@@ -54,8 +86,6 @@
           "description": "In this quiz you will learn all the places in Spain"
         }
       ]
-
     }
-    
   ]
 }

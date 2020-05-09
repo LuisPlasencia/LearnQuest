@@ -6,6 +6,7 @@ import java.util.List;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -72,6 +73,10 @@ public interface QuizUnitContract {
 
         void passDataToQuestionScreen(QuizUnitToQuestionState state);
 
+        void passDataToQuestionMathScreen(QuizUnitItem item);
+
         QuestItem getDataFromQuestListScreen();
+
+
     }
 }

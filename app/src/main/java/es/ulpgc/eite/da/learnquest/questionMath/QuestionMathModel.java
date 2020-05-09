@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.questionMath;
 
 import android.util.Log;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestionMathModel implements QuestionMathContract.Model {
@@ -16,6 +17,13 @@ public class QuestionMathModel implements QuestionMathContract.Model {
        this.quizRepository = quizRepository;
     }
 
+   // @Override
+    //public void fetchQuestionMathListData(
+      //      QuizUnitItem quizUnit, final RepositoryContract.GetQuestionMathListCallback callback) {
+        //quizRepository.getQuestionMathList(quizUnit,callback);
+
+    //}
+
     @Override
     public void updateNextQuestion(){
         quizIndex++;
@@ -26,7 +34,6 @@ public class QuestionMathModel implements QuestionMathContract.Model {
         return quizIndex;
 
     }
-
     @Override
     public void setQuizIndex(int index) {
         this.quizIndex = index;
@@ -63,8 +70,5 @@ public class QuestionMathModel implements QuestionMathContract.Model {
         // Log.e(TAG, "onDataFromPreviousScreen()");
     }
 
-    @Override
-    public String getNumber1() {
-        return "1";
-    }
+
 }

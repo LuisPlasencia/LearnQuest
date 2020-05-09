@@ -1,10 +1,16 @@
 package es.ulpgc.eite.da.learnquest.data;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class QuizUnitItem {
     public String unit, subject, title, description;
     public int mark, id;
     private boolean solved;
     public int questId;
+    public String mathTitle, mathDescription;
+    ///public String subSubject;
 
 
     public QuizUnitItem(String unit, String title, String description, String subject, int mark, int id, boolean solved) {
@@ -77,4 +83,7 @@ public class QuizUnitItem {
     public String toString() {
         return title;
     }
+
+    //@SerializedName("questionMath")
+    //public List<QuestionMathItem> questionMathItems;
 }

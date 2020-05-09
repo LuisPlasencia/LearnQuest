@@ -1,7 +1,9 @@
 {
   "mathQuestion": [
     {
-      "triangles": [
+      "id": 1,
+      "subSubjectName": "Triangles",
+      "subSubject": [
         {
           "id": 1,
           "mathTitle": "Question 1",
@@ -19,6 +21,7 @@
         }
       ],
 
+      "id": 2,
       "equations": [
         {
           "id": 1,

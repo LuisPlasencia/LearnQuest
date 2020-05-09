@@ -2,6 +2,9 @@ package es.ulpgc.eite.da.learnquest.questionMath;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+
 public interface QuestionMathContract {
 
     interface View {
@@ -25,6 +28,8 @@ public interface QuestionMathContract {
 
         void onResume();
 
+        void fetchQuestionMathData();
+
         void fetchData();
 
         void onStart();
@@ -41,6 +46,10 @@ public interface QuestionMathContract {
     }
 
     interface Model {
+
+        //void fetchQuestionMathListData(
+          //      QuizUnitItem quizUnit, RepositoryContract.GetQuestionMathListCallback callback);
+
         void updateNextQuestion();
 
         int getQuizIndex();
@@ -57,10 +66,10 @@ public interface QuestionMathContract {
 
         void onDataFromPreviousScreen(String data);
 
-        String getNumber1();
     }
 
     interface Router {
+        QuizUnitItem getDataFromQuizUnitScreen();
 
         //NextToQuestionMathState getStateFromNextScreen();
 

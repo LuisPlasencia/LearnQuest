@@ -1,9 +1,11 @@
 package es.ulpgc.eite.da.learnquest.questionMath;
 
-import android.util.Log;
-import android.widget.Button;
-
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestionMathPresenter implements QuestionMathContract.Presenter {
 
@@ -13,33 +15,46 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     private QuestionMathState state;
     private QuestionMathContract.Model model;
     private QuestionMathContract.Router router;
-    private int digit;
 
     public QuestionMathPresenter(QuestionMathState state) {
         this.state = state;
     }
 
+    @Override
+    public void fetchQuestionMathData() {
+
+
+      QuizUnitItem quizUnit = router.getDataFromQuizUnitScreen();
+      if(quizUnit != null) {
+          state.quizUnitItem = quizUnit;
+      }
+      view.get().displayData(state);
+
+    }
+
 
     @Override
     public void fetchData() {
-        if(state == null) {
+        if (state == null) {
             state = new QuestionMathState();
         }
         view.get().displayData(state);
 
     }
+
     @Override
     public void onStart() {
 
-        state.mathQuestionNumber = "200";
-        state.mathQuestionText = "Texto de prueba";
-
+      /* // state.mathQuestionNumber = "200";
+        //state.mathQuestionText = "Texto de prueba";
+*/
         //view.get().resetReply();
 
         state.mathNextEnabled = false;
         state.mathEnterEnabled = true;
 
         disableNextButton();
+
         view.get().displayData(state);
 
 
@@ -47,17 +62,16 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
 
     @Override
     public void onRestart() {
-        model.setQuizIndex(state.quizIndex);
+        //  model.setQuizIndex(state.quizIndex);
 
     }
 
     @Override
     public void onResume() {
 
-
     }
 
-    private void disableNextButton(){
+    private void disableNextButton() {
         state.mathNumbersEnabled = true;
         state.mathHintEnabled = true;
         state.mathNextEnabled = false;
@@ -67,8 +81,6 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         state.mathNextEnabled = true;
         state.mathHintEnabled = false;
     }
-
-
 
 
     @Override

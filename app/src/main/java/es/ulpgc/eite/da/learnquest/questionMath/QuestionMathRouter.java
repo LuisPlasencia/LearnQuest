@@ -1,8 +1,8 @@
 package es.ulpgc.eite.da.learnquest.questionMath;
 
-import android.util.Log;
-
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public class QuestionMathRouter implements QuestionMathContract.Router {
 
@@ -33,5 +33,11 @@ public class QuestionMathRouter implements QuestionMathContract.Router {
     public PreviousToQuestionMathState getStateFromPreviousScreen() {
         return mediator.getPreviousQuestionMathScreenState();
     }*/
+
+    @Override
+    public QuizUnitItem getDataFromQuizUnitScreen(){
+        QuizUnitItem quizUnitItem = mediator.getQuizUnit();
+        return quizUnitItem;
+    }
 
 }

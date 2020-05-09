@@ -2,17 +2,16 @@ package es.ulpgc.eite.da.learnquest.quizUnit;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
-import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
@@ -104,5 +103,14 @@ public class QuizUnitActivity
             intent = new Intent(this, QuestionActivity.class);
         }
         startActivity(intent);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -26,6 +26,8 @@ public class QuizRepository implements RepositoryContract {
 
     public static final String JSON_SUBJECT_FILE = "subject.json";
     public static final String JSON_SUBJECT_ROOT = "quests";
+    public static final String JSON_MATH_FILE = "mathQuestion.json";
+    public static final String JSON_MATH_ROOT = "mathQuestion";
 
     private Context context;
 
@@ -41,8 +43,9 @@ public class QuizRepository implements RepositoryContract {
     private Integer quizId;
     private Integer subjectId;
     //private ArrayList<QuizUnit> quizUnits;
-    private ArrayList<QuizUnitItem> quizUnits;
+    private List<QuizUnitItem> quizUnits;
     private List<QuestItem> questList;
+    private List<QuestionMathItem> mathList;
 
     public static RepositoryContract getInstance(Context context) {
         if (INSTANCE == null) {
@@ -153,6 +156,8 @@ public class QuizRepository implements RepositoryContract {
 //        questList.add(new QuestItem("Geography", usuarioActual.getGeographyPercentage(), 3));
 //        questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
     }
+
+
 
     @Override
     public void addUser(User user) {
@@ -421,9 +426,46 @@ public class QuizRepository implements RepositoryContract {
 
     }
 
+   /* @Override
+    public void getQuestionMathList(
+            final QuizUnitItem quizUnit, final GetQuestionMathListCallback callback) {
+
+        getQuestionMathList(quizUnit.id, callback);
+    }
+
+    /*@Override
+    public void getQuestionMathList(
+            final int quizUnitId, final GetQuestionMathListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuestionMathList(loadQuestionMath(quizUnitId));
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getQuestionMath(final int id, final GetQuestionMathCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuestionMath(loadQuestionMaths(id));
+                }
+            }
+        });
+    }*/
+
     @Override
     public void getQuizUnit(final int id, final GetQuizUnitCallback callback) {
-    /*
+
         AsyncTask.execute(new Runnable() {
 
             @Override
@@ -432,7 +474,7 @@ public class QuizRepository implements RepositoryContract {
                     callback.setQuizUnit(loadQuizUnit(id));
                 }
             }
-        });*/
+        });
     }
 
     @Override
@@ -466,6 +508,19 @@ public class QuizRepository implements RepositoryContract {
 
     }
 
+   /* @Override
+    public void getQuizUnitList(final GetQuizUnitListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setQuizUnitList(loadQuizUnit());
+                }
+            }
+        });
+
+    }*/
 
     public boolean loadSubjectFromJSON(String json) {
 
@@ -489,11 +544,12 @@ public class QuizRepository implements RepositoryContract {
                     insertQuest(quest);
                 }
 
-             /*for(QuestItem quest: questList) {
+             for(QuestItem quest: questList) {
                    for(QuizUnitItem quizUnit: quest.quizUnitItems){
                         quizUnit.questId = quest.id;
                     }
-                }*/
+                }
+
                 updateQuestParameters();
 
                 return true;
@@ -501,9 +557,6 @@ public class QuizRepository implements RepositoryContract {
         } catch (JSONException e) {
             Log.e(TAG, "error: " + e);
         }
-
-
-
 
         return false;
     }
@@ -528,6 +581,8 @@ public class QuizRepository implements RepositoryContract {
         return json;
     }
 
+
+
     private List<QuizUnitItem> loadQuizUnits(int questId) {
         List<QuizUnitItem> quizUnits = new ArrayList();
 
@@ -540,9 +595,20 @@ public class QuizRepository implements RepositoryContract {
         return quizUnits;
     }
 
+   /* private List<QuestionMathItem> loadQuestionMath(int quizUnitId) {
+        List<QuestionMathItem> questionMath = new ArrayList();
+        for (QuizUnitItem quizUnit: quizUnits) {
+            if(quizUnit.id == quizUnitId) {
+                questionMath = quizUnit.questionMathItems;
+            }
+        }
+
+        return questionMath;
+    }*/
 
 
-   /* private QuizUnitItem loadQuizUnit(int id) {
+
+   private QuizUnitItem loadQuizUnit(int id) {
         for (QuestItem quest: questList) {
             for (QuizUnitItem quizUnit: quest.quizUnitItems) {
                 if(quizUnit.id == id) {
@@ -552,10 +618,22 @@ public class QuizRepository implements RepositoryContract {
         }
 
         return null;
+    }
+
+    /*private QuestionMathItem loadQuestionMaths(int id) {
+        for (QuizUnitItem quizUnit: quizUnits) {
+            for (QuestionMathItem questionMath: quizUnit.questionMathItems) {
+                if(questionMath.id == id) {
+                    return questionMath;
+                }
+            }
+        }
+
+        return null;
     }*/
 
 
-    public QuestItem loadQuest(int id) {
+    private QuestItem loadQuest(int id) {
         for (QuestItem quest : questList) {
             if (quest.id == id) {
                 return quest;
@@ -568,9 +646,73 @@ public class QuizRepository implements RepositoryContract {
         questList.add(quest);
     }
 
-    public List<QuestItem> loadQuests() {
+   /* private void insertQuizUnit(QuizUnitItem quizUnit) {
+        quizUnits.add(quizUnit);
+    }*/
+
+
+    private List<QuestItem> loadQuests() {
         return questList;
     }
+
+    /*private List<QuizUnitItem> loadQuizUnit() {
+        return quizUnits;
+    }*/
+
+////////////////////////////MATH JSON///////////////////////
+
+   /* public boolean loadQuestionMathFromJSON(String json) {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(JSON_MATH_ROOT);
+
+            mathList = new ArrayList<>();
+
+            if (jsonArray.length() > 0) {
+
+                final List<QuestionMathItem> mathList = Arrays.asList(
+                        gson.fromJson(jsonArray.toString(), QuestionMathItem[].class)
+                );
+
+                for (QuestionMathItem mathItem : mathList) {
+                    insertMathItem(mathItem);
+                }
+
+                return true;
+            }
+        } catch (JSONException e) {
+            Log.e(TAG, "error: " + e);
+        }
+
+        return false;
+    }
+
+    public String loadJSONFromAssetMath() {
+
+        String json = null;
+
+        try {
+
+            InputStream is = context.getAssets().open(JSON_MATH_FILE);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException error) {
+            Log.e(TAG, "error: " + error);
+        }
+
+        return json;
+    }*/
+
+
 
 
 

@@ -1,16 +1,11 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
-import android.util.Log;
-import android.content.Intent;
-import android.content.Context;
-
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
-import es.ulpgc.eite.da.learnquest.data.Question;
-import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
-import es.ulpgc.eite.da.learnquest.quests.QuestsState;
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 
 public class QuizUnitRouter implements QuizUnitContract.Router {
 
@@ -52,12 +47,16 @@ public class QuizUnitRouter implements QuizUnitContract.Router {
     public void passDataToQuestionScreen(QuizUnitToQuestionState state){
         mediator.setQuizUnitToQuestionState(state);
     }
+
+    @Override
+    public void passDataToQuestionMathScreen(QuizUnitItem item) {
+        mediator.setQuizUnit(item);
+    }
     //// JSON //////
     @Override
     public QuestItem getDataFromQuestListScreen(){
         QuestItem quest = mediator.getQuest();
         return quest;
     }
-
 
 }

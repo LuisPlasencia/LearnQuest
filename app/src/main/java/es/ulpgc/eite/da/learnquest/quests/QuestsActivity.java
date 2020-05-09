@@ -50,7 +50,7 @@ public class QuestsActivity
 //        presenter.updateLevels();
 //        presenter.setSubjectImage();
         presenter.fetchQuestsData();
-        //presenter.fecthQuestsDataPercentageAndImage();
+
     }
 
 
@@ -77,10 +77,7 @@ public class QuestsActivity
         });
 
     }
-    @Override
-    public void displayDataPercentageAndImage(QuestsViewModel viewModel){
-        listAdapter.setItems(viewModel.questItems);
-    }
+
 
     @Override
     public void injectPresenter(QuestsContract.Presenter presenter) {

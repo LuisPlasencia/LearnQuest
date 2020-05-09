@@ -3,9 +3,7 @@ package es.ulpgc.eite.da.learnquest.quests;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
-import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestsPresenter implements QuestsContract.Presenter {
@@ -34,12 +32,7 @@ public class QuestsPresenter implements QuestsContract.Presenter {
         });
 
     }
-    @Override
-    public void fecthQuestsDataPercentageAndImage(){
 
-        state.questItems = model.fetchQuestsData();
-        view.get().displayDataPercentageAndImage(state);
-    }
 //
 //    @Override
 //    public void onRestart(){

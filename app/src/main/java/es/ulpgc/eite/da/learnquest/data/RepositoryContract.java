@@ -1,7 +1,5 @@
 package es.ulpgc.eite.da.learnquest.data;
 
-import org.json.JSONException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +64,8 @@ public interface RepositoryContract {
 
     void updateQuestParameters();
 
+  //  void getQuizUnitList(GetQuizUnitListCallback callback);
+
     ///////////////////////////////////////// JSON //////////////////////////////////
 
     interface FetchSubjectDataCallback {
@@ -80,6 +80,14 @@ public interface RepositoryContract {
         void setQuizUnit(QuizUnitItem quizUnit);
     }
 
+   /* interface GetQuestionMathListCallback {
+        void setQuestionMathList(List<QuestionMathItem> questionMathItem);
+    }
+
+    interface GetQuestionMathCallback {
+        void setQuestionMath(QuestionMathItem questionMathItem);
+    }*/
+
     interface GetQuestListCallback {
         void setQuestList(List<QuestItem> quests);
     }
@@ -90,7 +98,7 @@ public interface RepositoryContract {
 
     void loadSubject(QuizRepository.FetchSubjectDataCallback callback);
 
-   // void loadSubject(FetchSubjectDataCallback callback);
+    // void loadSubject(FetchSubjectDataCallback callback);
 
     void getQuizUnitList(
             QuestItem quest, GetQuizUnitListCallback callback);
@@ -98,10 +106,22 @@ public interface RepositoryContract {
     void getQuizUnitList(
             int categoryId, GetQuizUnitListCallback callback);
 
+   /* void getQuestionMathList(
+            QuizUnitItem quizUnit, GetQuestionMathListCallback callback);
+
+    void getQuestionMathList(
+            int quizUnitId, GetQuestionMathListCallback callback);*/
+
+    //void getQuestionMath(int id, GetQuestionMathCallback callback);
+
     void getQuizUnit(int id, GetQuizUnitCallback callback);
 
     void getQuest(int id, GetQuestCallback callback);
 
-
     void getQuestList(GetQuestListCallback callback);
+
+    ////////////////////////////////////////////// JSON MATH /////////////
+
+
+
 }
