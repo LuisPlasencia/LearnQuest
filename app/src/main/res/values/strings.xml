@@ -108,5 +108,12 @@
     <string name="button_enter_mathQuiz">Enter</string>
     <string name="button_next_mathQuiz">Next</string>
     <string name="button_hint_mathQuiz">Hint</string>
+    <string name="profile_photo_title">Profile Image Preview</string>
+    <string-array name="imagenes_nombres">
+        <item>Predeterminada</item>
+        <item>Patata</item>
+        <item>Rabano</item>
+        <item>Lechuga</item>
+    </string-array>
 
 </resources>

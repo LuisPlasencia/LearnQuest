@@ -8,12 +8,15 @@
     tools:context=".registro.RegistroActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08">
 
 
         <EditText
@@ -21,36 +24,92 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/registro_username_text" />
+            android:hint="@string/registro_username_text"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="23dp" />
 
         <EditText
             android:id="@+id/registro_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="@string/registro_correo_text" />
+            android:hint="@string/registro_correo_text"
+            android:inputType="textEmailAddress" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp" />
 
         <EditText
             android:id="@+id/registro_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:hint="@string/registro_password_text" />
+            android:hint="@string/registro_password_text"
+            android:inputType="textPassword" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="20dp"
+                android:text="Profile image:"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/image_selection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:entries="@array/imagenes_nombres" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.87">
+
+        <ImageView
+            android:id="@+id/imagenDePerfil"
+            android:layout_width="84dp"
+            android:layout_height="77dp"
+            android:layout_gravity="center"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/ImagenDePerfilDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/profile_photo_title" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
 
         <Button
             android:id="@+id/registro_signup_button"
@@ -61,7 +120,6 @@
             android:onClick="onSignUpButtonClicked"
             android:text="@string/signup_button_text"
             android:textColor="#FFFF" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
