@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.registro;
 
+import android.view.View;
+
 import java.lang.ref.WeakReference;
 
 public interface RegistroContract {
@@ -30,6 +32,8 @@ public interface RegistroContract {
         void onSignUpButtonClicked();
 
         void onBackPressed();
+
+        void onSelectionClicked(int id);
     }
 
     interface Model {

@@ -1,8 +1,12 @@
 package es.ulpgc.eite.da.learnquest.registro;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.Spinner;
 
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.eite.da.learnquest.R;
 
 public class RegistroPresenter implements RegistroContract.Presenter {
 
@@ -34,6 +38,14 @@ public class RegistroPresenter implements RegistroContract.Presenter {
     @Override
     public void onBackPressed() {
         view.get().onFinish();
+    }
+
+    @Override
+    public void onSelectionClicked(int id) {
+
+
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
     }
 
     @Override

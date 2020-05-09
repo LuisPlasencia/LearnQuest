@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,11 +32,33 @@ public class RegistroActivity
         setContentView(R.layout.activity_registro);
         getSupportActionBar().setTitle(getResources().getString(R.string.registro_screen_title));
 
-       //if(savedInstanceState == null ) AppMediator.resetInstance();
+
+        Spinner spinner = findViewById(R.id.image_selection);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                if (selectedItem.equals("Predeterminada")) {
+                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(android.R.drawable.ic_menu_camera);
+                } else if(selectedItem.equals("Patata")){
+                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.patata);
+                } else if(selectedItem.equals("Rabano")){
+                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.rabano);
+                }else if(selectedItem.equals("Lechuga")){
+                    ((ImageView) findViewById(R.id.imagenDePerfil)).setImageResource(R.drawable.lechuga);
+                }
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        //if(savedInstanceState == null ) AppMediator.resetInstance();
 
         // do the setup
         RegistroScreen.configure(this);
     }
+
 
     @Override
     public String getPasswordInput() {
@@ -81,5 +106,22 @@ public class RegistroActivity
 
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    public void onSelectionClicked(View view) {
+        int id = view.getId();
+        Spinner spinner = (Spinner) findViewById(id);
+        spinner.getSelectedItem();
+//        presenter.onSelectionClicked(view.getId());
+//        int id = view.getId();
+//        Spinner spinner = (Spinner) findViewById(R.id.image_selection);
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+//            public void onItemSelected(AdapterView<?> spn, android.view.View v, int position, long id){
+//                Toast.makeText(spn.getContext(), "Has seleccionado " + spn.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+//            }
+//        }
+//
+//        );
+        Log.d("perris", String.valueOf(spinner.getSelectedItem()));
     }
 }
