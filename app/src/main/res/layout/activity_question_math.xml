@@ -51,6 +51,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="96dp"
                 android:text="@string/button_five"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +64,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/button_eight"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +77,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="96dp"
                 android:text="@string/button_four"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,8 +89,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/button_hint_mathQuiz"
                 android:background="@drawable/button_selector"
+                android:text="@string/button_hint_mathQuiz"
+                android:onClick="onCleanButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +103,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="96dp"
                 android:text="@string/button_two"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +116,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/button_seven"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +130,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="96dp"
                 android:text="@string/button_three"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -136,6 +143,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/button_nine"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -148,6 +156,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="96dp"
                 android:text="@string/button_one"
+                android:onClick="onNumberClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_selector"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -172,6 +181,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/button_six"
+                android:onClick="onNumberClicked"
                 android:background="@drawable/button_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -184,6 +194,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/button_zero"
+                android:onClick="onNumberClicked"
                 android:background="@drawable/button_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -204,7 +215,7 @@
         app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
         <TextView
-            android:id="@+id/question_number2"
+            android:id="@+id/question_math_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -215,7 +226,7 @@
             tools:text="Question X" />
 
         <TextView
-            android:id="@+id/question_text2"
+            android:id="@+id/question_math_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -226,12 +237,14 @@
             tools:text="Question X" />
 
         <TextView
-            android:id="@+id/answer_text2"
+            android:id="@+id/answer_math"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:gravity="center"
-            android:text="@string/empty_string"
+            android:hint="@string/empty_string"
+            android:inputType="number"
+            android:selectAllOnFocus="false"
             android:textColor="@color/colorBlack"
             android:textSize="16sp" />
 

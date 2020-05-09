@@ -13,8 +13,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:theme="@style/Theme.Design.NoActionBar"
-            android:screenOrientation="locked"
-            >
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,6 +33,16 @@
         <activity
             android:name=".question.QuestionActivity"
             android:theme="@style/Theme.Design.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".questionMath.QuestionMathActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
 
         <activity

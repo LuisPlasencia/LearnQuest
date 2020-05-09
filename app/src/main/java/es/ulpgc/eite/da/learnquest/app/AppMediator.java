@@ -9,6 +9,7 @@ import es.ulpgc.eite.da.learnquest.login.LoginState;
 import es.ulpgc.eite.da.learnquest.logros.LogrosState;
 import es.ulpgc.eite.da.learnquest.profile.ProfileState;
 import es.ulpgc.eite.da.learnquest.question.QuestionState;
+import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathState;
 import es.ulpgc.eite.da.learnquest.quests.QuestsState;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitState;
 import es.ulpgc.eite.da.learnquest.registro.RegistroState;
@@ -16,6 +17,7 @@ import es.ulpgc.eite.da.learnquest.registro.RegistroState;
 public class AppMediator  {
 
     private QuestionState questionState;
+    private QuestionMathState questionMathState;
     private LoginState loginState;
     private QuestsState questsState;
     private QuizUnitState quizUnitState;
@@ -105,6 +107,13 @@ public class AppMediator  {
 
     public void setRegistroState(RegistroState registroState) {
         this.registroState = registroState;
+    }
+
+    public QuestionMathState getQuestionMathState(){
+        if(questionMathState == null) {
+            questionMathState = new QuestionMathState();
+        }
+        return questionMathState;
     }
 
     public QuestionState getQuestionState() {
