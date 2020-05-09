@@ -21,6 +21,17 @@ public interface QuizUnitContract {
     }
 
     interface Presenter {
+        //    @Override
+        //    public void onOptionClicked(int option) {
+        //        state.quizId = option;
+        //        model.setQuizId(state.quizId);
+        //        QuizUnitToQuestionState newState = new QuizUnitToQuestionState(state.quizId);
+        //        router.passDataToQuestionScreen(newState);
+        //        //router.navigateToNextScreen();
+        //        view.get().navigateToNextScreen();
+        //    }
+        String getSubject();
+
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
         void injectRouter(Router router);
@@ -40,6 +51,8 @@ public interface QuizUnitContract {
 
         void fetchQuizUnitListData(
                 QuestItem quest, RepositoryContract.GetQuizUnitListCallback callback);
+
+        int getSubjectId();
 
         void setSubject(String subject);
         void setQuizId(int quizId);

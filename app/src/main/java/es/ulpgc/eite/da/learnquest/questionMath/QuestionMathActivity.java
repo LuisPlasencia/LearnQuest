@@ -21,8 +21,6 @@ public class QuestionMathActivity
 
     private QuestionMathContract.Presenter presenter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

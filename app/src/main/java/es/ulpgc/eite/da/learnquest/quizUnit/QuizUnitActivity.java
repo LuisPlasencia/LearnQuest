@@ -16,6 +16,7 @@ import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
+import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathActivity;
 
 public class QuizUnitActivity
         extends AppCompatActivity implements QuizUnitContract.View {
@@ -34,7 +35,7 @@ public class QuizUnitActivity
         getSupportActionBar().setTitle(R.string.quiz_unit_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // boton para darle back
 
-       // if(savedInstanceState == null ) AppMediator.resetInstance();
+        // if(savedInstanceState == null ) AppMediator.resetInstance();
 
         actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -46,8 +47,8 @@ public class QuizUnitActivity
             @Override
             public void onClick(View view) {
                 QuizUnitItem item = (QuizUnitItem) view.getTag();
-                if(item == null){
-                    Log.d(TAG,"item es hola");
+                if (item == null) {
+                    Log.d(TAG, "item es hola");
                 }
                 presenter.onOptionClicked(item);
             }
@@ -61,7 +62,7 @@ public class QuizUnitActivity
 
         presenter.fetchQuizUnitData();
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             presenter.onStart();
         }
 
@@ -87,7 +88,7 @@ public class QuizUnitActivity
         });
     }
 
-       // listAdapter.setItems(viewModel.quizUnitItems);
+    // listAdapter.setItems(viewModel.quizUnitItems);
 
     @Override
     public void injectPresenter(QuizUnitContract.Presenter presenter) {
@@ -95,7 +96,13 @@ public class QuizUnitActivity
     }
 
     public void navigateToNextScreen() {
-        Intent intent = new Intent(this, QuestionActivity.class);
+        String subject = presenter.getSubject();
+        Intent intent;
+        if (subject.equals("Maths")) {
+            intent = new Intent(this, QuestionMathActivity.class);
+        } else {
+            intent = new Intent(this, QuestionActivity.class);
+        }
         startActivity(intent);
     }
 }

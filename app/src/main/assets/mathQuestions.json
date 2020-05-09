@@ -1,0 +1,41 @@
+{
+  "mathQuestion": [
+    {
+      "triangles": [
+        {
+          "id": 1,
+          "mathTitle": "Question 1",
+          "mathDescription": "How much is 90 degrees plus 90 degrees?"
+        },
+        {
+          "id": 2,
+          "mathTitle": "Question 2",
+          "mathDescription": "How much is 920 degrees plus 90 degrees?"
+        },
+        {
+          "id": 3,
+          "mathTitle": "Question 3",
+          "mathDescription": "How much is 1000 degrees minus 230 degrees?"
+        }
+      ],
+
+      "equations": [
+        {
+          "id": 1,
+          "mathTitle": "Question 1",
+          "mathDescription": "akakakakaa"
+        },
+        {
+          "id": 2,
+          "mathTitle": "Question 2",
+          "mathDescription": "How much is 920 degrees plus 90 degrees?"
+        },
+        {
+          "id": 3,
+          "mathTitle": "Question 3",
+          "mathDescription": "How much is 1000 degrees minus 230 degrees?"
+        }
+      ]
+    }
+  ]
+}

@@ -92,6 +92,17 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
 //        //router.navigateToNextScreen();
 //        view.get().navigateToNextScreen();
 //    }
+    @Override
+    public String getSubject() {
+      int subjectId  =  model.getSubjectId();
+      if(subjectId == 1){
+          return "Maths";
+      } else if(subjectId == 2){
+          return "English";
+      } else {
+          return "Geography";
+      }
+    }
 
     @Override
     public void injectView(WeakReference<QuizUnitContract.View> view) {

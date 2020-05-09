@@ -25,8 +25,6 @@ public class QuestsPresenter implements QuestsContract.Presenter {
     public void fetchQuestsData() {
         // call the model
 
-
-
       model.fetchQuestListData(new RepositoryContract.GetQuestListCallback() {
             @Override
             public void setQuestList(List<QuestItem> questList) {
@@ -35,17 +33,13 @@ public class QuestsPresenter implements QuestsContract.Presenter {
             }
         });
 
-
-
     }
-
     @Override
     public void fecthQuestsDataPercentageAndImage(){
 
         state.questItems = model.fetchQuestsData();
         view.get().displayDataPercentageAndImage(state);
     }
-
 //
 //    @Override
 //    public void onRestart(){
@@ -92,8 +86,6 @@ public class QuestsPresenter implements QuestsContract.Presenter {
 //        router.passDataToQuizUnitScreen(newState);
 //        router.navigateToNextScreen();
 //    }
-
-
 
     @Override
     public void selectQuestData(QuestItem item) {

@@ -30,6 +30,7 @@ public class QuestsRouter implements QuestsContract.Router {
     public void passDataToNextScreen(QuestsState state) {
         mediator.setQuestsState(state);
     }*/
+
     @Override
     public void passDataToQuizUnitScreen(QuestItem item){
         mediator.setQuestItem(item);

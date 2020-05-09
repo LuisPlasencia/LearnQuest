@@ -35,6 +35,13 @@ public class QuizUnitModel implements QuizUnitContract.Model {
     }
 
     @Override
+    public int getSubjectId(){
+        return quizRepository.getSubjectId();
+    }
+
+
+
+    @Override
     public void setSubject(String subject) {
         quizRepository.setSubjectId(0);
     }
