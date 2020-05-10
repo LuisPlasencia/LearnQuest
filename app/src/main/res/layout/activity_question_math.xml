@@ -38,8 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/button_enter_mathQuiz"
                 android:background="@drawable/button_selector"
+                android:onClick="onEnterButtonClickedMath"
+                android:text="@string/button_enter_mathQuiz"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toStartOf="parent"
@@ -168,8 +169,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/button_next_mathQuiz"
                 android:background="@drawable/button_selector"
+                android:onClick="onNextButtonClickedMath"
+                android:text="@string/button_next_mathQuiz"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -226,7 +228,7 @@
             tools:text="Question X" />
 
         <TextView
-            android:id="@+id/question_math_text"
+            android:id="@+id/mathTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -237,13 +239,24 @@
             tools:text="Question X" />
 
         <TextView
-            android:id="@+id/answer_math"
+            android:id="@+id/user_answer_math"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:gravity="center"
             android:hint="@string/empty_string"
             android:inputType="number"
+            android:selectAllOnFocus="false"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/answer_math"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:hint="@string/empty_string"
             android:selectAllOnFocus="false"
             android:textColor="@color/colorBlack"
             android:textSize="16sp" />

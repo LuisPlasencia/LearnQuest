@@ -36,8 +36,8 @@
 
         <activity
             android:name=".questionMath.QuestionMathActivity"
-            android:theme="@style/Theme.Design.NoActionBar">
-
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:screenOrientation="locked">
 
         </activity>
 

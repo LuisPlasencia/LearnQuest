@@ -11,16 +11,6 @@ public class QuestionMathViewModel {
     public String mathQuestionNumber;
     public String mathQuestionText;
     public String mathAnswerText;
-    public String number1;
-    public String number2;
-    public String number3;
-    public String number4;
-    public String number5;
-    public String number6;
-    public String number7;
-    public String number8;
-    public String number9;
-    public String number0;
 
     public boolean numberClicked;
     public int number;
@@ -33,8 +23,8 @@ public class QuestionMathViewModel {
     //////////--------///////
 
     public QuizUnitItem quizUnitItem;
-    //public QuestionMathItem questionMathItem;
-    //public List<QuestionMathItem> questionMathItems;
+    public QuestionMathItem questionMathItem;
+    public List<QuestionMathItem> questionMathItems;
 
 
 }

@@ -17,12 +17,12 @@ public class QuestionMathModel implements QuestionMathContract.Model {
        this.quizRepository = quizRepository;
     }
 
-   // @Override
-    //public void fetchQuestionMathListData(
-      //      QuizUnitItem quizUnit, final RepositoryContract.GetQuestionMathListCallback callback) {
-        //quizRepository.getQuestionMathList(quizUnit,callback);
+    @Override
+    public void fetchQuestionMathListData(
+            QuizUnitItem quizUnit, final RepositoryContract.GetQuestionMathListCallback callback) {
+        quizRepository.getQuestionMathList(quizUnit,callback);
 
-    //}
+    }
 
     @Override
     public void updateNextQuestion(){
@@ -32,8 +32,13 @@ public class QuestionMathModel implements QuestionMathContract.Model {
     @Override
     public int getQuizIndex(){
         return quizIndex;
-
     }
+
+    @Override
+    public boolean isQuizFinished() {
+        return (quizIndex == 3);
+    }
+
     @Override
     public void setQuizIndex(int index) {
         this.quizIndex = index;
@@ -47,6 +52,11 @@ public class QuestionMathModel implements QuestionMathContract.Model {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean getAnswer(){
+       return false;
     }
 
     @Override

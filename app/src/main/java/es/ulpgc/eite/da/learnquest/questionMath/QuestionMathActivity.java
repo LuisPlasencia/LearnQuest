@@ -6,15 +6,20 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestionMathActivity
@@ -23,6 +28,7 @@ public class QuestionMathActivity
     public static String TAG = QuestionMathActivity.class.getSimpleName();
 
     private QuestionMathContract.Presenter presenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +80,7 @@ public class QuestionMathActivity
         presenter.onDestroy();
     }
 
-    private void setupToolbar() {
+   private void setupToolbar() {
         Toolbar toolbar = findViewById(R.id.question_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -87,49 +93,55 @@ public class QuestionMathActivity
     @Override
     public void resetReply() {
         ((TextView) findViewById(R.id.answer_math)).setText(R.string.empty_string);
+
     }
 
     @Override
     public void displayData(final QuestionMathViewModel viewModel) {
 
-        // deal with the data
-        QuizUnitItem quizUnit = viewModel.quizUnitItem;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // deal with the data
+                QuizUnitItem quizUnitItem = viewModel.quizUnitItem;
 
-        if(quizUnit != null) {
+                ((TextView) findViewById(R.id.mathTitle)).
+                        setText(quizUnitItem.questionMathItems.get(presenter.getIndex()).mathTitle);
 
-            ((TextView) findViewById(R.id.question_math_text)).
-                    setText(quizUnit.mathTitle);
-        }
+                ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
 
-        findViewById(R.id.math_quiz_enter).setEnabled(viewModel.mathEnterEnabled);
-        findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
-        findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);
+                findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
+                findViewById(R.id.math_quiz_enter).setEnabled(viewModel.mathEnterEnabled);
+                findViewById(R.id.math_quiz_1).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_2).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_3).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_4).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_5).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_6).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_7).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_8).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_9).setEnabled(viewModel.mathNumbersEnabled);
+                findViewById(R.id.math_quiz_0).setEnabled(viewModel.mathNumbersEnabled);
 
-        // deal with the data
-
-       /* ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);
-        ((TextView) findViewById(R.id.question_math_text)).setText(viewModel.mathQuestionText);
-
-
-        findViewById(R.id.math_quiz_enter).setEnabled(viewModel.mathEnterEnabled);
-        findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
-        findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);*/
-
+            }
+        });
     }
 
-    public void onNextButtonClicked(View view) {
-        //presenter.onNextButtonClicked();
+    public void onNextButtonClickedMath(View view) {
+        //int index = presenter.getIndex();
+        //((TextView) findViewById(R.id.answer_math)).setText(String.valueOf(index));
+        presenter.onNextButtonClicked();
     }
 
     public void onNumberClicked(View view) {
         Button button = (Button) view;
         String buttonText = button.getText().toString();
-        ((TextView) findViewById(R.id.answer_math)).append(buttonText);
+        ((TextView) findViewById(R.id.user_answer_math)).append(buttonText);
 
     }
 
     public void onCleanButton(View view) {
-        ((TextView) findViewById(R.id.answer_math)).setText("");
+        ((TextView) findViewById(R.id.user_answer_math)).setText("");
     }
 
     @Override
@@ -141,10 +153,50 @@ public class QuestionMathActivity
         }
     }
 
+    @Override
+    public String getSolution(final QuestionMathViewModel viewModel) {
+        QuizUnitItem quizUnitItem = viewModel.quizUnitItem;
+        return quizUnitItem.questionMathItems.get(presenter.getIndex()).mathSolution;
+    }
+
+    @Override
+    public String getUserSolution() {
+        TextView textView = findViewById(R.id.user_answer_math);
+        String userSolution = textView.getText().toString();
+        return userSolution;
+    }
+
+    @Override
+    public void displaySolutionCorrect() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Naisuuuuuuuuuuuuuuuuuuuuuuuuu",
+                Toast.LENGTH_SHORT);
+
+        toast.show();
+    }
+
+    @Override
+    public void displaySolutionIncorrect() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Try again",
+                Toast.LENGTH_SHORT);
+
+        toast.show();
+    }
+
+    public void onEnterButtonClickedMath(View view) {
+        presenter.onEnterButtonClicked();
+        ((TextView) findViewById(R.id.user_answer_math)).setText("");
+    }
 
     @Override
     public void navigateToNextScreen() {
         Intent intent = new Intent(this, QuestionMathActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void navigateToFinalQuizScreen() {
+        Intent intent = new Intent(this, FinalQuizActivity.class);
         startActivity(intent);
     }
 

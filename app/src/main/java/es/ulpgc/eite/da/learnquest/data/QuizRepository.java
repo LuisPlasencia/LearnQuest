@@ -441,14 +441,14 @@ public class QuizRepository implements RepositoryContract {
 
     }
 
-   /* @Override
+   @Override
     public void getQuestionMathList(
             final QuizUnitItem quizUnit, final GetQuestionMathListCallback callback) {
 
         getQuestionMathList(quizUnit.id, callback);
     }
 
-    /*@Override
+    @Override
     public void getQuestionMathList(
             final int quizUnitId, final GetQuestionMathListCallback callback) {
 
@@ -476,7 +476,7 @@ public class QuizRepository implements RepositoryContract {
                 }
             }
         });
-    }*/
+    }
 
     @Override
     public void getQuizUnit(final int id, final GetQuizUnitCallback callback) {
@@ -523,7 +523,7 @@ public class QuizRepository implements RepositoryContract {
 
     }
 
-   /* @Override
+   @Override
     public void getQuizUnitList(final GetQuizUnitListCallback callback) {
         AsyncTask.execute(new Runnable() {
 
@@ -535,7 +535,7 @@ public class QuizRepository implements RepositoryContract {
             }
         });
 
-    }*/
+    }
 
     public boolean loadSubjectFromJSON(String json) {
 
@@ -611,7 +611,7 @@ public class QuizRepository implements RepositoryContract {
         return quizUnits;
     }
 
-   /* private List<QuestionMathItem> loadQuestionMath(int quizUnitId) {
+    private List<QuestionMathItem> loadQuestionMath(int quizUnitId) {
         List<QuestionMathItem> questionMath = new ArrayList();
         for (QuizUnitItem quizUnit: quizUnits) {
             if(quizUnit.id == quizUnitId) {
@@ -620,7 +620,7 @@ public class QuizRepository implements RepositoryContract {
         }
 
         return questionMath;
-    }*/
+    }
 
 
 
@@ -636,7 +636,7 @@ public class QuizRepository implements RepositoryContract {
         return null;
     }
 
-    /*private QuestionMathItem loadQuestionMaths(int id) {
+    private QuestionMathItem loadQuestionMaths(int id) {
         for (QuizUnitItem quizUnit: quizUnits) {
             for (QuestionMathItem questionMath: quizUnit.questionMathItems) {
                 if(questionMath.id == id) {
@@ -646,7 +646,7 @@ public class QuizRepository implements RepositoryContract {
         }
 
         return null;
-    }*/
+    }
 
 
     private QuestItem loadQuest(int id) {
@@ -662,18 +662,18 @@ public class QuizRepository implements RepositoryContract {
         questList.add(quest);
     }
 
-   /* private void insertQuizUnit(QuizUnitItem quizUnit) {
+    private void insertQuizUnit(QuizUnitItem quizUnit) {
         quizUnits.add(quizUnit);
-    }*/
+    }
 
 
     private List<QuestItem> loadQuests() {
         return questList;
     }
 
-    /*private List<QuizUnitItem> loadQuizUnit() {
+    private List<QuizUnitItem> loadQuizUnit() {
         return quizUnits;
-    }*/
+    }
 
 ////////////////////////////MATH JSON///////////////////////
 

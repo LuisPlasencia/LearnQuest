@@ -3,6 +3,7 @@ package es.ulpgc.eite.da.learnquest.questionMath;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
@@ -23,15 +24,35 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     @Override
     public void fetchQuestionMathData() {
 
+        // Log.e(TAG, "fetchCategoryListData()");
 
-      QuizUnitItem quizUnit = router.getDataFromQuizUnitScreen();
+        // call the model
+        QuizUnitItem quizUnitItem = router.getDataFromQuizUnitScreen();
+
+        if (quizUnitItem != null) {
+            state.quizUnitItem = quizUnitItem;
+        }
+
+        // call the model
+        model.fetchQuestionMathListData(state.quizUnitItem,
+                new RepositoryContract.GetQuestionMathListCallback() {
+
+                    @Override
+                    public void setQuestionMathList(List<QuestionMathItem> questionMathItems) {
+                        state.questionMathItems = questionMathItems;
+
+                        view.get().displayData(state);
+                    }
+                });
+
+     /* QuizUnitItem quizUnit = router.getDataFromQuizUnitScreen();
       if(quizUnit != null) {
           state.quizUnitItem = quizUnit;
       }
       view.get().displayData(state);
 
+    }*/
     }
-
 
     @Override
     public void fetchData() {
@@ -45,41 +66,77 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     @Override
     public void onStart() {
 
-      /* // state.mathQuestionNumber = "200";
-        //state.mathQuestionText = "Texto de prueba";
-*/
-        //view.get().resetReply();
-
-        state.mathNextEnabled = false;
-        state.mathEnterEnabled = true;
-
         disableNextButton();
-
         view.get().displayData(state);
-
 
     }
 
     @Override
     public void onRestart() {
-        //  model.setQuizIndex(state.quizIndex);
-
+        model.setQuizIndex(state.quizIndex);
     }
 
     @Override
     public void onResume() {
-
+        view.get().displayData(state);
     }
 
     private void disableNextButton() {
         state.mathNumbersEnabled = true;
         state.mathHintEnabled = true;
+        state.mathEnterEnabled = true;
         state.mathNextEnabled = false;
     }
 
     private void enableNextButton() {
         state.mathNextEnabled = true;
         state.mathHintEnabled = false;
+    }
+
+    @Override
+    public void onNextButtonClicked() {
+       model.updateNextQuestion();
+       if(model.isQuizFinished()){
+           view.get().navigateToFinalQuizScreen();
+           return;
+
+       }
+       state.mathAnswerText = "";
+       onStart();
+
+    }
+    @Override
+    public int getIndex(){
+        return model.getQuizIndex();
+
+    }
+
+    @Override
+    public void onEnterButtonClicked(){
+        String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
+        String userSolution = view.get().getUserSolution();
+
+        if(solution.equals(userSolution)){
+            state.mathEnterEnabled=false;
+            state.mathNextEnabled=true;
+            state.mathNumbersEnabled=false;
+            correctLabel();
+        } else {
+            state.mathEnterEnabled=true;
+            state.mathNextEnabled=false;
+            InCorrectLabel();
+        }
+        view.get().displayData(state);
+
+    }
+    public void correctLabel(){
+        state.mathAnswerText = "Correct";
+        view.get().displaySolutionCorrect();
+    }
+
+    public void InCorrectLabel(){
+        state.mathAnswerText = "Incorrect";
+        view.get().displaySolutionIncorrect();
     }
 
 
@@ -96,10 +153,6 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     @Override
     public void onDestroy() {
         // Log.e(TAG, "onDestroy()");
-    }
-
-    @Override
-    public void onNumberClicked() {
     }
 
 
