@@ -37,7 +37,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void onLetsGoClicked(String username, String password) {
         state.username = username;
         state.password = password;
-        Log.d("LoginPresenter", state.password);
         for(int i = 0; i<state.users.size();i++){
             if(username.equals(state.users.get(i).getUsername())){
                 if(!password.equals(state.users.get(i).getPassword())){
@@ -46,6 +45,8 @@ public class LoginPresenter implements LoginContract.Presenter {
                 }
                 router.passStateToProfileScreen(state);
                 model.setUsuarioActual(state.users.get(i));
+                Log.d("onLetsGoClicked", String.valueOf(state.users.size()));
+                Log.d("onLetsGoClicked",state.users.get(i).getPhotoAdress() + " " + state.users.get(i).getId() + " " + state.users.get(i).getUsername() + " " + state.users.get(i).getPassword() );
                 view.get().navigateToProfileScreen();
                 return;
             }
@@ -55,6 +56,13 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onResume() {
+        model.getDatabaseUsers(new RepositoryContract.GetUserListCallback(){
+            @Override
+            public void setUserList(List<User> users){
+                state.users = users;
+                Log.d("fetchUserListData", String.valueOf(state.users.size()));
+            }
+        });
         state.username = "";
         state.password = "";
         view.get().displayCurrentData(state);
@@ -71,7 +79,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         @Override
         public void setUserList(List<User> users){
             state.users = users;
-
+            Log.d("fetchUserListData2", String.valueOf(state.users.size()));
          //   view.get().displayUserData(state);
         }
         });

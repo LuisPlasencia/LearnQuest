@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.profile;
 
+import android.util.Log;
+
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
@@ -47,12 +49,6 @@ public class ProfileModel implements ProfileContract.Model {
     public void setUsername(String username) {
         repository.setUsername(username);
     }
-
-    @Override
-    public void resetDefaultUser(){
-        repository.resetDefaultUser();
-    }
-
 
     @Override
     public void logout(){

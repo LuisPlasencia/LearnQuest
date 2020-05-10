@@ -41,7 +41,7 @@ public interface RegistroContract {
     }
 
     interface Model {
-        void addUser(String username, String password, String email, RepositoryContract.AddUserCallback callback);
+        void addUser(String username, String password, String email, String usernameImage, RepositoryContract.AddUserCallback callback);
 
         boolean isFilledTextEmpty(String username, String password, String email);
     }

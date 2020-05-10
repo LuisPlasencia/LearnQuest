@@ -10,7 +10,6 @@ public interface RepositoryContract {
 
     User getUser(String username, String password);
 
-    void resetDefaultUser();
 
     void setUserActual(User user);
 
@@ -143,8 +142,6 @@ public interface RepositoryContract {
     ////////////////////////////////////////////// JSON MATH /////////////
 
 
-
-
     void getUserList(QuizRepository.GetUserListCallback callback);
 
     void addUser(
@@ -152,5 +149,6 @@ public interface RepositoryContract {
 
     void updateUser(
             RepositoryContract.UpdateUserCallback callback);
+
 
 }

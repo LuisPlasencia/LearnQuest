@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.learnquest.login;
 
 import android.util.Log;
 
+import java.util.List;
+
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
@@ -28,6 +30,13 @@ public class LoginModel implements LoginContract.Model {
             }
         });
     }
+
+
+    @Override
+    public void getDatabaseUsers(RepositoryContract.GetUserListCallback callback) {
+        repository.getUserList(callback);
+    }
+
 
     @Override
     public void setUsuarioActual(User user) {

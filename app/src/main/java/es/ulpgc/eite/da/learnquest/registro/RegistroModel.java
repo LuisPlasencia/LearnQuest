@@ -15,8 +15,9 @@ public class RegistroModel implements RegistroContract.Model {
     }
 
     @Override
-    public void addUser(String username, String password, String email, RepositoryContract.AddUserCallback callback) {
+    public void addUser(String username, String password, String email, String usernameImage, RepositoryContract.AddUserCallback callback) {
         User newUser = new User(username, password, repository.getNumberOfUsers());
+        newUser.setPhotoAdress(usernameImage);
         repository.addUser(newUser, callback);
     }
 

@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
+import android.util.Log;
+
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
@@ -14,6 +16,7 @@ public class FinalQuizModel implements FinalQuizContract.Model {
 
     @Override
     public User getUserActual() {
+        Log.d("finalquiz", String.valueOf(repository.getNumberOfUsers()));
         return repository.getUserActual();
     }
 

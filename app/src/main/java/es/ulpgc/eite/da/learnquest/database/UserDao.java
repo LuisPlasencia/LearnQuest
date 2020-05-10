@@ -27,5 +27,5 @@ public interface UserDao {
     List<User> loadUsers();
 
     @Query("SELECT * FROM users WHERE id = :id LIMIT 1")
-    User loadCUsers(int id);
+    User loadUser(int id);
 }

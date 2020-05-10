@@ -27,13 +27,14 @@ public class RegistroPresenter implements RegistroContract.Presenter {
         String username = view.get().getUsernameInput();
         String password = view.get().getEmailInput();
         String email = view.get().getPasswordInput(); //El email se usará más adelante (siguiente sprint)
+        Log.d("hola", state.usernameImage);
         if(!model.isFilledTextEmpty(username, password, email)) {
-            model.addUser(username, password, email, new RepositoryContract.AddUserCallback(){
+            model.addUser(username, password, email, state.usernameImage, new RepositoryContract.AddUserCallback(){
                 @Override
                 public void onUserAdded(){
+                    onBackPressed();
                 }
         });
-        onBackPressed();
         } else {
             Log.d(TAG, username + password + email);
             view.get().displayWarning();
@@ -47,6 +48,7 @@ public class RegistroPresenter implements RegistroContract.Presenter {
 
     @Override
     public void onSelectionClicked(String selectedItem) {
+        state.usernameImage = selectedItem;
         view.get().displayPictureSelected(selectedItem);
 
     }

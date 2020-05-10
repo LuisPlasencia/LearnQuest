@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -64,13 +65,14 @@ public class ProfileActivity
         ((TextView) findViewById(R.id.level_display)).setText(String.valueOf("Level: " + viewModel.level));
         ((TextView) findViewById(R.id.exp_to_display)).setText(String.valueOf(viewModel.sublevel + " / 100"));
         String photo = presenter.getPhoto();
-        if(photo.equals("android.R.drawable.ic_menu_camera")){
+        Log.d("displayProfileData", photo);
+        if(photo.equals("Predeterminada")){
             ((ImageView) findViewById(R.id.profile_photo)).setImageResource(android.R.drawable.ic_menu_camera);
-        }else if(photo.equals("R.drawable.patata")){
+        }else if(photo.equals("Patata")){
             ((ImageView) findViewById(R.id.profile_photo)).setImageResource(R.drawable.patata);
-        }else if(photo.equals("R.drawable.rabano")){
+        }else if(photo.equals("Rabano")){
             ((ImageView) findViewById(R.id.profile_photo)).setImageResource(R.drawable.rabano);
-        }else if(photo.equals("R.drawable.lechuga")){
+        }else if(photo.equals("Lechuga")){
             ((ImageView) findViewById(R.id.profile_photo)).setImageResource(R.drawable.lechuga);
         }
         displayprogressBar(viewModel.sublevel);
@@ -128,21 +130,21 @@ public class ProfileActivity
     @Override
     public void navigateToQuestsScreen() {
         Intent intent = new Intent(this, QuestsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         startActivity(intent);
     }
 
     @Override
     public void navigateAchievementsScreen() {
         Intent intent = new Intent(this, LogrosActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
     @Override
     public void navigateLoginScreen() {
         Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
         startActivity(intent);
     }
 

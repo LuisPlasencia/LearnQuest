@@ -1,6 +1,7 @@
 package es.ulpgc.eite.da.learnquest.login;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
@@ -41,6 +42,9 @@ public interface LoginContract {
         void fetchUserListData(RepositoryContract.GetUserListCallback callback);
 
         void setUsuarioActual(User user);
+
+        void getDatabaseUsers(RepositoryContract.GetUserListCallback callback);
+
     }
 
     interface Router {

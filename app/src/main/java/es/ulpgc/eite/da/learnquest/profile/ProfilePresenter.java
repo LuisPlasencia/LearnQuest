@@ -23,20 +23,19 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void onStart() {
         LoginState loginState = router.getLoginState();
         if (loginState != null){
-            state.user = model.getUser(loginState.username, loginState.password);
-            model.setUserActual(state.user);
-            state.username = model.getUsername();
-            if(state.user.getId() == 0 && !loginState.username.equals("")){
-                state.username = loginState.username;
-                model.setUsername(state.username);
-            }
+//            state.user = model.getUser(loginState.username, loginState.password);
+//            model.setUserActual(state.user);
+//            state.username = model.getUsername();
         } else{
-            state.user = model.getUserActual();
-            state.username = model.getUsername();
+//            state.user = model.getUserActual();
+//            state.username = model.getUsername();
         }
+        state.user = model.getUserActual();
+        state.username = model.getUsername();
         state.level = model.getLevel();
         state.sublevel = model.getSublevel();
         view.get().displayProfileData(state);
+        Log.d("ProfilePresenter", state.user.getPhotoAdress());
 
     }
 
@@ -70,9 +69,6 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         if(loginState!= null){
             loginState.username = "";
             loginState.password = "";
-            if(state.user.getId()==0){
-                model.resetDefaultUser();
-            }
         }
 
         model.logout();

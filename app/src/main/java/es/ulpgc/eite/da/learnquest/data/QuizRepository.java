@@ -42,7 +42,7 @@ public class QuizRepository implements RepositoryContract {
 
     private ArrayList<Question> questions;
  //   private ArrayList<User> usuarios;
-    private User usuariodefault;
+//    private User usuariodefault;
     private User usuarioActual;
     private Integer experienceCollected;
     private Integer quizId;
@@ -175,7 +175,9 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(callback != null) {
+                    Log.d("addUser", user.getPhotoAdress() + " " + user.getId() + " " + user.getUsername() + " " + user.getPassword());
                     getUserDao().insertUser(user);
+                    userList.add(user);
                     callback.onUserAdded();
                 }
             }
@@ -190,7 +192,9 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(callback != null) {
-                    getUserDao().updateUser(usuarioActual);
+                    if(usuarioActual.getId() != 0){
+                        getUserDao().updateUser(usuarioActual);
+                    }
                     callback.onUserUpdated();
                 }
             }
@@ -236,16 +240,6 @@ public class QuizRepository implements RepositoryContract {
         return null;
     }
 
-
-    @Override
-    public void resetDefaultUser() {
-        usuariodefault.setUsername("Username");
-        usuariodefault.setLevel(0);
-        usuariodefault.setSublevel(0);
-        usuariodefault.setMathPercentage(0);
-        usuariodefault.setEnglishPercentage(0);
-        usuariodefault.setGeographyPercentage(0);
-    }
 
     @Override
     public void setUserActual(User user) {
@@ -324,7 +318,8 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public String getPhoto() {
-        Log.d("hola",usuarioActual.getUsername());
+        Log.d("getPhoto",usuarioActual.getUsername());
+        Log.d("getPhoto",usuarioActual.getPhotoAdress());
         return usuarioActual.getPhotoAdress();
     }
 
@@ -402,6 +397,7 @@ public class QuizRepository implements RepositoryContract {
     public int getNumberOfUsers(){
         return userList.size();
     }
+
 
     ///////////////////////////////////////// JSON //////////////////////////////////
 
@@ -731,12 +727,6 @@ public class QuizRepository implements RepositoryContract {
 
         return json;
     }*/
-
-
-
-
-
-
 
 
     @Override

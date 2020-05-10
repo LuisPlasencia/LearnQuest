@@ -124,14 +124,13 @@ public class FinalQuizActivity
     @Override
     public void navigateToQuizUnitsScreen(){
         Intent intent = new Intent(this, QuizUnitActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
     @Override
     public void navigateToProfileScreen() {
         Intent intent = new Intent(this, ProfileActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 }

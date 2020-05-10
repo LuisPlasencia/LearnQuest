@@ -79,7 +79,6 @@ public class LoginActivity
     @Override
     public void navigateToRegistroScreen() {
         Intent intent = new Intent(this, RegistroActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
@@ -87,9 +86,9 @@ public class LoginActivity
     public void displayWarning(int tipo) {
         String warningText = "";
         if (tipo == 1){
-            warningText = "Introduzca un usuario válido";
+            warningText = "Invalid username";
         } else if(tipo == 2){
-            warningText = "Su contraseña es incorrecta";
+            warningText = "Wrong password";
         }
         Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
         warning.show();

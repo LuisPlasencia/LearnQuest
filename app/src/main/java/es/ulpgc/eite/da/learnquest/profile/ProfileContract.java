@@ -57,7 +57,6 @@ public interface ProfileContract {
 
         void setUsername(String username);
 
-        void resetDefaultUser();
 
         void setUserActual(User user);
 
