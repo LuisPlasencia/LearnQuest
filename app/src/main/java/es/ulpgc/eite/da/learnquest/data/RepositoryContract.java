@@ -61,7 +61,7 @@ public interface RepositoryContract {
 
     void updateQuestParameters();
 
-  //  void getQuizUnitList(GetQuizUnitListCallback callback);
+    void getQuizUnitList(GetQuizUnitListCallback callback);
 
     int getNumberOfUsers();
 
@@ -83,13 +83,13 @@ public interface RepositoryContract {
         void setQuizUnit(QuizUnitItem quizUnit);
     }
 
-   /* interface GetQuestionMathListCallback {
+    interface GetQuestionMathListCallback {
         void setQuestionMathList(List<QuestionMathItem> questionMathItem);
     }
 
     interface GetQuestionMathCallback {
         void setQuestionMath(QuestionMathItem questionMathItem);
-    }*/
+    }
 
     interface GetQuestListCallback {
         void setQuestList(List<QuestItem> quests);
@@ -111,13 +111,14 @@ public interface RepositoryContract {
         void onUserUpdated();
     }
 
-    void loadSubject(QuizRepository.FetchSubjectDataCallback callback);
+   // void loadSubject(QuizRepository.FetchSubjectDataCallback callback);
 
-    // void loadSubject(FetchSubjectDataCallback callback);
+    void loadSubject(FetchSubjectDataCallback callback);
+
     void loadUsers(
             boolean clearFirst, QuizRepository.FetchUserDataCallback callback);
 
-   // void loadSubject(FetchSubjectDataCallback callback);
+    //void loadSubject(FetchSubjectDataCallback callback);
 
     void getQuizUnitList(
             QuestItem quest, GetQuizUnitListCallback callback);
@@ -125,13 +126,13 @@ public interface RepositoryContract {
     void getQuizUnitList(
             int categoryId, GetQuizUnitListCallback callback);
 
-   /* void getQuestionMathList(
+    void getQuestionMathList(
             QuizUnitItem quizUnit, GetQuestionMathListCallback callback);
 
     void getQuestionMathList(
-            int quizUnitId, GetQuestionMathListCallback callback);*/
+            int quizUnitId, GetQuestionMathListCallback callback);
 
-    //void getQuestionMath(int id, GetQuestionMathCallback callback);
+    void getQuestionMath(int id, GetQuestionMathCallback callback);
 
     void getQuizUnit(int id, GetQuizUnitCallback callback);
 

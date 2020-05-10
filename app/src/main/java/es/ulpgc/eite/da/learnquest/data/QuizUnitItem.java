@@ -84,6 +84,6 @@ public class QuizUnitItem {
         return title;
     }
 
-    //@SerializedName("questionMath")
-    //public List<QuestionMathItem> questionMathItems;
+    @SerializedName("subSubjects")
+    public List<QuestionMathItem> questionMathItems;
 }
