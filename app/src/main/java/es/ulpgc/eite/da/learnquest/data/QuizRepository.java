@@ -395,7 +395,10 @@ public class QuizRepository implements RepositoryContract {
 
     @Override
     public int getNumberOfUsers(){
-        return userList.size();
+        if(userList != null){
+            return userList.size();
+        }
+        return 0;
     }
 
 

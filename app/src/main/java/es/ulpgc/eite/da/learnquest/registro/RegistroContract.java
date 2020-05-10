@@ -21,8 +21,6 @@ public interface RegistroContract {
 
         void onFinish();
 
-        void navigateToLogInScreen();
-
         void displayPictureSelected(String selectedItem);
     }
 
@@ -38,6 +36,7 @@ public interface RegistroContract {
         void onBackPressed();
 
         void onSelectionClicked(String selectedItem);
+
     }
 
     interface Model {

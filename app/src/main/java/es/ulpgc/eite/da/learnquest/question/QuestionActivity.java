@@ -18,6 +18,7 @@ import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.hint.HintActivity;
+import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestionActivity
         extends AppCompatActivity implements QuestionContract.View {
@@ -169,8 +170,21 @@ public class QuestionActivity
         startActivity(intent);
     }
 
+    @Override
+    public void navigateToQuizUnitScreen() {
+        Intent intent = new Intent(this, QuizUnitActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
+    }
+
     public void navigateToHintScreen() {
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        presenter.onBackPressed();
     }
 }

@@ -28,6 +28,7 @@ public class LoginActivity
 
         // do the setup
         LoginScreen.configure(this);
+
         presenter.fetchUserListData();
 
 

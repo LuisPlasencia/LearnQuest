@@ -75,6 +75,9 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void fetchUserListData() {
+        if(model.getNumberOfUsers() != 0){
+            return;
+        }
         model.fetchUserListData(new RepositoryContract.GetUserListCallback(){
         @Override
         public void setUserList(List<User> users){

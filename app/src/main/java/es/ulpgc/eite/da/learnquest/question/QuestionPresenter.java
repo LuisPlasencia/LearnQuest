@@ -157,4 +157,9 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     public void injectRouter(QuestionContract.Router router) {
         this.router = router;
     }
+
+    @Override
+    public void onBackPressed() {
+        view.get().navigateToQuizUnitScreen();
+    }
 }

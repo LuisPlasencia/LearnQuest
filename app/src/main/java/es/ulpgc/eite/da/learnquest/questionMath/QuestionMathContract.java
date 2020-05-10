@@ -29,6 +29,8 @@ public interface QuestionMathContract {
         void displaySolutionIncorrect();
 
         void navigateToNextScreen();
+
+        void navigateToQuizUnitScreen();
     }
 
     interface Presenter {

@@ -25,6 +25,8 @@ public interface QuestionContract {
         void navigateToHintScreen();
 
         void navigateToFinalQuizScreen();
+
+        void navigateToQuizUnitScreen();
     }
 
     interface Presenter {
@@ -47,6 +49,8 @@ public interface QuestionContract {
         void onHintButtonClicked();
 
         void onNextButtonClicked();
+
+        void onBackPressed();
     }
 
     interface Model {

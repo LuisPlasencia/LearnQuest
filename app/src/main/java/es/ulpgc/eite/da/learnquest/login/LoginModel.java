@@ -42,4 +42,9 @@ public class LoginModel implements LoginContract.Model {
     public void setUsuarioActual(User user) {
         repository.setUserActual(user);
     }
+
+    @Override
+    public int getNumberOfUsers(){
+        return repository.getNumberOfUsers();
+    }
 }

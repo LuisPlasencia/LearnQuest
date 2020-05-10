@@ -194,6 +194,14 @@ public class QuestionMathActivity
         Intent intent = new Intent(this, QuestionMathActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void navigateToQuizUnitScreen() {
+        Intent intent = new Intent(this, QuizUnitActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
+    }
+
     @Override
     public void navigateToFinalQuizScreen() {
         Intent intent = new Intent(this, FinalQuizActivity.class);
