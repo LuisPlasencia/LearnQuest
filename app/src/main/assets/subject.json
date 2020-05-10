@@ -11,21 +11,18 @@
           "subSubjects": [
             {
               "id": "1",
-              "mathTitle": "If there is one pig and we calculate the inverse logarithm of it, which is the result of the hypotenuse? ",
-              "mathDescription": "How much is 90 degrees plus 90 degrees?",
-              "mathSolution": "50"
+              "mathTitle": "If a triangle has two angles whose values are 98º and 45º, which is the value of the last angle?",
+              "mathSolution": "37"
             },
             {
               "id": "2",
-              "mathTitle": "If there is two triangles with a hypotenuse which value is 30, and we calculate the hypotenuse of the fusion, how much is it?",
-              "mathDescription": "How much is 90 degrees plus 90 degrees?",
-              "mathSolution": "20"
+              "mathTitle": "Acute triangle has three angles < x?",
+              "mathSolution": "90"
             },
             {
               "id": "3",
-              "mathTitle": "Last question",
-              "mathDescription": "How much is 90 degrees plus 90 degrees?",
-              "mathSolution": "0"
+              "mathTitle": "Obtuse triangle has one angle > x?",
+              "mathSolution": "90"
             }
           ]
         },
@@ -36,18 +33,20 @@
           "subSubjects": [
             {
               "id": 1,
-              "mathTitle": "Quedddddddddddddstion 1",
-              "mathDescription": "akakakakaa"
+              "mathTitle": "2x=2, find the value of x",
+              "mathSolution": "1"
             },
             {
               "id": 2,
-              "mathTitle": "Question 2",
-              "mathDescription": "How much is 920 degrees plus 90 degrees?"
+              "mathTitle": "x=-3x+8, find the value of x",
+              "mathSolution": "2"
+
             },
             {
               "id": 3,
-              "mathTitle": "Question 3",
-              "mathDescription": "How much is 1000 degrees minus 230 degrees?"
+              "mathTitle": "0=3x-9, find the value of x",
+              "mathSolution": "3"
+
             }
           ]
         }
