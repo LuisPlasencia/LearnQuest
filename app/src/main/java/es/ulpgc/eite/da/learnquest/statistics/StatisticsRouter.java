@@ -22,7 +22,7 @@ public class StatisticsRouter implements StatisticsContract.Router {
 
     @Override
     public void passStateToNextScreen(StatisticsState state) {
-        mediator.setLogrosState(state);
+        mediator.setStatisticsState(state);
     }
 
 //    @Override
@@ -32,7 +32,7 @@ public class StatisticsRouter implements StatisticsContract.Router {
 
     @Override
     public StatisticsState getStateFromPreviousScreen() {
-        return mediator.getLogrosState();
+        return mediator.getStatisticsState();
     }
 //
 //    @Override

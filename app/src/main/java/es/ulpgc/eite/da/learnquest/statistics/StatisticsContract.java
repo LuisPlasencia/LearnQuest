@@ -2,6 +2,9 @@ package es.ulpgc.eite.da.learnquest.statistics;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
+
 public interface StatisticsContract {
 
     interface View {
@@ -10,6 +13,9 @@ public interface StatisticsContract {
         void onDataUpdated(StatisticsViewModel viewModel);
 
         void navigateToNextScreen();
+
+        void displayData(StatisticsViewModel viewModel);
+
     }
 
     interface Presenter {
@@ -21,25 +27,27 @@ public interface StatisticsContract {
 
         void onResume();
 
-        void onStart();
+//        void onStart();
 
-        void onRestart();
+//        void onRestart();
 
         void onBackPressed();
 
         void onPause();
 
         void onDestroy();
+
+        void fetchUserData();
     }
 
     interface Model {
-        String getStoredData();
-
         void onDataFromNextScreen(String data);
 
         void onRestartScreen(String data);
 
         void onDataFromPreviousScreen(String data);
+
+        void getDatabaseUsers(RepositoryContract.GetUserListCallback callback);
     }
 
     interface Router {

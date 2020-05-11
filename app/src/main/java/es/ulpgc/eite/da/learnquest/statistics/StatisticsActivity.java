@@ -5,10 +5,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
+import es.ulpgc.eite.da.learnquest.data.User;
+import es.ulpgc.eite.da.learnquest.quests.QuestsViewModel;
 
 public class StatisticsActivity
         extends AppCompatActivity implements StatisticsContract.View {
@@ -16,35 +20,34 @@ public class StatisticsActivity
     public static String TAG = StatisticsActivity.class.getSimpleName();
 
     private StatisticsContract.Presenter presenter;
+    private StatisticsAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-        getSupportActionBar().setTitle(R.string.achievements);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle(R.string.statistics_text);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        listAdapter = new StatisticsAdapter(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
 
-//        listAdapter = new StatisticsAdapter(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//                QuestItem item = (QuestItem) view.getTag();
-//                presenter.selectQuestData(item);
-//            }
-//        });
-//
-//        RecyclerView recyclerView = findViewById(R.id.quests_list);
-//        recyclerView.setAdapter(listAdapter);
+        RecyclerView recyclerView = findViewById(R.id.statistics_list);
+        recyclerView.setAdapter(listAdapter);
 
         // do the setup
         StatisticsScreen.configure(this);
 
-        if (savedInstanceState == null) {
-            presenter.onStart();
+        presenter.fetchUserData();
 
-        } else {
-            presenter.onRestart();
-        }
+//        if (savedInstanceState == null) {
+//            presenter.onStart();
+//
+//        } else {
+//            presenter.onRestart();
+//        }
     }
 
     @Override
@@ -95,6 +98,21 @@ public class StatisticsActivity
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
     }
+
+    @Override
+    public void displayData(final StatisticsViewModel viewModel) {
+        //Log.e(TAG, "displayData()");
+        // deal with the data
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // deal with the data
+                listAdapter.setItems(viewModel.userList);
+            }
+        });
+    }
+
+
 
 }
 

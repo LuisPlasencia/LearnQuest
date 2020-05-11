@@ -129,17 +129,6 @@
       "mathPercentage": 15,
       "englishPercentage": 56,
       "geographyPercentage": 90
-    },
-    {
-      "id": 4,
-      "username": "c",
-      "password": "c",
-      "photoAdress": "R.drawable.lechuga",
-      "level": 3,
-      "sublevel": 90,
-      "mathPercentage": 15,
-      "englishPercentage": 56,
-      "geographyPercentage": 90
     }
   ]
 }

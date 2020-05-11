@@ -1,19 +1,15 @@
 package es.ulpgc.eite.da.learnquest.statistics;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+
 public class StatisticsModel implements StatisticsContract.Model {
 
     public static String TAG = StatisticsModel.class.getSimpleName();
 
-    private String data;
+    private RepositoryContract repository;
 
-    public StatisticsModel(String data) {
-        this.data = data;
-    }
-
-    @Override
-    public String getStoredData() {
-        // Log.e(TAG, "getStoredData()");
-        return data;
+    public StatisticsModel(RepositoryContract repository) {
+        this.repository = repository;
     }
 
     @Override
@@ -29,5 +25,10 @@ public class StatisticsModel implements StatisticsContract.Model {
     @Override
     public void onDataFromPreviousScreen(String data) {
         // Log.e(TAG, "onDataFromPreviousScreen()");
+    }
+
+    @Override
+    public void getDatabaseUsers(RepositoryContract.GetUserListCallback callback) {
+        repository.getUserList(callback);
     }
 }

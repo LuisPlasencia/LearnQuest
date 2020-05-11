@@ -1,6 +1,12 @@
 package es.ulpgc.eite.da.learnquest.statistics;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
 
 public class StatisticsPresenter implements StatisticsContract.Presenter {
 
@@ -15,31 +21,14 @@ public class StatisticsPresenter implements StatisticsContract.Presenter {
         this.state = state;
     }
 
-    @Override
-    public void onStart() {
-        // Log.e(TAG, "onStart()");
 
-        // initialize the state if is necessary
-        if (state == null) {
-            state = new StatisticsState();
-        }
-
-        // use passed state if is necessary
-        StatisticsState savedState = router.getStateFromPreviousScreen();
-        if (savedState != null) {
-
-            // update the model if is necessary
-            model.onDataFromPreviousScreen(savedState.data);
-        }
-    }
-
-    @Override
-    public void onRestart() {
-        // Log.e(TAG, "onRestart()");
-
-        // update the model if is necessary
-        model.onRestartScreen(state.data);
-    }
+//    @Override
+//    public void onRestart() {
+//        // Log.e(TAG, "onRestart()");
+//
+//        // update the model if is necessary
+//        model.onRestartScreen(state.data);
+//    }
 
     @Override
     public void onResume() {
@@ -74,6 +63,17 @@ public class StatisticsPresenter implements StatisticsContract.Presenter {
     @Override
     public void onDestroy() {
         // Log.e(TAG, "onDestroy()");
+    }
+
+    @Override
+    public void fetchUserData() {
+        model.getDatabaseUsers(new RepositoryContract.GetUserListCallback() {
+            @Override
+            public void setUserList(List<User> users){
+                state.userList = users;
+                view.get().displayData(state);
+            }
+        });
     }
 
     @Override

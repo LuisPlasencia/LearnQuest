@@ -87,7 +87,7 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
             cardView = view.findViewById(R.id.questsunit_cardview);
             title = view.findViewById(R.id.subjectName);
             percentage = view.findViewById(R.id.quest_level_id);
-            questImage = view.findViewById(R.id.quest_level_icon_geography);
+            questImage = view.findViewById(R.id.quest_level_icon);
         }
     }
 }

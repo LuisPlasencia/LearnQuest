@@ -23,7 +23,7 @@ public class AppMediator  {
     private QuizUnitState quizUnitState;
     private ProfileState profileState;
     private FinalQuizState finalQuizState;
-    private StatisticsState logrosState;
+    private StatisticsState statisticsState;
     private HintState hintState;
     private RegistroState registroState;
     private QuestToQuizUnitState questToQuizUnitState;
@@ -130,8 +130,11 @@ public class AppMediator  {
         return finalQuizState;
     }
 
-    public StatisticsState getLogrosState(){
-        return logrosState;
+    public StatisticsState getStatisticsState(){
+        if(statisticsState == null){
+            statisticsState = new StatisticsState();
+        }
+        return statisticsState;
     }
 
     public void setQuestionState(QuestionState state) {
@@ -146,8 +149,8 @@ public class AppMediator  {
        finalQuizState = state;
     }
 
-    public void setLogrosState(StatisticsState state){
-        logrosState = state;
+    public void setStatisticsState(StatisticsState state){
+        statisticsState = state;
     }
 
     public void setHintState(HintState hintState) {
