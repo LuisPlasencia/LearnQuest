@@ -88,11 +88,11 @@ public class RegistroActivity
     public void displayWarning(int tipo) {
         if(tipo == 1){
             String warningText = getResources().getString(R.string.registro_warning_text);
-            Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
+            Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_SHORT);
             warning.show();
         } else if(tipo == 2){
             String warningText = getResources().getString(R.string.registro_warning_text_same_user);
-            Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
+            Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_SHORT);
             warning.show();
         }
 

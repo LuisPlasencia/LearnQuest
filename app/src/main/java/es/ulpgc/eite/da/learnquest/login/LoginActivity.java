@@ -91,7 +91,7 @@ public class LoginActivity
         } else if(tipo == 2){
             warningText = "Wrong password";
         }
-        Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
+        Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_SHORT);
         warning.show();
     }
 
