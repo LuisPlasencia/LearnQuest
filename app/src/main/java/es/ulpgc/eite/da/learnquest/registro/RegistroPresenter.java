@@ -25,6 +25,10 @@ public class RegistroPresenter implements RegistroContract.Presenter {
     @Override
     public void onSignUpButtonClicked() {
         state.username = view.get().getUsernameInput();
+        if(state.username.length() > 8){
+            view.get().displayWarning(3);
+            return;
+        }
         state.password = view.get().getEmailInput();
         state.email = view.get().getPasswordInput(); //El email se usará más adelante (siguiente sprint)
         Log.d("hola", state.usernameImage);
@@ -37,7 +41,7 @@ public class RegistroPresenter implements RegistroContract.Presenter {
                 public void onUserAdded(){
                     onBackPressed();
                 }
-        });
+            });
         } else {
             Log.d(TAG, state.username + state.password + state.email);
             view.get().displayWarning(1);
