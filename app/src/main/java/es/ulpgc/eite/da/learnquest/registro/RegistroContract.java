@@ -17,7 +17,7 @@ public interface RegistroContract {
         
         String getUsernameInput();
 
-        void displayWarning();
+        void displayWarning(int tipo);
 
         void onFinish();
 
@@ -43,6 +43,8 @@ public interface RegistroContract {
         void addUser(String username, String password, String email, String usernameImage, RepositoryContract.AddUserCallback callback);
 
         boolean isFilledTextEmpty(String username, String password, String email);
+
+        boolean existingUsername(String username);
     }
 
     interface Router {

@@ -41,6 +41,8 @@ public interface RepositoryContract {
 
     String getUsername();
 
+    boolean existingUsername(String username);
+
     void setUsername(String username);
 
     int experienceToNextLevel();

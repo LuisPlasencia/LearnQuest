@@ -85,10 +85,17 @@ public class RegistroActivity
     }
 
     @Override
-    public void displayWarning() {
-        String warningText = getResources().getString(R.string.registro_warning_text);
-        Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
-        warning.show();
+    public void displayWarning(int tipo) {
+        if(tipo == 1){
+            String warningText = getResources().getString(R.string.registro_warning_text);
+            Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
+            warning.show();
+        } else if(tipo == 2){
+            String warningText = getResources().getString(R.string.registro_warning_text_same_user);
+            Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_LONG);
+            warning.show();
+        }
+
     }
 
     @Override

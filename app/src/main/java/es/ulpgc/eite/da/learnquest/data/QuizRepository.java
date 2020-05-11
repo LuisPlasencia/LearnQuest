@@ -185,6 +185,16 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
+    public boolean existingUsername(String username){
+        for(int i= 0; i<userList.size(); i++){
+            if(userList.get(i).getUsername().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public void updateUser(
             final UpdateUserCallback callback) {
         AsyncTask.execute(new Runnable() {

@@ -109,6 +109,7 @@
     <string name="button_next_mathQuiz">Next</string>
     <string name="button_hint_mathQuiz">Clean</string>
     <string name="profile_photo_title">Profile Image Preview</string>
+    <string name="registro_warning_text_same_user">Username already exists</string>
     <string-array name="imagenes_nombres">
         <item>Predeterminada</item>
         <item>Patata</item>

@@ -24,20 +24,23 @@ public class RegistroPresenter implements RegistroContract.Presenter {
 
     @Override
     public void onSignUpButtonClicked() {
-        String username = view.get().getUsernameInput();
-        String password = view.get().getEmailInput();
-        String email = view.get().getPasswordInput(); //El email se usará más adelante (siguiente sprint)
+        state.username = view.get().getUsernameInput();
+        state.password = view.get().getEmailInput();
+        state.email = view.get().getPasswordInput(); //El email se usará más adelante (siguiente sprint)
         Log.d("hola", state.usernameImage);
-        if(!model.isFilledTextEmpty(username, password, email)) {
-            model.addUser(username, password, email, state.usernameImage, new RepositoryContract.AddUserCallback(){
+        if(model.existingUsername(state.username)){
+            view.get().displayWarning(2);
+        }
+        else if(!model.isFilledTextEmpty(state.username, state.password, state.email)){
+            model.addUser(state.username, state.password, state.email, state.usernameImage, new RepositoryContract.AddUserCallback(){
                 @Override
                 public void onUserAdded(){
                     onBackPressed();
                 }
         });
         } else {
-            Log.d(TAG, username + password + email);
-            view.get().displayWarning();
+            Log.d(TAG, state.username + state.password + state.email);
+            view.get().displayWarning(1);
         }
     }
 

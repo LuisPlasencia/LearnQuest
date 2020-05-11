@@ -26,4 +26,9 @@ public class RegistroModel implements RegistroContract.Model {
     public boolean isFilledTextEmpty(String username, String password, String email) {
         return (username.isEmpty()) || ((password.isEmpty()) || (email.isEmpty()));
     }
+
+    @Override
+    public boolean existingUsername(String username) {
+        return repository.existingUsername(username);
+    }
 }
