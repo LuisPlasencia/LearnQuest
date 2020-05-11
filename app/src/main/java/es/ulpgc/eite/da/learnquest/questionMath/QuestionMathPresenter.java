@@ -112,6 +112,10 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
 
     }
 
+    @Override
+    public void resetHintIndex(){
+        model.setSolutionIndex(0);
+    }
 
     @Override
     public void onEnterButtonClicked(){

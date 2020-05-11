@@ -144,6 +144,7 @@ public class QuestionMathActivity
     }
 
     public void onCleanButton(View view) {
+        presenter.resetHintIndex();
         ((TextView) findViewById(R.id.user_answer_math)).setText("");
     }
 
@@ -151,6 +152,7 @@ public class QuestionMathActivity
         ((TextView) findViewById(R.id.user_answer_math)).append(presenter.onHintButtonClicked());
 
     }
+
 
     @Override
     public String getSolution(final QuestionMathViewModel viewModel) {

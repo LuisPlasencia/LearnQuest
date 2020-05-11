@@ -52,6 +52,8 @@ public interface QuestionMathContract {
 
         int getIndex();
 
+        void resetHintIndex();
+
         void onEnterButtonClicked();
 
         String onHintButtonClicked();
