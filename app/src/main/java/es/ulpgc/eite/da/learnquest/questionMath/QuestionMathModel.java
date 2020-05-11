@@ -10,10 +10,12 @@ public class QuestionMathModel implements QuestionMathContract.Model {
     public static String TAG = QuestionMathModel.class.getSimpleName();
 
    private int quizIndex;
+   private int solutionIndex;
    private RepositoryContract quizRepository;
 
     public QuestionMathModel(RepositoryContract quizRepository) {
        quizIndex = 0;
+       solutionIndex=0;
        this.quizRepository = quizRepository;
     }
 
@@ -30,8 +32,18 @@ public class QuestionMathModel implements QuestionMathContract.Model {
     }
 
     @Override
+    public void updateSolutionIndex(){
+        solutionIndex++;
+    }
+
+    @Override
     public int getQuizIndex(){
         return quizIndex;
+    }
+
+    @Override
+    public int getSolutionIndex(){
+        return solutionIndex;
     }
 
     @Override
@@ -45,6 +57,11 @@ public class QuestionMathModel implements QuestionMathContract.Model {
     }
 
     @Override
+    public void setSolutionIndex(int index) {
+        this.solutionIndex = index;
+    }
+
+    @Override
     public boolean isCorrectOption(int option) {
         int quizCorrectOption = quizRepository.getQuestion(quizIndex).getCorrectOption();
         if(option == quizCorrectOption) {
@@ -52,6 +69,17 @@ public class QuestionMathModel implements QuestionMathContract.Model {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String getCurrentQuestionNumber() {
+        int tempQuizIndex = quizIndex+1;
+        return "Question " + tempQuizIndex;
+    }
+
+    @Override
+    public void updateExperienceCollected() {
+        quizRepository.updateExperienceCollected();
     }
 
     @Override

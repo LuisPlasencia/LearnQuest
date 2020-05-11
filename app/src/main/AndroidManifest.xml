@@ -39,6 +39,7 @@
             android:theme="@style/Theme.Design.NoActionBar"
             android:screenOrientation="locked">
 
+
         </activity>
 
         <activity

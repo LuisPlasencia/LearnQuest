@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;;
 import android.util.Log;
 import android.view.MenuItem;
@@ -61,7 +62,7 @@ public class QuestionMathActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
 
         presenter.onBackPressed();
     }
@@ -109,7 +110,9 @@ public class QuestionMathActivity
                         setText(quizUnitItem.questionMathItems.get(presenter.getIndex()).mathTitle);
 
                 ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
+                ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);
 
+                findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);
                 findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
                 findViewById(R.id.math_quiz_enter).setEnabled(viewModel.mathEnterEnabled);
                 findViewById(R.id.math_quiz_1).setEnabled(viewModel.mathNumbersEnabled);
@@ -144,13 +147,9 @@ public class QuestionMathActivity
         ((TextView) findViewById(R.id.user_answer_math)).setText("");
     }
 
-    @Override
-    public void updateReply(boolean isCorrect) {
-        if (isCorrect) {
-            ((TextView) findViewById(R.id.answer_math)).setText(R.string.correct_text);
-        } else {
-            ((TextView) findViewById(R.id.answer_math)).setText(R.string.incorrect_text);
-        }
+    public void onHintButton(View view){
+        ((TextView) findViewById(R.id.user_answer_math)).append(presenter.onHintButtonClicked());
+
     }
 
     @Override
