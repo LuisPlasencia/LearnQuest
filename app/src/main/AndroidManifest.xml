@@ -56,7 +56,7 @@
         </activity>
 
         <activity
-            android:name=".logros.LogrosActivity"
+            android:name=".statistics.StatisticsActivity"
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
 

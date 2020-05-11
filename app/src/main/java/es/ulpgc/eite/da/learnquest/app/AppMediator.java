@@ -6,7 +6,7 @@ import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizState;
 import es.ulpgc.eite.da.learnquest.hint.HintState;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
-import es.ulpgc.eite.da.learnquest.logros.LogrosState;
+import es.ulpgc.eite.da.learnquest.statistics.StatisticsState;
 import es.ulpgc.eite.da.learnquest.profile.ProfileState;
 import es.ulpgc.eite.da.learnquest.question.QuestionState;
 import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathState;
@@ -23,7 +23,7 @@ public class AppMediator  {
     private QuizUnitState quizUnitState;
     private ProfileState profileState;
     private FinalQuizState finalQuizState;
-    private LogrosState logrosState;
+    private StatisticsState logrosState;
     private HintState hintState;
     private RegistroState registroState;
     private QuestToQuizUnitState questToQuizUnitState;
@@ -130,7 +130,7 @@ public class AppMediator  {
         return finalQuizState;
     }
 
-    public LogrosState getLogrosState(){
+    public StatisticsState getLogrosState(){
         return logrosState;
     }
 
@@ -146,7 +146,7 @@ public class AppMediator  {
        finalQuizState = state;
     }
 
-    public void setLogrosState(LogrosState state){
+    public void setLogrosState(StatisticsState state){
         logrosState = state;
     }
 

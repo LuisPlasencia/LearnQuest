@@ -1,31 +1,43 @@
-package es.ulpgc.eite.da.learnquest.logros;
+package es.ulpgc.eite.da.learnquest.statistics;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
+import android.view.View;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.QuestItem;
 
-public class LogrosActivity
-        extends AppCompatActivity implements LogrosContract.View {
+public class StatisticsActivity
+        extends AppCompatActivity implements StatisticsContract.View {
 
-    public static String TAG = LogrosActivity.class.getSimpleName();
+    public static String TAG = StatisticsActivity.class.getSimpleName();
 
-    private LogrosContract.Presenter presenter;
+    private StatisticsContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logros);
-        getSupportActionBar().setTitle(R.string.app_name);
+        setContentView(R.layout.activity_statistics);
+        getSupportActionBar().setTitle(R.string.achievements);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // if(savedInstanceState == null) AppMediator.resetInstance();
+//        listAdapter = new StatisticsAdapter(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                QuestItem item = (QuestItem) view.getTag();
+//                presenter.selectQuestData(item);
+//            }
+//        });
+//
+//        RecyclerView recyclerView = findViewById(R.id.quests_list);
+//        recyclerView.setAdapter(listAdapter);
 
         // do the setup
-        LogrosScreen.configure(this);
+        StatisticsScreen.configure(this);
 
         if (savedInstanceState == null) {
             presenter.onStart();
@@ -65,7 +77,7 @@ public class LogrosActivity
     }
 
     @Override
-    public void onDataUpdated(LogrosViewModel viewModel) {
+    public void onDataUpdated(StatisticsViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
@@ -73,13 +85,13 @@ public class LogrosActivity
     }
 
     @Override
-    public void injectPresenter(LogrosContract.Presenter presenter) {
+    public void injectPresenter(StatisticsContract.Presenter presenter) {
         this.presenter = presenter;
     }
 
     @Override
     public void navigateToNextScreen() {
-    Intent intent = new Intent(this, LogrosActivity.class);
+    Intent intent = new Intent(this, StatisticsActivity.class);
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
     }

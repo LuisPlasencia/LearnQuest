@@ -1,13 +1,13 @@
-package es.ulpgc.eite.da.learnquest.logros;
+package es.ulpgc.eite.da.learnquest.statistics;
 
 import java.lang.ref.WeakReference;
 
-public interface LogrosContract {
+public interface StatisticsContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(LogrosViewModel viewModel);
+        void onDataUpdated(StatisticsViewModel viewModel);
 
         void navigateToNextScreen();
     }
@@ -45,9 +45,9 @@ public interface LogrosContract {
     interface Router {
 //        void navigateToNextScreen();
 
-        void passStateToNextScreen(LogrosState state);
+        void passStateToNextScreen(StatisticsState state);
 
-        LogrosState getStateFromPreviousScreen();
+        StatisticsState getStateFromPreviousScreen();
 
 //        LogrosState getStateFromNextScreen();
 //

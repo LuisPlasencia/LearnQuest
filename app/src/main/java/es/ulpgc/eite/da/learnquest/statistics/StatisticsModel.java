@@ -1,14 +1,12 @@
-package es.ulpgc.eite.da.learnquest.logros;
+package es.ulpgc.eite.da.learnquest.statistics;
 
-import android.util.Log;
+public class StatisticsModel implements StatisticsContract.Model {
 
-public class LogrosModel implements LogrosContract.Model {
-
-    public static String TAG = LogrosModel.class.getSimpleName();
+    public static String TAG = StatisticsModel.class.getSimpleName();
 
     private String data;
 
-    public LogrosModel(String data) {
+    public StatisticsModel(String data) {
         this.data = data;
     }
 

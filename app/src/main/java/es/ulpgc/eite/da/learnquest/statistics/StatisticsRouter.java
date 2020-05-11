@@ -1,18 +1,14 @@
-package es.ulpgc.eite.da.learnquest.logros;
-
-import android.util.Log;
-import android.content.Intent;
-import android.content.Context;
+package es.ulpgc.eite.da.learnquest.statistics;
 
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 
-public class LogrosRouter implements LogrosContract.Router {
+public class StatisticsRouter implements StatisticsContract.Router {
 
-    public static String TAG = LogrosRouter.class.getSimpleName();
+    public static String TAG = StatisticsRouter.class.getSimpleName();
 
     private AppMediator mediator;
 
-    public LogrosRouter(AppMediator mediator) {
+    public StatisticsRouter(AppMediator mediator) {
         this.mediator = mediator;
     }
 
@@ -25,7 +21,7 @@ public class LogrosRouter implements LogrosContract.Router {
 //    }
 
     @Override
-    public void passStateToNextScreen(LogrosState state) {
+    public void passStateToNextScreen(StatisticsState state) {
         mediator.setLogrosState(state);
     }
 
@@ -35,7 +31,7 @@ public class LogrosRouter implements LogrosContract.Router {
 //    }
 
     @Override
-    public LogrosState getStateFromPreviousScreen() {
+    public StatisticsState getStateFromPreviousScreen() {
         return mediator.getLogrosState();
     }
 //

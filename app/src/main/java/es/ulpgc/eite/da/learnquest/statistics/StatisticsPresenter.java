@@ -1,19 +1,17 @@
-package es.ulpgc.eite.da.learnquest.logros;
-
-import android.util.Log;
+package es.ulpgc.eite.da.learnquest.statistics;
 
 import java.lang.ref.WeakReference;
 
-public class LogrosPresenter implements LogrosContract.Presenter {
+public class StatisticsPresenter implements StatisticsContract.Presenter {
 
-    public static String TAG = LogrosPresenter.class.getSimpleName();
+    public static String TAG = StatisticsPresenter.class.getSimpleName();
 
-    private WeakReference<LogrosContract.View> view;
-    private LogrosState state;
-    private LogrosContract.Model model;
-    private LogrosContract.Router router;
+    private WeakReference<StatisticsContract.View> view;
+    private StatisticsState state;
+    private StatisticsContract.Model model;
+    private StatisticsContract.Router router;
 
-    public LogrosPresenter(LogrosState state) {
+    public StatisticsPresenter(StatisticsState state) {
         this.state = state;
     }
 
@@ -23,11 +21,11 @@ public class LogrosPresenter implements LogrosContract.Presenter {
 
         // initialize the state if is necessary
         if (state == null) {
-            state = new LogrosState();
+            state = new StatisticsState();
         }
 
         // use passed state if is necessary
-        LogrosState savedState = router.getStateFromPreviousScreen();
+        StatisticsState savedState = router.getStateFromPreviousScreen();
         if (savedState != null) {
 
             // update the model if is necessary
@@ -79,17 +77,17 @@ public class LogrosPresenter implements LogrosContract.Presenter {
     }
 
     @Override
-    public void injectView(WeakReference<LogrosContract.View> view) {
+    public void injectView(WeakReference<StatisticsContract.View> view) {
         this.view = view;
     }
 
     @Override
-    public void injectModel(LogrosContract.Model model) {
+    public void injectModel(StatisticsContract.Model model) {
         this.model = model;
     }
 
     @Override
-    public void injectRouter(LogrosContract.Router router) {
+    public void injectRouter(StatisticsContract.Router router) {
         this.router = router;
     }
 }
