@@ -65,7 +65,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
 
     @Override
     public void onStart() {
-
+        state.mathQuestionNumber = model.getCurrentQuestionNumber();
         disableNextButton();
         view.get().displayData(state);
 
@@ -97,6 +97,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     public void onNextButtonClicked() {
        model.updateNextQuestion();
        if(model.isQuizFinished()){
+           state.mathAnswerText = "";
            view.get().navigateToFinalQuizScreen();
            return;
 
@@ -111,6 +112,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
 
     }
 
+
     @Override
     public void onEnterButtonClicked(){
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
@@ -120,6 +122,8 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
             state.mathEnterEnabled=false;
             state.mathNextEnabled=true;
             state.mathNumbersEnabled=false;
+            state.mathHintEnabled=false;
+            model.updateExperienceCollected();
             correctLabel();
         } else {
             state.mathEnterEnabled=true;
@@ -139,11 +143,27 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         view.get().displaySolutionIncorrect();
     }
 
+    @Override
+    public String onHintButtonClicked(){
+        String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
+        char chSolution = solution.charAt(model.getSolutionIndex());
+        String finalSolution =  String.valueOf(chSolution);
+        if(model.getSolutionIndex()==solution.length()-1){
+            state.mathHintEnabled=false;
+            view.get().displayData(state);
+            model.setSolutionIndex(0);
+            return finalSolution ;
+        }
+        model.updateSolutionIndex();
+        return finalSolution;
+
+    }
 
     @Override
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
-        view.get().navigateToQuizUnitScreen();
+        //view.get().navigateToQuizUnitScreen();
+
     }
 
     @Override

@@ -18,8 +18,6 @@ public interface QuestionMathContract {
 
         void displayData(QuestionMathViewModel viewModel);
 
-        void updateReply(boolean isCorrect);
-
         String getSolution(QuestionMathViewModel viewModel);
 
         String getUserSolution();
@@ -56,6 +54,8 @@ public interface QuestionMathContract {
 
         void onEnterButtonClicked();
 
+        String onHintButtonClicked();
+
         void onBackPressed();
 
         void onPause();
@@ -71,13 +71,23 @@ public interface QuestionMathContract {
 
         void updateNextQuestion();
 
+        void updateSolutionIndex();
+
         int getQuizIndex();
+
+        int getSolutionIndex();
 
         boolean isQuizFinished();
 
         void setQuizIndex(int index);
 
+        void setSolutionIndex(int index);
+
         boolean isCorrectOption(int option);
+
+        String getCurrentQuestionNumber();
+
+        void updateExperienceCollected();
 
         boolean getAnswer();
 

@@ -25,6 +25,4 @@ public class QuestionMathViewModel {
     public QuizUnitItem quizUnitItem;
     public QuestionMathItem questionMathItem;
     public List<QuestionMathItem> questionMathItems;
-
-
 }

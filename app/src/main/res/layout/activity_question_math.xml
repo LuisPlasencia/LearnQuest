@@ -86,15 +86,15 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
-                android:id="@+id/math_quiz_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:id="@+id/math_quiz_clean"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/button_selector"
-                android:text="@string/button_hint_mathQuiz"
                 android:onClick="onCleanButton"
+                android:text="@string/button_clean_mathQuiz"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.513"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -202,6 +202,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/math_quiz_hint"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/button_selector"
+                android:onClick="onHintButton"
+                android:text="@string/button_hint_mathQuiz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
