@@ -16,6 +16,8 @@ public interface QuestionMathContract {
 
         void resetReply();
 
+        void resetAnswer();
+
         void displayData(QuestionMathViewModel viewModel);
 
         String getSolution(QuestionMathViewModel viewModel);
@@ -55,6 +57,10 @@ public interface QuestionMathContract {
         void resetHintIndex();
 
         void onEnterButtonClicked();
+
+        void onNumberClicked();
+
+        void onCleanClicked();
 
         String onHintButtonClicked();
 

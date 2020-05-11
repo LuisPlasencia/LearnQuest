@@ -88,80 +88,94 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         state.mathNextEnabled = false;
     }
 
-    private void enableNextButton() {
-        state.mathNextEnabled = true;
-        state.mathHintEnabled = false;
-    }
-
     @Override
     public void onNextButtonClicked() {
-       model.updateNextQuestion();
-       if(model.isQuizFinished()){
-           state.mathAnswerText = "";
-           view.get().navigateToFinalQuizScreen();
-           return;
+        model.updateNextQuestion();
+        model.setSolutionIndex(0);
+        if (model.isQuizFinished()) {
+            state.mathAnswerText = "";
+            view.get().navigateToFinalQuizScreen();
+            return;
 
-       }
-       state.mathAnswerText = "";
-       onStart();
+        }
+        state.mathAnswerText = "";
+        state.mathUserAnswerText = "";
+        onStart();
 
     }
+
     @Override
-    public int getIndex(){
+    public int getIndex() {
         return model.getQuizIndex();
 
     }
 
     @Override
-    public void resetHintIndex(){
+    public void resetHintIndex() {
         model.setSolutionIndex(0);
     }
 
     @Override
-    public void onEnterButtonClicked(){
+    public void onEnterButtonClicked() {
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
         String userSolution = view.get().getUserSolution();
-
-        if(solution.equals(userSolution)){
-            state.mathEnterEnabled=false;
-            state.mathNextEnabled=true;
-            state.mathNumbersEnabled=false;
-            state.mathHintEnabled=false;
+        model.setSolutionIndex(0);
+        state.mathHintEnabled=true;
+        if (solution.equals(userSolution)) {
+            state.mathEnterEnabled = false;
+            state.mathNextEnabled = true;
+            state.mathNumbersEnabled = false;
+            state.mathHintEnabled = false;
             model.updateExperienceCollected();
             correctLabel();
         } else {
-            state.mathEnterEnabled=true;
-            state.mathNextEnabled=false;
+            state.mathEnterEnabled = true;
+            state.mathNextEnabled = false;
             InCorrectLabel();
         }
         view.get().displayData(state);
 
     }
-    public void correctLabel(){
+
+    public void correctLabel() {
         state.mathAnswerText = "Correct";
         view.get().displaySolutionCorrect();
     }
 
-    public void InCorrectLabel(){
+    public void InCorrectLabel() {
         state.mathAnswerText = "Incorrect";
         view.get().displaySolutionIncorrect();
     }
-//
     @Override
-    public String onHintButtonClicked(){
+    public void onNumberClicked(){
+        state.mathHintEnabled=false;
+        view.get().displayData(state);
+    }
+    @Override
+    public void onCleanClicked(){
+       // state.mathUserAnswerText="";
+        state.mathHintEnabled=true;
+        view.get().displayData(state);
+    }
+
+    @Override
+    public String onHintButtonClicked() {
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
         char chSolution = solution.charAt(model.getSolutionIndex());
-        String finalSolution =  String.valueOf(chSolution);
-        if(model.getSolutionIndex()==solution.length()-1){
-            state.mathHintEnabled=false;
-            view.get().displayData(state);
-            model.setSolutionIndex(0);
-            return finalSolution ;
-        }
+        String finalSolution = String.valueOf(chSolution);
+
+            if (model.getSolutionIndex() == solution.length() - 1) {
+                state.mathHintEnabled = false;
+                view.get().displayData(state);
+                model.setSolutionIndex(0);
+                return finalSolution;
+            }
+
         model.updateSolutionIndex();
         return finalSolution;
 
     }
+
 
     @Override
     public void onBackPressed() {

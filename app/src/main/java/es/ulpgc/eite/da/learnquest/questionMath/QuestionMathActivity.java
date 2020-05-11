@@ -98,6 +98,11 @@ public class QuestionMathActivity
     }
 
     @Override
+    public void resetAnswer(){
+        ((TextView) findViewById(R.id.user_answer_math)).setText("");
+    }
+
+    @Override
     public void displayData(final QuestionMathViewModel viewModel) {
 
         runOnUiThread(new Runnable() {
@@ -111,6 +116,7 @@ public class QuestionMathActivity
 
                 ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
                 ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);
+              // ((TextView) findViewById(R.id.user_answer_math)).setText(viewModel.mathUserAnswerText);
 
                 findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);
                 findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
@@ -140,12 +146,14 @@ public class QuestionMathActivity
         Button button = (Button) view;
         String buttonText = button.getText().toString();
         ((TextView) findViewById(R.id.user_answer_math)).append(buttonText);
+        presenter.onNumberClicked();
 
     }
 
     public void onCleanButton(View view) {
         presenter.resetHintIndex();
         ((TextView) findViewById(R.id.user_answer_math)).setText("");
+        presenter.onCleanClicked();
     }
 
     public void onHintButton(View view){

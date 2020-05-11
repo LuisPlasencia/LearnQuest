@@ -11,6 +11,7 @@ public class QuestionMathViewModel {
     public String mathQuestionNumber;
     public String mathQuestionText;
     public String mathAnswerText;
+    public String mathUserAnswerText;
 
     public boolean numberClicked;
     public int number;
@@ -19,6 +20,7 @@ public class QuestionMathViewModel {
     public boolean mathNextEnabled;
     public boolean mathHintEnabled;
     public boolean mathEnterEnabled;
+    public String mathCleanEnabled;
 
     //////////--------///////
 
