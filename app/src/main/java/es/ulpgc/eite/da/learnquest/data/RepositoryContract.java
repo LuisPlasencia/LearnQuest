@@ -109,6 +109,10 @@ public interface RepositoryContract {
         void onUserAdded();
     }
 
+    interface RemoveUserCallback {
+        void onUserRemoved();
+    }
+
     interface UpdateUserCallback {
         void onUserUpdated();
     }
@@ -152,6 +156,9 @@ public interface RepositoryContract {
 
     void updateUser(
             RepositoryContract.UpdateUserCallback callback);
+
+    void removeUser(
+            User user, RepositoryContract.RemoveUserCallback callback);
 
 
 }

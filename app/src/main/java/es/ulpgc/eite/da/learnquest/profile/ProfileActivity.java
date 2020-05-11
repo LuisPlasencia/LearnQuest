@@ -10,14 +10,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.login.LoginActivity;
-import es.ulpgc.eite.da.learnquest.logros.LogrosActivity;
+import es.ulpgc.eite.da.learnquest.statistics.StatisticsActivity;
 import es.ulpgc.eite.da.learnquest.quests.QuestsActivity;
 
 public class ProfileActivity
@@ -107,16 +106,18 @@ public class ProfileActivity
     }
 
     public void onButtonClicked(View view){
-        //TODO Implementar create new quest Button
         switch (view.getId()){
-            case R.id.achievements_button:
-                presenter.onAchievementsButtonClicked();
+            case R.id.statistics_button:
+                presenter.onStatisticsButtonClicked();
                 break;
             case R.id.go_button:
                 presenter.onGoQuestButtonClicked();
                 break;
             case R.id.log_out_button:
                 presenter.onLogOutButtonClicked();
+                break;
+            case R.id.removeUser_button:
+                presenter.onRemoveButtonClicked();
         }
     }
 
@@ -135,8 +136,8 @@ public class ProfileActivity
     }
 
     @Override
-    public void navigateAchievementsScreen() {
-        Intent intent = new Intent(this, LogrosActivity.class);
+    public void navigateStatisticsScreen() {
+        Intent intent = new Intent(this, StatisticsActivity.class);
         startActivity(intent);
     }
 
@@ -149,7 +150,7 @@ public class ProfileActivity
     }
 
     @Override
-    public void alertDialog() {
+    public void alertDialogLogOut() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle("Logout");
@@ -166,6 +167,29 @@ public class ProfileActivity
                 public void onClick(DialogInterface dialog, int which) {
                     return;
                 }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public void alertDialogRemove() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Remove User");
+        builder.setMessage("Are you sure you want to remove this User from the database forever?");
+        builder.setPositiveButton("Eliminate it!",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        presenter.removeUser();
+                    }
+                });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
         });
         AlertDialog dialog = builder.create();
         dialog.show();

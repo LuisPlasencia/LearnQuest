@@ -52,7 +52,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <Button
-                        android:id="@+id/achievements_button"
+                        android:id="@+id/statistics_button"
                         android:layout_width="170dp"
                         android:layout_height="70dp"
                         android:background="@drawable/button_background_math"
@@ -60,7 +60,7 @@
                         android:includeFontPadding="false"
                         android:onClick="onButtonClicked"
                         android:paddingTop="30dp"
-                        android:text="@string/achievements_button"
+                        android:text="@string/statistics_button"
                         android:textColor="@android:color/white" />
 
                     <ImageView
@@ -181,12 +181,12 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/create_quest_button"
+                android:id="@+id/removeUser_button"
                 android:layout_width="250dp"
                 android:layout_height="61dp"
-                android:background="@drawable/button_selector"
-                android:enabled="true"
-                android:text="@string/new_quest_button"
+                android:onClick="onButtonClicked"
+                android:background="@drawable/button_background_profile_red"
+                android:text="@string/remove_user"
                 android:textColor="@android:color/white" />
 
 
@@ -199,9 +199,9 @@
                 android:id="@+id/new_quest_image"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:contentDescription="@string/new_quest_icon_description"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/plus_createquest" />
+                android:contentDescription="@string/remove_user_icon_description"
+                app:srcCompat="@drawable/remove" />
 
         </LinearLayout>
 

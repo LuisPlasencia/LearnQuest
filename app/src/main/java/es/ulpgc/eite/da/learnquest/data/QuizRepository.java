@@ -411,6 +411,21 @@ public class QuizRepository implements RepositoryContract {
         return 0;
     }
 
+    @Override
+    public void removeUser(
+            final User user, final RemoveUserCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getUserDao().deleteUser(user);
+                    callback.onUserRemoved();
+                }
+            }
+        });
+    }
+
 
     ///////////////////////////////////////// JSON //////////////////////////////////
 

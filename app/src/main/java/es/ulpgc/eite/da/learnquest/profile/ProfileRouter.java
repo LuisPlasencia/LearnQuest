@@ -1,13 +1,7 @@
 package es.ulpgc.eite.da.learnquest.profile;
 
-import android.content.Intent;
-import android.content.Context;
-
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
-import es.ulpgc.eite.da.learnquest.login.LoginActivity;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
-import es.ulpgc.eite.da.learnquest.logros.LogrosActivity;
-import es.ulpgc.eite.da.learnquest.quests.QuestsActivity;
 
 public class ProfileRouter implements ProfileContract.Router {
 

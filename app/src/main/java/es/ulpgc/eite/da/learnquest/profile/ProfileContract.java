@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.profile;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
 
@@ -16,11 +17,13 @@ public interface ProfileContract {
 
         void navigateToQuestsScreen();
 
-        void navigateAchievementsScreen();
+        void navigateStatisticsScreen();
 
         void navigateLoginScreen();
 
-        void alertDialog();
+        void alertDialogLogOut();
+
+        void alertDialogRemove();
     }
 
     interface Presenter {
@@ -40,11 +43,15 @@ public interface ProfileContract {
 
         void onLogOutButtonClicked();
 
-        void onAchievementsButtonClicked();
+        void onStatisticsButtonClicked();
 
         String getPhoto();
 
         void logout();
+
+        void onRemoveButtonClicked();
+
+        void removeUser();
     }
 
     interface Model {
@@ -69,6 +76,9 @@ public interface ProfileContract {
         User getUserActual();
 
         void updateQuestParameters();
+
+        void removeUser(User user, RepositoryContract.RemoveUserCallback callback);
+
     }
 
     interface Router {

@@ -110,6 +110,12 @@
     <string name="button_hint_mathQuiz">Clean</string>
     <string name="profile_photo_title">Profile Image Preview</string>
     <string name="registro_warning_text_same_user">Username already exists</string>
+    <string name="statistics_button">Statistics</string>
+    <string name="achievements">Achievements</string>
+    <string name="statistics_text">User board</string>
+    <string name="statistics_username">Username</string>
+    <string name="remove_user">Remove user</string>
+    <string name="remove_user_icon_description">Imagen de borrado de usuario</string>
     <string-array name="imagenes_nombres">
         <item>Predeterminada</item>
         <item>Patata</item>

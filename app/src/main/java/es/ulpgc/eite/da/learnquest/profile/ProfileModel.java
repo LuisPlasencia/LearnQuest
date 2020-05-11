@@ -66,4 +66,9 @@ public class ProfileModel implements ProfileContract.Model {
         repository.updateQuestParameters();
     }
 
+    @Override
+    public void removeUser(User user, RepositoryContract.RemoveUserCallback callback) {
+        repository.removeUser(user, callback);
+    }
+
 }

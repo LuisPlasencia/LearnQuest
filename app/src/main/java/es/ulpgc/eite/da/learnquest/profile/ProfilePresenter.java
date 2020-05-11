@@ -66,7 +66,8 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void onLogOutButtonClicked() {
-        view.get().alertDialog();
+        Log.d("hola", "hola");
+        view.get().alertDialogLogOut();
     }
 
     @Override
@@ -87,9 +88,25 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
-    public void onAchievementsButtonClicked() {
+    public void onRemoveButtonClicked() {
+        Log.d("hola", "hola");
+        view.get().alertDialogRemove();
+    }
+
+    @Override
+    public void removeUser() {
+        model.removeUser(state.user, new RepositoryContract.RemoveUserCallback(){
+            @Override
+            public void onUserRemoved(){
+                logout();
+            }
+        });
+    }
+
+    @Override
+    public void onStatisticsButtonClicked() {
         router.passStateToNextScreen(state);
-        view.get().navigateAchievementsScreen();
+        view.get().navigateStatisticsScreen();
 
     }
 
