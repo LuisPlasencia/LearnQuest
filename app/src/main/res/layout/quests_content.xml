@@ -46,7 +46,7 @@
                     android:layout_height="3dp" />
 
                 <ImageView
-                    android:id="@+id/quest_level_icon"
+                    android:id="@+id/quest_level_icon_geography"
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:contentDescription="TODO"

@@ -1,7 +1,6 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +87,7 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
             cardView = view.findViewById(R.id.questsunit_cardview);
             title = view.findViewById(R.id.subjectName);
             percentage = view.findViewById(R.id.quest_level_id);
-            questImage = view.findViewById(R.id.quest_level_icon);
+            questImage = view.findViewById(R.id.quest_level_icon_geography);
         }
     }
 }

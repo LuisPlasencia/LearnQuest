@@ -115,6 +115,10 @@
     <string name="achievements">Achievements</string>
     <string name="statistics_text">User board</string>
     <string name="statistics_username">Username</string>
+    <string name="statistics_userlevel">Level 0</string>
+    <string name="statistics_math">Maths</string>
+    <string name="statistics_english">English</string>
+    <string name="statistics_geography">Geography</string>
     <string name="remove_user">Remove user</string>
     <string name="remove_user_icon_description">Imagen de borrado de usuario</string>
     <string-array name="imagenes_nombres">
