@@ -142,7 +142,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         state.mathAnswerText = "Incorrect";
         view.get().displaySolutionIncorrect();
     }
-
+//
     @Override
     public String onHintButtonClicked(){
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
