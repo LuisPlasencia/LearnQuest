@@ -19,6 +19,8 @@ public interface ProfileContract {
         void navigateAchievementsScreen();
 
         void navigateLoginScreen();
+
+        void alertDialog();
     }
 
     interface Presenter {
@@ -41,6 +43,8 @@ public interface ProfileContract {
         void onAchievementsButtonClicked();
 
         String getPhoto();
+
+        void logout();
     }
 
     interface Model {

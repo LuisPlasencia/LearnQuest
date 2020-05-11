@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
 
 public class ProfilePresenter implements ProfileContract.Presenter {
@@ -65,6 +66,11 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void onLogOutButtonClicked() {
+        view.get().alertDialog();
+    }
+
+    @Override
+    public void logout(){
         LoginState loginState = router.getLoginState();
         if(loginState!= null){
             loginState.username = "";
@@ -76,6 +82,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         state.username = "";
         state.sublevel = 0;
         state.level = 0;
+
         view.get().navigateLoginScreen();
     }
 

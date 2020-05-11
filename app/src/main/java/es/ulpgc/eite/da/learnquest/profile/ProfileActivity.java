@@ -1,8 +1,10 @@
 package es.ulpgc.eite.da.learnquest.profile;
 
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -50,8 +52,6 @@ public class ProfileActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
         presenter.onBackPressed();
     }
 
@@ -146,6 +146,29 @@ public class ProfileActivity
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
         startActivity(intent);
+    }
+
+    @Override
+    public void alertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Logout");
+        builder.setMessage("¿Are you sure you want to logout?");
+        builder.setPositiveButton("Confirm",
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    presenter.logout();
+                }
+        });
+            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    return;
+                }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }
