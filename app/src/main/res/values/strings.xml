@@ -128,4 +128,25 @@
         <item>Lechuga</item>
     </string-array>
 
+
+    ////////////////////////////--GEOGRAPHY QUIZ--/////////////////////
+    <string name="galicia_button">Galicia</string>
+    <string name="asturias_button">Asturias</string>
+    <string name="castillaYleon_button">Castilla y Leon</string>
+    <string name="cantabria_button">Cantabria</string>
+    <string name="paisVasco_button">Pais Vasco</string>
+    <string name="laRioja_button">La Rioja</string>
+    <string name="aragon_button">Aragon</string>
+    <string name="cataluna_button">Cataluna</string>
+    <string name="valencia_button">Valencia</string>
+    <string name="murcia_button">Murcia</string>
+    <string name="castillaLaMancha_button">Castilla-La Mancha</string>
+    <string name="madrid_button">Madrid</string>
+    <string name="extremadura_button">Extremadura</string>
+    <string name="andalucia_button">Andalucia</string>
+    <string name="islasCanarias_button">Islas Canarias</string>
+    <string name="islasBaleares_button">Islas Baleares</string>
+    <string name="ceuta_button">Ceuta</string>
+    <string name="melilla_button">Melilla</string>
+
 </resources>

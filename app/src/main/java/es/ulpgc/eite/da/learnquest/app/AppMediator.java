@@ -6,6 +6,7 @@ import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizState;
 import es.ulpgc.eite.da.learnquest.hint.HintState;
 import es.ulpgc.eite.da.learnquest.login.LoginState;
+import es.ulpgc.eite.da.learnquest.questionGeography.QuestionGeographyState;
 import es.ulpgc.eite.da.learnquest.statistics.StatisticsState;
 import es.ulpgc.eite.da.learnquest.profile.ProfileState;
 import es.ulpgc.eite.da.learnquest.question.QuestionState;
@@ -18,6 +19,7 @@ public class AppMediator  {
 
     private QuestionState questionState;
     private QuestionMathState questionMathState;
+    private QuestionGeographyState questionGeographyState;
     private LoginState loginState;
     private QuestsState questsState;
     private QuizUnitState quizUnitState;
@@ -116,6 +118,13 @@ public class AppMediator  {
             questionMathState = new QuestionMathState();
         }
         return questionMathState;
+    }
+
+    public QuestionGeographyState getQuestionGeographyState(){
+        if(questionGeographyState == null) {
+            questionGeographyState = new QuestionGeographyState();
+        }
+        return questionGeographyState;
     }
 
     public QuestionState getQuestionState() {

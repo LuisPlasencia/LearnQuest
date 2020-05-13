@@ -11,7 +11,7 @@
           "subSubjects": [
             {
               "id": "1",
-              "mathTitle": "If a triangle has two angles whose values are 98º and 45º, which is the value of the last angle?",
+              "mathTitle": "If a triangle has two angles whose values are 98º and 45º respectively, which is the value of the last angle?",
               "mathSolution": "37"
             },
             {
@@ -64,7 +64,7 @@
         {
           "id": 2,
           "title": "Present Continuous",
-          "description": "This is going well :D"
+          "description": "This is going well"
         }
       ]
     },
