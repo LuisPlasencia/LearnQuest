@@ -45,6 +45,11 @@ public class QuestionModel implements QuestionContract.Model {
     }
 
     @Override
+    public int getCorrectOption() {
+        return quizRepository.getQuestion(quizIndex).getCorrectOption();
+    }
+
+    @Override
     public String getCurrentQuestionNumber() {
         return "Question " + quizRepository.getQuestion(quizIndex).getId();
     }

@@ -121,6 +121,7 @@
     <string name="statistics_geography">Geography</string>
     <string name="remove_user">Remove user</string>
     <string name="remove_user_icon_description">Imagen de borrado de usuario</string>
+    <string name="question_timer_finished_text">Timeout!</string>
     <string-array name="imagenes_nombres">
         <item>Predeterminada</item>
         <item>Patata</item>

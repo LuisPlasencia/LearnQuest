@@ -22,11 +22,19 @@ public interface QuestionContract {
 
         void resetOptionColor();
 
+        void initTimer();
+
+        void startTimer();
+
+        void stopTimer();
+
         void navigateToHintScreen();
 
         void navigateToFinalQuizScreen();
 
         void navigateToQuizUnitScreen();
+
+        void updateReplyTimeFinished();
     }
 
     interface Presenter {
@@ -51,6 +59,8 @@ public interface QuestionContract {
         void onNextButtonClicked();
 
         void onBackPressed();
+
+        void onTimerFinish();
     }
 
     interface Model {
@@ -76,6 +86,7 @@ public interface QuestionContract {
 
         void updateExperienceCollected();
 
+        int getCorrectOption();
     }
 
     interface Router {

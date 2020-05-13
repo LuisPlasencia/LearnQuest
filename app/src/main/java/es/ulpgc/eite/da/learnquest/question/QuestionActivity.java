@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import es.ulpgc.eite.da.learnquest.R;
@@ -26,6 +28,9 @@ public class QuestionActivity
     public static String TAG = QuestionActivity.class.getSimpleName();
 
     private QuestionContract.Presenter presenter;
+    private ProgressBar mProgressBar;
+    private int progress;
+    private CountDownTimer mCountDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +53,43 @@ public class QuestionActivity
 
         if(savedInstanceState == null) {
             presenter.onStart();
-
         } else {
             presenter.onRestart();
         }
+    }
+
+    @Override
+    public void initTimer() {
+        progress = 0;
+        mProgressBar = (ProgressBar)findViewById(R.id.progressbar);
+        mProgressBar.setProgress(progress);
+        mCountDownTimer = new CountDownTimer(20000, 100) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                Log.d(TAG, "Tick of Progress"+ progress + millisUntilFinished);
+                progress++;
+                mProgressBar.setProgress((int) progress*100/(20000/100));
+            }
+
+            @Override
+            public void onFinish() {
+                Log.d(TAG, "onTimerFinish()");
+                presenter.onTimerFinish();
+                progress++;
+                mProgressBar.setProgress(100);
+            }
+        };
+        startTimer();
+    }
+
+    @Override
+    public void startTimer() {
+        mCountDownTimer.start();
+    }
+
+    @Override
+    public void stopTimer() {
+        mCountDownTimer.cancel();
     }
 
     private void setupToolbar() {
@@ -113,6 +151,11 @@ public class QuestionActivity
         } else {
             ((TextView) findViewById(R.id.answer_text)).setText(R.string.incorrect_text);
         }
+    }
+
+    @Override
+    public void updateReplyTimeFinished() {
+        ((TextView) findViewById(R.id.answer_text)).setText(R.string.question_timer_finished_text);
     }
 
     @Override
@@ -186,5 +229,10 @@ public class QuestionActivity
     public void onBackPressed(){
         super.onBackPressed();
         presenter.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

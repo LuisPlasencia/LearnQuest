@@ -54,6 +54,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         state.nextEnabled = false;
 
         disableNextButton();
+        view.get().initTimer();
         view.get().displayData(state);
         view.get().resetOptionColor();
     }
@@ -104,6 +105,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
             view.get().setOptionColorIncorrect(option);
         }
 
+        view.get().stopTimer();
         view.get().updateReply(isCorrect);
         view.get().displayData(state);
     }
@@ -115,6 +117,16 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         router.passDataToHintScreen(state);
         //router.navigateToHintScreen();
         view.get().navigateToHintScreen();
+    }
+
+    @Override
+    public void onTimerFinish() {
+        enableNextButton();
+        disableOptionsButtons();
+        int correctOption = model.getCorrectOption();
+        view.get().setOptionColorCorrect(correctOption);
+        view.get().updateReplyTimeFinished();
+        view.get().displayData(state);
     }
 
     @Override
@@ -141,6 +153,11 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     private void enableNextButton() {
         state.nextEnabled = true;
         state.hintEnabled = false;
+    }
+
+    private void disableOptionsButtons() {
+        state.optionClicked=true;
+        state.optionEnabled=false;
     }
 
     @Override
