@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathViewModel;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
@@ -59,10 +60,12 @@ public class QuestionGeographyActivity
 
                 ((TextView) findViewById(R.id.answer_geo)).setText(viewModel.geoAnswerText);
                 ((TextView) findViewById(R.id.question_geo_number)).setText(viewModel.geoQuestionNumber);
+                //((TextView) findViewById(R.id.user_answer_geo)).setText(viewModel.geoUserAnswerText);
+
 
                 findViewById(R.id.geo_quiz_hint).setEnabled(viewModel.geoHintEnabled);
                 findViewById(R.id.geo_quiz_next).setEnabled(viewModel.geoNextEnabled);
-                findViewById(R.id.geo_quiz_enter).setEnabled(viewModel.geoEnterEnabled);
+               // findViewById(R.id.geo_quiz_enter).setEnabled(viewModel.geoEnterEnabled);
 
                 findViewById(R.id.valencia_button).setEnabled(viewModel.geoButtonsEnabled);
                 findViewById(R.id.madrid_button).setEnabled(viewModel.geoButtonsEnabled);
@@ -85,6 +88,7 @@ public class QuestionGeographyActivity
 
     public void onNextButtonClickedGeo(View view){
         presenter.onNextButtonClicked();
+        ((TextView) findViewById(R.id.user_answer_geo)).setText("");
     }
 
     public void onLocationClicked(View view) {
@@ -105,6 +109,11 @@ public class QuestionGeographyActivity
 //    public void onHintButton(View view){
 //        ((TextView) findViewById(R.id.user_answer_geo)).append(presenter.onHintButtonClicked());
 //    }
+
+    @Override
+    public void resetUserAnswer(){
+        ((TextView) findViewById(R.id.user_answer_geo)).setText("");
+    }
 
     @Override
     public String getSolution(final QuestionGeographyViewModel viewModel) {
@@ -218,5 +227,10 @@ public class QuestionGeographyActivity
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
         finish();
+    }
+    @Override
+    public void navigateToFinalQuizScreen() {
+        Intent intent = new Intent(this, FinalQuizActivity.class);
+        startActivity(intent);
     }
 }

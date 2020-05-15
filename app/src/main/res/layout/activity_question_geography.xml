@@ -64,37 +64,28 @@
         android:id="@+id/geo_quiz_hint"
         android:layout_width="73dp"
         android:layout_height="49dp"
-        android:layout_marginTop="664dp"
         android:background="@drawable/button_selector"
         android:text="@string/button_hint_geoQuiz"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/geo_quiz_enter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="664dp"
-        android:background="@drawable/button_selector"
-        android:text="@string/button_enter_geoQuiz"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882" />
 
     <Button
         android:id="@+id/geo_quiz_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="664dp"
         android:background="@drawable/button_selector"
         android:onClick="onNextButtonClickedGeo"
         android:text="@string/button_next_geoQuiz"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882" />
 
     <Button
         android:id="@+id/extremadura_button"
@@ -191,12 +182,12 @@
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:background="@null"
-        android:stateListAnimator="@null"
-        android:text="madrid"
-        android:textSize="10dp"
         android:elevation="1dp"
-        android:textColor="@color/colorBlack"
         android:onClick="onLocationClicked"
+        android:stateListAnimator="@null"
+        android:text="@string/madrid_button"
+        android:textColor="@color/colorBlack"
+        android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
         app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
         app:layout_constraintHorizontal_bias="0.524"

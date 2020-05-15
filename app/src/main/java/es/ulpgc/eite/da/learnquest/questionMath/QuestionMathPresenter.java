@@ -116,7 +116,8 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
             state.mathNextEnabled = true;
             state.mathNumbersEnabled = false;
             state.mathHintEnabled = false;
-            model.updateExperienceCollected();
+
+
             correctLabel();
         } else {
             state.mathEnterEnabled = true;

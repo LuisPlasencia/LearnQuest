@@ -68,13 +68,17 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
     private void disableNextButton() {
         state.geoButtonsEnabled = true;
         state.geoHintEnabled = true;
-        state.geoEnterEnabled = true;
-        state.geoEnterEnabled = false;
+        state.geoNextEnabled = false;
     }
 
     @Override
     public void onNextButtonClicked(){
         model.updateNextQuestion();
+        if(model.isQuizFinished()){
+            state.geoAnswerText="";
+            view.get().navigateToFinalQuizScreen();
+            return;
+        }
         state.geoAnswerText="";
         state.geoUserAnswerText="";
         onStart();
@@ -84,6 +88,8 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
         model.resetExperience();
+        state.geoAnswerText="";
+        view.get().resetUserAnswer();
         view.get().alertDialogReturn();
     }
 
@@ -111,6 +117,7 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
             state.geoNextEnabled = true;
             state.geoButtonsEnabled = false;
             state.geoHintEnabled = false;
+            model.updateExperienceCollected();
             correctLabel();
 
         } else {

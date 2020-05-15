@@ -14,6 +14,8 @@ public interface QuestionGeographyContract {
 
         String getUserSolution();
 
+        void resetUserAnswer();
+
         String getSolution(QuestionGeographyViewModel viewModel);
 
         void displaySolutionCorrect();
@@ -27,6 +29,8 @@ public interface QuestionGeographyContract {
         void alertDialogReturn();
 
         void navigateToQuizUnitScreen();
+
+        void navigateToFinalQuizScreen();
     }
 
     interface Presenter {
@@ -70,6 +74,8 @@ public interface QuestionGeographyContract {
         int getQuizIndex();
 
         void setQuizIndex(int index);
+
+        boolean isQuizFinished();
 
         String getCurrentQuestionNumber();
 

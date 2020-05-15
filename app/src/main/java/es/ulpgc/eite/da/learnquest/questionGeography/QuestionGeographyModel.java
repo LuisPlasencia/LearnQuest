@@ -46,6 +46,10 @@ public class QuestionGeographyModel implements QuestionGeographyContract.Model {
     public void setQuizIndex(int index) {
         this.quizIndex = index;
     }
+    @Override
+    public boolean isQuizFinished() {
+        return (quizIndex == 4);
+    }
 
     @Override
     public String getCurrentQuestionNumber() {
