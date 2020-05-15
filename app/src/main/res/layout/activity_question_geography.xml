@@ -7,6 +7,81 @@
     android:background="#FFFF">
 
 
+    <TextView
+        android:id="@+id/answer_math2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:selectAllOnFocus="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorBlack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/app_bar"
+        app:layout_constraintVertical_bias="0.905" />
+
+    <TextView
+        android:id="@+id/user_answer_geo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:hint="@string/empty_string"
+        android:inputType="number"
+        android:selectAllOnFocus="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorBlack"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <Button
+        android:id="@+id/geo_quiz_hint"
+        android:layout_width="73dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="664dp"
+        android:background="@drawable/button_selector"
+        android:onClick="onHintButton"
+        android:text="@string/button_hint_mathQuiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/geo_quiz_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="664dp"
+        android:background="@drawable/button_selector"
+        android:onClick="onEnterButtonClickedMath"
+        android:text="@string/button_enter_mathQuiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/geo_quiz_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="664dp"
+        android:background="@drawable/button_selector"
+        android:onClick="onNextButtonClickedMath"
+        android:text="@string/button_next_mathQuiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button6"
         android:layout_width="75dp"
@@ -34,14 +109,14 @@
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645"
+        app:layout_constraintVertical_bias="0.498"
         app:srcCompat="@drawable/spain_map" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/valencia_button"
         android:layout_width="49dp"
         android:layout_height="28dp"
         android:layout_weight="1"
@@ -59,7 +134,25 @@
         app:layout_constraintVertical_bias="0.51" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/murcia_button"
+        android:layout_width="49dp"
+        android:layout_height="28dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:elevation="1dp"
+        android:stateListAnimator="@null"
+        android:text="@string/murcia_button"
+        android:textColor="@color/colorBlack"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintHorizontal_bias="0.671"
+        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.612" />
+
+    <Button
+        android:id="@+id/andalucia_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:background="@null"
@@ -76,7 +169,7 @@
         app:layout_constraintVertical_bias="0.657" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/madrid_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:background="@null"
@@ -93,7 +186,7 @@
         app:layout_constraintVertical_bias="0.42" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/cataluña_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:layout_marginEnd="36dp"
@@ -109,7 +202,7 @@
         app:layout_constraintVertical_bias="0.314" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/castilla_y_leon_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:layout_marginEnd="200dp"
@@ -125,7 +218,7 @@
         app:layout_constraintVertical_bias="0.314" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/asturia_button"
         android:layout_width="54dp"
         android:layout_height="12dp"
         android:layout_marginEnd="220dp"
@@ -141,7 +234,7 @@
         app:layout_constraintVertical_bias="0.198" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/pais_vasco_button"
         android:layout_width="40dp"
         android:layout_height="14dp"
         android:layout_marginEnd="152dp"
@@ -157,7 +250,7 @@
         app:layout_constraintVertical_bias="0.226" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/navarra_button"
         android:layout_width="40dp"
         android:layout_height="14dp"
         android:layout_marginEnd="128dp"
@@ -173,7 +266,7 @@
         app:layout_constraintVertical_bias="0.259" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/la_rioja_button"
         android:layout_width="40dp"
         android:layout_height="14dp"
         android:layout_marginEnd="148dp"
@@ -189,7 +282,7 @@
         app:layout_constraintVertical_bias="0.291" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/cantabria_button"
         android:layout_width="40dp"
         android:layout_height="14dp"
         android:layout_marginEnd="188dp"
@@ -205,7 +298,7 @@
         app:layout_constraintVertical_bias="0.226" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/galicia_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:layout_marginEnd="276dp"
@@ -221,7 +314,7 @@
         app:layout_constraintVertical_bias="0.236" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/aragon_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:layout_marginEnd="96dp"
@@ -237,7 +330,7 @@
         app:layout_constraintVertical_bias="0.342" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/castilla_la_macha_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:layout_marginEnd="152dp"
@@ -253,7 +346,7 @@
         app:layout_constraintVertical_bias="0.514" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/baleares_button"
         android:layout_width="62dp"
         android:layout_height="32dp"
         android:background="@null"
@@ -268,7 +361,7 @@
         app:layout_constraintVertical_bias="0.497" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/canarias_button"
         android:layout_width="87dp"
         android:layout_height="39dp"
         android:background="@null"
