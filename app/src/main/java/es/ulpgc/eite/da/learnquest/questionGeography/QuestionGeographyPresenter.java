@@ -67,7 +67,7 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
         model.resetExperience();
-        view.get().navigateToQuizUnitScreen();
+        view.get().alertDialogReturn();
     }
 
     @Override

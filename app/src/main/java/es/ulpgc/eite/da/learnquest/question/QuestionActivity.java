@@ -218,7 +218,7 @@ public class QuestionActivity
     @Override
     public void navigateToQuizUnitScreen() {
         Intent intent = new Intent(this, QuizUnitActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
         finish();
     }
