@@ -17,6 +17,8 @@ public interface FinalQuizContract {
         void navigateToProfileScreen();
 
         void finishView();
+
+        void sendEmail(User usuario, int quizId, int subjectId, int score);
     }
 
     interface Presenter {
@@ -35,6 +37,8 @@ public interface FinalQuizContract {
         void onReturnClicked();
 
         int getMedalPhoto();
+
+        void sendEmail();
     }
 
     interface Model {

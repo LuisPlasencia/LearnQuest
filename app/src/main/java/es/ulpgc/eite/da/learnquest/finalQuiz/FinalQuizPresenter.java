@@ -3,6 +3,7 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
 
 
 public class FinalQuizPresenter implements FinalQuizContract.Presenter {
@@ -66,6 +67,11 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
     }
 
     @Override
+    public void sendEmail() {
+        view.get().sendEmail(state.user, state.quizId, state.subjectId, state.experience_earned);
+    }
+
+    @Override
     public void injectView(WeakReference<FinalQuizContract.View> view) {
         this.view = view;
     }
@@ -79,4 +85,6 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
     public void injectRouter(FinalQuizContract.Router router) {
         this.router = router;
     }
+
+
 }

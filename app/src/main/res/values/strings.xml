@@ -111,6 +111,13 @@
         <item>Rabano</item>
         <item>Lechuga</item>
     </string-array>
+    <string name="share_score_text">Share score</string>
+    <string name="email_shareScoreMessage">Learn Quest App! Test your skills</string>
+    <string name="subject_maths">Maths</string>
+    <string name="subject_english">English</string>
+    <string name="subject_geography">Geography</string>
+    <string name="subject_unregistered">Unregistered Subject</string>
+    <string name="email_errorToast">There is no email client installed.</string>
 
     ///////////////////////--MATH QUIZ--////////////////////////
     <string name="maths_toolbar">Maths Quiz</string>
@@ -163,6 +170,7 @@
     <string name="islasBaleares_button">Islas Baleares</string>
     <string name="ceuta_button">Ceuta</string>
     <string name="melilla_button">Melilla</string>
+
 
 
 </resources>

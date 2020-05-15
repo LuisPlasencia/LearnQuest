@@ -5,17 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
+import es.ulpgc.eite.da.learnquest.data.User;
 import es.ulpgc.eite.da.learnquest.profile.ProfileActivity;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
+import es.ulpgc.eite.da.learnquest.registro.RegistroActivity;
 
 public class FinalQuizActivity
         extends AppCompatActivity implements FinalQuizContract.View {
@@ -132,5 +137,40 @@ public class FinalQuizActivity
         Intent intent = new Intent(this, ProfileActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
+    }
+
+    public void onShareClicked(View view) {
+        presenter.sendEmail();
+    }
+
+    @Override
+    public void sendEmail(User usuario, int quizId, int subjectId, int score) {
+        String subject = "";
+        if (subjectId == 1) {
+            subject = getString(R.string.subject_maths);
+        } else if (subjectId == 2) {
+            subject = getString(R.string.subject_english);
+        } else if (subjectId == 3) {
+            subject = getString(R.string.subject_geography);
+        } else {
+            subject = getString(R.string.subject_unregistered);
+        }
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+
+
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_shareScoreMessage));
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Try Learn Quest for free! I'm level " + String.valueOf(usuario.getLevel()) + "," + String.valueOf(usuario.getSublevel()) + " and I just got a score of " + String.valueOf(score) + " exp points in " + subject + "Quest, " + "quiz number" + String.valueOf(quizId));
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished sending email...", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(FinalQuizActivity.this,
+                    R.string.email_errorToast, Toast.LENGTH_SHORT).show();
+        }
     }
 }
