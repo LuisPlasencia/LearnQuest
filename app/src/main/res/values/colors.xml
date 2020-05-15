@@ -7,4 +7,5 @@
     <color name="colorBlack">#0a0a0a</color>
     <color name="colorCorrectOption">#4CAF50</color>
     <color name="colorIncorrectOption">#C14035</color>
+    <color name="gray">#707070</color><!--this your color-->
 </resources>
