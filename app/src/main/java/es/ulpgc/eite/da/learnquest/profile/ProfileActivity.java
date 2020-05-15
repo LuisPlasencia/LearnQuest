@@ -152,9 +152,9 @@ public class ProfileActivity
     public void alertDialogLogOut() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle("Logout");
-        builder.setMessage("¿Are you sure you want to logout?");
-        builder.setPositiveButton("Confirm",
+        builder.setTitle(R.string.message_returnLoginAlert);
+        builder.setMessage(R.string.details_returnLoginAlert);
+        builder.setPositiveButton(R.string.confirm,
             new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -175,9 +175,9 @@ public class ProfileActivity
     public void alertDialogRemove() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle("Remove User");
-        builder.setMessage("Are you sure you want to remove this User from the database forever?");
-        builder.setPositiveButton("Eliminate it!",
+        builder.setTitle(R.string.message_eminateUserAlert);
+        builder.setMessage(R.string.details_eliminateUserAlert);
+        builder.setPositiveButton(R.string.confirm_eliminateUserAlert,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

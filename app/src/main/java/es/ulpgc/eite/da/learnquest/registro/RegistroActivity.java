@@ -95,7 +95,7 @@ public class RegistroActivity
             Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_SHORT);
             warning.show();
         }else if(tipo == 3){
-            String warningText = "Invalid username, it is too long";
+            String warningText = getString(R.string.registro_warning_textTooLong);
             Toast warning = Toast.makeText(this, warningText, Toast.LENGTH_SHORT);
             warning.show();
         }

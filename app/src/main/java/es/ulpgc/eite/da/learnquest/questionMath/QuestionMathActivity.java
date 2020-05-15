@@ -239,9 +239,9 @@ public class QuestionMathActivity
     public void alertDialogReturn() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle("Leaving the Test");
-        builder.setMessage("You will lose all progress");
-        builder.setPositiveButton("Confirm",
+        builder.setTitle(R.string.message_returnQuizAlert);
+        builder.setMessage(R.string.details_returnQuizAlert);
+        builder.setPositiveButton(R.string.confirm,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -92,6 +92,26 @@
     <string name="registro_warning_text">There is an empty field. Please check everything is filled correctly</string>
     <string name="subject">Subject</string>
 
+    <string name="message_returnQuizAlert">Leaving the Quiz</string>
+    <string name="details_returnQuizAlert">You will lose all progress</string>
+    <string name="details_eliminateUserAlert">Are you sure you want to remove this User from the database forever?</string>
+    <string name="details_returnLoginAlert">¿Are you sure you want to logout?</string>
+    <string name="message_returnLoginAlert">Logout</string>
+    <string name="message_eminateUserAlert">Remove User</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_eliminateUserAlert">Eliminate it!</string>
+    <string name="registro_warning_textTooLong">Invalid username, it is too long</string>
+
+    <string name="remove_user">Remove user</string>
+    <string name="remove_user_icon_description">Imagen de borrado de usuario</string>
+    <string name="question_timer_finished_text">Timeout!</string>
+    <string-array name="imagenes_nombres">
+        <item>Predeterminada</item>
+        <item>Patata</item>
+        <item>Rabano</item>
+        <item>Lechuga</item>
+    </string-array>
+
     ///////////////////////--MATH QUIZ--////////////////////////
 
     <string name="button_one">1</string>
@@ -119,15 +139,7 @@
     <string name="statistics_math">Maths</string>
     <string name="statistics_english">English</string>
     <string name="statistics_geography">Geography</string>
-    <string name="remove_user">Remove user</string>
-    <string name="remove_user_icon_description">Imagen de borrado de usuario</string>
-    <string name="question_timer_finished_text">Timeout!</string>
-    <string-array name="imagenes_nombres">
-        <item>Predeterminada</item>
-        <item>Patata</item>
-        <item>Rabano</item>
-        <item>Lechuga</item>
-    </string-array>
+
 
 
     ////////////////////////////--GEOGRAPHY QUIZ--/////////////////////
@@ -150,5 +162,6 @@
     <string name="islasBaleares_button">Islas Baleares</string>
     <string name="ceuta_button">Ceuta</string>
     <string name="melilla_button">Melilla</string>
+
 
 </resources>
