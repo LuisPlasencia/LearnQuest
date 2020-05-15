@@ -61,13 +61,13 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
 
     @Override
     public void onResume() {
-
-
     }
 
     @Override
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
+        model.resetExperience();
+        view.get().navigateToQuizUnitScreen();
     }
 
     @Override

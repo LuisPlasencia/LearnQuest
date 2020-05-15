@@ -1,10 +1,12 @@
 package es.ulpgc.eite.da.learnquest.question;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -216,8 +218,9 @@ public class QuestionActivity
     @Override
     public void navigateToQuizUnitScreen() {
         Intent intent = new Intent(this, QuizUnitActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 
     public void navigateToHintScreen() {
@@ -227,7 +230,7 @@ public class QuestionActivity
 
     @Override
     public void onBackPressed(){
-        super.onBackPressed();
+   //     super.onBackPressed();
         presenter.onBackPressed();
     }
 
@@ -235,4 +238,29 @@ public class QuestionActivity
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    @Override
+    public void alertDialogReturn() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Leaving the Test");
+        builder.setMessage("You will lose all progress");
+        builder.setPositiveButton("Confirm",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        navigateToQuizUnitScreen();
+                    }
+                });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 }

@@ -43,6 +43,8 @@ public interface RepositoryContract {
 
     boolean existingUsername(String username);
 
+    void resetExperienceCollected();
+
     void setUsername(String username);
 
     int experienceToNextLevel();

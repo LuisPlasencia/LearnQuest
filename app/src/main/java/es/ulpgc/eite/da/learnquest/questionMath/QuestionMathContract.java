@@ -31,6 +31,8 @@ public interface QuestionMathContract {
         void navigateToNextScreen();
 
         void navigateToQuizUnitScreen();
+
+        void alertDialogReturn();
     }
 
     interface Presenter {
@@ -106,6 +108,8 @@ public interface QuestionMathContract {
         void onRestartScreen(String data);
 
         void onDataFromPreviousScreen(String data);
+
+        void resetExperience();
 
     }
 

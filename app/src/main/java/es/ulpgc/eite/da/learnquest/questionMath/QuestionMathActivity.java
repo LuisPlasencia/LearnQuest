@@ -1,9 +1,11 @@
 package es.ulpgc.eite.da.learnquest.questionMath;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;;
@@ -62,7 +64,7 @@ public class QuestionMathActivity
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
+      //  super.onBackPressed();
 
         presenter.onBackPressed();
     }
@@ -209,6 +211,7 @@ public class QuestionMathActivity
         Intent intent = new Intent(this, QuizUnitActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -231,4 +234,28 @@ public class QuestionMathActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void alertDialogReturn() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Leaving the Test");
+        builder.setMessage("You will lose all progress");
+        builder.setPositiveButton("Confirm",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        navigateToQuizUnitScreen();
+                    }
+                });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 }

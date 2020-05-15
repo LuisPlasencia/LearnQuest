@@ -15,6 +15,10 @@ public interface QuestionGeographyContract {
         void onDataUpdated(QuestionGeographyViewModel viewModel);
 
         void navigateToNextScreen();
+
+        void alertDialogReturn();
+
+        void navigateToQuizUnitScreen();
     }
 
     interface Presenter {
@@ -50,6 +54,8 @@ public interface QuestionGeographyContract {
         void onRestartScreen(String data);
 
         void onDataFromPreviousScreen(String data);
+
+        void resetExperience();
     }
 
     interface Router {

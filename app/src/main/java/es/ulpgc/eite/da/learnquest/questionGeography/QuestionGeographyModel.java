@@ -44,4 +44,9 @@ public class QuestionGeographyModel implements QuestionGeographyContract.Model {
     public void onDataFromPreviousScreen(String data) {
         // Log.e(TAG, "onDataFromPreviousScreen()");
     }
+
+    @Override
+    public void resetExperience(){
+        quizRepository.resetExperienceCollected();
+    }
 }

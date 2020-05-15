@@ -35,6 +35,8 @@ public interface QuestionContract {
         void navigateToQuizUnitScreen();
 
         void updateReplyTimeFinished();
+
+        void alertDialogReturn();
     }
 
     interface Presenter {
@@ -87,6 +89,8 @@ public interface QuestionContract {
         void updateExperienceCollected();
 
         int getCorrectOption();
+
+        void resetExperience();
     }
 
     interface Router {

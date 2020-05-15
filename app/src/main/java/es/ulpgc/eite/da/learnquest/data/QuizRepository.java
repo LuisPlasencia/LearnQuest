@@ -267,6 +267,11 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
+    public void resetExperienceCollected(){
+        experienceCollected = 0;
+    }
+
+    @Override
     public void logout() {
         usuarioActual = null;
     }

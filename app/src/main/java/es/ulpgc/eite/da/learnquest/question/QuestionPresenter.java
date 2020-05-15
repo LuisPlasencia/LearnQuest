@@ -177,6 +177,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     @Override
     public void onBackPressed() {
-        view.get().navigateToQuizUnitScreen();
+        model.resetExperience();
+        view.get().alertDialogReturn();
     }
 }

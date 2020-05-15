@@ -79,4 +79,9 @@ public class QuestionModel implements QuestionContract.Model {
         quizRepository.updateExperienceCollected();
     }
 
+    @Override
+    public void resetExperience(){
+        quizRepository.resetExperienceCollected();
+    }
+
 }

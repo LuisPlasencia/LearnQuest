@@ -1,7 +1,9 @@
 package es.ulpgc.eite.da.learnquest.questionGeography;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathViewModel;
+import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestionGeographyActivity
         extends AppCompatActivity implements QuestionGeographyContract.View {
@@ -69,7 +72,7 @@ public class QuestionGeographyActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+  //      super.onBackPressed();
 
         presenter.onBackPressed();
     }
@@ -105,5 +108,36 @@ public class QuestionGeographyActivity
     @Override
     public void injectPresenter(QuestionGeographyContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void alertDialogReturn() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Leaving the Test");
+        builder.setMessage("You will lose all progress");
+        builder.setPositiveButton("Confirm",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        navigateToQuizUnitScreen();
+                    }
+                });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public void navigateToQuizUnitScreen() {
+        Intent intent = new Intent(this, QuizUnitActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
+        finish();
     }
 }

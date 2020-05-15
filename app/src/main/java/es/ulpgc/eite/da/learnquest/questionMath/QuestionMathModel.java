@@ -108,5 +108,10 @@ public class QuestionMathModel implements QuestionMathContract.Model {
         // Log.e(TAG, "onDataFromPreviousScreen()");
     }
 
+    @Override
+    public void resetExperience(){
+        quizRepository.resetExperienceCollected();
+    }
+
 
 }
