@@ -23,6 +23,11 @@
               "id": "3",
               "mathTitle": "Obtuse triangle has one angle > x?",
               "mathSolution": "90"
+            },
+            {
+              "id": "4",
+              "mathTitle": "The sum of all angles of a triangle can be > 180º. Type 1: YES and Type 0: NO",
+              "mathSolution": "0"
             }
           ]
         },
@@ -47,6 +52,11 @@
               "mathTitle": "0=3x-9, find the value of x",
               "mathSolution": "3"
 
+            },
+            {
+              "id": 4,
+              "mathTitle": "A second grade equation has the following aspect: ax^2+bx+c=0. Type 1: True and Type 0: False",
+              "mathSolution": "1"
             }
           ]
         }
@@ -74,13 +84,57 @@
       "quizUnits": [
         {
           "id": 1,
-          "title": "The map of Canary Islands",
-          "description": "In this quiz you will learn all the places in Canary Islands"
+          "title": "The map of Spain",
+          "description": "Autonomous community of Spain",
+          "subSubjects3": [
+            {
+              "id": "1",
+              "geoTitle": "Where is Alicante?",
+              "geoSolution": "Valencia"
+            },
+            {
+              "id": "2",
+              "geoTitle": "The capital of Spain is...",
+              "geoSolution": "Madrid"
+            },
+            {
+              "id": "3",
+              "geoTitle": "Where is Barcelona",
+              "geoSolution": "Cataluña"
+            },
+            {
+              "id": "4",
+              "geoTitle": "Where is Gran Canaria",
+              "geoSolution": "Islas Canarias"
+            }
+          ]
         },
         {
           "id": 2,
-          "title": "The map of Spain",
-          "description": "In this quiz you will learn all the places in Spain"
+          "title": "The Canary Islands",
+          "description": "Visit Each Island",
+          "subSubjects3": [
+            {
+              "id": "1",
+              "mathTitle": "If a triangle has two angles whose values are 98º and 45º respectively, which is the value of the last angle?",
+              "mathSolution": "37"
+            },
+            {
+              "id": "2",
+              "mathTitle": "Acute triangle has three angles < x?",
+              "mathSolution": "90"
+            },
+            {
+              "id": "3",
+              "mathTitle": "Obtuse triangle has one angle > x?",
+              "mathSolution": "90"
+            },
+            {
+              "id": "4",
+              "mathTitle": "The sum of all angles of a triangle can be > 180º. Type 1: YES and Type 0: NO",
+              "mathSolution": "0"
+            }
+          ]
         }
       ]
     }
@@ -123,6 +177,17 @@
       "id": 3,
       "username": "Cunwang",
       "password": "lechuga",
+      "photoAdress": "Lechuga",
+      "level": 3,
+      "sublevel": 90,
+      "mathPercentage": 15,
+      "englishPercentage": 56,
+      "geographyPercentage": 90
+    },
+    {
+      "id": 4,
+      "username": "c",
+      "password": "c",
       "photoAdress": "Lechuga",
       "level": 3,
       "sublevel": 90,

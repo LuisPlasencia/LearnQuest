@@ -3,6 +3,12 @@ package es.ulpgc.eite.da.learnquest.questionGeography;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.QuestionGeographyItem;
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestionGeographyPresenter implements QuestionGeographyContract.Presenter {
 
@@ -15,6 +21,29 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
 
     public QuestionGeographyPresenter(QuestionGeographyState state) {
         this.state = state;
+    }
+
+
+    @Override
+    public void fetchQuestionGeoData() {
+
+        // call the model
+        QuizUnitItem quizUnitItem = router.getDataFromQuizUnitScreen();
+
+        if (quizUnitItem != null) {
+            state.quizUnitItem = quizUnitItem;
+        }
+
+        // call the model
+        model.fetchQuestionGeoListData(state.quizUnitItem,
+                new RepositoryContract.GetQuestionGeoListCallback() {
+
+                    @Override
+                    public void setQuestionGeoList(List<QuestionGeographyItem> questionGeoItems) {
+                        state.questionGeographyItems = questionGeoItems;
+                        view.get().displayData(state);
+                    }
+                });
     }
 
     @Override

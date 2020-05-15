@@ -86,4 +86,7 @@ public class QuizUnitItem {
 
     @SerializedName("subSubjects")
     public List<QuestionMathItem> questionMathItems;
+
+    @SerializedName("subSubjects3")
+    public List<QuestionGeographyItem> questionGeographyItems;
 }

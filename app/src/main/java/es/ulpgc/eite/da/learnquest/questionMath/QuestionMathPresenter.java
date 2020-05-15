@@ -40,18 +40,9 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
                     @Override
                     public void setQuestionMathList(List<QuestionMathItem> questionMathItems) {
                         state.questionMathItems = questionMathItems;
-
                         view.get().displayData(state);
                     }
                 });
-
-     /* QuizUnitItem quizUnit = router.getDataFromQuizUnitScreen();
-      if(quizUnit != null) {
-          state.quizUnitItem = quizUnit;
-      }
-      view.get().displayData(state);
-
-    }*/
     }
 
     @Override

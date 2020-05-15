@@ -477,6 +477,13 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
+    public void getQuestionGeoList(
+            final QuizUnitItem quizUnit, final GetQuestionGeoListCallback callback) {
+
+        getQuestionGeoList(quizUnit.id, callback);
+    }
+
+    @Override
     public void getQuestionMathList(
             final int quizUnitId, final GetQuestionMathListCallback callback) {
 
@@ -489,7 +496,21 @@ public class QuizRepository implements RepositoryContract {
                 }
             }
         });
+    }
 
+    @Override
+    public void getQuestionGeoList(
+            final int quizUnitId, final GetQuestionGeoListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuestionGeoList(loadQuestionGeo(quizUnitId));
+                }
+            }
+        });
     }
 
     @Override
@@ -501,6 +522,20 @@ public class QuizRepository implements RepositoryContract {
             public void run() {
                 if(callback != null) {
                     callback.setQuestionMath(loadQuestionMaths(id));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getQuestionGeo(final int id, final GetQuestionGeoCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuestionGeo(loadQuestionGeos(id));
                 }
             }
         });
@@ -649,6 +684,16 @@ public class QuizRepository implements RepositoryContract {
 
         return questionMath;
     }
+    private List<QuestionGeographyItem> loadQuestionGeo(int quizUnitId) {
+        List<QuestionGeographyItem> questionGeo = new ArrayList();
+        for (QuizUnitItem quizUnit: quizUnits) {
+            if(quizUnit.id == quizUnitId) {
+                questionGeo = quizUnit.questionGeographyItems;
+            }
+        }
+
+        return questionGeo;
+    }
 
 
 
@@ -676,6 +721,17 @@ public class QuizRepository implements RepositoryContract {
         return null;
     }
 
+    private QuestionGeographyItem loadQuestionGeos(int id) {
+        for (QuizUnitItem quizUnit: quizUnits) {
+            for (QuestionGeographyItem questionGeo: quizUnit.questionGeographyItems) {
+                if(questionGeo.id == id) {
+                    return questionGeo;
+                }
+            }
+        }
+
+        return null;
+    }
 
     private QuestItem loadQuest(int id) {
         for (QuestItem quest : questList) {
@@ -703,58 +759,9 @@ public class QuizRepository implements RepositoryContract {
         return quizUnits;
     }
 
-////////////////////////////MATH JSON///////////////////////
+////////////////////////////USER JSON///////////////////////
 
-   /* public boolean loadQuestionMathFromJSON(String json) {
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
-
-        try {
-
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonArray = jsonObject.getJSONArray(JSON_MATH_ROOT);
-
-            mathList = new ArrayList<>();
-
-            if (jsonArray.length() > 0) {
-
-                final List<QuestionMathItem> mathList = Arrays.asList(
-                        gson.fromJson(jsonArray.toString(), QuestionMathItem[].class)
-                );
-
-                for (QuestionMathItem mathItem : mathList) {
-                    insertMathItem(mathItem);
-                }
-
-                return true;
-            }
-        } catch (JSONException e) {
-            Log.e(TAG, "error: " + e);
-        }
-
-        return false;
-    }
-
-    public String loadJSONFromAssetMath() {
-
-        String json = null;
-
-        try {
-
-            InputStream is = context.getAssets().open(JSON_MATH_FILE);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-
-        } catch (IOException error) {
-            Log.e(TAG, "error: " + error);
-        }
-
-        return json;
-    }*/
 
 
     @Override

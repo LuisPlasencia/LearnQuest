@@ -15,6 +15,7 @@ import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.question.QuestionActivity;
+import es.ulpgc.eite.da.learnquest.questionGeography.QuestionGeographyActivity;
 import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathActivity;
 
 public class QuizUnitActivity
@@ -99,6 +100,8 @@ public class QuizUnitActivity
         Intent intent;
         if (subject.equals("Maths")) {
             intent = new Intent(this, QuestionMathActivity.class);
+        } else if (subject.equals("Geography")){
+            intent = new Intent(this, QuestionGeographyActivity.class);
         } else {
             intent = new Intent(this, QuestionActivity.class);
         }

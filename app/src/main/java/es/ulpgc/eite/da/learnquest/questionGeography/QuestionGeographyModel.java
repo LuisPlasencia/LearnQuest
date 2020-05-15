@@ -2,20 +2,32 @@ package es.ulpgc.eite.da.learnquest.questionGeography;
 
 import android.util.Log;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+
 public class QuestionGeographyModel implements QuestionGeographyContract.Model {
 
     public static String TAG = QuestionGeographyModel.class.getSimpleName();
 
     private String data;
+    private RepositoryContract quizRepository;
 
-    public QuestionGeographyModel(String data) {
+    public QuestionGeographyModel(RepositoryContract quizRepository) {
         this.data = data;
+        this.quizRepository = quizRepository;
     }
 
     @Override
     public String getStoredData() {
         // Log.e(TAG, "getStoredData()");
         return data;
+    }
+
+    @Override
+    public void fetchQuestionGeoListData(
+            QuizUnitItem quizUnit, final RepositoryContract.GetQuestionGeoListCallback callback) {
+        quizRepository.getQuestionGeoList(quizUnit,callback);
+
     }
 
     @Override

@@ -9,13 +9,21 @@
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="74dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="356dp"
+        android:layout_width="75dp"
+        android:layout_height="27dp"
+        android:layout_weight="1"
         android:background="@null"
+        android:elevation="1dp"
         android:stateListAnimator="@null"
-        android:text="extremadura"
-        android:textSize="10dp" />
+        android:text="@string/extremadura_button"
+        android:textColor="@color/colorBlack"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.527" />
 
     <ImageView
         android:id="@+id/mapa_de_spain"
@@ -26,10 +34,10 @@
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646"
+        app:layout_constraintVertical_bias="0.645"
         app:srcCompat="@drawable/spain_map" />
 
     <Button
@@ -38,7 +46,7 @@
         android:layout_height="28dp"
         android:layout_weight="1"
         android:background="@null"
-        android:elevation="10dp"
+        android:elevation="1dp"
         android:stateListAnimator="@null"
         android:text="@string/valencia_button"
         android:textColor="@color/colorBlack"
@@ -54,51 +62,210 @@
         android:id="@+id/button3"
         android:layout_width="62dp"
         android:layout_height="32dp"
-        android:layout_marginTop="416dp"
         android:background="@null"
         android:stateListAnimator="@null"
-        android:text="andalucia"
-        android:textSize="10dp" />
+        android:text="@string/andalucia_button"
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.657" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="62dp"
         android:layout_height="32dp"
-        android:layout_marginTop="316dp"
         android:background="@null"
         android:stateListAnimator="@null"
         android:text="madrid"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.42" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="62dp"
         android:layout_height="32dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginEnd="36dp"
         android:background="@null"
         android:stateListAnimator="@null"
         android:text="Cataluña"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.314" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="62dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="200dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/castillaYleon_button"
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.314" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="54dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="220dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/asturias_button"
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.198" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="40dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="152dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/paisVasco_button"
+        android:textSize="5dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.226" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="40dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="128dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/navarra_button"
+        android:textSize="5dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="40dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="148dp"
+        android:background="@null"
+        android:elevation="1dp"
+        android:stateListAnimator="@null"
+        android:text="@string/laRioja_button"
+        android:textSize="5dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.291" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="40dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="188dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/cantabria_button"
+        android:textSize="5dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.226" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="62dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="276dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/galicia_button"
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="62dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="96dp"
+        android:background="@null"
+        android:stateListAnimator="@null"
+        android:text="@string/aragon_button"
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.342" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="62dp"
         android:layout_height="32dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginEnd="152dp"
         android:background="@null"
         android:stateListAnimator="@null"
         android:text="Castilla la mancha"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.514" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="62dp"
         android:layout_height="32dp"
-        android:layout_marginTop="368dp"
         android:background="@null"
         android:stateListAnimator="@null"
         android:text="@string/islasBaleares_button"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/mapa_de_spain"
+        app:layout_constraintVertical_bias="0.497" />
 
     <Button
         android:id="@+id/button8"
@@ -108,6 +275,8 @@
         android:stateListAnimator="@null"
         android:text="@string/islasCanarias_button"
         android:textSize="10dp"
+        android:elevation="1dp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="@+id/mapa_de_spain"
         app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
         app:layout_constraintHorizontal_bias="0.083"
@@ -133,7 +302,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/mathTitle2"
+        android:id="@+id/geoTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

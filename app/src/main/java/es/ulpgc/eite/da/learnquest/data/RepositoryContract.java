@@ -93,6 +93,15 @@ public interface RepositoryContract {
         void setQuestionMath(QuestionMathItem questionMathItem);
     }
 
+    interface GetQuestionGeoListCallback {
+        void setQuestionGeoList(List<QuestionGeographyItem> questionGeoItem);
+    }
+
+    interface GetQuestionGeoCallback {
+        void setQuestionGeo(QuestionGeographyItem questionGeoItem);
+    }
+
+
     interface GetQuestListCallback {
         void setQuestList(List<QuestItem> quests);
     }
@@ -138,7 +147,14 @@ public interface RepositoryContract {
     void getQuestionMathList(
             int quizUnitId, GetQuestionMathListCallback callback);
 
+    void getQuestionGeoList(
+            QuizUnitItem quizUnit, GetQuestionGeoListCallback callback);
+
+    void getQuestionGeoList(
+            int quizUnitId, GetQuestionGeoListCallback callback);
+
     void getQuestionMath(int id, GetQuestionMathCallback callback);
+    void getQuestionGeo(int id, GetQuestionGeoCallback callback);
 
     void getQuizUnit(int id, GetQuizUnitCallback callback);
 
