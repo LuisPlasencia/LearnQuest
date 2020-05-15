@@ -98,7 +98,6 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     @Override
     public int getIndex() {
         return model.getQuizIndex();
-
     }
 
     @Override

@@ -12,6 +12,14 @@ public interface QuestionGeographyContract {
 
         void displayData(QuestionGeographyViewModel viewModel);
 
+        String getUserSolution();
+
+        String getSolution(QuestionGeographyViewModel viewModel);
+
+        void displaySolutionCorrect();
+
+        void displaySolutionIncorrect();
+
         void onDataUpdated(QuestionGeographyViewModel viewModel);
 
         void navigateToNextScreen();
@@ -22,6 +30,10 @@ public interface QuestionGeographyContract {
     }
 
     interface Presenter {
+        int getIndex();
+
+        void onEnterButtonClicked();
+
         void injectView(WeakReference<View> view);
 
         void injectModel(Model model);
@@ -35,6 +47,8 @@ public interface QuestionGeographyContract {
         void onStart();
 
         void onRestart();
+
+        void onNextButtonClicked();
 
         void onBackPressed();
 
@@ -50,6 +64,16 @@ public interface QuestionGeographyContract {
 
         void fetchQuestionGeoListData(
                 QuizUnitItem quizUnit, RepositoryContract.GetQuestionGeoListCallback callback);
+
+        void updateNextQuestion();
+
+        int getQuizIndex();
+
+        void setQuizIndex(int index);
+
+        String getCurrentQuestionNumber();
+
+        void updateExperienceCollected();
 
         void onRestartScreen(String data);
 

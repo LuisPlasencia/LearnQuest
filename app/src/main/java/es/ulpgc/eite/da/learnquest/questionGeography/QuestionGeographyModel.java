@@ -9,11 +9,13 @@ public class QuestionGeographyModel implements QuestionGeographyContract.Model {
 
     public static String TAG = QuestionGeographyModel.class.getSimpleName();
 
+    private int quizIndex;
     private String data;
     private RepositoryContract quizRepository;
 
     public QuestionGeographyModel(RepositoryContract quizRepository) {
         this.data = data;
+        quizIndex = 0;
         this.quizRepository = quizRepository;
     }
 
@@ -28,6 +30,32 @@ public class QuestionGeographyModel implements QuestionGeographyContract.Model {
             QuizUnitItem quizUnit, final RepositoryContract.GetQuestionGeoListCallback callback) {
         quizRepository.getQuestionGeoList(quizUnit,callback);
 
+    }
+
+    @Override
+    public void updateNextQuestion(){
+        quizIndex++;
+    }
+
+    @Override
+    public int getQuizIndex(){
+        return quizIndex;
+    }
+
+    @Override
+    public void setQuizIndex(int index) {
+        this.quizIndex = index;
+    }
+
+    @Override
+    public String getCurrentQuestionNumber() {
+        int tempQuizIndex = quizIndex+1;
+        return "Question " + tempQuizIndex;
+    }
+
+    @Override
+    public void updateExperienceCollected() {
+        quizRepository.updateExperienceCollected();
     }
 
     @Override

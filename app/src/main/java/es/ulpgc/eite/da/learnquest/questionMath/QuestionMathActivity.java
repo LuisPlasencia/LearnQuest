@@ -118,7 +118,6 @@ public class QuestionMathActivity
 
                 ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
                 ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);
-              // ((TextView) findViewById(R.id.user_answer_math)).setText(viewModel.mathUserAnswerText);
 
                 findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);
                 findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);

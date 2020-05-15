@@ -1,13 +1,18 @@
 package es.ulpgc.eite.da.learnquest.questionGeography;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
@@ -25,7 +30,7 @@ public class QuestionGeographyActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_geography);
-      //  getSupportActionBar().setTitle(R.string.app_name);
+        setupToolbar();
 
         // do the setup
         QuestionGeographyScreen.configure(this);
@@ -50,16 +55,61 @@ public class QuestionGeographyActivity
                 QuizUnitItem quizUnitItem = viewModel.quizUnitItem;
 
                 ((TextView) findViewById(R.id.geoTitle)).
-                        setText(quizUnitItem.questionGeographyItems.get(0).geoTitle);
+                        setText(quizUnitItem.questionGeographyItems.get(presenter.getIndex()).geoTitle);
 
-//                ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
-//                ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);
+                ((TextView) findViewById(R.id.answer_geo)).setText(viewModel.geoAnswerText);
+                ((TextView) findViewById(R.id.question_geo_number)).setText(viewModel.geoQuestionNumber);
 
+                findViewById(R.id.geo_quiz_hint).setEnabled(viewModel.geoHintEnabled);
+                findViewById(R.id.geo_quiz_next).setEnabled(viewModel.geoNextEnabled);
+                findViewById(R.id.geo_quiz_enter).setEnabled(viewModel.geoEnterEnabled);
 
-
-
+                findViewById(R.id.valencia_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.madrid_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.baleares_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.canarias_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.andalucia_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.extremadura_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.murcia_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.cantabria_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.pais_vasco_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.galicia_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.castilla_la_macha_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.castilla_y_leon_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.aragon_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.la_rioja_button).setEnabled(viewModel.geoButtonsEnabled);
+                findViewById(R.id.cataluña_button).setEnabled(viewModel.geoButtonsEnabled);
             }
         });
+    }
+
+    public void onNextButtonClickedGeo(View view){
+        presenter.onNextButtonClicked();
+    }
+
+    public void onLocationClicked(View view) {
+        Button button = (Button) view;
+        String buttonText = button.getText().toString();
+        ((TextView) findViewById(R.id.user_answer_geo)).setText(buttonText);
+        presenter.onEnterButtonClicked();
+
+    }
+
+    @Override
+    public String getUserSolution() {
+        TextView textView = findViewById(R.id.user_answer_geo);
+        String userSolution = textView.getText().toString();
+        return userSolution;
+    }
+
+//    public void onHintButton(View view){
+//        ((TextView) findViewById(R.id.user_answer_geo)).append(presenter.onHintButtonClicked());
+//    }
+
+    @Override
+    public String getSolution(final QuestionGeographyViewModel viewModel) {
+        QuizUnitItem quizUnitItem = viewModel.quizUnitItem;
+        return quizUnitItem.questionGeographyItems.get(presenter.getIndex()).geoSolution;
     }
 
     @Override
@@ -90,6 +140,35 @@ public class QuestionGeographyActivity
 
         presenter.onDestroy();
     }
+
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.question_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            String questionTitle = getResources().getString(R.string.geography_toolbar);
+            actionBar.setTitle(questionTitle);
+        }
+    }
+
+    @Override
+    public void displaySolutionCorrect() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Naisuuuuuuuuuuuuuuuuuuuuuuuuu",
+                Toast.LENGTH_SHORT);
+
+        toast.show();
+    }
+
+    @Override
+    public void displaySolutionIncorrect() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Try again",
+                Toast.LENGTH_SHORT);
+
+        toast.show();
+    }
+
 
     @Override
     public void onDataUpdated(QuestionGeographyViewModel viewModel) {

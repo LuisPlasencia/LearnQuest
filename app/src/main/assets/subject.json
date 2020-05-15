@@ -89,7 +89,7 @@
           "subSubjects3": [
             {
               "id": "1",
-              "geoTitle": "Where is Alicante?",
+              "geoTitle": "In which autonomous community is Alicante?",
               "geoSolution": "Valencia"
             },
             {
@@ -99,12 +99,12 @@
             },
             {
               "id": "3",
-              "geoTitle": "Where is Barcelona",
+              "geoTitle": "In which autonomous community is Barcelona",
               "geoSolution": "Cataluña"
             },
             {
               "id": "4",
-              "geoTitle": "Where is Gran Canaria",
+              "geoTitle": "In which autonomous community is La Gomera",
               "geoSolution": "Islas Canarias"
             }
           ]

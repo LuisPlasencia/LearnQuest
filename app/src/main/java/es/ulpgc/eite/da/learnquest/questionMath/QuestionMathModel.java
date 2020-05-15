@@ -48,7 +48,7 @@ public class QuestionMathModel implements QuestionMathContract.Model {
 
     @Override
     public boolean isQuizFinished() {
-        return (quizIndex == 3);
+        return (quizIndex == 4);
     }
 
     @Override

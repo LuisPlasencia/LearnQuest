@@ -11,6 +11,17 @@ public class QuestionGeographyViewModel {
     // put the view state here
     public String data;
 
+    public String geoQuestionNumber;
+    public String geoAnswerText;
+    public String geoUserAnswerText;
+
+    public boolean geoButtonsEnabled;
+    public boolean geoNextEnabled;
+    public boolean geoHintEnabled;
+    public boolean geoEnterEnabled;
+
+    /////////-------///////////
+
     public QuizUnitItem quizUnitItem;
     public QuestionMathItem questionMathItem;
     public List<QuestionGeographyItem> questionGeographyItems;
