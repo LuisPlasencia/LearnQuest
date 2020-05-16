@@ -6,7 +6,7 @@
       "quizUnits": [
         {
           "id": 1,
-          "title": "Pythagoras Theorem",
+          "title": "Triangles",
           "description": "In this quiz you will learn all about triangles",
           "subSubjects": [
             {
@@ -56,6 +56,64 @@
             {
               "id": 4,
               "mathTitle": "A second grade equation has the following aspect: ax^2+bx+c=0. Type 1: True and Type 0: False",
+              "mathSolution": "1"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Logarithms",
+          "description": "Logarithms... They are really useful! Remember the parenthesis represents the base",
+          "subSubjects": [
+            {
+              "id": 1,
+              "mathTitle": "log(1/2) 0.25 = x, find x",
+              "mathSolution": "2"
+            },
+            {
+              "id": 2,
+              "mathTitle": "log(sqrt(5)) 125 = y, find y",
+              "mathSolution": "6"
+
+            },
+            {
+              "id": 3,
+              "mathTitle": "log(2) 4 = z, find z",
+              "mathSolution": "2"
+
+            },
+            {
+              "id": 4,
+              "mathTitle": "log 1000 = x, find x",
+              "mathSolution": "3"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Math Riddles",
+          "description": "Let's see how smart you are. ",
+          "subSubjects": [
+            {
+              "id": 1,
+              "mathTitle": "If a succession is: 4,8,16,?. Find ?",
+              "mathSolution": "32"
+            },
+            {
+              "id": 2,
+              "mathTitle": "If 6=30, 3=15, 7=35 then 2=?. Find ?",
+              "mathSolution": "10"
+
+            },
+            {
+              "id": 3,
+              "mathTitle": "If a succession is: 11, 15, 20, ?. Find ?",
+              "mathSolution": "26"
+
+            },
+            {
+              "id": 4,
+              "mathTitle": "(3^2-2^3)^66=?. Find ?",
               "mathSolution": "1"
             }
           ]
