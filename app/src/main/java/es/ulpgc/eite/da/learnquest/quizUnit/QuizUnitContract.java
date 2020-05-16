@@ -60,7 +60,8 @@ public interface QuizUnitContract {
         List<QuizUnitItem> fetchQuizUnitData();
 
 
-
+        void fetchQuizUnitResultList(
+                QuestItem quest, RepositoryContract.GetQuizUnitResultListCallback getQuizUnitResultListCallback);
     }
     interface Router {
       //  void navigateToNextScreen();

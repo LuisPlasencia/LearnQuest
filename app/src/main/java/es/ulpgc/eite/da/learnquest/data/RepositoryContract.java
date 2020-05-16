@@ -71,6 +71,9 @@ public interface RepositoryContract {
 
     void addQuizResult(QuizUnitResult quizUnitResult, AddQuizResultCallback callback);
 
+    void getQuizUnitsResultList(QuestItem quest, GetQuizUnitResultListCallback getQuizUnitResultListCallback);
+
+
     ///////////////////////////////////////// JSON //////////////////////////////////
 
     interface FetchSubjectDataCallback {
@@ -83,6 +86,10 @@ public interface RepositoryContract {
 
     interface GetQuizUnitListCallback {
         void setQuizUnitList(List<QuizUnitItem> quizUnits);
+    }
+
+    interface GetQuizUnitResultListCallback {
+        void setQuizUnitResultList(List<QuizUnitResult> quizResults);
     }
 
     interface GetQuizUnitCallback {

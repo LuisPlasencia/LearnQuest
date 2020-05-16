@@ -32,6 +32,14 @@ public class QuizUnitModel implements QuizUnitContract.Model {
     }
 
     @Override
+    public void fetchQuizUnitResultList(
+            QuestItem quest, RepositoryContract.GetQuizUnitResultListCallback getQuizUnitResultListCallback) {
+        Log.e(TAG, "fetchQuizUnitResultList()");
+        quizRepository.getQuizUnitsResultList(quest, getQuizUnitResultListCallback);
+
+    }
+
+    @Override
     public int getSubjectId(){
         return quizRepository.getSubjectId();
     }

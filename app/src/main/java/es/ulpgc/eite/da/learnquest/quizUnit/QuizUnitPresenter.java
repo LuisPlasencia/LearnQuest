@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import es.ulpgc.eite.da.learnquest.app.QuestToQuizUnitState;
 import es.ulpgc.eite.da.learnquest.app.QuizUnitToQuestionState;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuizUnitPresenter implements QuizUnitContract.Presenter {
@@ -41,13 +44,28 @@ public class QuizUnitPresenter implements QuizUnitContract.Presenter {
                     public void setQuizUnitList(List<QuizUnitItem> quizUnits) {
                         state.quizUnitItems = quizUnits;
 
+                    }
+                });
+
+        model.fetchQuizUnitResultList(state.quest,
+                new RepositoryContract.GetQuizUnitResultListCallback() {
+                    @Override
+                    public void setQuizUnitResultList(List<QuizUnitResult> quizResults) {
+                        state.quizUnitResults = quizResults;
+                        if(quizResults == null) {
+                            Log.d(TAG, "quizUnitResults == null");
+                        } else {
+                            Log.d(TAG, "quizUnitResults != null y size = " + quizResults.size());
+                        }
                         view.get().displayData(state);
                     }
                 });
 
-
-     //  state.quizUnitItems = model.fetchQuizUnitData();
-       //view.get().displayData(state);
+        if(state.quizUnitResults == null) {
+            Log.d(TAG, "state.quizUnitResults == null");
+        } else {
+            Log.d(TAG, "state.quizUnitResults != null y size = " + state.quizUnitResults.size());
+        }
     }
 
 

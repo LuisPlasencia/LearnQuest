@@ -82,7 +82,19 @@ public class QuizUnitActivity
                     actionBar.setTitle(quest.subjectName);
                     // actionBar.setIcon(category.mImage); //////////////////////////////
                 }
+                if(viewModel.quizUnitResults == null) {
+                    Log.d(TAG, "viewModel.quizUnitResults == null");
+                } else {
+                    Log.d(TAG, "viewModel.quizUnitResults =! null");
+                }
 
+                if(viewModel.quizUnitResults == null) {
+                    Log.d(TAG, "quizUnitResults == null");
+                } else {
+                    Log.d(TAG, "quizUnitResults != null y size = " + viewModel.quizUnitResults.size());
+                }
+
+                listAdapter.setResults(viewModel.quizUnitResults);
                 listAdapter.setItems(viewModel.quizUnitItems);
             }
         });

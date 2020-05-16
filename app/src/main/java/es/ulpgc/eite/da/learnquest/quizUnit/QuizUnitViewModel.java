@@ -4,6 +4,7 @@ import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 
 public class QuizUnitViewModel {
 
@@ -12,5 +13,6 @@ public class QuizUnitViewModel {
     //public String subject = "";
     public QuestItem quest;
     public List<QuizUnitItem> quizUnitItems;
+    public List<QuizUnitResult> quizUnitResults;
 
 }

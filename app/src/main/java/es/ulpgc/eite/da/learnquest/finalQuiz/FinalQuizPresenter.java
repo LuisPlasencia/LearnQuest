@@ -36,15 +36,19 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
         model.updateUser(new RepositoryContract.UpdateUserCallback(){
             @Override
             public void onUserUpdated(){
+                Log.d(TAG, "Se ha añadido el la experiencia");
             }
         });
 
         model.addQuizResult(state.user.getId(), state.subjectId, state.quizId, state.experience_earned, new RepositoryContract.AddQuizResultCallback() {
             @Override
             public void addQuizResultCallback() {
-                Log.d(TAG, "Se ha añadido el quiz result bro");
+                Log.d(TAG, "Se ha añadido el quiz result");
             }
         });
+
+        Log.d(TAG, "Se estará añadiendo");
+
 
         view.get().displayFinalQuizData(state);
     }

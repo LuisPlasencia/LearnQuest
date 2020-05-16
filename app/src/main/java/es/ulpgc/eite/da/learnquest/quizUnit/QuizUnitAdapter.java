@@ -1,5 +1,6 @@
 package es.ulpgc.eite.da.learnquest.quizUnit;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,18 @@ import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 
 public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHolder> {
 
+    public static String TAG = QuizUnitAdapter.class.getSimpleName();
+
     private List<QuizUnitItem> itemList;
+    private List<QuizUnitResult> resultList;
     private final View.OnClickListener clickListener;
 
     public QuizUnitAdapter(View.OnClickListener listener) {
-
+        resultList = new ArrayList<>();
         itemList = new ArrayList();
         clickListener = listener;
     }
@@ -42,18 +47,44 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) { // rellena celdas
         holder.solveButton.setTag(itemList.get(position));
+        holder.practiseButton.setTag(itemList.get(position));
         holder.title.setText(itemList.get(position).title);
         holder.description.setText(itemList.get(position).description);
-        holder.solveButton.setEnabled(!itemList.get(position).isSolved());
-        holder.practiseButton.setEnabled(itemList.get(position).isSolved());
-        holder.gradeImage.setImageResource(R.drawable.grade);
+
+        QuizUnitResult currentResult = findCurrentResult(itemList.get(position).getId());
+        if(currentResult != null) {
+            holder.solveButton.setEnabled(false);
+            holder.practiseButton.setEnabled(true);
+            holder.gradeImage.setImageResource(R.drawable.gold_medal);
+        } else {
+            holder.solveButton.setEnabled(true);
+            holder.practiseButton.setEnabled(false);
+            holder.gradeImage.setImageResource(R.drawable.silver_medal);
+        }
         holder.solveButton.setOnClickListener(clickListener);
         holder.practiseButton.setOnClickListener(clickListener);
+    }
+
+    private QuizUnitResult findCurrentResult(int quizId) {
+        if(resultList == null) {
+            Log.d(TAG, "resultList == null");
+            return null;
+        }
+        for(QuizUnitResult result : resultList) {
+            if(result.getQuizUnitId() == quizId) {
+                return result;
+            }
+        }
+        return null;
     }
 
     @Override
     public int getItemCount() {
         return itemList.size();
+    }
+
+    public void setResults(List<QuizUnitResult> quizUnitResults) {
+        resultList = quizUnitResults;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

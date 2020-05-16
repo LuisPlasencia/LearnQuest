@@ -52,6 +52,7 @@ public class QuizRepository implements RepositoryContract {
     private List<QuizUnitItem> quizUnits;
     private List<QuestItem> questList;
     private List<User> userList;
+    private List<QuizUnitResult> resultList;
     private List<QuestionMathItem> mathList;
 
     public static RepositoryContract getInstance(Context context) {
@@ -218,8 +219,18 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(callback != null) {
-                    if(usuarioActual.getId() != 0){
-                        getQuizResultDao().addQuizUnitResult(quizUnitResult);
+                    Log.d(TAG, "Vamos alla");
+                    getQuizResultDao().addQuizUnitResult(quizUnitResult);
+                    Log.d(TAG, "Se ha añadido");
+                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest();
+                    //getQuizUnitResultListCallback.setQuizUnitResultList(lista);
+                    if(lista == null) {
+                        Log.d(TAG, "La lista está vacia");
+                    } else {
+                        if(lista.size() > 0) {
+                            Log.d(TAG, "Se ha añadido algo y la lista tiene " + lista.size());
+                        }
+                        Log.d(TAG, "la lista no esta vacia tras añadir algo: " + lista.get(0).getQuestId() + " " + lista.get(0).getQuizUnitId());
                     }
                 }
             }
@@ -243,6 +254,30 @@ public class QuizRepository implements RepositoryContract {
             }
         }
         return userList.get(0);
+    }
+
+    @Override
+    public void getQuizUnitsResultList(
+            final QuestItem quest, final GetQuizUnitResultListCallback getQuizUnitResultListCallback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                if(getQuizUnitResultListCallback != null) {
+                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest();
+                    getQuizUnitResultListCallback.setQuizUnitResultList(lista);
+                    if(lista != null) {
+                        Log.d(TAG, "Hay algo aqui" );
+                        if(lista.size() > 0) {
+                            Log.d(TAG,"Si, hay algo y es " + lista.get(0).getQuestId() + " " + lista.get(0).getQuizUnitId());
+                        } else {
+                            Log.d(TAG, "lista.size() < 0");
+                        }
+                    } else {
+                        Log.d(TAG, "la lista está vacia");
+                    }
+                }
+            }
+        });
     }
 
     @Override
