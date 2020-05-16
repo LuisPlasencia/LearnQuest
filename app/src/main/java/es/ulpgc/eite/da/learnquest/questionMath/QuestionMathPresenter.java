@@ -85,12 +85,14 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         model.setSolutionIndex(0);
         if (model.isQuizFinished()) {
             state.mathAnswerText = "";
+            view.get().resetButtons();
             view.get().navigateToFinalQuizScreen();
             return;
 
         }
         state.mathAnswerText = "";
         state.mathUserAnswerText = "";
+        view.get().resetButtons();
         onStart();
 
     }
@@ -110,8 +112,8 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
         String userSolution = view.get().getUserSolution();
         model.setSolutionIndex(0);
-        state.mathHintEnabled=true;
         if (solution.equals(userSolution)) {
+            state.mathHintEnabled=true;
             state.mathEnterEnabled = false;
             state.mathNextEnabled = true;
             state.mathNumbersEnabled = false;
@@ -139,7 +141,6 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     }
     @Override
     public void onNumberClicked(){
-        state.mathHintEnabled=false;
         view.get().displayData(state);
     }
     @Override
@@ -150,7 +151,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     }
 
     @Override
-    public String onHintButtonClicked() {
+    public char onHintButtonClicked() {
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
         char chSolution = solution.charAt(model.getSolutionIndex());
         String finalSolution = String.valueOf(chSolution);
@@ -159,11 +160,11 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
                 state.mathHintEnabled = false;
                 view.get().displayData(state);
                 model.setSolutionIndex(0);
-                return finalSolution;
+                return chSolution;
             }
 
         model.updateSolutionIndex();
-        return finalSolution;
+        return chSolution;
 
     }
 

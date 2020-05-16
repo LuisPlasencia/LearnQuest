@@ -33,6 +33,8 @@ public interface QuestionMathContract {
         void navigateToQuizUnitScreen();
 
         void alertDialogReturn();
+
+        void resetButtons();
     }
 
     interface Presenter {
@@ -64,7 +66,7 @@ public interface QuestionMathContract {
 
         void onCleanClicked();
 
-        String onHintButtonClicked();
+        char onHintButtonClicked();
 
         void onBackPressed();
 

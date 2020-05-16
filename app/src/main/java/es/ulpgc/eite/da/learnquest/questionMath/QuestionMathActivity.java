@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.Random;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
@@ -119,6 +122,8 @@ public class QuestionMathActivity
                 ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
                 ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);
 
+                Log.d("hola", String.valueOf(viewModel.mathHintEnabled));
+
                 findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);
                 findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
                 findViewById(R.id.math_quiz_enter).setEnabled(viewModel.mathEnterEnabled);
@@ -157,8 +162,41 @@ public class QuestionMathActivity
         presenter.onCleanClicked();
     }
 
+    @SuppressLint("ResourceAsColor")
     public void onHintButton(View view){
-        ((TextView) findViewById(R.id.user_answer_math)).append(presenter.onHintButtonClicked());
+        char solution = presenter.onHintButtonClicked();
+        switch (solution){
+            case '0':
+                ((Button) findViewById(R.id.math_quiz_0)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '1':
+                ((Button) findViewById(R.id.math_quiz_1)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '2':
+                ((Button) findViewById(R.id.math_quiz_2)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '3':
+                ((Button) findViewById(R.id.math_quiz_3)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '4':
+                ((Button) findViewById(R.id.math_quiz_4)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '5':
+                ((Button) findViewById(R.id.math_quiz_5)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '6':
+                ((Button) findViewById(R.id.math_quiz_6)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '7':
+                ((Button) findViewById(R.id.math_quiz_7)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '8':
+                ((Button) findViewById(R.id.math_quiz_8)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+            case '9':
+                ((Button) findViewById(R.id.math_quiz_9)).setBackgroundResource(R.drawable.button_background_profile_red);
+                break;
+        }
 
     }
 
@@ -178,19 +216,51 @@ public class QuestionMathActivity
 
     @Override
     public void displaySolutionCorrect() {
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Naisuuuuuuuuuuuuuuuuuuuuuuuuu",
-                Toast.LENGTH_SHORT);
-
+        Toast toast;
+        Random r = new Random();
+        int aleatorio = r.nextInt(3-1 +1) + 1;
+        if(aleatorio == 1){
+            toast = Toast.makeText(getApplicationContext(),
+                    "You are getting smarter!",
+                    Toast.LENGTH_SHORT);
+        } else if(aleatorio == 2){
+            toast = Toast.makeText(getApplicationContext(),
+                    "Good one!",
+                    Toast.LENGTH_SHORT);
+        } else if(aleatorio == 3){
+            toast = Toast.makeText(getApplicationContext(),
+                    "Nicely done!",
+                    Toast.LENGTH_SHORT);
+        } else{
+            toast = Toast.makeText(getApplicationContext(),
+                    "Nicely done!",
+                    Toast.LENGTH_SHORT);
+        }
         toast.show();
     }
 
     @Override
     public void displaySolutionIncorrect() {
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Try again",
-                Toast.LENGTH_SHORT);
-
+        Toast toast;
+        Random r = new Random();
+        int aleatorio = r.nextInt(3-1 +1) + 1;
+        if(aleatorio == 1){
+            toast = Toast.makeText(getApplicationContext(),
+                    "Try harder!",
+                    Toast.LENGTH_SHORT);
+        } else if(aleatorio == 2){
+            toast = Toast.makeText(getApplicationContext(),
+                    "Naaah!",
+                    Toast.LENGTH_SHORT);
+        } else if(aleatorio == 3){
+            toast = Toast.makeText(getApplicationContext(),
+                    "Wrong!",
+                    Toast.LENGTH_SHORT);
+        } else{
+            toast = Toast.makeText(getApplicationContext(),
+                    "Wrong!",
+                    Toast.LENGTH_SHORT);
+        }
         toast.show();
     }
 
@@ -255,6 +325,20 @@ public class QuestionMathActivity
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    @Override
+    public void resetButtons() {
+        ((Button) findViewById(R.id.math_quiz_0)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_1)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_2)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_3)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_4)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_5)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_6)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_7)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_8)).setBackgroundResource(R.drawable.button_selector);
+        ((Button) findViewById(R.id.math_quiz_9)).setBackgroundResource(R.drawable.button_selector);
     }
 
 }
