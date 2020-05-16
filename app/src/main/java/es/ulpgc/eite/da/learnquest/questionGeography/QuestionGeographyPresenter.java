@@ -74,6 +74,7 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
     @Override
     public void onNextButtonClicked(){
         model.updateNextQuestion();
+        state.tries = 0;
         if(model.isQuizFinished()){
             state.geoAnswerText="";
             view.get().navigateToFinalQuizScreen();
@@ -113,11 +114,23 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
     public void onEnterButtonClicked(){
         String solution = state.quizUnitItem.questionGeographyItems.get(getIndex()).geoSolution;
         String userSolution = view.get().getUserSolution();
+        state.tries++;
+        if(state.tries == 3){
+            state.geoNextEnabled = true;
+            state.geoButtonsEnabled = false;
+            state.geoHintEnabled = false;
+            InCorrectLabel();
+            view.get().displayData(state);
+            return;
+        }
         if(solution.equals(userSolution)){
             state.geoNextEnabled = true;
             state.geoButtonsEnabled = false;
             state.geoHintEnabled = false;
-            model.updateExperienceCollected();
+            if(!state.questionNulled){
+                model.updateExperienceCollected();
+                state.questionNulled = false;
+            }
             correctLabel();
 
         } else {

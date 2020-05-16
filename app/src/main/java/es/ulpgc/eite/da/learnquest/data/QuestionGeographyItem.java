@@ -4,5 +4,5 @@ public class QuestionGeographyItem {
 
     public int id;
 
-    public String geoTitle, geoSolution;
+    public String geoTitle, geoSolution, geoHint;
 }
