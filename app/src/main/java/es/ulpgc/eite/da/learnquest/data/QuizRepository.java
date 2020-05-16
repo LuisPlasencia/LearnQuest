@@ -219,8 +219,9 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(callback != null) {
-                    Log.d(TAG, "Vamos alla");
+                    Log.d(TAG, "Vamos alla: se va a añadir a:" +  quizUnitResult.getQuestId() + "el quiz " +quizUnitResult.getId());
                     getQuizResultDao().addQuizUnitResult(quizUnitResult);
+                    Log.d(TAG, "id: " + quizUnitResult.getId() + " + user: " + quizUnitResult.getUser_id());
                 }
             }
         });
@@ -252,14 +253,14 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(getQuizUnitResultListCallback != null) {
-                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest(quest.id, usuarioActual.getId());
+                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest(usuarioActual.getId(), quest.getId());
                     getQuizUnitResultListCallback.setQuizUnitResultList(lista);
                     if(lista != null) {
                         Log.d(TAG, "Hay algo aqui" );
                         if(lista.size() > 0) {
-                            Log.d(TAG,"Si, hay algo y es " + lista.get(0).getQuestId() + " " + lista.get(0).getQuizUnitId());
+                            Log.d(TAG,"Si, hay algo y es " + lista.get(0).getId() + " " + lista.get(0).getQuizUnitId());
                         } else {
-                            Log.d(TAG, "lista.size() < 0");
+                            Log.d(TAG, "lista.size() < 0 (NO HAY un GET(0)");
                         }
                     } else {
                         Log.d(TAG, "la lista está vacia");

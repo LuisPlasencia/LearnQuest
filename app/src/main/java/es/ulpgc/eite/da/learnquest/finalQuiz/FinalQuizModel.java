@@ -74,7 +74,7 @@ public class FinalQuizModel implements FinalQuizContract.Model {
 
     @Override
     public void addQuizResult(int userId, int questId, int quizId, int mark, RepositoryContract.AddQuizResultCallback callback) {
-        QuizUnitResult quizUnitResult = new QuizUnitResult(quizId, questId, quizId, userId, mark, true);
+        QuizUnitResult quizUnitResult = new QuizUnitResult(questId + quizId +userId, questId, quizId, userId, mark, true);
         repository.addQuizResult(quizUnitResult, callback);
     }
 

@@ -68,7 +68,7 @@ public class QuestionActivity
         mCountDownTimer = new CountDownTimer(20000, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
-                Log.d(TAG, "Tick of Progress"+ progress + millisUntilFinished);
+                //Log.d(TAG, "Tick of Progress"+ progress + millisUntilFinished);
                 progress++;
                 mProgressBar.setProgress((int) progress*100/(20000/100));
             }
