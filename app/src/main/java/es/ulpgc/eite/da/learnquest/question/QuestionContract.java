@@ -4,6 +4,8 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
 import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public interface QuestionContract {
 
@@ -63,6 +65,8 @@ public interface QuestionContract {
         void onBackPressed();
 
         void onTimerFinish();
+
+        void fetchQuestionEnglishData();
     }
 
     interface Model {
@@ -91,6 +95,9 @@ public interface QuestionContract {
         int getCorrectOption();
 
         void resetExperience();
+
+        void fetchQuestionEnglishListData(
+                QuizUnitItem quizUnit, RepositoryContract.GetQuestionEnglishListCallback callback);
     }
 
     interface Router {
@@ -101,5 +108,7 @@ public interface QuestionContract {
         void passDataToHintScreen(QuestionToHintState state);
 
         HintToQuestionState getDataFromHintScreen();
+
+        QuizUnitItem getDataFromQuizUnitScreen();
     }
 }

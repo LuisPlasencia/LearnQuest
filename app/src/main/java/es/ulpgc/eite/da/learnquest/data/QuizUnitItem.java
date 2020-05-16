@@ -9,8 +9,15 @@ public class QuizUnitItem {
     public int mark, id;
     private boolean solved;
     public int questId;
-    //public String mathTitle, mathDescription;
-    ///public String subSubject;
+    @SerializedName("subSubjects")
+    public List<QuestionMathItem> questionMathItems;
+
+    @SerializedName("subSubjects2")
+    public List<QuestionEnglishItem> questionEnglishItems;
+
+    @SerializedName("subSubjects3")
+    public List<QuestionGeographyItem> questionGeographyItems;
+
 
 
     public QuizUnitItem(String unit, String title, String description, String subject, int mark, int id, boolean solved) {
@@ -84,9 +91,4 @@ public class QuizUnitItem {
         return title;
     }
 
-    @SerializedName("subSubjects")
-    public List<QuestionMathItem> questionMathItems;
-
-    @SerializedName("subSubjects3")
-    public List<QuestionGeographyItem> questionGeographyItems;
 }

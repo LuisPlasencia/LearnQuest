@@ -10,6 +10,8 @@ public class QuestItem {
     public int id;
     private int photo;
     private int percentage;
+    @SerializedName("quizUnits")
+    public List<QuizUnitItem> quizUnitItems;
 
 
 
@@ -51,11 +53,14 @@ public class QuestItem {
         this.photo = photo;
     }
 
+    public List<QuizUnitItem> getQuizUnitItems(){
+        return quizUnitItems;
+    }
+
     @Override
     public String toString(){
         return subjectName;
     }
 
-    @SerializedName("quizUnits")
-    public List<QuizUnitItem> quizUnitItems;
+
 }

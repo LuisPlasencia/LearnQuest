@@ -45,6 +45,8 @@ public class QuestionActivity
         // do the setup
         QuestionScreen.configure(this);
 
+        presenter.fetchQuestionEnglishData();
+
         Button hintButton = findViewById(R.id.cheatButton);
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,22 +120,27 @@ public class QuestionActivity
     }
 
     @Override
-    public void displayData(QuestionViewModel viewModel) {
+    public void displayData(final QuestionViewModel viewModel) {
         Log.e(TAG, "displayData()");
 
-        // deal with the data
-        ((TextView) findViewById(R.id.question_number)).setText(viewModel.questionNumber);
-        ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
-        ((Button) findViewById(R.id.option1_button)).setText(viewModel.option1);
-        ((Button) findViewById(R.id.option2_button)).setText(viewModel.option2);
-        ((Button) findViewById(R.id.option3_button)).setText(viewModel.option3);
-        ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // deal with the data
+                ((TextView) findViewById(R.id.question_number)).setText(String.valueOf(viewModel.questionNumber));
+                ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
+                ((Button) findViewById(R.id.option1_button)).setText(viewModel.option1);
+                ((Button) findViewById(R.id.option2_button)).setText(viewModel.option2);
+                ((Button) findViewById(R.id.option3_button)).setText(viewModel.option3);
+                ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
 
-        findViewById(R.id.option1_button).setEnabled(viewModel.optionEnabled);
-        findViewById(R.id.option2_button).setEnabled(viewModel.optionEnabled);
-        findViewById(R.id.option3_button).setEnabled(viewModel.optionEnabled);
-        findViewById(R.id.nextButton).setEnabled(viewModel.nextEnabled);
-        findViewById(R.id.cheatButton).setEnabled(viewModel.hintEnabled);
+                findViewById(R.id.option1_button).setEnabled(viewModel.optionEnabled);
+                findViewById(R.id.option2_button).setEnabled(viewModel.optionEnabled);
+                findViewById(R.id.option3_button).setEnabled(viewModel.optionEnabled);
+                findViewById(R.id.nextButton).setEnabled(viewModel.nextEnabled);
+                findViewById(R.id.cheatButton).setEnabled(viewModel.hintEnabled);
+            }
+        });
     }
 
     public void onNextButtonClicked(View view) {

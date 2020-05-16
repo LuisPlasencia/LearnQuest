@@ -1,5 +1,6 @@
 package es.ulpgc.eite.da.learnquest.question;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestionModel implements QuestionContract.Model {
@@ -82,6 +83,13 @@ public class QuestionModel implements QuestionContract.Model {
     @Override
     public void resetExperience(){
         quizRepository.resetExperienceCollected();
+    }
+
+    @Override
+    public void fetchQuestionEnglishListData(
+            QuizUnitItem quizUnit, final RepositoryContract.GetQuestionEnglishListCallback callback) {
+        quizRepository.getQuestionEnglishList(quizUnit,callback);
+
     }
 
 }

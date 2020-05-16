@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface RepositoryContract {
-    ArrayList<Question> getQuestions();
+    ArrayList<QuestionEnglishItem> getQuestionEnglishItems();
 
-    Question getQuestion(int index);
+    QuestionEnglishItem getQuestion(int index);
 
     User getUser(String username, String password);
 
@@ -94,6 +94,10 @@ public interface RepositoryContract {
         void setQuestionMathList(List<QuestionMathItem> questionMathItem);
     }
 
+    interface GetQuestionEnglishListCallback {
+        void setQuestionEnglishList(List<QuestionEnglishItem> questionEnglishItem);
+    }
+
     interface GetQuestionGeoListCallback {
         void setQuestionGeoList(List<QuestionGeographyItem> questionGeoItem);
     }
@@ -142,6 +146,12 @@ public interface RepositoryContract {
 
     void getQuestionMathList(
             int quizUnitId, GetQuestionMathListCallback callback);
+
+    void getQuestionEnglishList(
+            QuizUnitItem quizUnit, GetQuestionEnglishListCallback callback);
+
+    void getQuestionEnglishList(
+            int quizUnitId, GetQuestionEnglishListCallback callback);
 
     void getQuestionGeoList(
             QuizUnitItem quizUnit, GetQuestionGeoListCallback callback);

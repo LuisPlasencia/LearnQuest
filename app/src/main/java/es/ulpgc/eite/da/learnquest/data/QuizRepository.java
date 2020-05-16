@@ -41,7 +41,7 @@ public class QuizRepository implements RepositoryContract {
 
     private final int XP_PER_QUESTION = 30;
 
-    private ArrayList<Question> questions;
+    private ArrayList<QuestionEnglishItem> questionEnglishItems;
  //   private ArrayList<User> usuarios;
 //    private User usuariodefault;
     private User usuarioActual;
@@ -70,35 +70,6 @@ public class QuizRepository implements RepositoryContract {
                 context, UserDatabase.class, DB_FILE
         ).build();
 
-        quizUnits = new ArrayList<>();
-        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 1",
-                "Description of quiz", "Subject", 9, 1, false));
-        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 2",
-                "Description of quiz", "Subject", 9, 2, false));
-        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 3",
-                "Description of quiz", "Subject", 9, 3, false));
-        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 4",
-                "Description of quiz", "Subject", 9, 4, false));
-        quizUnits.add(new QuizUnitItem("Unit 1", "Quiz 5",
-                "Description of quiz", "Subject", 9, 5, false));
-
-
-        Question question1 = new Question("First question: Option 1",
-                "Option 1", "Option 2", "Option 3",
-                "Hint: It might be option 1", 1, 1);
-
-        Question question2 = new Question("Second Question: Option 1",
-                "Option 1", "Option 2", "Option 3",
-                "Hint: It might be option 1", 1, 2);
-
-        Question question3 = new Question("Third Question: Option 2",
-                "Option 1", "Option 2", "Option 3",
-                "Hint: It might be option 2", 2, 3);
-
-        questions = new ArrayList<Question>();
-        questions.add(question1);
-        questions.add(question2);
-        questions.add(question3);
 
 //        inicializarUsuarios();
         experienceCollected = 0;
@@ -108,43 +79,6 @@ public class QuizRepository implements RepositoryContract {
     }
 
 
-//    private void inicializarUsuarios() {
-//        usuariodefault = new User("Username", "", 0);
-//        User usuario1 = new User("Luis", "patata", 1);
-//        User usuario2 = new User("Ruben", "rabano", 2);
-//        User usuario3 = new User("Cunwang", "lechuga", 3);
-//
-//        usuarioActual = usuariodefault;
-//        usuariodefault.setMathPercentage(35);
-//        usuariodefault.setEnglishPercentage(79);
-//        usuariodefault.setGeographyPercentage(5);
-//
-//        usuario1.setLevel(8);
-//        usuario1.setSublevel(60);
-//        usuario1.setPhoto(R.drawable.patata);
-//        usuario1.setMathPercentage(91);
-//        usuario1.setEnglishPercentage(27);
-//        usuario1.setGeographyPercentage(5);
-//
-//        usuario2.setLevel(11);
-//        usuario2.setSublevel(40);
-//        usuario2.setPhoto(R.drawable.rabano);
-//        usuario2.setMathPercentage(51);
-//        usuario2.setEnglishPercentage(10);
-//        usuario2.setGeographyPercentage(69);
-//
-//        usuario3.setLevel(3);
-//        usuario3.setSublevel(90);
-//        usuario3.setPhoto(R.drawable.lechuga);
-//        usuario3.setMathPercentage(15);
-//        usuario3.setEnglishPercentage(56);
-//        usuario3.setGeographyPercentage(90);
-//
-//        usuarios = new ArrayList<User>();
-//        usuarios.add(usuario1);
-//        usuarios.add(usuario2);
-//        usuarios.add(usuario3);
-//    }
 
     @Override
     public void updateQuestParameters() {
@@ -161,12 +95,6 @@ public class QuizRepository implements RepositoryContract {
                 questList.get(i).setPhoto(getSubjectPhoto(questList.get(i).getId()));
             }
         }
-//        questList.add(new QuestItem("Maths", usuarioActual.getMathPercentage(), 1));
-//        questList.get(0).setPhoto(getSubjectPhoto(questList.get(0).getId()));
-//        questList.add(new QuestItem("English", usuarioActual.getEnglishPercentage(), 2));
-//        questList.get(1).setPhoto(getSubjectPhoto(questList.get(1).getId()));
-//        questList.add(new QuestItem("Geography", usuarioActual.getGeographyPercentage(), 3));
-//        questList.get(2).setPhoto(getSubjectPhoto(questList.get(2).getId()));
     }
 
     @Override
@@ -227,13 +155,13 @@ public class QuizRepository implements RepositoryContract {
         });
     }
 
-    public ArrayList<Question> getQuestions() {
-        return questions;
+    public ArrayList<QuestionEnglishItem> getQuestionEnglishItems() {
+        return questionEnglishItems;
     }
 
     @Override
-    public Question getQuestion(int index) {
-        return questions.get(index);
+    public QuestionEnglishItem getQuestion(int index) {
+        return questionEnglishItems.get(index);
     }
 
     @Override
@@ -522,6 +450,13 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
+    public void getQuestionEnglishList(
+            final QuizUnitItem quizUnit, final GetQuestionEnglishListCallback callback) {
+
+        getQuestionEnglishList(quizUnit.id, callback);
+    }
+
+    @Override
     public void getQuestionGeoList(
             final QuizUnitItem quizUnit, final GetQuestionGeoListCallback callback) {
 
@@ -538,6 +473,21 @@ public class QuizRepository implements RepositoryContract {
             public void run() {
                 if(callback != null) {
                     callback.setQuestionMathList(loadQuestionMath(quizUnitId));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getQuestionEnglishList(
+            final int quizUnitId, final GetQuestionEnglishListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setQuestionEnglishList(loadQuestionEnglish(quizUnitId));
                 }
             }
         });
@@ -600,6 +550,8 @@ public class QuizRepository implements RepositoryContract {
                         quizUnit.questId = quest.id;
                     }
                 }
+             Log.d("hola",questList.get(0).getQuizUnitItems().get(0).questionMathItems.get(0).mathTitle);
+             Log.d("hola",questList.get(0).getQuizUnitItems().get(0).questionEnglishItems.get(0).option1);
 
                 updateQuestParameters();
 
@@ -657,6 +609,18 @@ public class QuizRepository implements RepositoryContract {
 
         return questionMath;
     }
+
+    private List<QuestionEnglishItem> loadQuestionEnglish(int quizUnitId) {
+        List<QuestionEnglishItem> questionEnglish = new ArrayList();
+        for (QuizUnitItem quizUnit: quizUnits) {
+            if(quizUnit.id == quizUnitId) {
+                questionEnglish = quizUnit.questionEnglishItems;
+            }
+        }
+
+        return questionEnglish;
+    }
+
     private List<QuestionGeographyItem> loadQuestionGeo(int quizUnitId) {
         List<QuestionGeographyItem> questionGeo = new ArrayList();
         for (QuizUnitItem quizUnit: quizUnits) {

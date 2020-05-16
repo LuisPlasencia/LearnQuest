@@ -7,6 +7,7 @@ import android.content.Context;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
 import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.hint.HintActivity;
 
@@ -45,4 +46,10 @@ public class QuestionRouter implements QuestionContract.Router {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }*/
+
+    @Override
+    public QuizUnitItem getDataFromQuizUnitScreen(){
+        QuizUnitItem quizUnitItem = mediator.getQuizUnit();
+        return quizUnitItem;
+    }
 }

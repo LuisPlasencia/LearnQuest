@@ -1,8 +1,16 @@
 package es.ulpgc.eite.da.learnquest.question;
 
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.QuestionEnglishItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+
 public class QuestionViewModel {
 
-    public String questionNumber;
+    public QuizUnitItem quizUnitItem;
+    public List<QuestionEnglishItem> questionEnglishItems;
+
+    public int questionNumber;
     public String questionText;
     public String option1;
     public String option2;

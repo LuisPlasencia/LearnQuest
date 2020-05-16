@@ -1,11 +1,16 @@
 package es.ulpgc.eite.da.learnquest.data;
 
-public class Question {
-    private String question, option1, option2, option3, hint;
-    private int correctOption;
-    public long id;
+public class QuestionEnglishItem {
+    public int id;
+    public String question;
+    public String option1;
+    public String option2;
+    public String option3;
+    public String hint;
+    public int correctOption;
 
-    public Question(String question, String option1, String option2, String option3, String hint, int correctOption, long id) {
+
+    public QuestionEnglishItem(String question, String option1, String option2, String option3, String hint, int correctOption, int id) {
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
@@ -63,11 +68,11 @@ public class Question {
         this.correctOption = correctOption;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

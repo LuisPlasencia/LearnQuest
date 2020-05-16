@@ -3,9 +3,13 @@ package es.ulpgc.eite.da.learnquest.question;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
 import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+import es.ulpgc.eite.da.learnquest.data.QuestionEnglishItem;
+import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
 public class QuestionPresenter implements QuestionContract.Presenter {
 
@@ -41,11 +45,12 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     @Override
     public void onStart() {
-        state.questionNumber = model.getCurrentQuestionNumber();
-        state.questionText = model.getCurrentQuestion();
-        state.option1 = model.getOption1();
-        state.option2 = model.getOption2();
-        state.option3 = model.getOption3();
+        state.quizIndex = model.getQuizIndex();
+        state.questionNumber = state.questionEnglishItems.get(state.quizIndex).getId();   //model.getCurrentQuestionNumber();
+        state.questionText = state.questionEnglishItems.get(state.quizIndex).getQuestion();  //model.getCurrentQuestion();
+        state.option1 = state.questionEnglishItems.get(state.quizIndex).getOption1();  //model.getOption1();
+        state.option2 = state.questionEnglishItems.get(state.quizIndex).getOption2();  //model.getOption2();
+        state.option3 = state.questionEnglishItems.get(state.quizIndex).getOption3(); //model.getOption3();
 
         view.get().resetReply();
 
@@ -127,6 +132,26 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         view.get().setOptionColorCorrect(correctOption);
         view.get().updateReplyTimeFinished();
         view.get().displayData(state);
+    }
+
+    @Override
+    public void fetchQuestionEnglishData() {
+        // call the model
+        QuizUnitItem quizUnitItem = router.getDataFromQuizUnitScreen();
+
+        if (quizUnitItem != null) {
+            state.quizUnitItem = quizUnitItem;
+        }
+
+        // call the model
+        model.fetchQuestionEnglishListData(state.quizUnitItem,
+                new RepositoryContract.GetQuestionEnglishListCallback() {
+                    @Override
+                    public void setQuestionEnglishList(List<QuestionEnglishItem> questionEnglishItems) {
+                        state.questionEnglishItems = questionEnglishItems;
+                    //    view.get().displayData(state);
+                    }
+                });
     }
 
     @Override
