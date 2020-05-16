@@ -84,8 +84,8 @@
       "quizUnits": [
         {
           "id": 1,
-          "title": "The map of Spain",
-          "description": "Autonomous community of Spain",
+          "title": "Autonomous community of Spain",
+          "description": "How well do you know these autonomous communities in Spain?",
           "subSubjects3": [
             {
               "id": "1",
@@ -111,28 +111,82 @@
         },
         {
           "id": 2,
-          "title": "The Canary Islands",
-          "description": "Visit Each Island",
+          "title": "Provinces of Spain",
+          "description": "How well do you know these provinces in Spain?",
           "subSubjects3": [
             {
               "id": "1",
-              "mathTitle": "If a triangle has two angles whose values are 98º and 45º respectively, which is the value of the last angle?",
-              "mathSolution": "37"
+              "geoTitle": "The Province of Castellón is in..?",
+              "geoSolution": "Valencia"
             },
             {
               "id": "2",
-              "mathTitle": "Acute triangle has three angles < x?",
-              "mathSolution": "90"
+              "geoTitle": "The Province of Gerona is in...?",
+              "geoSolution": "Cataluña"
             },
             {
               "id": "3",
-              "mathTitle": "Obtuse triangle has one angle > x?",
-              "mathSolution": "90"
+              "geoTitle": "The Province of Guipúzcoa is in...?",
+              "geoSolution": "Pais Vasco"
             },
             {
               "id": "4",
-              "mathTitle": "The sum of all angles of a triangle can be > 180º. Type 1: YES and Type 0: NO",
-              "mathSolution": "0"
+              "geoTitle": "The Province of Orense is in...?",
+              "geoSolution": "Galicia"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Municipalities of Spain",
+          "description": "Let's see how experienced you are with these municipalities questions",
+          "subSubjects3": [
+            {
+              "id": "1",
+              "geoTitle": "The municipality of Gijón is in...?",
+              "geoSolution": "Asturias"
+            },
+            {
+              "id": "2",
+              "geoTitle": "The municipality of Totana is in...?",
+              "geoSolution": "Murcia"
+            },
+            {
+              "id": "3",
+              "geoTitle": "The municipality of Ciriza is in...?",
+              "geoSolution": "Navarra"
+            },
+            {
+              "id": "4",
+              "geoTitle": "The municipality of Algemesí is in...?",
+              "geoSolution": "Valencia"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Cultures, events and others in Spain",
+          "description": "There're plenty of cultures in the world. Let's how well you can hold this one",
+          "subSubjects3": [
+            {
+              "id": "1",
+              "geoTitle": "The Muixeranga is celebrated in...? ",
+              "geoSolution": "Valencia"
+            },
+            {
+              "id": "2",
+              "geoTitle": "The word Tudanca is mentioned in...?",
+              "geoSolution": "Cantabria"
+            },
+            {
+              "id": "3",
+              "geoTitle": "The Ebro river finishes at...?",
+              "geoSolution": "Cataluña"
+            },
+            {
+              "id": "4",
+              "geoTitle": "Golmajería is a word that is spoken in...?",
+              "geoSolution": "La Rioja"
             }
           ]
         }
