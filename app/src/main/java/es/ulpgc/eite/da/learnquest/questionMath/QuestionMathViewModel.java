@@ -20,7 +20,7 @@ public class QuestionMathViewModel {
     public boolean mathNextEnabled;
     public boolean mathHintEnabled;
     public boolean mathEnterEnabled;
-    public String mathCleanEnabled;
+    public boolean mathCleanEnabled;
 
     //////////--------///////
 

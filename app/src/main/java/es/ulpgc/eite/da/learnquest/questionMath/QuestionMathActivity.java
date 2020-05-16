@@ -127,6 +127,7 @@ public class QuestionMathActivity
                 findViewById(R.id.math_quiz_hint).setEnabled(viewModel.mathHintEnabled);
                 findViewById(R.id.math_quiz_next).setEnabled(viewModel.mathNextEnabled);
                 findViewById(R.id.math_quiz_enter).setEnabled(viewModel.mathEnterEnabled);
+                findViewById(R.id.math_quiz_clean).setEnabled(viewModel.mathCleanEnabled);
                 findViewById(R.id.math_quiz_1).setEnabled(viewModel.mathNumbersEnabled);
                 findViewById(R.id.math_quiz_2).setEnabled(viewModel.mathNumbersEnabled);
                 findViewById(R.id.math_quiz_3).setEnabled(viewModel.mathNumbersEnabled);

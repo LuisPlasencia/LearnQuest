@@ -5,4 +5,6 @@ public class QuestionMathState extends QuestionMathViewModel {
     // put the model state here
     public int quizIndex;
     public int solutionIndex;
+    public boolean questionNulled;
+    public int tries = 0;
 }

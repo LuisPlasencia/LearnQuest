@@ -75,6 +75,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     private void disableNextButton() {
         state.mathNumbersEnabled = true;
         state.mathHintEnabled = true;
+        state.mathCleanEnabled = true;
         state.mathEnterEnabled = true;
         state.mathNextEnabled = false;
     }
@@ -83,6 +84,7 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     public void onNextButtonClicked() {
         model.updateNextQuestion();
         model.setSolutionIndex(0);
+        state.tries = 0;
         if (model.isQuizFinished()) {
             state.mathAnswerText = "";
             view.get().resetButtons();
@@ -112,13 +114,31 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
         String userSolution = view.get().getUserSolution();
         model.setSolutionIndex(0);
-        if (solution.equals(userSolution)) {
+        state.tries++;
+        if(state.tries == 2){
             state.mathHintEnabled=true;
             state.mathEnterEnabled = false;
             state.mathNextEnabled = true;
             state.mathNumbersEnabled = false;
             state.mathHintEnabled = false;
+            state.mathCleanEnabled = false;
 
+            InCorrectLabel();
+            view.get().displayData(state);
+            return;
+        }
+
+        if (solution.equals(userSolution)) {
+            state.mathHintEnabled=true;
+            state.mathEnterEnabled = false;
+            state.mathNextEnabled = true;
+            state.mathCleanEnabled = false;
+            state.mathNumbersEnabled = false;
+            state.mathHintEnabled = false;
+            if(!state.questionNulled){
+                model.updateExperienceCollected();
+                state.questionNulled = false;
+            }
 
             correctLabel();
         } else {
@@ -154,12 +174,12 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     public char onHintButtonClicked() {
         String solution = state.quizUnitItem.questionMathItems.get(getIndex()).mathSolution;
         char chSolution = solution.charAt(model.getSolutionIndex());
-        String finalSolution = String.valueOf(chSolution);
 
             if (model.getSolutionIndex() == solution.length() - 1) {
                 state.mathHintEnabled = false;
                 view.get().displayData(state);
                 model.setSolutionIndex(0);
+                state.questionNulled = true;
                 return chSolution;
             }
 
