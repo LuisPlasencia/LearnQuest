@@ -65,6 +65,8 @@ public interface FinalQuizContract {
         void resetSubjectId();
 
         void updateUser(RepositoryContract.UpdateUserCallback callback);
+
+        void addQuizResult(int userId, int questId, int quizId, int mark, RepositoryContract.AddQuizResultCallback callback);
     }
 
     interface Router {

@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
@@ -30,11 +32,20 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
         state.sublevel = model.getSubLevel();
         state.subjectId = model.getSubjectId();
         state.quizId = model.getQuizId();
+
         model.updateUser(new RepositoryContract.UpdateUserCallback(){
             @Override
             public void onUserUpdated(){
             }
         });
+
+        model.addQuizResult(state.user.getId(), state.subjectId, state.quizId, state.experience_earned, new RepositoryContract.AddQuizResultCallback() {
+            @Override
+            public void addQuizResultCallback() {
+                Log.d(TAG, "Se ha añadido el quiz result bro");
+            }
+        });
+
         view.get().displayFinalQuizData(state);
     }
 

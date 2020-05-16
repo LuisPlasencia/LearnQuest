@@ -69,6 +69,8 @@ public interface RepositoryContract {
 
     int getNumberOfUsers();
 
+    void addQuizResult(QuizUnitResult quizUnitResult, AddQuizResultCallback callback);
+
     ///////////////////////////////////////// JSON //////////////////////////////////
 
     interface FetchSubjectDataCallback {
@@ -126,6 +128,10 @@ public interface RepositoryContract {
 
     interface UpdateUserCallback {
         void onUserUpdated();
+    }
+
+    interface AddQuizResultCallback {
+        void addQuizResultCallback();
     }
 
    // void loadSubject(QuizRepository.FetchSubjectDataCallback callback);

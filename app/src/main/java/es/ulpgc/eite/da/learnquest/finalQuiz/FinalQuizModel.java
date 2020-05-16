@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import android.util.Log;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
@@ -69,6 +70,12 @@ public class FinalQuizModel implements FinalQuizContract.Model {
     @Override
     public void updateUser(RepositoryContract.UpdateUserCallback callback) {
         repository.updateUser(callback);
+    }
+
+    @Override
+    public void addQuizResult(int userId, int questId, int quizId, int mark, RepositoryContract.AddQuizResultCallback callback) {
+        QuizUnitResult quizUnitResult = new QuizUnitResult(quizId, questId, quizId, userId, mark, true);
+        repository.addQuizResult(quizUnitResult, callback);
     }
 
     @Override

@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.database.QuizUnitResultDao;
 import es.ulpgc.eite.da.learnquest.database.UserDao;
 import es.ulpgc.eite.da.learnquest.database.UserDatabase;
 
@@ -206,6 +207,20 @@ public class QuizRepository implements RepositoryContract {
                         getUserDao().updateUser(usuarioActual);
                     }
                     callback.onUserUpdated();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void addQuizResult(final QuizUnitResult quizUnitResult, final AddQuizResultCallback callback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                if(callback != null) {
+                    if(usuarioActual.getId() != 0){
+                        getQuizResultDao().addQuizUnitResult(quizUnitResult);
+                    }
                 }
             }
         });
@@ -785,6 +800,10 @@ public class QuizRepository implements RepositoryContract {
 
     private UserDao getUserDao() {
         return database.userDao();
+    }
+
+    private QuizUnitResultDao getQuizResultDao() {
+        return database.quizUnitResultDao();
     }
 
 
