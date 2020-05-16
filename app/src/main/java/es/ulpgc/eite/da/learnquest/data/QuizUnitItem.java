@@ -9,7 +9,7 @@ public class QuizUnitItem {
     public int mark, id;
     private boolean solved;
     public int questId;
-    public String mathTitle, mathDescription;
+    //public String mathTitle, mathDescription;
     ///public String subSubject;
 
 
