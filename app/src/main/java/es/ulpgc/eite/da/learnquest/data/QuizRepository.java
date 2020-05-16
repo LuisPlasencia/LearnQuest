@@ -221,17 +221,6 @@ public class QuizRepository implements RepositoryContract {
                 if(callback != null) {
                     Log.d(TAG, "Vamos alla");
                     getQuizResultDao().addQuizUnitResult(quizUnitResult);
-                    Log.d(TAG, "Se ha añadido");
-                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest();
-                    //getQuizUnitResultListCallback.setQuizUnitResultList(lista);
-                    if(lista == null) {
-                        Log.d(TAG, "La lista está vacia");
-                    } else {
-                        if(lista.size() > 0) {
-                            Log.d(TAG, "Se ha añadido algo y la lista tiene " + lista.size());
-                        }
-                        Log.d(TAG, "la lista no esta vacia tras añadir algo: " + lista.get(0).getQuestId() + " " + lista.get(0).getQuizUnitId());
-                    }
                 }
             }
         });
@@ -263,7 +252,7 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(getQuizUnitResultListCallback != null) {
-                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest();
+                    List<QuizUnitResult> lista = getQuizResultDao().getQuizResultsOfUserAndQuest(quest.id, usuarioActual.getId());
                     getQuizUnitResultListCallback.setQuizUnitResultList(lista);
                     if(lista != null) {
                         Log.d(TAG, "Hay algo aqui" );

@@ -15,6 +15,6 @@ public interface QuizUnitResultDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addQuizUnitResult(QuizUnitResult quizUnitResult);
 
-    @Query("SELECT * FROM quiz_unit_result")
-    List<QuizUnitResult> getQuizResultsOfUserAndQuest();
+    @Query("SELECT * FROM quiz_unit_result WHERE user_id=:userId AND questId=:questId ")
+    List<QuizUnitResult> getQuizResultsOfUserAndQuest(int userId, int questId);
 }
