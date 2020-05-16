@@ -559,65 +559,6 @@ public class QuizRepository implements RepositoryContract {
     }
 
     @Override
-    public void getQuestionMath(final int id, final GetQuestionMathCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if(callback != null) {
-                    callback.setQuestionMath(loadQuestionMaths(id));
-                }
-            }
-        });
-    }
-
-    @Override
-    public void getQuestionGeo(final int id, final GetQuestionGeoCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if(callback != null) {
-                    callback.setQuestionGeo(loadQuestionGeos(id));
-                }
-            }
-        });
-    }
-
-    @Override
-    public void getQuizUnit(final int id, final GetQuizUnitCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if(callback != null) {
-                    callback.setQuizUnit(loadQuizUnit(id));
-                }
-            }
-        });
-    }
-
-    @Override
-    public void getQuest(final int id, final GetQuestCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.setQuest(loadQuest(id));
-                }
-            }
-
-
-        });
-
-    }
-
-    @Override
     public void getQuestList(final GetQuestListCallback callback) {
         AsyncTask.execute(new Runnable() {
 
@@ -631,19 +572,6 @@ public class QuizRepository implements RepositoryContract {
 
     }
 
-   @Override
-    public void getQuizUnitList(final GetQuizUnitListCallback callback) {
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.setQuizUnitList(loadQuizUnit());
-                }
-            }
-        });
-
-    }
 
     public boolean loadSubjectFromJSON(String json) {
 
@@ -740,68 +668,12 @@ public class QuizRepository implements RepositoryContract {
         return questionGeo;
     }
 
-
-
-   private QuizUnitItem loadQuizUnit(int id) {
-        for (QuestItem quest: questList) {
-            for (QuizUnitItem quizUnit: quest.quizUnitItems) {
-                if(quizUnit.id == id) {
-                    return quizUnit;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    private QuestionMathItem loadQuestionMaths(int id) {
-        for (QuizUnitItem quizUnit: quizUnits) {
-            for (QuestionMathItem questionMath: quizUnit.questionMathItems) {
-                if(questionMath.id == id) {
-                    return questionMath;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    private QuestionGeographyItem loadQuestionGeos(int id) {
-        for (QuizUnitItem quizUnit: quizUnits) {
-            for (QuestionGeographyItem questionGeo: quizUnit.questionGeographyItems) {
-                if(questionGeo.id == id) {
-                    return questionGeo;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    private QuestItem loadQuest(int id) {
-        for (QuestItem quest : questList) {
-            if (quest.id == id) {
-                return quest;
-            }
-        }
-        return null;
-    }
-
     private void insertQuest(QuestItem quest) {
         questList.add(quest);
     }
 
-    private void insertQuizUnit(QuizUnitItem quizUnit) {
-        quizUnits.add(quizUnit);
-    }
-
-
     private List<QuestItem> loadQuests() {
         return questList;
-    }
-
-    private List<QuizUnitItem> loadQuizUnit() {
-        return quizUnits;
     }
 
 ////////////////////////////USER JSON///////////////////////

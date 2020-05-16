@@ -65,8 +65,6 @@ public interface RepositoryContract {
 
     void updateQuestParameters();
 
-    void getQuizUnitList(GetQuizUnitListCallback callback);
-
     int getNumberOfUsers();
 
     void addQuizResult(QuizUnitResult quizUnitResult, AddQuizResultCallback callback);
@@ -92,26 +90,13 @@ public interface RepositoryContract {
         void setQuizUnitResultList(List<QuizUnitResult> quizResults);
     }
 
-    interface GetQuizUnitCallback {
-        void setQuizUnit(QuizUnitItem quizUnit);
-    }
-
     interface GetQuestionMathListCallback {
         void setQuestionMathList(List<QuestionMathItem> questionMathItem);
-    }
-
-    interface GetQuestionMathCallback {
-        void setQuestionMath(QuestionMathItem questionMathItem);
     }
 
     interface GetQuestionGeoListCallback {
         void setQuestionGeoList(List<QuestionGeographyItem> questionGeoItem);
     }
-
-    interface GetQuestionGeoCallback {
-        void setQuestionGeo(QuestionGeographyItem questionGeoItem);
-    }
-
 
     interface GetQuestListCallback {
         void setQuestList(List<QuestItem> quests);
@@ -141,14 +126,10 @@ public interface RepositoryContract {
         void addQuizResultCallback();
     }
 
-   // void loadSubject(QuizRepository.FetchSubjectDataCallback callback);
-
     void loadSubject(FetchSubjectDataCallback callback);
 
     void loadUsers(
             boolean clearFirst, QuizRepository.FetchUserDataCallback callback);
-
-    //void loadSubject(FetchSubjectDataCallback callback);
 
     void getQuizUnitList(
             QuestItem quest, GetQuizUnitListCallback callback);
@@ -167,13 +148,6 @@ public interface RepositoryContract {
 
     void getQuestionGeoList(
             int quizUnitId, GetQuestionGeoListCallback callback);
-
-    void getQuestionMath(int id, GetQuestionMathCallback callback);
-    void getQuestionGeo(int id, GetQuestionGeoCallback callback);
-
-    void getQuizUnit(int id, GetQuizUnitCallback callback);
-
-    void getQuest(int id, GetQuestCallback callback);
 
     void getQuestList(GetQuestListCallback callback);
 
