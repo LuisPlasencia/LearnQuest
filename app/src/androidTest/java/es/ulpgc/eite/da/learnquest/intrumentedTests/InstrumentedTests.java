@@ -8,9 +8,11 @@ import android.view.ViewParent;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.matcher.BoundedMatcher;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.filters.LargeTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -32,6 +34,7 @@ import static android.app.PendingIntent.getActivity;
 import static androidx.core.util.Preconditions.checkNotNull;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -61,8 +64,7 @@ public class InstrumentedTests {
     Context context =
             InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-
-
+    ///////////////////////////////////-- LOGIN --///////////////////////////////////
     @Test
     public void letsGoButton() {
         //GIVEN
@@ -137,21 +139,146 @@ public class InstrumentedTests {
         //THEN
         onView(withText("Wrong password")).inRoot(withDecorView(not(mActivityTestRule.getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
     }
-
+        ///////////////////////////////////-- QUESTS --///////////////////////////////////
     @Test
-    public void rr () {
+    public void clickingOnSubjectMaths () {
         onView(withId(R.id.username_input)).perform(typeText("c"));
         onView(withId(R.id.password_input)).perform(typeText("c"));
         pressBack();
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
-
         ViewInteraction appCompatButton2 = onView(withId(R.id.go_button));
         appCompatButton2.perform(click());
 
+        //GIVEN
+        onView(withId(R.id.choose_quest)).check(matches(withText("Choose your Quest!")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.subjectName))
+                .check(matches(withText("Maths")));
         onView(new RecyclerViewMatcher(R.id.quests_list)
                 .atPositionOnView(1, R.id.subjectName))
                 .check(matches(withText("English")));
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .check(matches(withText("Geography")));
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.subjectName))
+                .perform(click());
+
+        //THEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunite_title))
+                .check(matches(withText("Triangles")));
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.quizunite_title))
+                .check(matches(withText("Equations")));
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.quizunite_title))
+                .check(matches(withText("Logarithms")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.quizunite_title))
+                .check(matches(withText("Math Riddles")));
+
+    }
+
+    @Test
+    public void clickingOnSubjectEnglish () {
+        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("c"));
+        pressBack();
+        ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
+        appCompatButton.perform(click());
+        ViewInteraction appCompatButton2 = onView(withId(R.id.go_button));
+        appCompatButton2.perform(click());
+
+        //GIVEN
+        onView(withId(R.id.choose_quest)).check(matches(withText("Choose your Quest!")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.subjectName))
+                .check(matches(withText("Maths")));
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .check(matches(withText("English")));
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .check(matches(withText("Geography")));
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .perform(click());
+
+        //THEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunite_title))
+                .check(matches(withText("-ing Form")));
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.quizunite_title))
+                .check(matches(withText("Infinitive or -ing")));
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.quizunite_title))
+                .check(matches(withText("Can, could, be able to")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.quizunite_title))
+                .check(matches(withText("Reported Speech")));
+
+    }
+
+    @Test
+    public void clickingOnSubjectGeography () {
+        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("c"));
+        pressBack();
+        ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
+        appCompatButton.perform(click());
+        ViewInteraction appCompatButton2 = onView(withId(R.id.go_button));
+        appCompatButton2.perform(click());
+
+        //GIVEN
+        onView(withId(R.id.choose_quest)).check(matches(withText("Choose your Quest!")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.subjectName))
+                .check(matches(withText("Maths")));
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .check(matches(withText("English")));
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .check(matches(withText("Geography")));
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .perform(click());
+
+        //THEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunite_title))
+                .check(matches(withText("Autonomous community of Spain")));
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.quizunite_title))
+                .check(matches(withText("Provinces of Spain")));
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.quizunite_title))
+                .check(matches(withText("Municipalities of Spain")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.quizunite_title))
+                .check(matches(withText("Culture and events in Spain")));
+
     }
 
 

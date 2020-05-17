@@ -7,7 +7,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/questsunit_cardview"
+        android:id="@+id/quests_cardview"
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_margin="5dp"
