@@ -1,9 +1,11 @@
 package es.ulpgc.eite.da.learnquest.question;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.app.HintToQuestionState;
 import es.ulpgc.eite.da.learnquest.app.QuestionToHintState;
+import es.ulpgc.eite.da.learnquest.data.QuestionEnglishItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -70,15 +72,15 @@ public interface QuestionContract {
     }
 
     interface Model {
-        String getCurrentQuestionNumber();
-
-        String getCurrentQuestion();
-
-        String getOption1();
-
-        String getOption2();
-
-        String getOption3();
+//        String getCurrentQuestionNumber();
+//
+//        String getCurrentQuestion();
+//
+//        String getOption1();
+//
+//        String getOption2();
+//
+//        String getOption3();
 
         void updateNextQuestion();
 
@@ -88,16 +90,20 @@ public interface QuestionContract {
 
         boolean isCorrectOption(int option);
 
-        boolean isQuizFinished();
 
         void updateExperienceCollected();
 
-        int getCorrectOption();
+        void updateHalfExperienceCollected();
+
+//        int getCorrectOption();
 
         void resetExperience();
 
-        void fetchQuestionEnglishListData(
-                QuizUnitItem quizUnit, RepositoryContract.GetQuestionEnglishListCallback callback);
+        List<QuestionEnglishItem> getEnglishListData();
+
+        int getQuizId();
+
+        void setCorrectOption(int correctOption);
     }
 
     interface Router {

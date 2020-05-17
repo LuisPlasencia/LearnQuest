@@ -32,10 +32,10 @@ public class HintPresenter implements HintContract.Presenter {
         // use passed state if is necessary
         QuestionToHintState savedState = router.getDataFromQuestionScreen();
         if (savedState != null) {
-            model.setQuizIndex(savedState.quizIndex);
+            model.setQuizHint(savedState.hint);
 
             if(state.hintDisplayed) {
-                state.answer = model.fetchQuestionHint();
+                state.answer = model.getHint();
             }
         }
 
@@ -57,7 +57,7 @@ public class HintPresenter implements HintContract.Presenter {
 
     @Override
     public void onYesButtonClicked() {
-        state.answer = model.fetchQuestionHint();
+        state.answer = model.getHint();
         state.yesNoButtonEnabled = false;
         state.hintDisplayed = true;
         view.get().displayData(state);

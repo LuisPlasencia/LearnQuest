@@ -45,12 +45,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     @Override
     public void onStart() {
-        state.quizIndex = model.getQuizIndex();
-        state.questionNumber = state.questionEnglishItems.get(state.quizIndex).getId();   //model.getCurrentQuestionNumber();
-        state.questionText = state.questionEnglishItems.get(state.quizIndex).getQuestion();  //model.getCurrentQuestion();
-        state.option1 = state.questionEnglishItems.get(state.quizIndex).getOption1();  //model.getOption1();
-        state.option2 = state.questionEnglishItems.get(state.quizIndex).getOption2();  //model.getOption2();
-        state.option3 = state.questionEnglishItems.get(state.quizIndex).getOption3(); //model.getOption3();
+        state.numberOfQuestions = state.questionEnglishItems.size();
+        state.hint = state.questionEnglishItems.get(state.questionNumber).getHint();
+        state.questionText = state.questionEnglishItems.get(state.questionNumber).getQuestion();  //model.getCurrentQuestion();
+        state.option1 = state.questionEnglishItems.get(state.questionNumber).getOption1();  //model.getOption1();
+        state.option2 = state.questionEnglishItems.get(state.questionNumber).getOption2();  //model.getOption2();
+        state.option3 = state.questionEnglishItems.get(state.questionNumber).getOption3(); //model.getOption3();
+        state.correctOption =  state.questionEnglishItems.get(state.questionNumber).correctOption;
+        model.setCorrectOption(state.correctOption);
 
         view.get().resetReply();
 
@@ -104,8 +106,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         boolean isCorrect = model.isCorrectOption(option);
 
         if(isCorrect) {
-            model.updateExperienceCollected();
-            view.get().setOptionColorCorrect(option);
+            if(state.hintEnabled){
+                model.updateExperienceCollected();
+                view.get().setOptionColorCorrect(option);
+            } else if(!state.hintEnabled){
+                model.updateHalfExperienceCollected();
+                view.get().setOptionColorCorrect(option);
+            }
+
         } else {
             view.get().setOptionColorIncorrect(option);
         }
@@ -118,7 +126,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     @Override
     public void onHintButtonClicked() {
         QuestionToHintState state = new QuestionToHintState();
-        state.quizIndex = model.getQuizIndex();
+        state.hint = this.state.hint;
         router.passDataToHintScreen(state);
         //router.navigateToHintScreen();
         view.get().navigateToHintScreen();
@@ -128,7 +136,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     public void onTimerFinish() {
         enableNextButton();
         disableOptionsButtons();
-        int correctOption = model.getCorrectOption();
+        int correctOption = state.correctOption;
         view.get().setOptionColorCorrect(correctOption);
         view.get().updateReplyTimeFinished();
         view.get().displayData(state);
@@ -137,33 +145,23 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     @Override
     public void fetchQuestionEnglishData() {
         // call the model
-        QuizUnitItem quizUnitItem = router.getDataFromQuizUnitScreen();
-
-        if (quizUnitItem != null) {
-            state.quizUnitItem = quizUnitItem;
-        }
+        state.quizIndex = model.getQuizId();
 
         // call the model
-        model.fetchQuestionEnglishListData(state.quizUnitItem,
-                new RepositoryContract.GetQuestionEnglishListCallback() {
-                    @Override
-                    public void setQuestionEnglishList(List<QuestionEnglishItem> questionEnglishItems) {
-                        state.questionEnglishItems = questionEnglishItems;
-                    //    view.get().displayData(state);
-                    }
-                });
+        state.questionEnglishItems = model.getEnglishListData();
+        Log.d("hola",  state.questionEnglishItems.get(0).getOption1());
+
     }
 
     @Override
     public void onNextButtonClicked() {
         model.updateNextQuestion();
-        Log.d(TAG, "Quiz index: " + model.getQuizIndex());
-        Log.d(TAG, "Quiz index: " + model.isQuizFinished());
-        if(model.isQuizFinished()) {
+        if(state.numberOfQuestions-1 == state.questionNumber) {
            // router.navigateToFinalQuizScreen();
             view.get().navigateToFinalQuizScreen();
             return;
         }
+        state.questionNumber++;
         state.quizIndex = model.getQuizIndex();
         onStart();
     }

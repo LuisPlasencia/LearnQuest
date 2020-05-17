@@ -162,7 +162,7 @@ public class FinalQuizActivity
 
 
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_shareScoreMessage));
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Try Learn Quest for free! I'm level " + String.valueOf(usuario.getLevel()) + "," + String.valueOf(usuario.getSublevel()) + " and I just got a score of " + String.valueOf(score) + " exp points in " + subject + "Quest, " + "quiz number" + String.valueOf(quizId));
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Try Learn Quest for free! I'm level " + String.valueOf(usuario.getLevel()) + "," + String.valueOf(usuario.getSublevel()) + " and I just got a score of " + String.valueOf(score) + "/100 in " + subject + "Quest, " + "quiz number" + String.valueOf(quizId));
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));

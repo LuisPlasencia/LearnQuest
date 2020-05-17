@@ -38,9 +38,10 @@ public interface HintContract {
     }
 
     interface Model {
-        String fetchQuestionHint();
 
-        void setQuizIndex(int quizIndex);
+        void setQuizHint(String hint);
+
+        String getHint();
     }
 
     interface Router {

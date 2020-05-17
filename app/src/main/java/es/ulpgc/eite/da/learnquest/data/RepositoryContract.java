@@ -71,6 +71,14 @@ public interface RepositoryContract {
 
     void getQuizUnitsResultList(QuestItem quest, GetQuizUnitResultListCallback getQuizUnitResultListCallback);
 
+    List<QuestionEnglishItem> loadQuestionEnglish();
+
+    List<QuestionMathItem> loadQuestionMaths();
+
+    List<QuestionGeographyItem> loadQuestionGeography();
+
+    void updateHalfExperienceCollected();
+
 
     ///////////////////////////////////////// JSON //////////////////////////////////
 
@@ -141,23 +149,6 @@ public interface RepositoryContract {
     void getQuizUnitList(
             int categoryId, GetQuizUnitListCallback callback);
 
-    void getQuestionMathList(
-            QuizUnitItem quizUnit, GetQuestionMathListCallback callback);
-
-    void getQuestionMathList(
-            int quizUnitId, GetQuestionMathListCallback callback);
-
-    void getQuestionEnglishList(
-            QuizUnitItem quizUnit, GetQuestionEnglishListCallback callback);
-
-    void getQuestionEnglishList(
-            int quizUnitId, GetQuestionEnglishListCallback callback);
-
-    void getQuestionGeoList(
-            QuizUnitItem quizUnit, GetQuestionGeoListCallback callback);
-
-    void getQuestionGeoList(
-            int quizUnitId, GetQuestionGeoListCallback callback);
 
     void getQuestList(GetQuestListCallback callback);
 

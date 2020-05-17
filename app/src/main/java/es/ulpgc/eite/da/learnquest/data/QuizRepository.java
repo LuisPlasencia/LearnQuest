@@ -39,7 +39,7 @@ public class QuizRepository implements RepositoryContract {
     private UserDatabase database;
     private static QuizRepository INSTANCE;
 
-    private final int XP_PER_QUESTION = 30;
+    private final int XP_PER_QUESTION = 25;
 
     private ArrayList<QuestionEnglishItem> questionEnglishItems;
  //   private ArrayList<User> usuarios;
@@ -333,6 +333,11 @@ public class QuizRepository implements RepositoryContract {
         experienceCollected += XP_PER_QUESTION;
     }
 
+    @Override
+    public void updateHalfExperienceCollected() {
+        experienceCollected = experienceCollected +  XP_PER_QUESTION-10;
+    }
+
 
     @Override
     public Integer getSubjectPercentage(int id) {
@@ -442,71 +447,6 @@ public class QuizRepository implements RepositoryContract {
 
     }
 
-   @Override
-    public void getQuestionMathList(
-            final QuizUnitItem quizUnit, final GetQuestionMathListCallback callback) {
-
-        getQuestionMathList(quizUnit.id, callback);
-    }
-
-    @Override
-    public void getQuestionEnglishList(
-            final QuizUnitItem quizUnit, final GetQuestionEnglishListCallback callback) {
-
-        getQuestionEnglishList(quizUnit.id, callback);
-    }
-
-    @Override
-    public void getQuestionGeoList(
-            final QuizUnitItem quizUnit, final GetQuestionGeoListCallback callback) {
-
-        getQuestionGeoList(quizUnit.id, callback);
-    }
-
-    @Override
-    public void getQuestionMathList(
-            final int quizUnitId, final GetQuestionMathListCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if(callback != null) {
-                    callback.setQuestionMathList(loadQuestionMath(quizUnitId));
-                }
-            }
-        });
-    }
-
-    @Override
-    public void getQuestionEnglishList(
-            final int quizUnitId, final GetQuestionEnglishListCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if(callback != null) {
-                    callback.setQuestionEnglishList(loadQuestionEnglish(quizUnitId));
-                }
-            }
-        });
-    }
-
-    @Override
-    public void getQuestionGeoList(
-            final int quizUnitId, final GetQuestionGeoListCallback callback) {
-
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if(callback != null) {
-                    callback.setQuestionGeoList(loadQuestionGeo(quizUnitId));
-                }
-            }
-        });
-    }
 
     @Override
     public void getQuestList(final GetQuestListCallback callback) {
@@ -550,8 +490,9 @@ public class QuizRepository implements RepositoryContract {
                         quizUnit.questId = quest.id;
                     }
                 }
-             Log.d("hola",questList.get(0).getQuizUnitItems().get(0).questionMathItems.get(0).mathTitle);
-             Log.d("hola",questList.get(0).getQuizUnitItems().get(0).questionEnglishItems.get(0).option1);
+//             Log.d(TAG,questList.get(0).getQuizUnitItems().get(0).questionMathItems.get(0).mathTitle);
+//             Log.d(TAG,String.valueOf(questList.get(1).getQuizUnitItems().get(0).questionEnglishItems.get(0).option1));
+
 
                 updateQuestParameters();
 
@@ -599,38 +540,33 @@ public class QuizRepository implements RepositoryContract {
         return quizUnits;
     }
 
-    private List<QuestionMathItem> loadQuestionMath(int quizUnitId) {
-        List<QuestionMathItem> questionMath = new ArrayList();
-        for (QuizUnitItem quizUnit: quizUnits) {
-            if(quizUnit.id == quizUnitId) {
-                questionMath = quizUnit.questionMathItems;
-            }
-        }
-
-        return questionMath;
+    @Override
+    public List<QuestionMathItem> loadQuestionMaths() {
+        List<QuestionMathItem> questionMaths = new ArrayList();
+        questionMaths = questList.get(0).quizUnitItems.get(quizId-1).questionMathItems;
+        return questionMaths;
     }
 
-    private List<QuestionEnglishItem> loadQuestionEnglish(int quizUnitId) {
+    @Override
+    public List<QuestionEnglishItem> loadQuestionEnglish() {
         List<QuestionEnglishItem> questionEnglish = new ArrayList();
-        for (QuizUnitItem quizUnit: quizUnits) {
-            if(quizUnit.id == quizUnitId) {
-                questionEnglish = quizUnit.questionEnglishItems;
-            }
-        }
+//        Log.d("hola", String.valueOf(quizUnitId));
+//        Log.d("hola",  questList.get(1).quizUnitItems.get(0).questionEnglishItems.get(0).option1);
+//        Log.d("hola",  questList.get(1).quizUnitItems.get(1).questionEnglishItems.get(0).option1);
 
+        questionEnglish = questList.get(1).quizUnitItems.get(quizId-1).questionEnglishItems;
         return questionEnglish;
     }
 
-    private List<QuestionGeographyItem> loadQuestionGeo(int quizUnitId) {
-        List<QuestionGeographyItem> questionGeo = new ArrayList();
-        for (QuizUnitItem quizUnit: quizUnits) {
-            if(quizUnit.id == quizUnitId) {
-                questionGeo = quizUnit.questionGeographyItems;
-            }
-        }
+    @Override
+    public List<QuestionGeographyItem> loadQuestionGeography() {
+        List<QuestionGeographyItem> questionGeography = new ArrayList();
+        questionGeography = questList.get(2).quizUnitItems.get(quizId-1).questionGeographyItems;
 
-        return questionGeo;
+        return questionGeography;
     }
+
+
 
     private void insertQuest(QuestItem quest) {
         questList.add(quest);

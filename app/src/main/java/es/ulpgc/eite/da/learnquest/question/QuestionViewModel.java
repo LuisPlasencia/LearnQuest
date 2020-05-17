@@ -10,11 +10,14 @@ public class QuestionViewModel {
     public QuizUnitItem quizUnitItem;
     public List<QuestionEnglishItem> questionEnglishItems;
 
-    public int questionNumber;
+    public int questionNumber = 0;
+    public int numberOfQuestions;
     public String questionText;
     public String option1;
     public String option2;
     public String option3;
+    public int correctOption;
+    public String hint;
 
     public boolean optionClicked;
     public int option;

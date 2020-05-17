@@ -1,7 +1,9 @@
 package es.ulpgc.eite.da.learnquest.questionGeography;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
+import es.ulpgc.eite.da.learnquest.data.QuestionGeographyItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -66,9 +68,6 @@ public interface QuestionGeographyContract {
 
         void onDataFromNextScreen(String data);
 
-        void fetchQuestionGeoListData(
-                QuizUnitItem quizUnit, RepositoryContract.GetQuestionGeoListCallback callback);
-
         void updateNextQuestion();
 
         int getQuizIndex();
@@ -86,6 +85,8 @@ public interface QuestionGeographyContract {
         void onDataFromPreviousScreen(String data);
 
         void resetExperience();
+
+        List<QuestionGeographyItem> getGeographyListData();
     }
 
     interface Router {

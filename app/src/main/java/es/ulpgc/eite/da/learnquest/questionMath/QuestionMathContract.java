@@ -3,7 +3,9 @@ package es.ulpgc.eite.da.learnquest.questionMath;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -78,9 +80,6 @@ public interface QuestionMathContract {
 
     interface Model {
 
-        void fetchQuestionMathListData(
-               QuizUnitItem quizUnit, RepositoryContract.GetQuestionMathListCallback callback);
-
         void updateNextQuestion();
 
         void updateSolutionIndex();
@@ -112,6 +111,8 @@ public interface QuestionMathContract {
         void onDataFromPreviousScreen(String data);
 
         void resetExperience();
+
+        List<QuestionMathItem> getMathsListData();
 
     }
 

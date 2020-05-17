@@ -2,6 +2,9 @@ package es.ulpgc.eite.da.learnquest.questionGeography;
 
 import android.util.Log;
 
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.QuestionGeographyItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -25,12 +28,6 @@ public class QuestionGeographyModel implements QuestionGeographyContract.Model {
         return data;
     }
 
-    @Override
-    public void fetchQuestionGeoListData(
-            QuizUnitItem quizUnit, final RepositoryContract.GetQuestionGeoListCallback callback) {
-        quizRepository.getQuestionGeoList(quizUnit,callback);
-
-    }
 
     @Override
     public void updateNextQuestion(){
@@ -80,5 +77,10 @@ public class QuestionGeographyModel implements QuestionGeographyContract.Model {
     @Override
     public void resetExperience(){
         quizRepository.resetExperienceCollected();
+    }
+
+    @Override
+    public List<QuestionGeographyItem> getGeographyListData() {
+        return quizRepository.loadQuestionGeography();
     }
 }

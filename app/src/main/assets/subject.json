@@ -126,51 +126,173 @@
       "quizUnits": [
         {
           "id": 1,
-          "title": "Present Simple",
-          "description": "Domingo is pro",
+          "title": "-ing Form",
+          "description": "We make the -ing form by adding -ing to the base verb and adjusting the spelling as necessary",
           "subSubjects2":[
             {
               "id": 1,
-              "question": "question1",
-              "option1": "asdd",
-              "option2": "asds",
-              "option3": "asdfa",
+              "question": "I dislike ______ to the movies by myself",
+              "option1": "going",
+              "option2": "to go",
+              "option3": "going/to go",
               "hint": "Hint: It might be option 1",
               "correctOption": 1
             },
             {
               "id": 2,
-              "question": "question2",
-              "option1": "dsfaa",
-              "option2": "adsfna",
-              "option3": "adsfda",
+              "question": "We started ______ dinner without you",
+              "option1": "eating",
+              "option2": "to eat",
+              "option3": "eating/to eat",
+              "hint": "Hint: It might be option 2",
+              "correctOption": 3
+            },
+            {
+              "id": 3,
+              "question": "I can't imagine ______ my own house",
+              "option1": "buying",
+              "option2": "to buy",
+              "option3": "buying/to buy",
+              "hint": "Hint: It might be option 1",
+              "correctOption": 1
+            },
+            {
+              "id": 4,
+              "question": "I used ______ that television show all the time",
+              "option1": "watching",
+              "option2": "to watch",
+              "option3": "watching/to watch",
+              "hint": "Hint: It might be option 1",
+              "correctOption": 2
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Infinitive or -ing",
+          "description": "Sometimes we need to decide whether to use a verb in its to-infinitive form or in its -ing form",
+          "subSubjects2":[
+            {
+              "id": 1,
+              "question": "We like ______ out grandmother on Sundays",
+              "option1": "to visit",
+              "option2": "visiting",
+              "option3": "to visit/visiting",
+              "hint": "Hint: It might be option 1",
+              "correctOption": 3
+            },
+            {
+              "id": 2,
+              "question": "I might want ______ some money soon",
+              "option1": "to borrow",
+              "option2": "borrowing",
+              "option3": "to borrow/borrowing",
+              "hint": "Hint: It might be option 2",
+              "correctOption": 2
+            },
+            {
+              "id": 3,
+              "question": "The music will continue ______ until you turn it off",
+              "option1": "to play",
+              "option2": "playing",
+              "option3": "to play/playing",
+              "hint": "Hint: It might be option 1",
+              "correctOption": 3
+            },
+            {
+              "id": 4,
+              "question": "My little brother dislikes ______ his hair brushed",
+              "option1": "to have",
+              "option2": "having",
+              "option3": "to have/having",
+              "hint": "Hint: It might be option 2",
+              "correctOption": 2
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Can, could, be able to",
+          "description": "can and could are modal auxiliary verbs and are really common in informal speech",
+          "subSubjects2":[
+            {
+              "id": 1,
+              "question": "My grandfather ______ walk without any gelp last night",
+              "option1": "can",
+              "option2": "could",
+              "option3": "was able to",
+              "hint": "Hint: It might be option 2",
+              "correctOption": 3
+            },
+            {
+              "id": 2,
+              "question": "Will people ______ live forever one day",
+              "option1": "could be",
+              "option2": "be able to",
+              "option3": "could be able to",
+              "hint": "Hint: It might be option 2",
+              "correctOption": 2
+            },
+            {
+              "id": 3,
+              "question": "(Polite) ______ you tell me what time it is, please?",
+              "option1": "Could",
+              "option2": "Can",
+              "option3": "Will",
+              "hint": "Hint: It might be option 3",
+              "correctOption": 1
+            },
+            {
+              "id": 4,
+              "question": "Can you help me? I ______ never understand this",
+              "option1": "can",
+              "option2": "cannot",
+              "option3": "am able to",
               "hint": "Hint: It might be option 1",
               "correctOption": 1
             }
           ]
         },
         {
-          "id": 2,
-          "title": "Present Continuous",
-          "description": "This is going well",
+          "id": 4,
+          "title": "Reported Speech",
+          "description": "If we want to say what somebody has said, we use reported speech to change the person's words into our own words",
           "subSubjects2":[
             {
               "id": 1,
-              "question": "question1",
-              "option1": "asdfa",
-              "option2": "gasdfa",
-              "option3": "asdfda",
-              "hint": "Hint: It might be option 1",
+              "question": "Which is a reporting verb",
+              "option1": "tell",
+              "option2": "go",
+              "option3": "be",
+              "hint": "Hint: It might be option 3",
               "correctOption": 1
             },
             {
               "id": 2,
-              "question": "question2",
-              "option1": "casdfa",
-              "option2": "gadsf",
-              "option3": "poadfsa",
+              "question": "Ram asked me where I worked. His original words were",
+              "option1": "Do you work there?",
+              "option2": "Where do I work?",
+              "option3": "Where do you work?",
               "hint": "Hint: It might be option 1",
-              "correctOption": 1
+              "correctOption": 3
+            },
+            {
+              "id": 3,
+              "question": "She alway asks me not to burn the cookies. She always says",
+              "option1": "Not to burn the cookies!",
+              "option2": "Please don't burn the cookies",
+              "option3": "Do not burn the cookies",
+              "hint": "Hint: It might be option 2",
+              "correctOption": 2
+            },
+            {
+              "id": 4,
+              "question": "Which structure is not used for reported orders?",
+              "option1": "order somebody to",
+              "option2": "tell somebody to",
+              "option3": "ask somebody to",
+              "hint": "Hint: It might be option 3",
+              "correctOption": 3
             }
           ]
         }
@@ -263,7 +385,7 @@
         },
         {
           "id": 4,
-          "title": "Cultures, events and others in Spain",
+          "title": "Culture and events in Spain",
           "description": "There're plenty of cultures in the world. Let's how well you can hold this one",
           "subSubjects3": [
             {

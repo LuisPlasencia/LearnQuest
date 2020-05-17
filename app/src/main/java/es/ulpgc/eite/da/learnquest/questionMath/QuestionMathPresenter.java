@@ -34,15 +34,9 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
         }
 
         // call the model
-        model.fetchQuestionMathListData(state.quizUnitItem,
-                new RepositoryContract.GetQuestionMathListCallback() {
+        state.questionMathItems = model.getMathsListData();
+        view.get().displayData(state);
 
-                    @Override
-                    public void setQuestionMathList(List<QuestionMathItem> questionMathItems) {
-                        state.questionMathItems = questionMathItems;
-                        view.get().displayData(state);
-                    }
-                });
     }
 
     @Override

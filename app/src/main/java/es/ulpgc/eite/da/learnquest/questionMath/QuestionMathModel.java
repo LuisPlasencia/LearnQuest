@@ -2,6 +2,9 @@ package es.ulpgc.eite.da.learnquest.questionMath;
 
 import android.util.Log;
 
+import java.util.List;
+
+import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 
@@ -19,12 +22,6 @@ public class QuestionMathModel implements QuestionMathContract.Model {
        this.quizRepository = quizRepository;
     }
 
-    @Override
-    public void fetchQuestionMathListData(
-            QuizUnitItem quizUnit, final RepositoryContract.GetQuestionMathListCallback callback) {
-        quizRepository.getQuestionMathList(quizUnit,callback);
-
-    }
 
     @Override
     public void updateNextQuestion(){
@@ -111,6 +108,11 @@ public class QuestionMathModel implements QuestionMathContract.Model {
     @Override
     public void resetExperience(){
         quizRepository.resetExperienceCollected();
+    }
+
+    @Override
+    public List<QuestionMathItem> getMathsListData() {
+        return quizRepository.loadQuestionMaths();
     }
 
 

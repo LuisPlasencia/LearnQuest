@@ -38,14 +38,8 @@ public class QuestionGeographyPresenter implements QuestionGeographyContract.Pre
         }
 
         // call the model
-        model.fetchQuestionGeoListData(state.quizUnitItem,
-                new RepositoryContract.GetQuestionGeoListCallback() {
-                    @Override
-                    public void setQuestionGeoList(List<QuestionGeographyItem> questionGeoItems) {
-                        state.questionGeographyItems = questionGeoItems;
-                        view.get().displayData(state);
-                    }
-                });
+        state.questionGeographyItems = model.getGeographyListData();
+        view.get().displayData(state);
     }
 
     @Override

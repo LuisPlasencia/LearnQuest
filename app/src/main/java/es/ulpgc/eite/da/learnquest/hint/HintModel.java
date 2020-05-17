@@ -8,20 +8,21 @@ public class HintModel implements HintContract.Model {
 
     public static String TAG = HintModel.class.getSimpleName();
 
-    private int quizIndex;
+    private String quizHint;
     private RepositoryContract repository;
 
     public HintModel(RepositoryContract quizRepository) {
         this.repository = quizRepository;
     }
 
+
     @Override
-    public String fetchQuestionHint() {
-        return repository.getQuestion(quizIndex).getHint();
+    public void setQuizHint(String hint) {
+        this.quizHint = hint;
     }
 
     @Override
-    public void setQuizIndex(int quizIndex) {
-        this.quizIndex = quizIndex;
+    public String getHint(){
+        return this.quizHint;
     }
 }
