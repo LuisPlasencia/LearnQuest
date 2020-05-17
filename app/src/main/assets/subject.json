@@ -310,22 +310,26 @@
             {
               "id": "1",
               "geoTitle": "In which autonomous community is Alicante?",
-              "geoSolution": "Valencia"
+              "geoSolution": "Valencia",
+              "geoHint": "https://www.planetware.com/photos-large/E/spain-valencia-oceanografic.jpg"
             },
             {
               "id": "2",
               "geoTitle": "The capital of Spain is...",
-              "geoSolution": "Madrid"
+              "geoSolution": "Madrid",
+              "geoHint": "https://www.planetware.com/photos-large/E/spain-madrid-for-sightseeing-gran-via.jpg"
             },
             {
               "id": "3",
               "geoTitle": "In which autonomous community is Barcelona",
-              "geoSolution": "Cataluña"
+              "geoSolution": "Cataluña",
+              "geoHint": "https://www.planetware.com/photos-large/E/spain-catalonia-barcelona.jpg"
             },
             {
               "id": "4",
               "geoTitle": "In which autonomous community is La Gomera",
-              "geoSolution": "Islas Canarias"
+              "geoSolution": "Islas Canarias",
+              "geoHint": "https://scontent.flpa1-1.fna.fbcdn.net/v/t1.0-9/10412012_881522955216147_5356972544670677462_n.jpg?_nc_cat=100&_nc_sid=dd9801&_nc_oc=AQnlzGlXzMZzHEWEdzCG09Ngl0DmHhf8D6YYz1pLQUJkePqzLXSuMefHZ5L5JFH1OOE&_nc_ht=scontent.flpa1-1.fna&oh=2b37ac55501b501a60a26ffe3aec1708&oe=5EE5478F"
             }
           ]
         },

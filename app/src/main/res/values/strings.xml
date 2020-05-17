@@ -154,6 +154,7 @@
     <string name="button_enter_geoQuiz">Enter</string>
     <string name="button_next_geoQuiz">Next</string>
     <string name="button_hint_geoQuiz">Hint</string>
+    <string name="button_hide_geoQuiz">Hide</string>
     <string name="geography_toolbar">Geography Quiz</string>
     <string name="galicia_button">Galicia</string>
     <string name="asturias_button">Asturias</string>

@@ -7,6 +7,19 @@
     android:background="#FFFF">
 
 
+    <ImageView
+        android:id="@+id/geoHint_image"
+        android:layout_width="377dp"
+        android:layout_height="459dp"
+        android:layout_marginTop="112dp"
+        android:adjustViewBounds="true"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/app_bar"
+        tools:src="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/question_geo_number"
         android:layout_width="match_parent"
@@ -437,17 +450,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
         tools:text="Question X" />
-
-    <ImageView
-        android:id="@+id/bambo"
-        android:layout_width="171dp"
-        android:layout_height="129dp"
-        android:layout_marginTop="436dp"
-        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
-        app:layout_constraintTop_toTopOf="@+id/app_bar"
-        app:srcCompat="@drawable/bambozeel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

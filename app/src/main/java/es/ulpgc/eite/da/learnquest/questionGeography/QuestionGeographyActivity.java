@@ -10,12 +10,18 @@ import android.content.Intent;
 import android.os.Bundle;;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -40,7 +46,7 @@ public class QuestionGeographyActivity
 
         // do the setup
         QuestionGeographyScreen.configure(this);
-        ImageView imageView = findViewById(R.id.bambo);
+        ImageView imageView = findViewById(R.id.geoHint_image);
         imageView.setVisibility(View.INVISIBLE);
         presenter.fetchQuestionGeoData();
 
@@ -88,6 +94,11 @@ public class QuestionGeographyActivity
                 findViewById(R.id.aragon_button).setEnabled(viewModel.geoButtonsEnabled);
                 findViewById(R.id.la_rioja_button).setEnabled(viewModel.geoButtonsEnabled);
                 findViewById(R.id.cataluña_button).setEnabled(viewModel.geoButtonsEnabled);
+
+                loadImageFromURL(
+                        (ImageView) findViewById(R.id.geoHint_image),
+                        quizUnitItem.questionGeographyItems.get(presenter.getIndex()).geoHint
+                );
             }
         });
     }
@@ -95,6 +106,8 @@ public class QuestionGeographyActivity
     public void onNextButtonClickedGeo(View view){
         presenter.onNextButtonClicked();
         ((TextView) findViewById(R.id.user_answer_geo)).setText("");
+        ImageView imageView = findViewById(R.id.geoHint_image);
+        imageView.setVisibility(View.INVISIBLE);
     }
 
     public void onLocationClicked(View view) {
@@ -105,20 +118,62 @@ public class QuestionGeographyActivity
     }
 
     public void onHintButtonClickedGeo(View view) {
-        Button hintButton = findViewById(R.id.geo_quiz_hint);
-        hintButton.setVisibility(View.INVISIBLE);
-        ImageView imageView = findViewById(R.id.bambo);
-        imageView.setVisibility(View.VISIBLE);
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "You just got Bamboozled 😂😂😂",
-                Toast.LENGTH_LONG);
 
-        ViewGroup group = (ViewGroup) toast.getView();
-        TextView messageTextView = (TextView) group.getChildAt(0);
-        messageTextView.setTextSize(50);
-        toast.setGravity(Gravity.FILL_HORIZONTAL, 0, 0);
 
-        toast.show();
+//        Toast toast = new Toast(getApplicationContext());
+//        ImageView imageView = new ImageView(getApplicationContext());
+//
+//        imageView.setImageResource(R.drawable.spain_map_1_1);
+//        imageView.setImageResource();
+//
+//        toast.setView(imageView);
+//        toast.show();
+
+//        LayoutInflater inflater = getLayoutInflater();
+//        view = inflater.inflate(R.layout.custom_toast_layout,
+//                (ViewGroup)findViewById(R.id.relativeLayout1));
+//
+//        Toast toast = new Toast(this);
+//        toast.setView(view);
+//        toast.show();
+
+//        Button hintButton = findViewById(R.id.geo_quiz_hint);
+//        hintButton.setVisibility(View.INVISIBLE);
+
+        Button button = (Button) view;
+        button.setText(R.string.button_hide_geoQuiz);
+        button.setBackgroundResource(R.drawable.button_background_profile_red);
+
+        ImageView imageView = findViewById(R.id.geoHint_image);
+
+        if(imageView.getVisibility() == View.VISIBLE){
+            imageView.setVisibility(View.INVISIBLE);
+            button.setBackgroundResource(R.drawable.button_background_profile_blue);
+            button.setText(R.string.hint_button_text);
+        } else {
+            imageView.setVisibility(View.VISIBLE);
+        }
+
+
+//        Toast toast = Toast.makeText(getApplicationContext(),
+//                "You just got Bamboozled 😂😂😂",
+//                Toast.LENGTH_LONG);
+//
+//        ViewGroup group = (ViewGroup) toast.getView();
+//        TextView messageTextView = (TextView) group.getChildAt(0);
+//        messageTextView.setTextSize(50);
+//        toast.setGravity(Gravity.FILL_HORIZONTAL, 0, 0);
+//
+//        toast.show();
+    }
+
+    private void loadImageFromURL(ImageView imageView, String imageUrl){
+        RequestManager reqManager = Glide.with(imageView.getContext());
+        RequestBuilder reqBuilder = reqManager.load(imageUrl);
+        RequestOptions reqOptions = new RequestOptions();
+        reqOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+        reqBuilder.apply(reqOptions);
+        reqBuilder.into(imageView);
     }
 
     @Override
