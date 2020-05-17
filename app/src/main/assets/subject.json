@@ -427,7 +427,93 @@
       "sublevel": 0,
       "mathPercentage": 35,
       "englishPercentage": 79,
-      "geographyPercentage": 5
+      "geographyPercentage": 5,
+      "quizUnitResultList": [
+        {
+          "id": 1,
+          "questId": 1,
+          "quizUnitId": 1,
+          "mark": 80,
+          "medalla": "gold"
+        },
+        {
+          "id": 2,
+          "questId": 1,
+          "quizUnitId": 2,
+          "mark": 60,
+          "medalla": "silver"
+        },
+        {
+          "id": 3,
+          "questId": 1,
+          "quizUnitId": 3,
+          "mark": 30,
+          "medalla": "bronze"
+        },
+        {
+          "id": 4,
+          "questId": 1,
+          "quizUnitId": 4,
+          "mark": 95,
+          "medalla": "gold"
+        },
+        {
+          "id": 5,
+          "questId": 2,
+          "quizUnitId": 1,
+          "mark": 15,
+          "medalla": "bronze"
+        },
+        {
+          "id": 6,
+          "questId": 2,
+          "quizUnitId": 2,
+          "mark": 45,
+          "medalla": "bronze"
+        },
+        {
+          "id": 7,
+          "questId": 2,
+          "quizUnitId": 3,
+          "mark": 30,
+          "medalla": "bronze"
+        },
+        {
+          "id": 8,
+          "questId": 2,
+          "quizUnitId": 4,
+          "mark": 0,
+          "medalla": "none"
+        },
+        {
+          "id": 9,
+          "questId": 3,
+          "quizUnitId": 1,
+          "mark": 80,
+          "medalla": "gold"
+        },
+        {
+          "id": 10,
+          "questId": 3,
+          "quizUnitId": 2,
+          "mark": 75,
+          "medalla": "gold"
+        },
+        {
+          "id": 11,
+          "questId": 3,
+          "quizUnitId": 3,
+          "mark": 90,
+          "medalla": "gold"
+        },
+        {
+          "id": 12,
+          "questId": 3,
+          "quizUnitId": 4,
+          "mark": 15,
+          "medalla": "bronze"
+        }
+      ]
     },
     {
       "id": 1,
@@ -438,7 +524,93 @@
       "sublevel": 60,
       "mathPercentage": 91,
       "englishPercentage": 27,
-      "geographyPercentage": 5
+      "geographyPercentage": 5,
+      "quizUnitResultList": [
+        {
+          "id": 13,
+          "questId": 1,
+          "quizUnitId": 1,
+          "mark": 80,
+          "medalla": "gold"
+        },
+        {
+          "id": 14,
+          "questId": 1,
+          "quizUnitId": 2,
+          "mark": 60,
+          "medalla": "silver"
+        },
+        {
+          "id": 15,
+          "questId": 1,
+          "quizUnitId": 3,
+          "mark": 30,
+          "medalla": "bronze"
+        },
+        {
+          "id": 16,
+          "questId": 1,
+          "quizUnitId": 4,
+          "mark": 95,
+          "medalla": "gold"
+        },
+        {
+          "id": 17,
+          "questId": 2,
+          "quizUnitId": 1,
+          "mark": 15,
+          "medalla": "bronze"
+        },
+        {
+          "id": 18,
+          "questId": 2,
+          "quizUnitId": 2,
+          "mark": 45,
+          "medalla": "bronze"
+        },
+        {
+          "id": 19,
+          "questId": 2,
+          "quizUnitId": 3,
+          "mark": 30,
+          "medalla": "bronze"
+        },
+        {
+          "id": 20,
+          "questId": 2,
+          "quizUnitId": 4,
+          "mark": 0,
+          "medalla": "none"
+        },
+        {
+          "id": 21,
+          "questId": 3,
+          "quizUnitId": 1,
+          "mark": 80,
+          "medalla": "gold"
+        },
+        {
+          "id": 22,
+          "questId": 3,
+          "quizUnitId": 2,
+          "mark": 75,
+          "medalla": "gold"
+        },
+        {
+          "id": 23,
+          "questId": 3,
+          "quizUnitId": 3,
+          "mark": 90,
+          "medalla": "gold"
+        },
+        {
+          "id": 24,
+          "questId": 3,
+          "quizUnitId": 4,
+          "mark": 15,
+          "medalla": "bronze"
+        }
+      ]
     },
     {
       "id": 2,
@@ -449,7 +621,93 @@
       "sublevel": 40,
       "mathPercentage": 51,
       "englishPercentage": 10,
-      "geographyPercentage": 69
+      "geographyPercentage": 69,
+      "quizUnitResultList": [
+      {
+        "id": 26,
+        "questId": 1,
+        "quizUnitId": 1,
+        "mark": 80,
+        "medalla": "gold"
+      },
+      {
+        "id": 27,
+        "questId": 1,
+        "quizUnitId": 2,
+        "mark": 60,
+        "medalla": "silver"
+      },
+      {
+        "id": 28,
+        "questId": 1,
+        "quizUnitId": 3,
+        "mark": 30,
+        "medalla": "bronze"
+      },
+      {
+        "id": 29,
+        "questId": 1,
+        "quizUnitId": 4,
+        "mark": 95,
+        "medalla": "gold"
+      },
+      {
+        "id": 30,
+        "questId": 2,
+        "quizUnitId": 1,
+        "mark": 15,
+        "medalla": "bronze"
+      },
+      {
+        "id": 31,
+        "questId": 2,
+        "quizUnitId": 2,
+        "mark": 45,
+        "medalla": "bronze"
+      },
+      {
+        "id": 32,
+        "questId": 2,
+        "quizUnitId": 3,
+        "mark": 30,
+        "medalla": "bronze"
+      },
+      {
+        "id": 33,
+        "questId": 2,
+        "quizUnitId": 4,
+        "mark": 0,
+        "medalla": "none"
+      },
+      {
+        "id": 34,
+        "questId": 3,
+        "quizUnitId": 1,
+        "mark": 80,
+        "medalla": "gold"
+      },
+      {
+        "id": 35,
+        "questId": 3,
+        "quizUnitId": 2,
+        "mark": 75,
+        "medalla": "gold"
+      },
+      {
+        "id": 36,
+        "questId": 3,
+        "quizUnitId": 3,
+        "mark": 90,
+        "medalla": "gold"
+      },
+      {
+        "id": 37,
+        "questId": 3,
+        "quizUnitId": 4,
+        "mark": 15,
+        "medalla": "bronze"
+      }
+      ]
     },
     {
       "id": 3,
@@ -460,18 +718,93 @@
       "sublevel": 90,
       "mathPercentage": 15,
       "englishPercentage": 56,
-      "geographyPercentage": 90
-    },
-    {
-      "id": 4,
-      "username": "c",
-      "password": "c",
-      "photoAdress": "Lechuga",
-      "level": 3,
-      "sublevel": 90,
-      "mathPercentage": 15,
-      "englishPercentage": 56,
-      "geographyPercentage": 90
+      "geographyPercentage": 90,
+      "quizUnitResultList": [
+        {
+          "id": 38,
+          "questId": 1,
+          "quizUnitId": 1,
+          "mark": 80,
+          "medalla": "gold"
+        },
+        {
+          "id": 39,
+          "questId": 1,
+          "quizUnitId": 2,
+          "mark": 60,
+          "medalla": "silver"
+        },
+        {
+          "id": 40,
+          "questId": 1,
+          "quizUnitId": 3,
+          "mark": 30,
+          "medalla": "bronze"
+        },
+        {
+          "id": 41,
+          "questId": 1,
+          "quizUnitId": 4,
+          "mark": 95,
+          "medalla": "gold"
+        },
+        {
+          "id": 42,
+          "questId": 2,
+          "quizUnitId": 1,
+          "mark": 15,
+          "medalla": "bronze"
+        },
+        {
+          "id": 43,
+          "questId": 2,
+          "quizUnitId": 2,
+          "mark": 45,
+          "medalla": "bronze"
+        },
+        {
+          "id": 44,
+          "questId": 2,
+          "quizUnitId": 3,
+          "mark": 30,
+          "medalla": "bronze"
+        },
+        {
+          "id": 45,
+          "questId": 2,
+          "quizUnitId": 4,
+          "mark": 0,
+          "medalla": "none"
+        },
+        {
+          "id": 46,
+          "questId": 3,
+          "quizUnitId": 1,
+          "mark": 80,
+          "medalla": "gold"
+        },
+        {
+          "id": 47,
+          "questId": 3,
+          "quizUnitId": 2,
+          "mark": 75,
+          "medalla": "gold"
+        },
+        {
+          "id": 48,
+          "questId": 3,
+          "quizUnitId": 3,
+          "mark": 90,
+          "medalla": "gold"
+        },
+        {
+          "id": 49,
+          "questId": 3,
+          "quizUnitId": 4,
+          "mark": 21,
+          "medalla": "bronze"
+        }
+      ]
     }
   ]
 }

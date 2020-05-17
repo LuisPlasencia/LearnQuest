@@ -46,7 +46,6 @@ public interface LoginContract {
         void getDatabaseUsers(RepositoryContract.GetUserListCallback callback);
 
         int getNumberOfUsers();
-
     }
 
     interface Router {

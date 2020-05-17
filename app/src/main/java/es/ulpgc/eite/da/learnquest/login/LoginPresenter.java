@@ -43,10 +43,14 @@ public class LoginPresenter implements LoginContract.Presenter {
                     view.get().displayWarning(2);
                     return;
                 }
-                router.passStateToProfileScreen(state);
                 model.setUsuarioActual(state.users.get(i));
-                Log.d("onLetsGoClicked", String.valueOf(state.users.size()));
-                Log.d("onLetsGoClicked",state.users.get(i).getPhotoAdress() + " " + state.users.get(i).getId() + " " + state.users.get(i).getUsername() + " " + state.users.get(i).getPassword() );
+                router.passStateToProfileScreen(state);
+//                Log.d("holas", String.valueOf(state.users.get(i).quizUnitResultList.size()));
+//                Log.d("holas", state.users.get(i).username);
+//                Log.d("holas", state.users.get(i).quizUnitResultList.get(0).getMedalla());
+
+//                Log.d("onLetsGoClicked", String.valueOf(state.users.size()));
+//                Log.d("onLetsGoClicked",state.users.get(i).getPhotoAdress() + " " + state.users.get(i).getId() + " " + state.users.get(i).getUsername() + " " + state.users.get(i).getPassword() );
                 view.get().navigateToProfileScreen();
                 return;
             }

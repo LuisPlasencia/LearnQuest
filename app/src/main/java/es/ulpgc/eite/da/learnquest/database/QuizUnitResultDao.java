@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -15,6 +16,16 @@ public interface QuizUnitResultDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addQuizUnitResult(QuizUnitResult quizUnitResult);
 
-    @Query("SELECT * FROM quiz_unit_result WHERE user_id=:userId AND questId=:questId ")
+    @Query("SELECT * FROM quizUnitResultList WHERE userId=:userId AND questId=:questId ")
     List<QuizUnitResult> getQuizResultsOfUserAndQuest(int userId, int questId);
+
+    @Query("SELECT * FROM quizUnitResultList WHERE userId=:userId")
+    List<QuizUnitResult> getQuizResultsOfUser(int userId);
+
+    @Query("SELECT * FROM quizUnitResultList ")
+    List<QuizUnitResult> getQuizResults();
+
+    @Update
+    void updateQuizUnit(QuizUnitResult quizUnitResult);
+
 }

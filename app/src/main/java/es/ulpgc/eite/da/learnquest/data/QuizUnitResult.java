@@ -1,25 +1,39 @@
 package es.ulpgc.eite.da.learnquest.data;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "quiz_unit_result")
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(tableName = "quizUnitResultList",
+        foreignKeys = @ForeignKey(
+                entity = User.class,
+                parentColumns = "id",
+                childColumns = "userId",
+                onDelete = CASCADE
+    )
+)
 public class QuizUnitResult {
 
     @PrimaryKey
-    private int id;
+    public int id;
 
-    private int questId, quizUnitId, user_id;
-    private int mark;
-    private boolean solved;
+    @ColumnInfo(name = "userId")
+    public int user_id;
 
-    public QuizUnitResult(int id, int questId, int quizUnitId, int user_id, int mark, boolean solved) {
+    public int questId, quizUnitId;
+    public int mark;
+    public String medalla;
+
+    public QuizUnitResult(int id, int questId, int quizUnitId, int user_id, int mark, String medalla) {
         this.id = id;
         this.questId = questId;
         this.quizUnitId = quizUnitId;
         this.user_id = user_id;
         this.mark = mark;
-        this.solved = solved;
+        this.medalla = medalla;
     }
 
     public int getId() {
@@ -42,7 +56,7 @@ public class QuizUnitResult {
         return mark;
     }
 
-    public boolean isSolved() {
-        return solved;
+    public String getMedalla() {
+        return medalla;
     }
 }

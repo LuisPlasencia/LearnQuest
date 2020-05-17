@@ -47,4 +47,5 @@ public class LoginModel implements LoginContract.Model {
     public int getNumberOfUsers(){
         return repository.getNumberOfUsers();
     }
+
 }

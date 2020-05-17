@@ -9,6 +9,7 @@ import androidx.room.Room;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,6 +55,9 @@ public class QuizRepository implements RepositoryContract {
     private List<User> userList;
     private List<QuizUnitResult> resultList;
     private List<QuestionMathItem> mathList;
+    private List<QuizUnitResult> quizUnitResult;
+    private List<QuizUnitResult> quizUnitResultActual;
+
 
     public static RepositoryContract getInstance(Context context) {
         if (INSTANCE == null) {
@@ -96,6 +100,74 @@ public class QuizRepository implements RepositoryContract {
             }
         }
     }
+
+    private void updateUserExperience() {
+
+        if (quizUnitResultActual == null) {
+            Log.d("updateUserExperience", "esto es null colega");
+            List<QuizUnitResult> quizUnitResults = new ArrayList<QuizUnitResult>();
+            for (int i = 1; i < this.questList.get(0).getQuizUnitItems().size() + 1; i++) {
+                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 1, i, usuarioActual.getId(), 0, "none");
+                quizUnitResults.add(quizUnitResult);
+            }
+            for (int i = 1 + 4; i < this.questList.get(1).getQuizUnitItems().size() + 1 + 4; i++) {
+                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 2, i - 4, usuarioActual.getId(), 0, "none");
+                quizUnitResults.add(quizUnitResult);
+            }
+            for (int i = 1 + 8; i < this.questList.get(2).getQuizUnitItems().size() + 1 + 8; i++) {
+                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 3, i - 8, usuarioActual.getId(), 0, "none");
+                quizUnitResults.add(quizUnitResult);
+            }
+            usuarioActual.setQuizUnitResultList(quizUnitResults);
+            usuarioActual.setMathPercentage(0);
+            usuarioActual.setEnglishPercentage(0);
+            usuarioActual.setGeographyPercentage(0);
+
+            return;
+        }
+
+        Log.d("updateUserExperience", "esto no es null colega");
+        int mathPoints = 0;
+        int englishPoints = 0;
+        int geographyPoints = 0;
+        for (int i = 0; i < usuarioActual.getQuizUnitResultList().size(); i++) {
+            String medalla = usuarioActual.getQuizUnitResultList().get(i).getMedalla();
+            int questId = usuarioActual.getQuizUnitResultList().get(i).getQuestId();
+            if (questId == 1) {
+                if (medalla.equals("gold")) {
+                    mathPoints += 25;
+                } else if (medalla.equals("silver")) {
+                    mathPoints += 15;
+                } else if (medalla.equals("bronze")) {
+                    mathPoints += 5;
+                }
+
+            } else if (questId == 2) {
+                if (medalla.equals("gold")) {
+                    englishPoints += 25;
+                } else if (medalla.equals("silver")) {
+                    englishPoints += 15;
+                } else if (medalla.equals("bronze")) {
+                    englishPoints += 5;
+                }
+            } else if (questId == 3) {
+                if (medalla.equals("gold")) {
+                    geographyPoints += 25;
+                } else if (medalla.equals("silver")) {
+                    geographyPoints += 15;
+                } else if (medalla.equals("bronze")) {
+                    geographyPoints += 5;
+                }
+            }
+        }
+        usuarioActual.setMathPercentage(mathPoints);
+        usuarioActual.setEnglishPercentage(englishPoints);
+        usuarioActual.setGeographyPercentage(geographyPoints);
+
+
+
+    }
+
 
     @Override
     public void addUser(
@@ -222,6 +294,18 @@ public class QuizRepository implements RepositoryContract {
     @Override
     public void setUserActual(User user) {
         usuarioActual = user;
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                quizUnitResultActual =  getQuizResultDao().getQuizResultsOfUser(usuarioActual.id);
+                usuarioActual.quizUnitResultList = quizUnitResultActual;
+                updateUserExperience();
+            }
+        });
+
+
+
     }
 
     @Override
@@ -491,6 +575,7 @@ public class QuizRepository implements RepositoryContract {
                     }
                 }
 
+
                 updateQuestParameters();
 
                 return true;
@@ -501,6 +586,7 @@ public class QuizRepository implements RepositoryContract {
 
         return false;
     }
+
 
     public String loadJSONFromAsset() {
 
@@ -593,6 +679,7 @@ public class QuizRepository implements RepositoryContract {
         return database.userDao();
     }
 
+
     private QuizUnitResultDao getQuizResultDao() {
         return database.quizUnitResultDao();
     }
@@ -634,6 +721,7 @@ public class QuizRepository implements RepositoryContract {
             JSONArray jsonArray = jsonObject.getJSONArray(JSON_USER_ROOT);
 
             userList = new ArrayList<>();
+            quizUnitResult = new ArrayList<>();
 
             if (jsonArray.length() > 0) {
 
@@ -644,7 +732,18 @@ public class QuizRepository implements RepositoryContract {
                 for (User user: users) {
                     getUserDao().insertUser(user);
                 }
+
+                for(User user: users) {
+                    for(int i = 0; i<user.quizUnitResultList.size(); i++) {
+                        user.quizUnitResultList.get(i).user_id = user.id;
+                        getQuizResultDao().addQuizUnitResult(user.quizUnitResultList.get(i));
+                    }
+                }
+
+                quizUnitResult = getQuizResultDao().getQuizResults();
                 userList = getUserDao().loadUsers();
+
+
 
                 return true;
             }
@@ -653,6 +752,7 @@ public class QuizRepository implements RepositoryContract {
         }
         return false;
     }
+
 
 
 

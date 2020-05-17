@@ -1,23 +1,31 @@
 package es.ulpgc.eite.da.learnquest.data;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 @Entity(tableName = "users")
 public class User {
 
     @PrimaryKey
-    private int id;
+    public int id;
 
-    private String username;
-    private String password;
-    private Integer photo;
-    private String photoAdress;
-    private int level;
-    private int sublevel;
+    public String username;
+    public String password;
+    public Integer photo;
+    public String photoAdress;
+    public int level;
+    public int sublevel;
     private int mathPercentage;
     private int englishPercentage;
     private int geographyPercentage;
+    @Ignore
+    @SerializedName("quizUnitResultList")
+    public List<QuizUnitResult> quizUnitResultList;
    // private String email;
 
     public User(String username, String password, Integer id){
@@ -85,6 +93,10 @@ public class User {
         this.photoAdress=photoAdress;
     }
 
+    public void setQuizUnitResultList(List<QuizUnitResult> quizUnitResultList){
+        this.quizUnitResultList = quizUnitResultList;
+    }
+
     public void addExperience(Integer experience) {
         sublevel = sublevel + experience;
         roundUpExperience();
@@ -111,6 +123,10 @@ public class User {
 
     public Integer getGeographyPercentage(){
         return geographyPercentage;
+    }
+
+    public List<QuizUnitResult> getQuizUnitResultList(){
+        return quizUnitResultList;
     }
 
     public void setMathPercentage(int mathPercentage){
