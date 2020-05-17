@@ -101,7 +101,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         state.optionEnabled=false;
         state.option=option;
 
-        enableNextButton();
+
 
         boolean isCorrect = model.isCorrectOption(option);
 
@@ -118,6 +118,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
             view.get().setOptionColorIncorrect(option);
         }
 
+        enableNextButton();
         view.get().stopTimer();
         view.get().updateReply(isCorrect);
         view.get().displayData(state);
