@@ -9,10 +9,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.concurrent.TimeUnit;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
@@ -35,7 +40,8 @@ public class QuestionGeographyActivity
 
         // do the setup
         QuestionGeographyScreen.configure(this);
-
+        ImageView imageView = findViewById(R.id.bambo);
+        imageView.setVisibility(View.INVISIBLE);
         presenter.fetchQuestionGeoData();
 
         if (savedInstanceState == null) {
@@ -96,7 +102,23 @@ public class QuestionGeographyActivity
         String buttonText = button.getText().toString();
         ((TextView) findViewById(R.id.user_answer_geo)).setText(buttonText);
         presenter.onEnterButtonClicked();
+    }
 
+    public void onHintButtonClickedGeo(View view) {
+        Button hintButton = findViewById(R.id.geo_quiz_hint);
+        hintButton.setVisibility(View.INVISIBLE);
+        ImageView imageView = findViewById(R.id.bambo);
+        imageView.setVisibility(View.VISIBLE);
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "You just got Bamboozled 😂😂😂",
+                Toast.LENGTH_LONG);
+
+        ViewGroup group = (ViewGroup) toast.getView();
+        TextView messageTextView = (TextView) group.getChildAt(0);
+        messageTextView.setTextSize(50);
+        toast.setGravity(Gravity.FILL_HORIZONTAL, 0, 0);
+
+        toast.show();
     }
 
     @Override

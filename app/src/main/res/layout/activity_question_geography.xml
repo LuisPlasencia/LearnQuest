@@ -65,6 +65,7 @@
         android:layout_width="73dp"
         android:layout_height="49dp"
         android:background="@drawable/button_selector"
+        android:onClick="onHintButtonClickedGeo"
         android:text="@string/button_hint_geoQuiz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -436,6 +437,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
         tools:text="Question X" />
+
+    <ImageView
+        android:id="@+id/bambo"
+        android:layout_width="171dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="436dp"
+        app:layout_constraintEnd_toEndOf="@+id/mapa_de_spain"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/mapa_de_spain"
+        app:layout_constraintTop_toTopOf="@+id/app_bar"
+        app:srcCompat="@drawable/bambozeel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

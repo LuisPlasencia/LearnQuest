@@ -490,9 +490,6 @@ public class QuizRepository implements RepositoryContract {
                         quizUnit.questId = quest.id;
                     }
                 }
-//             Log.d(TAG,questList.get(0).getQuizUnitItems().get(0).questionMathItems.get(0).mathTitle);
-//             Log.d(TAG,String.valueOf(questList.get(1).getQuizUnitItems().get(0).questionEnglishItems.get(0).option1));
-
 
                 updateQuestParameters();
 
@@ -501,9 +498,6 @@ public class QuizRepository implements RepositoryContract {
         } catch (JSONException e) {
             Log.e(TAG, "error: " + e);
         }
-
-
-
 
         return false;
     }
