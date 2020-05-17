@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.matcher.BoundedMatcher;
 import androidx.test.filters.LargeTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -26,6 +29,7 @@ import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.login.LoginActivity;
 
 import static android.app.PendingIntent.getActivity;
+import static androidx.core.util.Preconditions.checkNotNull;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -45,6 +49,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import es.ulpgc.eite.da.learnquest.intrumentedTests.RecyclerViewMatcher;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -55,6 +60,8 @@ public class InstrumentedTests {
 
     Context context =
             InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+
 
     @Test
     public void letsGoButton() {
@@ -130,5 +137,23 @@ public class InstrumentedTests {
         //THEN
         onView(withText("Wrong password")).inRoot(withDecorView(not(mActivityTestRule.getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
     }
+
+    @Test
+    public void rr () {
+        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("c"));
+        pressBack();
+        ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
+        appCompatButton.perform(click());
+
+        ViewInteraction appCompatButton2 = onView(withId(R.id.go_button));
+        appCompatButton2.perform(click());
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .check(matches(withText("English")));
+    }
+
+
 
 }
