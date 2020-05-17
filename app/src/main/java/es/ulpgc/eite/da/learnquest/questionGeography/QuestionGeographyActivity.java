@@ -148,6 +148,7 @@ public class QuestionGeographyActivity
 
         if(imageView.getVisibility() == View.VISIBLE){
             imageView.setVisibility(View.INVISIBLE);
+
             button.setBackgroundResource(R.drawable.button_background_profile_blue);
             button.setText(R.string.hint_button_text);
         } else {
@@ -182,10 +183,6 @@ public class QuestionGeographyActivity
         String userSolution = textView.getText().toString();
         return userSolution;
     }
-
-//    public void onHintButton(View view){
-//        ((TextView) findViewById(R.id.user_answer_geo)).append(presenter.onHintButtonClicked());
-//    }
 
     @Override
     public void resetUserAnswer(){
