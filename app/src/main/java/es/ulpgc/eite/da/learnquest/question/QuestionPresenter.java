@@ -158,6 +158,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         model.updateNextQuestion();
         if(state.numberOfQuestions-1 == state.questionNumber) {
            // router.navigateToFinalQuizScreen();
+            state.questionNumber = 0;
             view.get().navigateToFinalQuizScreen();
             return;
         }

@@ -127,7 +127,7 @@ public class QuestionActivity
             @Override
             public void run() {
                 // deal with the data
-                ((TextView) findViewById(R.id.question_number)).setText(String.valueOf(viewModel.questionNumber));
+                ((TextView) findViewById(R.id.question_number)).setText(String.valueOf(viewModel.questionNumber+1));
                 ((TextView) findViewById(R.id.question_text)).setText(viewModel.questionText);
                 ((Button) findViewById(R.id.option1_button)).setText(viewModel.option1);
                 ((Button) findViewById(R.id.option2_button)).setText(viewModel.option2);
