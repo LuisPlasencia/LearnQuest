@@ -77,8 +77,8 @@ public class InstrumentedTests {
         editText2.check(matches(withText("")));
 
         //WHEN
-        onView(withId(R.id.username_input)).perform(typeText("c"));
-        onView(withId(R.id.password_input)).perform(typeText("c"));
+        onView(withId(R.id.username_input)).perform(typeText("Cunwang"));
+        onView(withId(R.id.password_input)).perform(typeText("lechuga"));
         pressBack();
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
@@ -103,7 +103,7 @@ public class InstrumentedTests {
         //WHEN
         onView(withId(R.id.username_input)).perform(typeText("cc"));
 
-        onView(withId(R.id.password_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("lechuga"));
 
         pressBack();
 
@@ -128,7 +128,7 @@ public class InstrumentedTests {
         editText2.check(matches(withText("")));
 
         //WHEN
-        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.username_input)).perform(typeText("Cunwang"));
 
         onView(withId(R.id.password_input)).perform(typeText("cc"));
 
@@ -142,8 +142,8 @@ public class InstrumentedTests {
     }
         ///////////////////////////////////-- QUESTS --///////////////////////////////////
     public void goToQuest(){
-        onView(withId(R.id.username_input)).perform(typeText("c"));
-        onView(withId(R.id.password_input)).perform(typeText("c"));
+        onView(withId(R.id.username_input)).perform(typeText("Cunwang"));
+        onView(withId(R.id.password_input)).perform(typeText("lechuga"));
         pressBack();
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());

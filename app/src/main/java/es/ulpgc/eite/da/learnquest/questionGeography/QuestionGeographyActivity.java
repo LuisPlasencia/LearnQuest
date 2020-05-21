@@ -39,9 +39,11 @@ public class QuestionGeographyActivity
 
         // do the setup
         QuestionGeographyScreen.configure(this);
+
+        presenter.fetchQuestionGeoData();
+        
         ImageView imageView = findViewById(R.id.geoHint_image);
         imageView.setVisibility(View.INVISIBLE);
-        presenter.fetchQuestionGeoData();
 
         if (savedInstanceState == null) {
             presenter.onStart();
@@ -66,6 +68,8 @@ public class QuestionGeographyActivity
                 ((TextView) findViewById(R.id.answer_geo)).setText(viewModel.geoAnswerText);
                 ((TextView) findViewById(R.id.question_geo_number)).setText(viewModel.geoQuestionNumber);
                 //((TextView) findViewById(R.id.user_answer_geo)).setText(viewModel.geoUserAnswerText);
+
+
 
 
                 findViewById(R.id.geo_quiz_hint).setEnabled(viewModel.geoHintEnabled);
@@ -112,27 +116,6 @@ public class QuestionGeographyActivity
 
     public void onHintButtonClickedGeo(View view) {
 
-
-//        Toast toast = new Toast(getApplicationContext());
-//        ImageView imageView = new ImageView(getApplicationContext());
-//
-//        imageView.setImageResource(R.drawable.spain_map_1_1);
-//        imageView.setImageResource();
-//
-//        toast.setView(imageView);
-//        toast.show();
-
-//        LayoutInflater inflater = getLayoutInflater();
-//        view = inflater.inflate(R.layout.custom_toast_layout,
-//                (ViewGroup)findViewById(R.id.relativeLayout1));
-//
-//        Toast toast = new Toast(this);
-//        toast.setView(view);
-//        toast.show();
-
-//        Button hintButton = findViewById(R.id.geo_quiz_hint);
-//        hintButton.setVisibility(View.INVISIBLE);
-
         Button button = (Button) view;
         button.setText(R.string.button_hide_geoQuiz);
         button.setBackgroundResource(R.drawable.button_background_profile_red);
@@ -148,17 +131,6 @@ public class QuestionGeographyActivity
             imageView.setVisibility(View.VISIBLE);
         }
 
-
-//        Toast toast = Toast.makeText(getApplicationContext(),
-//                "You just got Bamboozled 😂😂😂",
-//                Toast.LENGTH_LONG);
-//
-//        ViewGroup group = (ViewGroup) toast.getView();
-//        TextView messageTextView = (TextView) group.getChildAt(0);
-//        messageTextView.setTextSize(50);
-//        toast.setGravity(Gravity.FILL_HORIZONTAL, 0, 0);
-//
-//        toast.show();
     }
 
     private void loadImageFromURL(ImageView imageView, String imageUrl){

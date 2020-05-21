@@ -160,7 +160,6 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
     @Override
     public void onCleanClicked(){
        // state.mathUserAnswerText="";
-        state.mathHintEnabled=true;
         view.get().displayData(state);
     }
 
