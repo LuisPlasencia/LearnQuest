@@ -143,28 +143,28 @@ public class QuizRepository implements RepositoryContract {
 
     private void updateUserExperience() {
 
-        if (quizUnitResultActual == null) {
-            Log.d("updateUserExperience", "esto es null colega");
-            List<QuizUnitResult> quizUnitResults = new ArrayList<QuizUnitResult>();
-            for (int i = 1; i < this.questList.get(0).getQuizUnitItems().size() + 1; i++) {
-                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 1, i, usuarioActual.getId(), 0, "none");
-                quizUnitResults.add(quizUnitResult);
-            }
-            for (int i = 1 + 4; i < this.questList.get(1).getQuizUnitItems().size() + 1 + 4; i++) {
-                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 2, i - 4, usuarioActual.getId(), 0, "none");
-                quizUnitResults.add(quizUnitResult);
-            }
-            for (int i = 1 + 8; i < this.questList.get(2).getQuizUnitItems().size() + 1 + 8; i++) {
-                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 3, i - 8, usuarioActual.getId(), 0, "none");
-                quizUnitResults.add(quizUnitResult);
-            }
-            usuarioActual.setQuizUnitResultList(quizUnitResults);
-            usuarioActual.setMathPercentage(0);
-            usuarioActual.setEnglishPercentage(0);
-            usuarioActual.setGeographyPercentage(0);
-
-            return;
-        }
+//        if (quizUnitResultActual == null) {
+//            Log.d("updateUserExperience", "esto es null colega");
+//            List<QuizUnitResult> quizUnitResults = new ArrayList<QuizUnitResult>();
+//            for (int i = 1; i < this.questList.get(0).getQuizUnitItems().size() + 1; i++) {
+//                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 1, i, usuarioActual.getId(), 0, "none");
+//                quizUnitResults.add(quizUnitResult);
+//            }
+//            for (int i = 1 + 4; i < this.questList.get(1).getQuizUnitItems().size() + 1 + 4; i++) {
+//                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 2, i - 4, usuarioActual.getId(), 0, "none");
+//                quizUnitResults.add(quizUnitResult);
+//            }
+//            for (int i = 1 + 8; i < this.questList.get(2).getQuizUnitItems().size() + 1 + 8; i++) {
+//                QuizUnitResult quizUnitResult = new QuizUnitResult(i, 3, i - 8, usuarioActual.getId(), 0, "none");
+//                quizUnitResults.add(quizUnitResult);
+//            }
+//            usuarioActual.setQuizUnitResultList(quizUnitResults);
+//            usuarioActual.setMathPercentage(0);
+//            usuarioActual.setEnglishPercentage(0);
+//            usuarioActual.setGeographyPercentage(0);
+//
+//            return;
+//        }
 
         Log.d("updateUserExperience", "esto no es null colega");
         int mathPoints = 0;
@@ -297,6 +297,7 @@ public class QuizRepository implements RepositoryContract {
                     }
                     recalculatePercentageExperience();
                     Log.d(TAG, "id: " + quizUnitResult.getId() + " + user: " + quizUnitResult.getUser_id());
+                    callback.updateQuizResultCallback();
                 }
             }
         });
