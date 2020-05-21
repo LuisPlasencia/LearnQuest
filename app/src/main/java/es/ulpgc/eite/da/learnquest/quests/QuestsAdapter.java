@@ -58,11 +58,11 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
 
         //Log.d("QuestsAdapter", itemList.get(position).getSubject());
         if(position == 0){
-            holder.percentage.setText(String.valueOf(user.getMathPercentage()));
+            holder.percentage.setText(String.valueOf(user.getMathPercentage()) + "%");
         } else if(position == 1){
-            holder.percentage.setText(String.valueOf(user.getEnglishPercentage()));
+            holder.percentage.setText(String.valueOf(user.getEnglishPercentage())+ "%");
         } else if(position == 2){
-            holder.percentage.setText(String.valueOf(user.getGeographyPercentage()));
+            holder.percentage.setText(String.valueOf(user.getGeographyPercentage())+ "%");
         }
 
         holder.questImage.setImageResource(itemList.get(position).getPhoto());
