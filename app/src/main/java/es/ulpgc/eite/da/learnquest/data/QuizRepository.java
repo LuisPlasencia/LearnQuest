@@ -209,9 +209,6 @@ public class QuizRepository implements RepositoryContract {
     @Override
     public void addUser(
             final User user, final AddUserCallback callback) {
-        final List<QuizUnitResult> quizUnitResults = this.quizUnitResult;
-        final List<QuestItem> questList = this.questList;
-        final List<User> userList = this.userList;
         AsyncTask.execute(new Runnable() {
 
             @Override
@@ -219,8 +216,8 @@ public class QuizRepository implements RepositoryContract {
                 if(callback != null) {
                     Log.d("addUser", user.getPhotoAdress() + " " + user.getId() + " " + user.getUsername() + " " + user.getPassword());
                     getUserDao().insertUser(user);
-                    userList.add(user);
-                    callback.onUserAdded();
+
+                    List<QuizUnitResult> quizUnitResults = getQuizResultDao().getQuizResults();
 
                     QuizUnitResult quizUnitResult1 = new QuizUnitResult(quizUnitResults.get(quizUnitResults.size()-1).id + 1 , 1, 1, user.id , 0, "none");
                     QuizUnitResult quizUnitResult2 = new QuizUnitResult(quizUnitResults.get(quizUnitResults.size()-1).id + 2 , 1, 2, user.id , 0, "none");
@@ -250,9 +247,14 @@ public class QuizRepository implements RepositoryContract {
                     getQuizResultDao().addQuizUnitResult(quizUnitResult11);
                     getQuizResultDao().addQuizUnitResult(quizUnitResult12);
 
+                    callback.onUserAdded();
+
+
+
                 }
             }
         });
+
     }
 
     @Override
@@ -767,6 +769,7 @@ public class QuizRepository implements RepositoryContract {
                     List<User> userListUpdated;
                     userListUpdated = getUserDao().loadUsers();
                     userList = userListUpdated;
+                    quizUnitResult = getQuizResultDao().getQuizResults();
                     callback.setUserList(userListUpdated);
                 }
             }
