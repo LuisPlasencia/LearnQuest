@@ -8,7 +8,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,13 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.Random;
 
 import es.ulpgc.eite.da.learnquest.R;
-import es.ulpgc.eite.da.learnquest.data.QuestItem;
-import es.ulpgc.eite.da.learnquest.data.QuestionMathItem;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
@@ -117,7 +112,7 @@ public class QuestionMathActivity
                 QuizUnitItem quizUnitItem = viewModel.quizUnitItem;
 
                 ((TextView) findViewById(R.id.mathTitle)).
-                        setText(quizUnitItem.questionMathItems.get(presenter.getIndex()).mathTitle);
+                        setText(quizUnitItem.questionMathItems.get(presenter.getIndex()).getQuestion());
 
                 ((TextView) findViewById(R.id.answer_math)).setText(viewModel.mathAnswerText);
                 ((TextView) findViewById(R.id.question_math_number)).setText(viewModel.mathQuestionNumber);

@@ -8,11 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,12 +19,9 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.concurrent.TimeUnit;
-
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuizUnitItem;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
-import es.ulpgc.eite.da.learnquest.questionMath.QuestionMathViewModel;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestionGeographyActivity
@@ -68,7 +61,7 @@ public class QuestionGeographyActivity
                 QuizUnitItem quizUnitItem = viewModel.quizUnitItem;
 
                 ((TextView) findViewById(R.id.geoTitle)).
-                        setText(quizUnitItem.questionGeographyItems.get(presenter.getIndex()).geoTitle);
+                        setText(quizUnitItem.questionGeographyItems.get(presenter.getIndex()).getQuestion());
 
                 ((TextView) findViewById(R.id.answer_geo)).setText(viewModel.geoAnswerText);
                 ((TextView) findViewById(R.id.question_geo_number)).setText(viewModel.geoQuestionNumber);

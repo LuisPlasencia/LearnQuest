@@ -11,22 +11,22 @@
           "subSubjects": [
             {
               "id": "1",
-              "mathTitle": "If a triangle has two angles whose values are 98º and 45º respectively, which is the value of the last angle?",
+              "question": "If a triangle has two angles whose values are 98º and 45º respectively, which is the value of the last angle?",
               "mathSolution": "37"
             },
             {
               "id": "2",
-              "mathTitle": "Acute triangle has three angles < x?",
+              "question": "Acute triangle has three angles < x?",
               "mathSolution": "90"
             },
             {
               "id": "3",
-              "mathTitle": "Obtuse triangle has one angle > x?",
+              "question": "Obtuse triangle has one angle > x?",
               "mathSolution": "90"
             },
             {
               "id": "4",
-              "mathTitle": "The sum of all angles of a triangle can be > 180º. Type 1: YES and Type 0: NO",
+              "question": "The sum of all angles of a triangle can be > 180º. Type 1: YES and Type 0: NO",
               "mathSolution": "0"
             }
           ]
@@ -38,24 +38,24 @@
           "subSubjects": [
             {
               "id": 1,
-              "mathTitle": "2x=2, find the value of x",
+              "question": "2x=2, find the value of x",
               "mathSolution": "1"
             },
             {
               "id": 2,
-              "mathTitle": "x=-3x+8, find the value of x",
+              "question": "x=-3x+8, find the value of x",
               "mathSolution": "2"
 
             },
             {
               "id": 3,
-              "mathTitle": "0=3x-9, find the value of x",
+              "question": "0=3x-9, find the value of x",
               "mathSolution": "3"
 
             },
             {
               "id": 4,
-              "mathTitle": "A second grade equation has the following aspect: ax^2+bx+c=0. Type 1: True and Type 0: False",
+              "question": "A second grade equation has the following aspect: ax^2+bx+c=0. Type 1: True and Type 0: False",
               "mathSolution": "1"
             }
           ]
@@ -67,24 +67,24 @@
           "subSubjects": [
             {
               "id": 1,
-              "mathTitle": "log(1/2) 0.25 = x, find x",
+              "question": "log(1/2) 0.25 = x, find x",
               "mathSolution": "2"
             },
             {
               "id": 2,
-              "mathTitle": "log(sqrt(5)) 125 = y, find y",
+              "question": "log(sqrt(5)) 125 = y, find y",
               "mathSolution": "6"
 
             },
             {
               "id": 3,
-              "mathTitle": "log(2) 4 = z, find z",
+              "question": "log(2) 4 = z, find z",
               "mathSolution": "2"
 
             },
             {
               "id": 4,
-              "mathTitle": "log 1000 = x, find x",
+              "question": "log 1000 = x, find x",
               "mathSolution": "3"
             }
           ]
@@ -96,24 +96,24 @@
           "subSubjects": [
             {
               "id": 1,
-              "mathTitle": "If a succession is: 4,8,16,?. Find ?",
+              "question": "If a succession is: 4,8,16,?. Find ?",
               "mathSolution": "32"
             },
             {
               "id": 2,
-              "mathTitle": "If 6=30, 3=15, 7=35 then 2=?. Find ?",
+              "question": "If 6=30, 3=15, 7=35 then 2=?. Find ?",
               "mathSolution": "10"
 
             },
             {
               "id": 3,
-              "mathTitle": "If a succession is: 11, 15, 20, ?. Find ?",
+              "question": "If a succession is: 11, 15, 20, ?. Find ?",
               "mathSolution": "26"
 
             },
             {
               "id": 4,
-              "mathTitle": "(3^2-2^3)^66=?. Find ?",
+              "question": "(3^2-2^3)^66=?. Find ?",
               "mathSolution": "1"
             }
           ]
@@ -309,25 +309,25 @@
           "subSubjects3": [
             {
               "id": "1",
-              "geoTitle": "In which autonomous community is Alicante?",
+              "question": "In which autonomous community is Alicante?",
               "geoSolution": "Valencia",
               "geoHint": "https://www.planetware.com/photos-large/E/spain-valencia-oceanografic.jpg"
             },
             {
               "id": "2",
-              "geoTitle": "The capital of Spain is...",
+              "question": "The capital of Spain is...",
               "geoSolution": "Madrid",
               "geoHint": "https://www.planetware.com/photos-large/E/spain-madrid-for-sightseeing-gran-via.jpg"
             },
             {
               "id": "3",
-              "geoTitle": "In which autonomous community is Barcelona",
+              "question": "In which autonomous community is Barcelona",
               "geoSolution": "Cataluña",
               "geoHint": "https://www.planetware.com/photos-large/E/spain-catalonia-barcelona.jpg"
             },
             {
               "id": "4",
-              "geoTitle": "In which autonomous community is La Gomera",
+              "question": "In which autonomous community is La Gomera",
               "geoSolution": "Islas Canarias",
               "geoHint": "https://scontent.flpa1-1.fna.fbcdn.net/v/t1.0-9/10412012_881522955216147_5356972544670677462_n.jpg?_nc_cat=100&_nc_sid=dd9801&_nc_oc=AQnlzGlXzMZzHEWEdzCG09Ngl0DmHhf8D6YYz1pLQUJkePqzLXSuMefHZ5L5JFH1OOE&_nc_ht=scontent.flpa1-1.fna&oh=2b37ac55501b501a60a26ffe3aec1708&oe=5EE5478F"
             }
@@ -340,22 +340,22 @@
           "subSubjects3": [
             {
               "id": "1",
-              "geoTitle": "The Province of Castellón is in..?",
+              "question": "The Province of Castellón is in..?",
               "geoSolution": "Valencia"
             },
             {
               "id": "2",
-              "geoTitle": "The Province of Gerona is in...?",
+              "question": "The Province of Gerona is in...?",
               "geoSolution": "Cataluña"
             },
             {
               "id": "3",
-              "geoTitle": "The Province of Guipúzcoa is in...?",
+              "question": "The Province of Guipúzcoa is in...?",
               "geoSolution": "Pais Vasco"
             },
             {
               "id": "4",
-              "geoTitle": "The Province of Orense is in...?",
+              "question": "The Province of Orense is in...?",
               "geoSolution": "Galicia"
             }
           ]
@@ -367,22 +367,22 @@
           "subSubjects3": [
             {
               "id": "1",
-              "geoTitle": "The municipality of Gijón is in...?",
+              "question": "The municipality of Gijón is in...?",
               "geoSolution": "Asturias"
             },
             {
               "id": "2",
-              "geoTitle": "The municipality of Totana is in...?",
+              "question": "The municipality of Totana is in...?",
               "geoSolution": "Murcia"
             },
             {
               "id": "3",
-              "geoTitle": "The municipality of Ciriza is in...?",
+              "question": "The municipality of Ciriza is in...?",
               "geoSolution": "Navarra"
             },
             {
               "id": "4",
-              "geoTitle": "The municipality of Algemesí is in...?",
+              "question": "The municipality of Algemesí is in...?",
               "geoSolution": "Valencia"
             }
           ]
@@ -394,22 +394,22 @@
           "subSubjects3": [
             {
               "id": "1",
-              "geoTitle": "The Muixeranga is celebrated in...? ",
+              "question": "The Muixeranga is celebrated in...? ",
               "geoSolution": "Valencia"
             },
             {
               "id": "2",
-              "geoTitle": "The word Tudanca is mentioned in...?",
+              "question": "The word Tudanca is mentioned in...?",
               "geoSolution": "Cantabria"
             },
             {
               "id": "3",
-              "geoTitle": "The Ebro river finishes at...?",
+              "question": "The Ebro river finishes at...?",
               "geoSolution": "Cataluña"
             },
             {
               "id": "4",
-              "geoTitle": "Golmajería is a word that is spoken in...?",
+              "question": "Golmajería is a word that is spoken in...?",
               "geoSolution": "La Rioja"
             }
           ]
