@@ -52,7 +52,7 @@
                     android:textColor="@android:color/white" />
 
                 <Space
-                    android:layout_width="30dp"
+                    android:layout_width="10dp"
                     android:layout_height="match_parent" />
 
                 <Button
@@ -65,7 +65,7 @@
                     android:textColor="@android:color/white" />
 
                 <Space
-                    android:layout_width="20dp"
+                    android:layout_width="10dp"
                     android:layout_height="match_parent" />
 
                 <TextView
@@ -80,9 +80,8 @@
 
                 <ImageView
                     android:id="@+id/quizunit_grade"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     tools:srcCompat="@drawable/grade" />
 
             </LinearLayout>
