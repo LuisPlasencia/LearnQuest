@@ -153,7 +153,7 @@ public class QuestionMathActivity
     }
 
     public void onCleanButton(View view) {
-        presenter.resetHintIndex();
+        //presenter.resetHintIndex();
         ((TextView) findViewById(R.id.user_answer_math)).setText("");
         presenter.onCleanClicked();
     }

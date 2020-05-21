@@ -41,7 +41,7 @@ public class QuestionGeographyActivity
         QuestionGeographyScreen.configure(this);
 
         presenter.fetchQuestionGeoData();
-        
+
         ImageView imageView = findViewById(R.id.geoHint_image);
         imageView.setVisibility(View.INVISIBLE);
 
