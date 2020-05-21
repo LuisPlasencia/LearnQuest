@@ -764,7 +764,10 @@ public class QuizRepository implements RepositoryContract {
             @Override
             public void run() {
                 if(callback != null) {
-                    callback.setUserList(getUserDao().loadUsers());
+                    List<User> userListUpdated;
+                    userListUpdated = getUserDao().loadUsers();
+                    userList = userListUpdated;
+                    callback.setUserList(userListUpdated);
                 }
             }
         });
