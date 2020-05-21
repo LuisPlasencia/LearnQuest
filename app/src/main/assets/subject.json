@@ -425,9 +425,9 @@
       "photoAdress": "Predeterminada",
       "level": 0,
       "sublevel": 0,
-      "mathPercentage": 35,
-      "englishPercentage": 79,
-      "geographyPercentage": 5,
+      "mathPercentage": 70,
+      "englishPercentage": 15,
+      "geographyPercentage": 80,
       "quizUnitResultList": [
         {
           "id": 1,
@@ -522,9 +522,9 @@
       "photoAdress": "Patata",
       "level": 8,
       "sublevel": 60,
-      "mathPercentage": 91,
-      "englishPercentage": 27,
-      "geographyPercentage": 5,
+      "mathPercentage": 70,
+      "englishPercentage": 15,
+      "geographyPercentage": 80,
       "quizUnitResultList": [
         {
           "id": 13,
@@ -619,86 +619,86 @@
       "photoAdress": "Rabano",
       "level": 11,
       "sublevel": 40,
-      "mathPercentage": 51,
-      "englishPercentage": 10,
-      "geographyPercentage": 69,
+      "mathPercentage": 50,
+      "englishPercentage": 80,
+      "geographyPercentage": 20,
       "quizUnitResultList": [
       {
         "id": 26,
         "questId": 1,
         "quizUnitId": 1,
-        "mark": 80,
-        "medalla": "gold"
+        "mark": 20,
+        "medalla": "bronze"
       },
       {
         "id": 27,
         "questId": 1,
         "quizUnitId": 2,
-        "mark": 60,
-        "medalla": "silver"
+        "mark": 80,
+        "medalla": "gold"
       },
       {
         "id": 28,
         "questId": 1,
         "quizUnitId": 3,
-        "mark": 30,
-        "medalla": "bronze"
+        "mark": 60,
+        "medalla": "silver"
       },
       {
         "id": 29,
         "questId": 1,
         "quizUnitId": 4,
-        "mark": 95,
-        "medalla": "gold"
+        "mark": 5,
+        "medalla": "bronze"
       },
       {
         "id": 30,
         "questId": 2,
         "quizUnitId": 1,
-        "mark": 15,
-        "medalla": "bronze"
+        "mark": 50,
+        "medalla": "silver"
       },
       {
         "id": 31,
         "questId": 2,
         "quizUnitId": 2,
-        "mark": 45,
-        "medalla": "bronze"
+        "mark": 70,
+        "medalla": "gold"
       },
       {
         "id": 32,
         "questId": 2,
         "quizUnitId": 3,
-        "mark": 30,
-        "medalla": "bronze"
+        "mark": 80,
+        "medalla": "gold"
       },
       {
         "id": 33,
         "questId": 2,
         "quizUnitId": 4,
-        "mark": 0,
-        "medalla": "none"
+        "mark": 55,
+        "medalla": "silver"
       },
       {
         "id": 34,
         "questId": 3,
         "quizUnitId": 1,
-        "mark": 80,
-        "medalla": "gold"
+        "mark": 20,
+        "medalla": "bronze"
       },
       {
         "id": 35,
         "questId": 3,
         "quizUnitId": 2,
-        "mark": 75,
-        "medalla": "gold"
+        "mark": 5,
+        "medalla": "bronze"
       },
       {
         "id": 36,
         "questId": 3,
         "quizUnitId": 3,
-        "mark": 90,
-        "medalla": "gold"
+        "mark": 10,
+        "medalla": "bronze"
       },
       {
         "id": 37,
@@ -716,57 +716,57 @@
       "photoAdress": "Lechuga",
       "level": 3,
       "sublevel": 90,
-      "mathPercentage": 15,
-      "englishPercentage": 56,
-      "geographyPercentage": 90,
+      "mathPercentage": 60,
+      "englishPercentage": 25,
+      "geographyPercentage": 55,
       "quizUnitResultList": [
         {
           "id": 38,
           "questId": 1,
           "quizUnitId": 1,
-          "mark": 80,
-          "medalla": "gold"
+          "mark": 10,
+          "medalla": "bronze"
         },
         {
           "id": 39,
           "questId": 1,
           "quizUnitId": 2,
-          "mark": 60,
-          "medalla": "silver"
+          "mark": 20,
+          "medalla": "bronze"
         },
         {
           "id": 40,
           "questId": 1,
           "quizUnitId": 3,
-          "mark": 30,
-          "medalla": "bronze"
+          "mark": 90,
+          "medalla": "gold"
         },
         {
           "id": 41,
           "questId": 1,
           "quizUnitId": 4,
-          "mark": 95,
+          "mark": 80,
           "medalla": "gold"
         },
         {
           "id": 42,
           "questId": 2,
           "quizUnitId": 1,
-          "mark": 15,
-          "medalla": "bronze"
+          "mark": 60,
+          "medalla": "silver"
         },
         {
           "id": 43,
           "questId": 2,
           "quizUnitId": 2,
-          "mark": 45,
+          "mark": 20,
           "medalla": "bronze"
         },
         {
           "id": 44,
           "questId": 2,
           "quizUnitId": 3,
-          "mark": 30,
+          "mark": 10,
           "medalla": "bronze"
         },
         {
@@ -794,8 +794,8 @@
           "id": 48,
           "questId": 3,
           "quizUnitId": 3,
-          "mark": 90,
-          "medalla": "gold"
+          "mark": 0,
+          "medalla": "none"
         },
         {
           "id": 49,

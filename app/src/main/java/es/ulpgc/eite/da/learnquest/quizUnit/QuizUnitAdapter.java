@@ -64,20 +64,17 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
 
         if(currentResult.medalla.equals("gold")){
             holder.gradeImage.setImageResource(R.drawable.gold_medal);
-            holder.practiseButton.setEnabled(true);
-            holder.solveButton.setEnabled(false);
         } else if(currentResult.medalla.equals("silver")){
             holder.gradeImage.setImageResource(R.drawable.silver_medal);
-            holder.solveButton.setEnabled(true);
-            holder.practiseButton.setEnabled(false);
         } else if(currentResult.medalla.equals("bronze")){
             holder.gradeImage.setImageResource(R.drawable.bronze_medal);
-            holder.solveButton.setEnabled(true);
-            holder.practiseButton.setEnabled(false);
+        }
+        if(currentResult.mark == 100){
+            holder.practiseButton.setEnabled(true);
+            holder.solveButton.setEnabled(false);
         } else{
             holder.solveButton.setEnabled(true);
             holder.practiseButton.setEnabled(false);
-
         }
 
         holder.mark.setText(String.valueOf(currentResult.mark) + "%");
