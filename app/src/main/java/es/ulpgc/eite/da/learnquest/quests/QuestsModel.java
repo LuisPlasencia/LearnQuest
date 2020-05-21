@@ -9,6 +9,7 @@ import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
 
 public class QuestsModel implements QuestsContract.Model {
 
@@ -36,6 +37,11 @@ public class QuestsModel implements QuestsContract.Model {
             }
         });
 
+    }
+
+    @Override
+    public User getUser() {
+        return quizRepository.getUserActual();
     }
 
     @Override

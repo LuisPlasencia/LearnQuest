@@ -1,7 +1,9 @@
 package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
@@ -54,6 +56,8 @@ public interface FinalQuizContract {
 
         int getMedalImage();
 
+        String getMedalPhotoString(int experience);
+
         int getExperienceNeeded();
 
         int getQuizId();
@@ -66,7 +70,9 @@ public interface FinalQuizContract {
 
         void updateUser(RepositoryContract.UpdateUserCallback callback);
 
-        void addQuizResult(int userId, int questId, int quizId, int mark, String medalla, RepositoryContract.AddQuizResultCallback callback);
+        void updateQuizResult(QuizUnitResult quizUnitResult, RepositoryContract.updateQuizResultCallback callback);
+
+        List<QuizUnitResult> getQuizUnitResultActual();
     }
 
     interface Router {

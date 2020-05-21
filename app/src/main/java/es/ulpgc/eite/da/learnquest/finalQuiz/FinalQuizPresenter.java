@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
 
@@ -32,24 +33,45 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
         state.sublevel = model.getSubLevel();
         state.subjectId = model.getSubjectId();
         state.quizId = model.getQuizId();
+        state.quizUnitResultActual = model.getQuizUnitResultActual();
 
-        model.updateUser(new RepositoryContract.UpdateUserCallback(){
-            @Override
-            public void onUserUpdated(){
-                Log.d(TAG, "Se ha añadido el la experiencia");
+
+
+
+        for(int i = 0 ; i< state.quizUnitResultActual.size(); i++){
+//            Log.d("holaaaa", "state.subjectId = " + String.valueOf(state.subjectId));
+//            Log.d("holaaaa", "state.quizUnitResultActual.get(i).questId = " + String.valueOf(state.quizUnitResultActual.get(i).questId));
+//
+//            Log.d("holaaaa", "state.quizId = " + String.valueOf(state.quizId));
+//            Log.d("holaaaa", "state.quizUnitResultActual.get(i).quizUnitId = " + state.quizUnitResultActual.get(i).quizUnitId);
+            if((state.quizUnitResultActual.get(i).questId == state.subjectId)  &&  (state.quizUnitResultActual.get(i).quizUnitId == state.quizId)){
+                state.quizUnitResult = state.quizUnitResultActual.get(i);
             }
-        });
+        }
 
-        model.addQuizResult(state.user.getId(), state.subjectId, state.quizId, state.experience_earned, "state.medal_image", new RepositoryContract.AddQuizResultCallback() {
-            @Override
-            public void addQuizResultCallback() {
-                Log.d(TAG, "Se ha añadido el quiz result");
-                view.get().displayFinalQuizData(state);
+        if(state.quizUnitResult.mark < state.experience_earned){
+            state.quizUnitResult.mark = state.experience_earned;
+            Log.d("holaaaa", "state.quizUnitResult.medalla = " + state.quizUnitResult.medalla);
+            Log.d("holaaaa", "model.getMedalPhotoString() = " + model.getMedalPhotoString(state.experience_earned));
+            if(!state.quizUnitResult.medalla.equals(model.getMedalPhotoString(state.experience_earned))){
+                state.quizUnitResult.medalla = model.getMedalPhotoString(state.experience_earned);
+                Log.d("holaaaa", "state.quizUnitResult.medalla = " + state.quizUnitResult.medalla);
             }
-        });
 
-        Log.d(TAG, "Se estará añadiendo");
-
+            model.updateQuizResult(state.quizUnitResult, new RepositoryContract.updateQuizResultCallback() {
+                @Override
+                public void updateQuizResultCallback() {
+                    Log.d(TAG, "Se ha actualizado el quiz result");
+                    model.updateUser(new RepositoryContract.UpdateUserCallback(){
+                        @Override
+                        public void onUserUpdated(){
+                            Log.d(TAG, "Se ha añadido el la experiencia");
+                            view.get().displayFinalQuizData(state);
+                        }
+                    });
+                }
+            });
+        }
 
         view.get().displayFinalQuizData(state);
     }
@@ -81,6 +103,7 @@ public class FinalQuizPresenter implements FinalQuizContract.Presenter {
     public int getMedalPhoto() {
         return state.medal_image;
     }
+
 
     @Override
     public void sendEmail() {

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -124,22 +125,10 @@ public class RegistroActivity
         startActivity(intent);
     }
 
-    public void onSelectionClicked(View view) {
-        int id = view.getId();
-        Spinner spinner = (Spinner) findViewById(id);
-        spinner.getSelectedItem();
-//        presenter.onSelectionClicked(view.getId());
-//        int id = view.getId();
-//        Spinner spinner = (Spinner) findViewById(R.id.image_selection);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-//            public void onItemSelected(AdapterView<?> spn, android.view.View v, int position, long id){
-//                Toast.makeText(spn.getContext(), "Has seleccionado " + spn.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
-//            }
-//        }
-//
-//        );
-        Log.d("perris", String.valueOf(spinner.getSelectedItem()));
-    }
+
+
+
+
 
 
 }

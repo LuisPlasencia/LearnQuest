@@ -65,15 +65,25 @@
                     android:textColor="@android:color/white" />
 
                 <Space
-                    android:layout_width="30dp"
+                    android:layout_width="20dp"
                     android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="100%" />
 
                 <ImageView
                     android:id="@+id/quizunit_grade"
-                    android:layout_width="85dp"
+                    android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:padding="10dp"
-                    app:srcCompat="@drawable/grade" />
+                    tools:srcCompat="@drawable/grade" />
 
             </LinearLayout>
         </LinearLayout>

@@ -48,8 +48,8 @@ public class StatisticsAdapter extends RecyclerView.Adapter<es.ulpgc.eite.da.lea
         holder.itemView.setTag(userList.get(position));
         holder.itemView.setOnClickListener(clickListener);
 
-        int mathExperience = userList.get(position).getEnglishPercentage();
-        int englishExperience = userList.get(position).getMathPercentage();
+        int mathExperience = userList.get(position).getMathPercentage();
+        int englishExperience = userList.get(position).getEnglishPercentage();
         int geographyExperience = userList.get(position).getGeographyPercentage();
 
         holder.username.setText(userList.get(position).getUsername());

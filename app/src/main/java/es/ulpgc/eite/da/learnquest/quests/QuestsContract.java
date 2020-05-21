@@ -5,6 +5,7 @@ import java.util.List;
 
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
+import es.ulpgc.eite.da.learnquest.data.User;
 
 public interface QuestsContract {
 
@@ -42,6 +43,7 @@ public interface QuestsContract {
         /////
         void fetchQuestListData(final RepositoryContract.GetQuestListCallback callback);
 
+        User getUser();
     }
 
     interface Router {

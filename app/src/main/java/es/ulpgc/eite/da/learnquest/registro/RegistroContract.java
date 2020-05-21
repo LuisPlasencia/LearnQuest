@@ -22,6 +22,7 @@ public interface RegistroContract {
         void onFinish();
 
         void displayPictureSelected(String selectedItem);
+
     }
 
     interface Presenter {

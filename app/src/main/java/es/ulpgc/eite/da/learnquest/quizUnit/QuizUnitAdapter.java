@@ -52,15 +52,36 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
         holder.description.setText(itemList.get(position).description);
 
         QuizUnitResult currentResult = findCurrentResult(itemList.get(position).getId());
-        if(currentResult != null) {
-            holder.solveButton.setEnabled(false);
-            holder.practiseButton.setEnabled(true);
+//        if(currentResult != null) {
+//            holder.solveButton.setEnabled(false);
+//            holder.practiseButton.setEnabled(true);
+//            holder.gradeImage.setImageResource(R.drawable.gold_medal);
+//        } else {
+//            holder.solveButton.setEnabled(true);
+//            holder.practiseButton.setEnabled(false);
+//            holder.gradeImage.setImageResource(R.drawable.silver_medal);
+//        }
+
+        if(currentResult.medalla.equals("gold")){
             holder.gradeImage.setImageResource(R.drawable.gold_medal);
-        } else {
+            holder.practiseButton.setEnabled(true);
+            holder.solveButton.setEnabled(false);
+        } else if(currentResult.medalla.equals("silver")){
+            holder.gradeImage.setImageResource(R.drawable.silver_medal);
             holder.solveButton.setEnabled(true);
             holder.practiseButton.setEnabled(false);
-            holder.gradeImage.setImageResource(R.drawable.silver_medal);
+        } else if(currentResult.medalla.equals("bronze")){
+            holder.gradeImage.setImageResource(R.drawable.bronze_medal);
+            holder.solveButton.setEnabled(true);
+            holder.practiseButton.setEnabled(false);
+        } else{
+            holder.solveButton.setEnabled(true);
+            holder.practiseButton.setEnabled(false);
+
         }
+
+        holder.mark.setText(String.valueOf(currentResult.mark) + "%");
+
         holder.solveButton.setOnClickListener(clickListener);
         holder.practiseButton.setOnClickListener(clickListener);
     }
@@ -90,7 +111,7 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
         final Button solveButton, practiseButton;
         final CardView cardView;
-        final TextView title, description;
+        final TextView title, description, mark;
         final ImageView gradeImage;
 
         ViewHolder(View view) {
@@ -101,6 +122,8 @@ public class QuizUnitAdapter extends RecyclerView.Adapter<QuizUnitAdapter.ViewHo
             gradeImage = view.findViewById(R.id.quizunit_grade);
             solveButton = view.findViewById(R.id.quizunit_solve_button);
             practiseButton = view.findViewById(R.id.quizunit_practica_button);
+            mark = view.findViewById(R.id.mark);
+
         }
     }
 }

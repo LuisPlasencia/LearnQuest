@@ -1,5 +1,7 @@
 package es.ulpgc.eite.da.learnquest.quests;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class QuestsPresenter implements QuestsContract.Presenter {
             @Override
             public void setQuestList(List<QuestItem> questList) {
                 state.questItems = questList;
+                state.user = model.getUser();
                 view.get().displayData(state);
             }
         });
@@ -84,6 +87,7 @@ public class QuestsPresenter implements QuestsContract.Presenter {
     public void selectQuestData(QuestItem item) {
         state.subject = item.getSubject();
         state.subjectId = item.getId();
+        Log.d("hola", String.valueOf(state.subjectId));
         model.setSubjectID(state.subjectId);
         router.passDataToQuizUnitScreen(item);
        // router.navigateToQuizUnitScreen();

@@ -21,6 +21,8 @@ public interface RepositoryContract {
 
     int getMedalImage();
 
+    String getMedalImageString(int experience);
+
     int getQuizId();
 
     void setQuizId(int quizId);
@@ -67,7 +69,7 @@ public interface RepositoryContract {
 
     int getNumberOfUsers();
 
-    void addQuizResult(QuizUnitResult quizUnitResult, AddQuizResultCallback callback);
+    void updateQuizResult(QuizUnitResult quizUnitResult, updateQuizResultCallback callback);
 
     void getQuizUnitsResultList(QuestItem quest, GetQuizUnitResultListCallback getQuizUnitResultListCallback);
 
@@ -78,6 +80,8 @@ public interface RepositoryContract {
     List<QuestionGeographyItem> loadQuestionGeography();
 
     void updateHalfExperienceCollected();
+
+    List<QuizUnitResult> getQuizUnitResultActual();
 
 
     ///////////////////////////////////////// JSON //////////////////////////////////
@@ -134,8 +138,8 @@ public interface RepositoryContract {
         void onUserUpdated();
     }
 
-    interface AddQuizResultCallback {
-        void addQuizResultCallback();
+    interface updateQuizResultCallback {
+        void updateQuizResultCallback();
     }
 
     void loadSubject(FetchSubjectDataCallback callback);

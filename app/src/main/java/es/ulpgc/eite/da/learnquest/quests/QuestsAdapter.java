@@ -16,12 +16,14 @@ import java.util.Random;
 
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
+import es.ulpgc.eite.da.learnquest.data.User;
 
 public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder> {
 
     private List<QuestItem> itemList;
     private final View.OnClickListener clickListener;
     public int color;
+    public User user;
 
     public QuestsAdapter(View.OnClickListener listener) {
 
@@ -32,6 +34,11 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
 
     public void setItems(List<QuestItem> items){
         itemList = items;
+        notifyDataSetChanged();
+    }
+
+    public void setUser(User user){
+        this.user = user;
         notifyDataSetChanged();
     }
 
@@ -50,7 +57,14 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.ViewHolder
         holder.title.setText(itemList.get(position).subjectName);
 
         //Log.d("QuestsAdapter", itemList.get(position).getSubject());
-        holder.percentage.setText(String.valueOf(itemList.get(position).getPercentage()));
+        if(position == 0){
+            holder.percentage.setText(String.valueOf(user.getMathPercentage()));
+        } else if(position == 1){
+            holder.percentage.setText(String.valueOf(user.getEnglishPercentage()));
+        } else if(position == 2){
+            holder.percentage.setText(String.valueOf(user.getGeographyPercentage()));
+        }
+
         holder.questImage.setImageResource(itemList.get(position).getPhoto());
 
 

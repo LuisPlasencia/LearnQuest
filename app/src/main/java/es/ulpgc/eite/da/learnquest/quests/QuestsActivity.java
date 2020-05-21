@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import es.ulpgc.eite.da.learnquest.R;
 import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.data.QuestItem;
+import es.ulpgc.eite.da.learnquest.login.LoginActivity;
+import es.ulpgc.eite.da.learnquest.profile.ProfileActivity;
 import es.ulpgc.eite.da.learnquest.quizUnit.QuizUnitActivity;
 
 public class QuestsActivity
@@ -72,6 +74,7 @@ public class QuestsActivity
 
                 // deal with the data
                 listAdapter.setItems(viewModel.questItems);
+                listAdapter.setUser(viewModel.user);
             }
 
         });
@@ -86,6 +89,8 @@ public class QuestsActivity
 
     public void navigateToQuizUnitScreen() {
         Intent intent = new Intent(this, QuizUnitActivity.class);
+
         startActivity(intent);
     }
+
 }

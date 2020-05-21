@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.learnquest.finalQuiz;
 
 import android.util.Log;
 
+import java.util.List;
+
 import es.ulpgc.eite.da.learnquest.data.QuizUnitResult;
 import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.data.User;
@@ -73,15 +75,25 @@ public class FinalQuizModel implements FinalQuizContract.Model {
     }
 
     @Override
-    public void addQuizResult(int userId, int questId, int quizId, int mark, String medalla, RepositoryContract.AddQuizResultCallback callback) {
-        QuizUnitResult quizUnitResult = new QuizUnitResult(questId + quizId +userId, questId, quizId, userId, mark, medalla);
-        repository.addQuizResult(quizUnitResult, callback);
+    public void updateQuizResult(QuizUnitResult quizUnitResult, RepositoryContract.updateQuizResultCallback callback) {
+        repository.updateQuizResult(quizUnitResult, callback);
+    }
+
+    @Override
+    public List<QuizUnitResult> getQuizUnitResultActual() {
+        return repository.getQuizUnitResultActual();
     }
 
     @Override
     public int getSubjectId() {
         return repository.getSubjectId();
     }
+
+    @Override
+    public String getMedalPhotoString(int experience){
+        return repository.getMedalImageString(experience);
+    }
+
 
 }
 
