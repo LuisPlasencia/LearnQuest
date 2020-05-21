@@ -142,8 +142,8 @@ public class InstrumentedTests {
     }
         ///////////////////////////////////-- QUESTS --///////////////////////////////////
     public void goToQuest(){
-        onView(withId(R.id.username_input)).perform(typeText("Cunwang"));
-        onView(withId(R.id.password_input)).perform(typeText("lechuga"));
+        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("c"));
         pressBack();
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
