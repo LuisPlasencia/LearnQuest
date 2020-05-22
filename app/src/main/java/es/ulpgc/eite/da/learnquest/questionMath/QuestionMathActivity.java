@@ -310,6 +310,7 @@ public class QuestionMathActivity
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        presenter.cleanAnswer();
                         navigateToQuizUnitScreen();
                     }
                 });
@@ -320,7 +321,9 @@ public class QuestionMathActivity
             }
         });
         AlertDialog dialog = builder.create();
+
         dialog.show();
+
     }
 
     @Override

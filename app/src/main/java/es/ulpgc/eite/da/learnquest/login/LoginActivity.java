@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.app.AppMediator;
 import es.ulpgc.eite.da.learnquest.profile.ProfileActivity;
 import es.ulpgc.eite.da.learnquest.registro.RegistroActivity;
 
@@ -30,6 +31,10 @@ public class LoginActivity
         LoginScreen.configure(this);
 
         presenter.fetchUserListData();
+
+        if (savedInstanceState == null) {
+            AppMediator.resetInstance();
+        }
 
 
         if (savedInstanceState == null) {

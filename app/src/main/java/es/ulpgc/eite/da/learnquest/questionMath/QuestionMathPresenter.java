@@ -181,6 +181,11 @@ public class QuestionMathPresenter implements QuestionMathContract.Presenter {
 
     }
 
+    @Override
+    public void cleanAnswer(){
+        state.mathAnswerText="";
+    }
+
 
     @Override
     public void onBackPressed() {

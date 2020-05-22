@@ -70,6 +70,8 @@ public interface QuestionMathContract {
 
         char onHintButtonClicked();
 
+        void cleanAnswer();
+
         void onBackPressed();
 
         void onPause();
