@@ -28,14 +28,13 @@ public class LoginActivity
         //  if(savedInstanceState == null) AppMediator.resetInstance();
 
         // do the setup
-        LoginScreen.configure(this);
-
-        presenter.fetchUserListData();
-
         if (savedInstanceState == null) {
             AppMediator.resetInstance();
         }
 
+        LoginScreen.configure(this);
+
+        presenter.fetchUserListData();
 
         if (savedInstanceState == null) {
             presenter.onStart();

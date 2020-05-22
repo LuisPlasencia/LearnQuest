@@ -32,6 +32,7 @@ import es.ulpgc.eite.da.learnquest.login.LoginActivity;
 
 import static android.app.PendingIntent.getActivity;
 import static androidx.core.util.Preconditions.checkNotNull;
+import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
@@ -43,8 +44,11 @@ import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withSpinnerText;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -64,6 +68,13 @@ public class InstrumentedTests {
 
     Context context =
             InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+    String title = context.getResources().getString(R.string.login_title);
+    String title2 = context.getResources().getString(R.string.login_title2);
+    String username = context.getResources().getString(R.string.login_username);
+    String empty_answer = context.getString(R.string.empty_string);
+    String correct = context.getString(R.string.correct_text);
+    String incorrect = context.getString(R.string.incorrect_text);
 
     ///////////////////////////////////-- LOGIN --///////////////////////////////////
     @Test
@@ -699,6 +710,8 @@ public class InstrumentedTests {
         onView(new RecyclerViewMatcher(R.id.quests_list)
                 .atPositionOnView(0, R.id.subjectName))
                 .perform(click());
+
+
         onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
                 .atPositionOnView(0, R.id.quizunit_solve_button))
                 .perform(click());
@@ -786,4 +799,469 @@ public class InstrumentedTests {
 
 
 
+    @Test
+    public void englishQuizAllCorrectAndReturn() {
+        goToQuest();
+
+        //GIVEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeDown());
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.question_number)).check(matches(withText("1")));
+        onView(withId(R.id.question_text)).check(matches(withText("I dislike ______ to the movies by myself")));
+        onView(withId(R.id.option1_button)).check(matches(withText("going")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to go")));
+        onView(withId(R.id.option3_button)).check(matches(withText("going/to go")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+
+        //WHEN
+        onView(withId(R.id.option1_button)).perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.option1_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option2_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option3_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.nextButton))
+                .check(matches(isEnabled()));
+        onView(withId(R.id.answer_text)).check(matches(withText(correct)));
+
+
+        //WHEN
+        ViewInteraction appCompatButton3 = onView(withId(R.id.nextButton));
+        appCompatButton3.perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.question_number)).check(matches(withText("2")));
+        onView(withId(R.id.question_text)).check(matches(withText("We started ______ dinner without you")));
+        onView(withId(R.id.option1_button)).check(matches(withText("eating")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to eat")));
+        onView(withId(R.id.option3_button)).check(matches(withText("eating/to eat")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+
+        //WHEN
+        onView(withId(R.id.option3_button)).perform(click());
+
+        //THEN & GIVEN
+        onView(withId(R.id.option1_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option2_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option3_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.nextButton))
+                .check(matches(isEnabled()));
+        onView(withId(R.id.answer_text)).check(matches(withText(correct)));
+
+        //WHEN
+        ViewInteraction appCompatButton4 = onView(withId(R.id.nextButton));
+        appCompatButton4.perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.question_number)).check(matches(withText("3")));
+        onView(withId(R.id.question_text)).check(matches(withText("I can't imagine ______ my own house")));
+        onView(withId(R.id.option1_button)).check(matches(withText("buying")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to buy")));
+        onView(withId(R.id.option3_button)).check(matches(withText("buying/to buy")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+
+        //WHEN
+        onView(withId(R.id.option1_button)).perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.option1_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option2_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option3_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.nextButton))
+                .check(matches(isEnabled()));
+        onView(withId(R.id.answer_text)).check(matches(withText(correct)));
+
+
+        //WHEN
+        ViewInteraction appCompatButton5 = onView(withId(R.id.nextButton));
+        appCompatButton5.perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.question_number)).check(matches(withText("4")));
+        onView(withId(R.id.question_text)).check(matches(withText("I used ______ that television show all the time")));
+        onView(withId(R.id.option1_button)).check(matches(withText("watching")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to watch")));
+        onView(withId(R.id.option3_button)).check(matches(withText("watching/to watch")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+
+
+        //WHEN
+        onView(withId(R.id.option2_button)).perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.option1_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option2_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.option3_button)).check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.nextButton))
+                .check(matches(isEnabled()));
+        onView(withId(R.id.answer_text)).check(matches(withText(correct)));
+
+
+        //WHEN
+        ViewInteraction appCompatButton6 = onView(withId(R.id.nextButton));
+        appCompatButton6.perform(click());
+
+
+
+        //THEN % GIVEN
+        ViewInteraction imageView = onView(withId(R.id.medal));
+        imageView.check(matches(isDisplayed()));
+
+        ViewInteraction textView = onView(withId(R.id.earned));
+        textView.check(matches(withText("You earned 100xp!")));
+
+        ViewInteraction textView6 = onView(withId(R.id.exp_to_nextlevel));
+        textView6.check(matches(withText("You need 100xp to reach level 2")));
+
+        ViewInteraction textView11 = onView(withId(R.id.level_display));
+        textView11.check(matches(withText("Level: 1")));
+
+        ViewInteraction textView7 = onView(withId(R.id.quiz_number));
+        textView7.check(matches(withText("Quiz number 1")));
+
+        ViewInteraction textView10 = onView(withId(R.id.subject));
+        textView10.check(matches(withText("Subject: English")));
+
+        ViewInteraction progressBar = onView(withId(R.id.progressBar2));
+        progressBar.check(matches(isDisplayed()));
+
+
+        //WHEN
+        ViewInteraction appCompatButton7 = onView(withId(R.id.return_button));
+        appCompatButton7.perform(click());
+
+        ViewInteraction appCompatButton2 = onView(withId(R.id.go_button));
+        appCompatButton2.perform(click());
+
+
+
+        //THEN & GIVEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.quest_level_id))
+                .check(matches(withText("25%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .perform(click());
+
+
+
+        //THEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.mark))
+                .check(matches(withText("100%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.mark))
+                .check(matches(withText("0%")));
+
+    }
+
+
+    @Test
+    public void eliminateUserAndTryToLogIn() {
+
+        //GIVEN
+        ViewInteraction button4 = onView(withId(R.id.no_account_button));
+        button4.check(matches(isDisplayed()));
+
+        ViewInteraction button5 = onView(withId(R.id.lets_go_button));
+        button5.check(matches(isDisplayed()));
+
+        ViewInteraction imageView1 = onView(withId(R.id.background_shiny));
+        imageView1.check(matches(isDisplayed()));
+
+        ViewInteraction imageView2 = onView(withId(R.id.quest_icon));
+        imageView2.check(matches(isDisplayed()));
+
+        ViewInteraction imageView3 = onView(withId(R.id.background_mountains));
+        imageView3.check(matches(isDisplayed()));
+
+
+        //WHEN
+        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("c"));
+        pressBack();
+        ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
+        appCompatButton.perform(click());
+
+
+        //THEN & GIVEN
+        ViewInteraction button = onView((withId(R.id.go_button)));
+        button.check(matches(isDisplayed()));
+
+        ViewInteraction button2 = onView(withId(R.id.removeUser_button));
+        button2.check(matches(isDisplayed()));
+
+        ViewInteraction button3 = onView(withId(R.id.log_out_button));
+        button3.check(matches(isDisplayed()));
+
+        ViewInteraction imageView = onView(withId(R.id.go_quest_image));
+        imageView.check(matches(isDisplayed()));
+
+        ViewInteraction imageView6 = onView(withId(R.id.new_quest_image));
+        imageView6.check(matches(isDisplayed()));
+
+        ViewInteraction imageView7 = onView(withId(R.id.log_out_image));
+        imageView7.check(matches(isDisplayed()));
+
+
+        //WHEN
+        ViewInteraction appCompatButton2 = onView(withId(R.id.removeUser_button));
+        appCompatButton2.perform(click());
+        onView(withText("Eliminate it!"))
+                .inRoot(withDecorView(not(is(mActivityTestRule.getActivity().getWindow().getDecorView()))))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        button4.check(matches(isDisplayed()));
+        button5.check(matches(isDisplayed()));
+        imageView1.check(matches(isDisplayed()));
+        imageView2.check(matches(isDisplayed()));
+        imageView3.check(matches(isDisplayed()));
+
+
+        //WHEN
+        onView(withId(R.id.username_input)).perform(typeText("c"));
+        onView(withId(R.id.password_input)).perform(typeText("c"));
+        pressBack();
+        appCompatButton.perform(click());
+
+
+        //THEN
+        onView(withText("Invalid username")).inRoot(withDecorView(not(mActivityTestRule.getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
+
+    }
+
+
+    @Test
+    public void createUserAndLogInAndStatistics() throws InterruptedException {
+        //GIVEN
+        ViewInteraction button4 = onView(withId(R.id.no_account_button));
+        button4.check(matches(isDisplayed()));
+
+        ViewInteraction button5 = onView(withId(R.id.lets_go_button));
+        button5.check(matches(isDisplayed()));
+
+        ViewInteraction imageView1 = onView(withId(R.id.background_shiny));
+        imageView1.check(matches(isDisplayed()));
+
+        ViewInteraction imageView2 = onView(withId(R.id.quest_icon));
+        imageView2.check(matches(isDisplayed()));
+
+        ViewInteraction imageView3 = onView(withId(R.id.background_mountains));
+        imageView3.check(matches(isDisplayed()));
+
+
+        //WHEN
+        ViewInteraction appCompatButton = onView(withId(R.id.no_account_button));
+        appCompatButton.perform(click());
+
+
+        //THEN & GIVEN
+        ViewInteraction button = onView((withId(R.id.registro_signup_button)));
+        button.check(matches(isDisplayed()));
+
+        ViewInteraction imageView = onView(withId(R.id.imagenDePerfil));
+        imageView.check(matches(isDisplayed()));
+
+        ViewInteraction textView10 = onView(withId(R.id.ImagenDePerfilDescripcion));
+        textView10.check(matches(withText("Profile Image Preview")));
+
+
+        //WHEN
+        onView(withId(R.id.registro_username)).perform(typeText("prueba"));
+        onView(withId(R.id.registro_email)).perform(typeText("prueba"));
+        onView(withId(R.id.registro_password)).perform(typeText("prueba"));
+
+        onView(withId(R.id.image_selection)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Rabano"))).perform(click());
+        onView(withId(R.id.image_selection)).check(matches(withSpinnerText(containsString("Rabano"))));
+        pressBack();
+
+        ViewInteraction appCompatButton2 = onView(withId(R.id.registro_signup_button));
+        appCompatButton2.perform(click());
+
+
+        //THEN & GIVEN
+        button4.check(matches(isDisplayed()));
+        button5.check(matches(isDisplayed()));
+        imageView1.check(matches(isDisplayed()));
+        imageView2.check(matches(isDisplayed()));
+        imageView3.check(matches(isDisplayed()));
+
+
+        //WHEN
+        onView(withId(R.id.username_input)).perform(typeText("prueba"));
+        onView(withId(R.id.password_input)).perform(typeText("prueba"));
+        pressBack();
+        ViewInteraction appCompatButton3 = onView(withId(R.id.lets_go_button));
+        appCompatButton3.perform(click());
+
+
+        //THEN & GIVEN
+        ViewInteraction button9 = onView((withId(R.id.go_button)));
+        button9.check(matches(isDisplayed()));
+
+        ViewInteraction button2 = onView(withId(R.id.removeUser_button));
+        button2.check(matches(isDisplayed()));
+
+        ViewInteraction button3 = onView(withId(R.id.log_out_button));
+        button3.check(matches(isDisplayed()));
+
+        ViewInteraction imageView8 = onView(withId(R.id.go_quest_image));
+        imageView8.check(matches(isDisplayed()));
+
+        ViewInteraction imageView6 = onView(withId(R.id.new_quest_image));
+        imageView6.check(matches(isDisplayed()));
+
+        ViewInteraction imageView7 = onView(withId(R.id.log_out_image));
+        imageView7.check(matches(isDisplayed()));
+
+        ViewInteraction textView11 = onView(withId(R.id.profile_name));
+        textView11.check(matches(withText("prueba")));
+
+        ViewInteraction textView12 = onView(withId(R.id.level_display));
+        textView12.check(matches(withText("Level: 0")));
+
+        ViewInteraction textView13 = onView(withId(R.id.exp_to_display));
+        textView13.check(matches(withText("0 / 100")));
+
+
+        //WHEN
+        ViewInteraction appCompatButton4 = onView(withId(R.id.statistics_button));
+        appCompatButton4.perform(click());
+
+
+        //THEN & GIVEN
+        onView(new RecyclerViewMatcher(R.id.statistics_list)
+                .atPositionOnView(0, R.id.user_name))
+                .check(matches(withText("Username")));
+
+        onView(new RecyclerViewMatcher(R.id.statistics_list)
+                .atPositionOnView(1, R.id.user_name))
+                .check(matches(withText("Luis")));
+
+
+        //WHEN
+        onView(ViewMatchers.withId(R.id.statistics_list)).perform(ViewActions.swipeUp());
+        Thread.sleep(2000);
+
+
+        //THEN
+        onView(new RecyclerViewMatcher(R.id.statistics_list)
+                .atPositionOnView(4, R.id.user_name))
+                .check(matches(withText("c")));
+
+
+        onView(new RecyclerViewMatcher(R.id.statistics_list)
+                .atPositionOnView(5, R.id.user_name))
+                .check(matches(withText("prueba")));
+
+
+    }
+
+
+
+
 }
+
+
