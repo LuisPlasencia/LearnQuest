@@ -832,6 +832,14 @@ public class InstrumentedTests {
                 .atPositionOnView(1, R.id.mark))
                 .check(matches(withText("0%")));
 
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_practica_button))
+                .check(matches(not(isEnabled())));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .check(matches(isEnabled()));
+
         onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
 
 
@@ -1037,6 +1045,18 @@ public class InstrumentedTests {
         onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
                 .atPositionOnView(0, R.id.mark))
                 .check(matches(withText("100%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_practica_button))
+                .check(matches(isEnabled()));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_practica_button))
+                .check(matches(isEnabled()));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .check(matches(not(isEnabled())));
 
         onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
                 .atPositionOnView(1, R.id.mark))
