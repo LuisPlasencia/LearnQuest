@@ -175,7 +175,8 @@
     <string name="islasBaleares_button">Islas Baleares</string>
     <string name="ceuta_button">Ceuta</string>
     <string name="melilla_button">Melilla</string>
-
+    <string name="english_quiz_title">English Quiz</string>
+    <string name="maths_quiz_title">Maths quiz</string>
 
 
 </resources>

@@ -101,7 +101,7 @@ public class QuestionActivity
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {
-            String questionTitle = getResources().getString(R.string.quiz_screen_title);
+            String questionTitle = getResources().getString(R.string.english_quiz_title);
             actionBar.setTitle(questionTitle);
         }
     }
