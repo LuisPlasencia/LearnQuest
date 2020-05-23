@@ -813,6 +813,264 @@ public class InstrumentedTests {
     }
 
     @Test
+    public void geoQuizNumberOneCorrectAnswer(){
+        goToQuest();
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .perform(click());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+        //GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.valencia_button)).perform(click());
+
+        //THEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("Valencia")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("Correct")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geo_quiz_next)).check(matches(isEnabled()));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+    }
+
+    @Test
+    public void geoQuizNumberOneWrongAnswer(){
+        goToQuest();
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .perform(click());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+        //GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.la_rioja_button)).perform(click());
+
+        //THEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("La Rioja")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("Incorrect")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+    }
+
+    @Test
+    public void geoQuizNumberOneWrongAnswer3Times(){
+        goToQuest();
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .perform(click());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+        //GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.la_rioja_button)).perform(click());
+
+        //THEN && GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("La Rioja")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("Incorrect")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.baleares_button)).perform(click());
+
+        //THEN && GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("Islas Baleares")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("Incorrect")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.murcia_button)).perform(click());
+
+        //THEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("Murcia")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("Incorrect")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geo_quiz_next)).check(matches(isEnabled()));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+    }
+
+    @Test
+    public void geoQuizNumberOneAnswerHint(){
+        goToQuest();
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .perform(click());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+        //GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.geo_quiz_hint)).perform(click());
+
+        //THEN && GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hide")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(isDisplayed()));
+
+        //WHEN
+        onView(withId(R.id.geo_quiz_hint)).perform(click());
+
+        //THEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+    }
+    @Test
+    public void geoQuizNumberOneCorrectAnswerNext(){
+        goToQuest();
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.subjectName))
+                .perform(click());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+        //GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.valencia_button)).perform(click());
+
+        //THEN && GIVEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("In which autonomous community is Alicante?")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 1")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("Valencia")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("Correct")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geo_quiz_next)).check(matches(isEnabled()));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+        //WHEN
+        onView(withId(R.id.geo_quiz_next)).perform(click());
+
+        //THEN
+        onView(withId(R.id.geoTitle)).check(matches(withText("The capital of Spain is...")));
+        onView(withId(R.id.question_geo_number)).check(matches(withText("Question 2")));
+        onView(withId(R.id.user_answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.answer_geo)).check(matches(withText("")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(withText("Hint")));
+        onView(withId(R.id.geo_quiz_next)).check(matches(withText("Next")));
+        onView(withId(R.id.geo_quiz_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.geo_quiz_next)).check(matches(not(isEnabled())));
+        onView(withId(R.id.geoHint_image)).check(matches(not(isDisplayed())));
+
+    }
+
+
+
+    @Test
     public void englishQuizHintButPressedYesToSeeHint() {
         goToQuest();
 
