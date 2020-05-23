@@ -29,8 +29,8 @@ public class RegistroPresenter implements RegistroContract.Presenter {
             view.get().displayWarning(3);
             return;
         }
-        state.password = view.get().getEmailInput();
-        state.email = view.get().getPasswordInput(); //El email se usará más adelante (siguiente sprint)
+        state.password = view.get().getPasswordInput();
+        state.email = view.get().getEmailInput(); //El email se usará más adelante (siguiente sprint)
         Log.d("hola", state.usernameImage);
         if(model.existingUsername(state.username)){
             view.get().displayWarning(2);
