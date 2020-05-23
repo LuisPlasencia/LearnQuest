@@ -83,6 +83,8 @@ public class InstrumentedTests {
     String empty_answer = context.getString(R.string.empty_string);
     String correct = context.getString(R.string.correct_text);
     String incorrect = context.getString(R.string.incorrect_text);
+    String confirmation_text = context.getString(R.string.confirmation_cheat);
+    String confirmation_info_text = context.getString(R.string.confirmation_info_cheat);
     RepositoryContract repository = QuizRepository.getInstance(context);
 
 
@@ -810,6 +812,212 @@ public class InstrumentedTests {
         onView(withId(R.id.math_quiz_clean)).check(matches(isEnabled()));
     }
 
+    @Test
+    public void englishQuizHintButPressedYesToSeeHint() {
+        goToQuest();
+
+        //GIVEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_practica_button))
+                .check(matches(not(isEnabled())));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .check(matches(isEnabled()));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeDown());
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.question_number)).check(matches(withText("1")));
+        onView(withId(R.id.question_text)).check(matches(withText("I dislike ______ to the movies by myself")));
+        onView(withId(R.id.option1_button)).check(matches(withText("going")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to go")));
+        onView(withId(R.id.option3_button)).check(matches(withText("going/to go")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+
+        //WHEN
+        onView(withId(R.id.cheatButton)).perform(click());
+
+        //THEN & GIVEN
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+
+        //WHEN
+        onView(withId(R.id.yesButton)).perform(click());
+
+        //THEN & GIVEN
+        onView(withId(R.id.answer_text)).check(matches(not(withText(empty_answer))));
+
+        //WHEN
+        onView(withId(R.id.returnButton)).perform(click());
+
+        //THEN
+        onView(withId(R.id.question_number)).check(matches(withText("1")));
+        onView(withId(R.id.question_text)).check(matches(withText("I dislike ______ to the movies by myself")));
+        onView(withId(R.id.option1_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText("going")));
+        onView(withId(R.id.option2_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText("to go")));
+        onView(withId(R.id.option3_button))
+                .check(matches(isEnabled()))
+                .check(matches(withText("going/to go")));
+        onView(withId(R.id.answer_text))
+                .check(matches(isEnabled()))
+                .check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton)).check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton)).check(matches(not(isEnabled())));
+    }
+
+
+    @Test
+    public void englishQuizHintButPressedNo() {
+        goToQuest();
+
+        //GIVEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(0, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(2, R.id.quest_level_id))
+                .check(matches(withText("0%")));
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quests_list)
+                .atPositionOnView(1, R.id.subjectName))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(1, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_practica_button))
+                .check(matches(not(isEnabled())));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .check(matches(isEnabled()));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeUp());
+
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(2, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(3, R.id.mark))
+                .check(matches(withText("0%")));
+
+        onView(ViewMatchers.withId(R.id.quiz_unit_list)).perform(ViewActions.swipeDown());
+
+
+        //WHEN
+        onView(new RecyclerViewMatcher(R.id.quiz_unit_list)
+                .atPositionOnView(0, R.id.quizunit_solve_button))
+                .perform(click());
+
+
+        //THEN & GIVEN
+        onView(withId(R.id.question_number)).check(matches(withText("1")));
+        onView(withId(R.id.question_text)).check(matches(withText("I dislike ______ to the movies by myself")));
+        onView(withId(R.id.option1_button)).check(matches(withText("going")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to go")));
+        onView(withId(R.id.option3_button)).check(matches(withText("going/to go")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+
+        //WHEN
+        onView(withId(R.id.cheatButton)).perform(click());
+
+        //THEN & GIVEN
+        onView(withId(R.id.confirmation_text)).check(matches(withText(confirmation_text)));
+        onView(withId(R.id.confirmation_info_text)).check(matches(withText(confirmation_info_text)));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+
+        //WHEN
+        onView(withId(R.id.noButton)).perform(click());
+
+        //THEN
+        onView(withId(R.id.question_number)).check(matches(withText("1")));
+        onView(withId(R.id.question_text)).check(matches(withText("I dislike ______ to the movies by myself")));
+        onView(withId(R.id.option1_button)).check(matches(withText("going")));
+        onView(withId(R.id.option2_button)).check(matches(withText("to go")));
+        onView(withId(R.id.option3_button)).check(matches(withText("going/to go")));
+        onView(withId(R.id.answer_text)).check(matches(withText(empty_answer)));
+        onView(withId(R.id.nextButton))
+                .check(matches(not(isEnabled())));
+        onView(withId(R.id.cheatButton))
+                .check(matches(isEnabled()));
+    }
 
     @Test
     public void englishQuizTimeout() {

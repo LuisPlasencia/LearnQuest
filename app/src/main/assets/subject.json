@@ -135,7 +135,7 @@
               "option1": "going",
               "option2": "to go",
               "option3": "going/to go",
-              "hint": "Hint: It might be option 1",
+              "hint": "-ing nouns are nearly always uncount nouns, and used as object verbs",
               "correctOption": 1
             },
             {
@@ -144,7 +144,7 @@
               "option1": "eating",
               "option2": "to eat",
               "option3": "eating/to eat",
-              "hint": "Hint: It might be option 2",
+              "hint": "Why not both?",
               "correctOption": 3
             },
             {
@@ -153,7 +153,7 @@
               "option1": "buying",
               "option2": "to buy",
               "option3": "buying/to buy",
-              "hint": "Hint: It might be option 1",
+              "hint": "-ing nouns are nearly always uncount nouns, and used as object verbs",
               "correctOption": 1
             },
             {
@@ -162,7 +162,7 @@
               "option1": "watching",
               "option2": "to watch",
               "option3": "watching/to watch",
-              "hint": "Hint: It might be option 1",
+              "hint": "Some verbs take “to” (want to do), some verbs take “-ing”",
               "correctOption": 2
             }
           ]
@@ -178,7 +178,7 @@
               "option1": "to visit",
               "option2": "visiting",
               "option3": "to visit/visiting",
-              "hint": "Hint: It might be option 1",
+              "hint": "Some verbs take “to” (want to do), some verbs take “-ing",
               "correctOption": 3
             },
             {
@@ -196,7 +196,7 @@
               "option1": "to play",
               "option2": "playing",
               "option3": "to play/playing",
-              "hint": "Hint: It might be option 1",
+              "hint": "some verbs (e.g. like, love, hate and prefer) can be followed by either “-ing” or “to.",
               "correctOption": 3
             },
             {
@@ -221,7 +221,7 @@
               "option1": "can",
               "option2": "could",
               "option3": "was able to",
-              "hint": "Hint: It might be option 2",
+              "hint": "be able to to express ability",
               "correctOption": 3
             },
             {
@@ -230,7 +230,7 @@
               "option1": "could be",
               "option2": "be able to",
               "option3": "could be able to",
-              "hint": "Hint: It might be option 2",
+              "hint": "If you did the last one, this one might be similar",
               "correctOption": 2
             },
             {
@@ -239,7 +239,7 @@
               "option1": "Could",
               "option2": "Can",
               "option3": "Will",
-              "hint": "Hint: It might be option 3",
+              "hint": "Maybe we COULD use a modal verb?",
               "correctOption": 1
             },
             {
@@ -248,7 +248,7 @@
               "option1": "can",
               "option2": "cannot",
               "option3": "am able to",
-              "hint": "Hint: It might be option 1",
+              "hint": "We use can to express ability",
               "correctOption": 1
             }
           ]
@@ -264,7 +264,7 @@
               "option1": "tell",
               "option2": "go",
               "option3": "be",
-              "hint": "Hint: It might be option 3",
+              "hint": "Hint: It might be option 1",
               "correctOption": 1
             },
             {
@@ -273,7 +273,7 @@
               "option1": "Do you work there?",
               "option2": "Where do I work?",
               "option3": "Where do you work?",
-              "hint": "Hint: It might be option 1",
+              "hint": "Hint: It might be option 3",
               "correctOption": 3
             },
             {
