@@ -1,7 +1,5 @@
 # Learnquest
 
-![Generic badge](https://img.shields.io/badge/Version-Segundo sprint-<COLOR>.svg)
-
 Este proyecto es una aplicación Android para la asignatura de Diseño de Aplicaciones.
 
 ## Objetivo de la aplicación
@@ -16,11 +14,11 @@ Con esta aplicación proporcionar una plataforma para realizar quizes sencillos 
 
 Los integrantes del grupo somos:
 
-* Cunwang Guo
+* [Cunwang Guo](https://github.com/cyserser) 
 
-* Luis Plasencia Pulido
+* [Luis Plasencia Pulido](https://github.com/LuisPlasencia/LearnQuest) 
 
-* Rubén Delgado González
+* [Rubén Delgado González](https://github.com/rrenub)
 
   
 
