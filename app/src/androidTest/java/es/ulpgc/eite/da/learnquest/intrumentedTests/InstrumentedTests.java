@@ -22,11 +22,14 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.core.IsInstanceOf;
+import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import es.ulpgc.eite.da.learnquest.R;
+import es.ulpgc.eite.da.learnquest.data.QuizRepository;
+import es.ulpgc.eite.da.learnquest.data.RepositoryContract;
 import es.ulpgc.eite.da.learnquest.finalQuiz.FinalQuizActivity;
 import es.ulpgc.eite.da.learnquest.login.LoginActivity;
 
@@ -66,6 +69,11 @@ public class InstrumentedTests {
     @Rule
     public ActivityTestRule<LoginActivity> mActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
 
+    @After
+    public void tearDown(){
+        repository.resetInstance();
+    }
+
     Context context =
             InstrumentationRegistry.getInstrumentation().getTargetContext();
 
@@ -75,6 +83,9 @@ public class InstrumentedTests {
     String empty_answer = context.getString(R.string.empty_string);
     String correct = context.getString(R.string.correct_text);
     String incorrect = context.getString(R.string.incorrect_text);
+    RepositoryContract repository = QuizRepository.getInstance(context);
+
+
 
     ///////////////////////////////////-- LOGIN --///////////////////////////////////
     @Test
@@ -97,6 +108,8 @@ public class InstrumentedTests {
         ViewInteraction button = onView((withId(R.id.go_button)));
         button.check(matches(isDisplayed()));
     }
+
+
 
     @Test
     public void letsGoButtonWrongUserName() {
@@ -153,8 +166,8 @@ public class InstrumentedTests {
     }
         ///////////////////////////////////-- QUESTS --///////////////////////////////////
     public void goToQuest(){
-        onView(withId(R.id.username_input)).perform(typeText("c"));
-        onView(withId(R.id.password_input)).perform(typeText("c"));
+        onView(withId(R.id.username_input)).perform(typeText("test"));
+        onView(withId(R.id.password_input)).perform(typeText("test"));
         pressBack();
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
@@ -1188,8 +1201,8 @@ public class InstrumentedTests {
 
 
         //WHEN
-        onView(withId(R.id.username_input)).perform(typeText("c"));
-        onView(withId(R.id.password_input)).perform(typeText("c"));
+        onView(withId(R.id.username_input)).perform(typeText("test"));
+        onView(withId(R.id.password_input)).perform(typeText("test"));
         pressBack();
         ViewInteraction appCompatButton = onView(withId(R.id.lets_go_button));
         appCompatButton.perform(click());
@@ -1232,14 +1245,16 @@ public class InstrumentedTests {
 
 
         //WHEN
-        onView(withId(R.id.username_input)).perform(typeText("c"));
-        onView(withId(R.id.password_input)).perform(typeText("c"));
+        onView(withId(R.id.username_input)).perform(typeText("test"));
+        onView(withId(R.id.password_input)).perform(typeText("test"));
         pressBack();
         appCompatButton.perform(click());
 
 
         //THEN
         onView(withText("Invalid username")).inRoot(withDecorView(not(mActivityTestRule.getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
+
+
 
     }
 
@@ -1361,7 +1376,7 @@ public class InstrumentedTests {
         //THEN
         onView(new RecyclerViewMatcher(R.id.statistics_list)
                 .atPositionOnView(4, R.id.user_name))
-                .check(matches(withText("c")));
+                .check(matches(withText("test")));
 
 
         onView(new RecyclerViewMatcher(R.id.statistics_list)

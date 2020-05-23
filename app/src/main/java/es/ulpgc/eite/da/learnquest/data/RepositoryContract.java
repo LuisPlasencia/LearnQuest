@@ -142,6 +142,8 @@ public interface RepositoryContract {
         void updateQuizResultCallback();
     }
 
+    void resetInstance();
+
     void loadSubject(FetchSubjectDataCallback callback);
 
     void loadUsers(

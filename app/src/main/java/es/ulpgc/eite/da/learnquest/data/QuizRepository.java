@@ -66,6 +66,10 @@ public class QuizRepository implements RepositoryContract {
         return INSTANCE;
     }
 
+    public void resetInstance(){
+        INSTANCE = null;
+    }
+
 
     private QuizRepository(Context context) {
         this.context = context;
