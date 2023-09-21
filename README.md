@@ -1,4 +1,7 @@
 # Learnquest
+Presentation: 
+https://docs.google.com/document/d/1HVzdkUvhPEgbXBj3BseyPJ1WhJih50XoQejjlodKJOA/edit?usp=sharing
+
 
 Este proyecto es una aplicación Android para la asignatura de Diseño de Aplicaciones.
 
