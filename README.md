@@ -1,6 +1,5 @@
 # Learnquest
 
-<br />
 Presentation: 
 https://docs.google.com/document/d/1HVzdkUvhPEgbXBj3BseyPJ1WhJih50XoQejjlodKJOA/edit?usp=sharing
 <br />
